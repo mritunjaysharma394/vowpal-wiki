@@ -1,3 +1,1 @@
-This is a forked repository. Have a look at
-        "gparker's vowpal_wabbit wiki":/gparker/vowpal_wabbit
-        for more information.
+The < href="http://hunch.net/~vw">Vowpal Wabbit</a> project.
