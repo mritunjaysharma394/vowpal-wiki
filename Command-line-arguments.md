@@ -79,9 +79,9 @@ Running VW without any arguments produces a message which briefly explains each 
     --lda_D arg (=10000)             Number of documents
 
 # Active Learning Options
-  --active_learning                active learning mode
-  --active_simulation              active learning simulation mode
-  --active_mellowness arg (=8)     active learning mellowness parameter c_0. 
+    --active_learning                active learning mode
+    --active_simulation              active learning simulation mode
+    --active_mellowness arg (=8)     active learning mellowness parameter c_0. 
                                    Default 8
 # Other options
     --noop                           do no learning
