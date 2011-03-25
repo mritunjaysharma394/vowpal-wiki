@@ -1,4 +1,5 @@
 VW currently supports these loss functions:
+
 1. Squared loss 
 \[\ell(p,y)=\frac{1}{2}(p-y)^2\]
 2. Logistic loss
