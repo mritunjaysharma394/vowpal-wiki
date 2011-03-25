@@ -82,7 +82,7 @@ Running VW without any arguments produces a message which briefly explains each 
     --active_learning                active learning mode
     --active_simulation              active learning simulation mode
     --active_mellowness arg (=8)     active learning mellowness parameter c_0. 
-                                   Default 8
+                                     Default 8
 # Other options
     --noop                           do no learning
     -h [ --help ]                    Output Arguments
