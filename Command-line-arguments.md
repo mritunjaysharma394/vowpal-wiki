@@ -73,11 +73,10 @@ Running VW without any arguments produces a message which briefly explains each 
     --delayed_global                 Do delayed global updates
 
 # Latent Dirichlet Allocation Options
-  --lda arg                        Run lda with <int> topics
-  --lda_alpha arg (=0.100000001)   Prior on sparsity of per-document topic weig
-                                   hts
-  --lda_rho arg (=0.100000001)     Prior on sparsity of topic distributions
-  --lda_D arg (=10000)             Number of documents
+    --lda arg                        Run lda with <int> topics
+    --lda_alpha arg (=0.100000001)   Prior on sparsity of per-document topic weights
+    --lda_rho arg (=0.100000001)     Prior on sparsity of topic distributions
+    --lda_D arg (=10000)             Number of documents
 
 # Active Learning Options
   --active_learning                active learning mode
