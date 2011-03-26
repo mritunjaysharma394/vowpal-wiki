@@ -29,7 +29,10 @@ Parsing raw training data is slow so there are options to create or load data in
     --quiet                          Don't output diagnostics
     --min_prediction arg             Smallest prediction to output
     --max_prediction arg             Largest prediction to output
-  
+
+The `-a` or `--audit` option is useful for debugging and for accessing the features and values for each example as well as the values in VW's weight vector. The format depends on the mode VW is running on. The format used for the non-LDA case is: 
+    prediction tag namespace^feature:hashindex:value:weight@ssgrad
+    
 
 # Manipulation Options
     -t [ --testonly ]                Ignore label information and just test
