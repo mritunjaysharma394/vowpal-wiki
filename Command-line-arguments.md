@@ -15,8 +15,7 @@ Running VW without any arguments produces a message which briefly explains each 
 
 Raw training data can be passed to VW using the `-d` or `--data` options which expect a file name as an argument, or via `stdin` or via a TCP/IP port if the `--daemon` option is specified. The port itself is specified by `--port` otherwise the default port 39523 is used.
 
-Parsing raw training data is slow so there are options to create or load data in VW's native format. Files containing data in VW's native format are called caches. It is important to understand that the exact contents of a cache file depend both on the input as well as the other options that are passed to VW during the creation of the cache. This implies that using the cache file with different options might cause VW to rebuild the cache. The easiest way to use a cache is to always specify the `-c` option. This way, VW will first look for a cache file and create it if it doesn't exist. To override the default cache file name use  
-`--cache_file` followed by the file name.
+Parsing raw training data is slow so there are options to create or load data in VW's native format. Files containing data in VW's native format are called caches. It is important to understand that the exact contents of a cache file depend both on the input as well as the other options that are passed to VW during the creation of the cache. This implies that using the cache file with different options might cause VW to rebuild the cache. The easiest way to use a cache is to always specify the `-c` option. This way, VW will first look for a cache file and create it if it doesn't exist. To override the default cache file name use `--cache_file` followed by the file name.
 
 `--compressed` can be used for reading gzipped raw training data, writing gzipped caches, and reading gzipped caches.
 
