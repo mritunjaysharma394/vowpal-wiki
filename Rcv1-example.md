@@ -6,7 +6,7 @@ Once this finishes, you need to put the data in the right format for VW.  The fo
 zless train.dat.gz | sed -e 's/^-1/0 |features/' | sed -e 's/^1/1 |features/' | sed -e 's/$/ const:.01/'
 
 </pre>
-The <a href="http://hunch.net/~vw/vw_process">vw_process</a> script encapsulates this command.
+The [[vw_process|vw_process]] script encapsulates this command.
 
 The output of vw_process looks like:
 <pre>
