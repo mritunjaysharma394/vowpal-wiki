@@ -9,10 +9,12 @@ This is a list of improvements that we want to make to the code.  Any help imple
 <li>Change multisource to use epoll_wait() instead of select().  The amount of speedup is unclear, but it's the right thing to do.</li>
 <li>Consider switching the IO subsystem to use <a href="http://code.google.com/apis/protocolbuffers/">protocol buffers</a> which appears mature, and which covers most IO optimizations in the present system.  This will reduce code complexity.</li>
 <li>Right now, VW can read from a TCP port, but it shuts down when it's data source shuts down.  We should instead make it persistent.</li>
+<li>There should be a way to use the algorithm as a library.</li>
 </ol>
 
-Cluster parallelism improvements:
+<h4>Cluster parallelism improvements</h4>:
 <ol>
+<li>Semantic multicore.  Right now, multicore learning works quite well (so long as -q is enabled), but the use of multicore learning is limited because the partitioning of the feature space alters the definition of the weights.  We need to make this partitioning work with a single learning thread.</li>
 <li>Internal flag passing.  Currently, lots of programs must be started on lots of different machines.  Instead, you should start VW once on the source machine and have it launch other VW process as necessary as well as passing necessary flags (think of rsync).  This is a huge improvement in usability.</li>
 <li>Scale-up.  We have a working system for small numbers of nodes, but scaling up to a kilonode-size cluster would be very cool.</li>
 </ol>
