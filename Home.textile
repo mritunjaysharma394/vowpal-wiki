@@ -1,4 +1,12 @@
-The <a href="http://hunch.net/~vw">Vowpal Wabbit</a> (VW) project is a fast online learning system. Below is a list of VW's the main components.
+The <a href="http://hunch.net/~vw">Vowpal Wabbit</a> (VW) project is a fast online learning system. 
+
+<table><tr><td>
+* [[Download]]
+* [[Tutorial]]
+* [[Examples]]
+* [[Goals]]
+* [[Discussions]]
+</td><td>Below is a list of VW's the main components.
 * [[Command line arguments]]
 * [[Learning Algorithm]]
 ** [[Loss Functions]]
@@ -9,3 +17,4 @@ The <a href="http://hunch.net/~vw">Vowpal Wabbit</a> (VW) project is a fast onli
 * [[Feature Manipulation]]
 * [[Output]]
 * [[Parallelization]]
+</td></tr></table>
