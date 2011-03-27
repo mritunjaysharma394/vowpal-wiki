@@ -1,6 +1,6 @@
 <h3>Vowpal Wabbit</h3>
 
-The <a href="http://hunch.net/~vw">Vowpal Wabbit</a> (VW) project is a fast online learning system. 
+The <a href="http://hunch.net/~vw">Vowpal Wabbit</a> (VW) project is a fast out-of-core learning system sponsored by <a href="http://research.yahoo.com/node/1914">Yahoo! Research</a>.
 
 <ul>
 <li>[[Download]]</li>
