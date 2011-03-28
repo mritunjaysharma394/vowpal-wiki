@@ -54,6 +54,8 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 
 `-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `document`, then specifying `-q ud` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the `document` namespace. If a letter matches more than one namespace then all the matching namespaces are used. In our example if there is another namespace `url` then interactions between `url` and `document` will also be modeled.
 
+`--ngram` and `--skip` can be used to generate ngram features possibly with skips (a.k.a. don't cares). For example `--ngram 2` will generate (unigram and) bigram features by creating new features from features that appear next to each other, and  `--ngram 2 --skip 1` will generate (unigram, bigram, and) trigram features plus trigram features where we don't care about the identity of the middle token.
+
 # Update Rule Options
     --adaptive                       use adaptive, individual learning rates.
     --conjugate_gradient             use conjugate gradient based optimization
