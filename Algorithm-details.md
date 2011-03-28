@@ -13,4 +13,5 @@ Below is a list of VW's main components.
 <li>[[Output]]</li>
 <li>[[Parallelization]]</li>
 <li>[[Parser]]</li>
+<li>[[Weight Vector]]</li>
 </ul>
