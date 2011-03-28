@@ -88,7 +88,9 @@ and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHa
 \]
 There is no single rule for the best learning rate form. For standard learning from an i.i.d. sample, typically \(p \in \{0, 0.5, 1\}\), \(d \in (0.5,1]\) and \(\lambda,\tau\) are searched in a logarithmic scale. Very often, the defaults are reasonable and only the -l option needs to be explored. For other problems the defaults may be inadequate, e.g. for tracking p=0 is more sensible.
 
-To specify a loss function use `--loss_function` followed by either `squared`, `logistic`, `hinge`, or `quantile`. The latter is parametrized by \(\tau \in (0,1)\) whose value can be specified by `--quantile_tau`. By default this is 0.5. For more information see [[Loss functions]]   
+To specify a loss function use `--loss_function` followed by either `squared`, `logistic`, `hinge`, or `quantile`. The latter is parametrized by \(\tau \in (0,1)\) whose value can be specified by `--quantile_tau`. By default this is 0.5. For more information see [[Loss functions]]
+
+To average the gradient from \(k\) examples and update the weights once every \(k\) examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation.   
   
 # Weight Options
     -b [ --bit_precision ] arg       number of bits in the feature table
@@ -96,6 +98,8 @@ To specify a loss function use `--loss_function` followed by either `squared`, `
     -f [ --final_regressor ] arg     Final regressor
     --random_weights arg             make initial weights random
     --initial_weight arg (=0)        Set all weights to an initial value of 1.
+
+VW hashes all features to a predetermined range \([0,2^b-1]\) and uses a fixed weight vector with \(2^b\) components. The argument of `-b` option determines the value of \(b\) which is 18 by default.
 
 # Parallelization Options
     --thread_bits arg (=0)           log_2 threads
