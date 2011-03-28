@@ -75,7 +75,7 @@ By default VW hashes string features and does not hash integer features. `--hash
                                      Defaults to 0.5
     --minibatch arg (=1)             Minibatch size
 
-`--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are [[http://arxiv.org/abs/1002.4908]] and [[http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf]].
+`--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are [[http://arxiv.org/abs/1002.4908]] and [[http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf]]. These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that generate many features such as `-q` and `--ngram`. 
 
 `--conjugate_gradient` uses a batch optimizer based on the nonlinear conjugate gradient method. To avoid overfitting, the objective that is being minimized is a tradeoff between empirical loss and the norm of the learned weight vector. `--regularization r`  controls this tradeoff. By default \(r=0.001\) so the penalty is \(0.001 ||w||_2^2\).   
 
@@ -83,8 +83,7 @@ By default VW hashes string features and does not hash integer features. `--hash
 \[
 \eta_t = \frac{\lambda d^k\tau^p}{(\tau+t)^p}
 \]
-There is no single rule for the best learning rate form. For standard learning from an i.i.d. sample,
-typically \(p \in \{0.5, 1\}, d \in [0.7,1]\) and \(\lambda,\tau\) are searched in a logarithmic scale. Very often, the defaults are reasonable and only the `-l` option needs to be explored. For other problems the defaults may be inadequate, e.g. for tracking \(p=0\) is more sensible.   
+Typically \(p \in \{0, 0.5, 1\}\), \(d \in (0.5,1]\) and \(\lambda,\tau\) are searched in a logarithmic scale.  
   
 # Weight Options
     -b [ --bit_precision ] arg       number of bits in the feature table
