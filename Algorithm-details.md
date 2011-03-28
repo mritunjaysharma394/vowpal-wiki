@@ -8,7 +8,6 @@ Below is a list of VW's main components.
 <li>[[Update Rules]]</li>
 </ul></li>
 <li>[[Input format]]</li>
-<li>[[Parser]]</li>
 <li>[[Cache]]</li>
 <li>[[Feature Manipulation]]</li>
 <li>[[Output]]</li>
