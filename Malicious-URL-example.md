@@ -61,7 +61,7 @@ The average square loss over all 2396130 examples is 0.0127.  The wall-clock exe
 
 If you want to compare the actual predictions to the true labels, re-run the command-line with the additional option `--predictions p_out` to output the predictions to the file `p_out`.  Then extract the labels from the training data using the following command-line:
 
-    for d in `seq 0 120`; do cat url_svmlight/Day$d.svm done; \
+    for d in `seq 0 120`; do cat url_svmlight/Day$d.svm; done \
       |cut -d ' ' -f 1 |sed -e 's/^-1/0/' >labels
 
 One can use Rich Caruana's [perf](http://kodiak.cs.cornell.edu/kddcup/software.html) software to compute the cumulative accuracy, but this requires a minor tweak in the code to allow more than 500000 predictions.  Once that is dealt with, executing the command-line:
