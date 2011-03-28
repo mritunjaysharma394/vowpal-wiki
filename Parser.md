@@ -1,5 +1,5 @@
 Input files for VW should have one example per line. Each example should be formatted as follows. 
-    [Label] [Importance] [Tag] |Namespace Features |Namespace Features | ... |Namespace Features
+    [Label] [Importance] [Tag] |Namespace Features ... |Namespace Features
 
 where
     Namespace=String[:Value]
