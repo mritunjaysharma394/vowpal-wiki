@@ -13,4 +13,5 @@ Below is a list of VW's main components.
 <li>[[Feature Manipulation]]</li>
 <li>[[Output]]</li>
 <li>[[Parallelization]]</li>
+<li>[[Parser]]</li>
 </ul>
