@@ -30,6 +30,7 @@ The [[command line arguments]] used above are:
 * `--adaptive`: use per-feature adaptive learning rates; this is sensible for highly diverse and variable features
 * `--cache_file cache_train`: cache the parsed input data into the file `cache_train`
 
+It also uses `time` to measure the approximate wall-clock execution time.
 
 ## Results
 
