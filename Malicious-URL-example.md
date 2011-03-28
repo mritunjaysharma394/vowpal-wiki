@@ -1,6 +1,6 @@
 # Detecting Malicious URLs
 
-The [malicious URL dataset from UCSD](http://www.sysnet.ucsd.edu/projects/url/) represents a sequential binary classification problem.  The data are temporally correlated, and thus the problem is particularly suitable for online learning approaches like VW.
+The [malicious URL dataset from UCSD](http://www.sysnet.ucsd.edu/projects/url/) represents a sequential binary classification problem.  The data are temporally correlated, and thus the problem is particularly suitable for online learning approaches like VW.  Here we show how to evaluate the "out-of-the-box" performance of VW on this task.
 
 ## Preparing the data
 
