@@ -79,11 +79,11 @@ By default VW hashes string features and does not hash integer features. `--hash
 
 `--conjugate_gradient` uses a batch optimizer based on the nonlinear conjugate gradient method. To avoid overfitting, the objective that is being minimized is a tradeoff between empirical loss and the norm of the learned weight vector. `--regularization r`  controls this tradeoff. By default \(r=0.001\) so the penalty is \(0.001 ||w||_2^2\).   
 
-`--decay_learning_rate` can be used to change the learning rate between epochs. It takes an argument \(d\)  that multiplies the learning rate each new epoch. After \(k\) epochs the learning rate is multiplied 
-by \(d^k\). Typically \(d \in (0.5,1]\). 
-
-`-l \(\lambda\)`, `--initial_t \(\tau\)`, and  `--power_t p` specify the learning rate schedule whose generic form is \(\eta_t = \frac{\lambda\tau^p}{(\tau+t)^p}\)
-
+`-l \(\lambda\)`, `--initial_t \(\tau\)`, `--power_t p`, and `--decay_learning_rate d` specify the learning rate schedule whose generic form in the \(k+1\)-th epoch is 
+\[
+\eta_t = \frac{\lambda d^k\tau^p}{(\tau+t)^p}
+\]
+Typically \(p \in \{0, 0.5, 1\}, d \in (0.5,1]\) and \(\lambda,\tau\) are searched in a logarithmic scale.  
   
 # Weight Options
     -b [ --bit_precision ] arg       number of bits in the feature table
