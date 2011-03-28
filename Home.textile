@@ -1,3 +1,5 @@
+<h3>Vowpal Wabbit</h3>
+
 The <a href="http://hunch.net/~vw">Vowpal Wabbit</a> (VW) project is a fast out-of-core learning system sponsored by <a href="http://research.yahoo.com/node/1914">Yahoo! Research</a>.
 
 There are two ways to have a fast learning algorithm: (a) start with a slow algorithm and speed it up, or (b) build an intrinsically fast learning algorithm. This project is about approach (b), and it's reached a state where it may be useful to others as a platform for research and experimentation.
