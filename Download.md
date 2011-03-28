@@ -1,0 +1,1 @@
+All tagged versions can be <a href="https://github.com/JohnLangford/vowpal_wabbit/archives/master">downloaded from github</a>.  We try to have zero bugs, so the latest version is always recommended.
