@@ -27,5 +27,4 @@ There are several features that (in combination) can be powerful.
 </ol>
 
 Many people have contributed to the project at this point.
-<a href="http://hunch.net/~jl">John Langford</a>, <a href="http://cseweb.ucsd.edu/~djhsu/">Daniel Hsu</a>, <a href="http://www.cs.cornell.edu/~nk/">Nikos Karampatziakis</a>, Shubham Chopra, Ariel Faigon, <a href="http://www.research.rutgers.edu/~lihong/">Lihong Li</a>, Gordon Rios, and <a href="http://paul.rutgers.edu/~strehl/">Alex Strehl</a> have all worked on VW.  Many others have contributed via feature requests, bug reports, or bug patches.
-
+<a href="http://hunch.net/~jl">John Langford</a>, <a href="http://cseweb.ucsd.edu/~djhsu/">Daniel Hsu</a>, <a href="http://www.cs.cornell.edu/~nk/">Nikos Karampatziakis</a>, <a href="http://research.yahoo.com/Olivier_Chapelle">Olivier Chapelle</a>, <a href="http://labs.yahoo.com/Sudarshan_Lamkhede">Sudarshan Lamkhede</a>, Shubham Chopra, Ariel Faigon, <a href="http://www.research.rutgers.edu/~lihong/">Lihong Li</a>, Gordon Rios, and <a href="http://paul.rutgers.edu/~strehl/">Alex Strehl</a> have all worked on VW.  Many others have contributed via feature requests, bug reports, or bug patches.
