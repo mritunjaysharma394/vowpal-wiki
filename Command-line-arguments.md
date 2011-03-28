@@ -50,6 +50,10 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
     --hash arg                       how to hash the features. Available options:
                                      strings, all
 
+`-t` makes VW run in testing mode. The labels are ignored so this is useful for assessing the generalization performance of the learned model on a test set.
+
+`-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `query`, then specifying `-q uq` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the query `namespace`.
+
 # Update Rule Options
     --adaptive                       use adaptive, individual learning rates.
     --conjugate_gradient             use conjugate gradient based optimization
