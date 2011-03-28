@@ -66,7 +66,7 @@ If you want to compare the actual predictions to the true labels, re-run the com
 
 One can use Rich Caruana's [perf](http://kodiak.cs.cornell.edu/kddcup/software.html) software to compute the cumulative accuracy, but this requires a minor tweak in the code to allow more than 500000 predictions.  Once that is dealt with, executing the command-line:
 
-    perf -ACC -files labels p_out -t 0.5
+    perf -ACC -files labels p_out
 
 should give the result:
 
