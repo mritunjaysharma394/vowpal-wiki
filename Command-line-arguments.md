@@ -106,11 +106,28 @@ Use the `-f` option to write the weight vector to a file named after its argumen
 
 By default VW starts with the zero vector as its hypothesis. The `--random_weights` option initializes with random weights. This is useful if starting with a zero weight would cause the algorithm to be stuck as could happen in a backpropagation implementation, or with VW's LDA implementation. It's also possible to initialize with a fixed value such as the all-ones vector using `--initial_weight`.
 
+# Latent Dirichlet Allocation Options
+    --lda arg                        Run lda with <int> topics
+    --lda_alpha arg (=0.100000001)   Prior on sparsity of per-document topic weights
+    --lda_rho arg (=0.100000001)     Prior on sparsity of topic distributions
+    --lda_D arg (=10000)             Number of documents
+
+
+# Active Learning Options
+    --active_learning                active learning mode
+    --active_simulation              active learning simulation mode
+    --active_mellowness arg (=8)     active learning mellowness parameter c_0. 
+                                     Default 8
+
 
 # Parallelization Options
     --thread_bits arg (=0)           log_2 threads
     --multisource arg                multiple sources for daemon input
     --predictto arg                  host to send predictions to
+
+For multicore parallelization, the `--thread_bits` option specifies the number of threads to use for  computing the inner product between the weight and feature vectors. This is especially useful with the options that generate many non-zero features such as `-q` and `--ngram` (with or without `--skip`). With an argument of \(k\), \(2^k\) threads are used.
+
+For multinode parallelization (cluster parallelization) `--multisource` is used to specify that this VW process expect a number of workers to connect to it and send it their outputs. The number is specified by the option's argument. In a worker VW process `--predictto` is used to specify the machine at which a master VW process is waiting for the predictions of this process. 
 
 ## Experimental Parallelization Options
     --unique_id arg (=0)             unique id used for cluster parallel
@@ -119,17 +136,8 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
     --global_multiplier arg (=1)     Global update multiplier
     --delayed_global                 Do delayed global updates
 
-# Latent Dirichlet Allocation Options
-    --lda arg                        Run lda with <int> topics
-    --lda_alpha arg (=0.100000001)   Prior on sparsity of per-document topic weights
-    --lda_rho arg (=0.100000001)     Prior on sparsity of topic distributions
-    --lda_D arg (=10000)             Number of documents
+These are subject to change in future releases.
 
-# Active Learning Options
-    --active_learning                active learning mode
-    --active_simulation              active learning simulation mode
-    --active_mellowness arg (=8)     active learning mellowness parameter c_0. 
-                                     Default 8
 # Other options
     --noop                           do no learning
     -h [ --help ]                    Output Arguments
