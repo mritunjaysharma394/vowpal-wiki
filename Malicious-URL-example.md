@@ -4,7 +4,8 @@ The [malicious URL dataset from UCSD](http://www.sysnet.ucsd.edu/projects/url/) 
 
 ## Preparing the data
 
-First, download the [data in SVM-light format](http://www.sysnet.ucsd.edu/projects/url/url_svmlight.tar.gz) and extract the files `url_svmlight/Day*.svm` from the tar-ball.
+First, download the [data in SVM-light format](http://www.sysnet.ucsd.edu/projects/url/url_svmlight.tar.gz) and extract the files from the tar-ball.
+    tar xzf url_svmlight.tar.gz
 
 The following command-line converts these data from SVM-light format to VW input format:
     for d in `seq 0 120`; do cat url_svmlight/Day$d.svm; done \
