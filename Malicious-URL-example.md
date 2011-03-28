@@ -47,17 +47,8 @@ The output of the above command-line concludes with the following.
     user    2m36.850s
     sys     0m17.050s
 
-The average square loss over all 2396130 examples is 0.0127.  The wall-clock execution time is 3 minutes 28 seconds.  This may alarm you (or not), but most of time is spent parsing.  If you re-run the command-line, it will read the cached data from `cache_train`:
+The average square loss over all 2396130 examples is 0.0127.  The wall-clock execution time is 3 minutes 28 seconds.  This may alarm you (or not), but most of time is spent parsing.  If you re-run the command-line, it will read the cached data from `cache_train` and give the same result, except for the execution time:
 
-    finished run
-    number of examples = 2396130
-    weighted example sum = 2.396e+06
-    weighted label sum = 7.921e+05
-    average loss = 0.0127
-    best constant = 0.3306
-    best constant's loss = 0.2213
-    total feature number = 281850904
-    
     real    0m17.982s
     user    0m20.650s
     sys     0m9.340s
