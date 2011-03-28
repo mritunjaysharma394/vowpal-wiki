@@ -18,9 +18,11 @@ This conversion accomplishes the following:
 * Adds a constant feature called "const" with value ".01".
 * Retains the temporal order of the data.
 
-## Online training and testing
+This shell pipeline can be used directly with VW, as described below.
 
-The above command-line can be used to feed the data directly into VW to simulate online training and testing:
+## Out-of-the-box online training and testing
+
+We can use the above command-line to feed the data directly into VW to simulate online training and testing:
     time for d in `seq 0 120`; do cat url_svmlight/Day$d.svm; done \
       |sed -e 's/^-1/0 |f/' |sed -e 's/^+1/1 |f/' |sed -e 's/$/ const:.01/' \
       |vw --adaptive --cache_file cache
@@ -32,7 +34,7 @@ The [[command line arguments]] used above are:
 
 It also uses `time` to measure the approximate wall-clock execution time.
 
-## Results
+### Results
 
 The output of the above command-line concludes with the following.
 
@@ -54,6 +56,8 @@ The average square loss over all 2396130 examples is 0.0127.  The wall-clock exe
     real    0m17.982s
     user    0m20.650s
     sys     0m9.340s
+
+### Evaluating prediction accuracy
 
 If you want to compare the actual predictions to the true labels, re-run the command-line with the additional option `--predictions p_out` to output the predictions to the file `p_out`.  Then extract the labels from the training data using the following command-line:
 
