@@ -75,7 +75,10 @@ By default VW hashes string features and does not hash integer features. `--hash
                                      Defaults to 0.5
     --minibatch arg (=1)             Minibatch size
 
-`--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are [[http://arxiv.org/abs/1002.4908]] and [[http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf]]. These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that generate many features such as `-q` and `--ngram`. 
+`--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are
+[Adaptive Bound Optimization for Online Convex Optimization](http://arxiv.org/abs/1002.4908)
+and [Adaptive Subgradient Methods for Online Learning
+and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf). These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that generate many features such as `-q` and `--ngram`. 
 
 `--conjugate_gradient` uses a batch optimizer based on the nonlinear conjugate gradient method. To avoid overfitting, the objective that is being minimized is a tradeoff between empirical loss and the norm of the learned weight vector. `--regularization r`  controls this tradeoff. By default \(r=0.001\) so the penalty is \(0.001 ||w||_2^2\).   
 
