@@ -17,4 +17,4 @@ and
 
 ## Example
 
-    1 1.0 |MetricFeatures:3.28 height:1.5 length:2.0 |OtherFeatures NumberOfLegs:4.0 HasStripes
+    1 1.0 |MetricFeatures:3.28 height:1.5 length:2.0 |Says black with white stripes |OtherFeatures NumberOfLegs:4.0 HasStripes
