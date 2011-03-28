@@ -18,17 +18,17 @@ This conversion accomplishes the following:
 * Adds a constant feature called "const" with value ".01".
 * Retains the temporal order of the data.
 
-## Training
+## Online training and testing
 
-The above command-line can be used to feed the data directly into VW for training:
+The above command-line can be used to feed the data directly into VW to simulate online training and testing:
     time for d in `seq 0 120`; do cat url_svmlight/Day$d.svm; done \
       |sed -e 's/^-1/0 |f/' |sed -e 's/^+1/1 |f/' |sed -e 's/$/ const:.01/' \
-      |vw --adaptive --cache_file cache_train
+      |vw --adaptive --cache_file cache
 
 The [[command line arguments]] used above are:
 
 * `--adaptive`: use per-feature adaptive learning rates; this is sensible for highly diverse and variable features
-* `--cache_file cache_train`: cache the parsed input data into the file `cache_train`
+* `--cache_file cache`: cache the parsed input data into the file `cache`
 
 It also uses `time` to measure the approximate wall-clock execution time.
 
@@ -49,7 +49,7 @@ The output of the above command-line concludes with the following.
     user    2m36.850s
     sys     0m17.050s
 
-The average square loss over all 2396130 examples is 0.0127.  The wall-clock execution time is 3 minutes 28 seconds.  This may alarm you (or not), but most of time is spent parsing.  If you re-run the command-line, it will read the cached data from `cache_train` and give the same result, except for the execution time:
+The average square loss over all 2396130 examples is 0.0127.  The wall-clock execution time is 3 minutes 28 seconds.  This may alarm you (or not), but most of time is spent parsing.  If you re-run the command-line, it will read the cached data from `cache` and give the same result, except for the execution time:
 
     real    0m17.982s
     user    0m20.650s
