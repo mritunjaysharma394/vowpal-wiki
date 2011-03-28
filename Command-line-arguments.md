@@ -13,7 +13,7 @@ Running VW without any arguments produces a message which briefly explains each 
                                      of raw-text & compressed inputs are 
                                      supported if this option is on
 
-Raw training/testing data can be passed to VW in a number of ways:
+Raw training/testing data (in the proper plain text [[input format]]) can be passed to VW in a number of ways:
 
 * Using the `-d` or `--data` options which expect a file name as an argument (specifying a file name that is not associated with any option also works);
 * Via `stdin`;
