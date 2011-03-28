@@ -4,14 +4,10 @@ Below is a list of VW's main components.
 <li>[[Learning Algorithm]]
 <ul>
 <li>[[Loss Functions]]</li>
-<li>[[Weight Vector]]</li>
-<li>[[Update Rules]]</li>
 </ul></li>
 <li>[[Input format]]</li>
 <li>[[Cache]]</li>
-<li>[[Feature Manipulation]]</li>
 <li>[[Output]]</li>
-<li>[[Parallelization]]</li>
 <li>[[Parser]]</li>
 <li>[[Weight Vector]]</li>
 </ul>
