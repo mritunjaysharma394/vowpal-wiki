@@ -9,7 +9,7 @@ There are several optimization algorithms available with the baseline being spar
 <ul>
 <li>[[Download]]</li>
 <li>[[Tutorial]]</li>
-<li>[[Command line arguments]] and other  (e.g., input formats, loss functions)</li>
+<li>[[Command line arguments]] and other [[Algorithm details]] (e.g., input formats, loss functions)</li>
 <li>[[Examples]]</li>
 <li>[[Goals]]</li>
 <li>[[Discussions]]</li>
