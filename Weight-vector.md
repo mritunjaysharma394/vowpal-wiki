@@ -1,0 +1,1 @@
+VW's weight vector has \(2^b\) weights (where \(b\) is specified by the `-b` option) and each example's features are hash to an index in \([0,2^b-1]\). The weight vector is also used to store other vectors needed by more sophisticated learning algorithms, such as the conjugate gradient method (`--conjugate_gradient`), or adaptive gradient descent (`--adaptive`).
