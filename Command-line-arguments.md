@@ -88,8 +88,10 @@ and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHa
 
 `-l \(\lambda\)`, `--initial_t \(t_0\)`, `--power_t \(p\)`, and `--decay_learning_rate \(d\)` specify the learning rate schedule whose generic form in the \((k+1)\)-th epoch is 
 \[
-\eta_t = \lambda d^k \left(\frac{t_0}{t_0+t}\right)^p
+\eta_t = \lambda d^k \left(\frac{t_0}{t_0 + w_t}\right)^p
 \]
+where \(w_t\) is the sum of the importance weights of all examples seen so far (\(w_t = t\) if all examples have importance weight 1).
+
 There is no single rule for the best learning rate form. For standard learning from an i.i.d. sample, typically \(p \in \{0, 0.5, 1\}\), \(d \in (0.5,1]\) and \(\lambda,t_0\) are searched in a logarithmic scale. Very often, the defaults are reasonable and only the -l option (\(\lambda\)) needs to be explored. For other problems the defaults may be inadequate, e.g. for tracking \(p=0\) is more sensible.
 
 To specify a loss function use `--loss_function` followed by either `squared`, `logistic`, `hinge`, or `quantile`. The latter is parametrized by \(\tau \in (0,1)\) whose value can be specified by `--quantile_tau`. By default this is 0.5. For more information see [[Loss functions]]
