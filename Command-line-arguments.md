@@ -120,7 +120,7 @@ The `--lda` option switches VW to LDA mode. The argument is the number of topics
     --active_mellowness arg (=8)     active learning mellowness parameter c_0. 
                                      Default 8
 
-Given a fully labeled dataset, experimenting with active learning can be done with `--active_simulation`. The active learning algor
+Given a fully labeled dataset, experimenting with active learning can be done with `--active_simulation`. All active learning algorithms need a parameter that defines the trade off between label complexity and generalization performance. This is specified here with `--active_mellowness`. A value of 0 means that the algorithm will not ask for any label. A large value means that the algorithm will ask for all the labels. If instead of `--active_simulation`, `--active_learning` is specified (together with `--daemon`) real active learning is implemented (examples are passed to VW via a TCP/IP port and VW responds with its prediction as well as how much it wants this example to be labeled if at all). If this is confusing, watch Daniel's explanation at the VW tutorial. The active learning algorithm is described in detail in [Agnostic Active Learning without Constraints](http://books.nips.cc/papers/files/nips23/NIPS2010_0363.pdf).
 
 # Parallelization Options
     --thread_bits arg (=0)           log_2 threads
