@@ -7,7 +7,6 @@ There are two ways to have a fast learning algorithm: (a) start with a slow algo
 There are several optimization algorithms available with the baseline being sparse gradient descent (GD) on a loss function (several are available), The code should be easily usable. Its only external dependence is on the <a href="http://www.boost.org/">boost library</a>, which is often installed by default. 
 
 <ul>
-<li>[[Algorithm details]]</li>
 <li>[[Download]]</li>
 <li>[[Tutorial]]</li>
 <li>[[Command line arguments]] and other [[Algorithm details]] (e.g., input formats, loss functions)</li>
