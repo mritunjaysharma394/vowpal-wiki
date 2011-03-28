@@ -1,0 +1,3 @@
+Parsing is done in a separate thread from learning. The parser uses cyclic buffer in which it places the examples it reads. If the buffer fills the parser stalls. When the learner processes some examples from the buffer, the parser can continue. 
+
+Parsing is generally a big bottleneck compared to the speed of online gradient descent. That's why VW offers the option of writing the examples in its native format, in a file we call a cache.
