@@ -13,6 +13,7 @@ There are several optimization algorithms available with the baseline being spar
 <li>[[Examples]]</li>
 <li>[[Goals]]</li>
 <li>[[Discussions]]</li>
+<li>[[Algorithm details]]</li>
 </ul>
 
 <h2>Features</h2>
