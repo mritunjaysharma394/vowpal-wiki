@@ -78,6 +78,9 @@ By default VW hashes string features and does not hash integer features. `--hash
 `--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are [[http://arxiv.org/abs/1002.4908]] and [[http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf]].
 
 `--conjugate_gradient` uses a batch optimizer based on the nonlinear conjugate gradient method. To avoid overfitting, the objective that is being minimized is a tradeoff between empirical loss and the norm of the learned weight vector. `--regularization r`  controls this tradeoff. By default \(r=0.001\) so the penalty is \(0.001 ||w||_2^2\).   
+
+`--decay_learning_rate` can be used to change the learning rate between epochs. It takes an argument \(d\)  that multiplies the learning rate each new epoch. After \(k\) epochs the learning rate is multiplied 
+by \(d^k\). Typically \(d \in (0.5,1]\).
    
 # Weight Options
     -b [ --bit_precision ] arg       number of bits in the feature table
