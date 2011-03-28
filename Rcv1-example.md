@@ -25,16 +25,11 @@ There are a couple variation on the above format.  If you want to importance wei
 <p>
 The command for training is the following.
 <pre>
-./vw_process train.dat.gz | vw -l 20 --initial_t 128000 --power_t 1 --cache_file cache_train -f r_temp 
+./vw_process train.dat.gz | vw --cache_file cache_train -f r_temp 
 </pre>
 Here: 
 <ol>
-<li><strong>-l 20 </strong> is the initial learning rate.  It is large, but decays quickly.</li>
-
-<li><strong>--initial_t 128000</strong> is the initial count.  This is essentially a fictitious number of examples which the algorithm imagines has already passed by.</li>
-<li><strong>--power_t 1</strong> tells vw to decay the learning rate like 1/t.  The combination of learning rate parameters imply that the learning rate decays as <em>2560000/(128000+t)</em> where <em>t</em> is the count of examples seen so far.</li>
-<li><strong>--cache_file</strong> flag parses the data into VWs own internal compressed format.  The second time you run the above command, it should be much faster---about 6 seconds on my desktop machine.</li>
-
+<li><strong>--cache_file</strong> flag parses the data into VWs own internal compressed format.  The second time you run the above command, it should be much faster---about 1.5 seconds on my current desktop machine.</li>
 <li><strong>-f r_temp</strong> stores the output regressor in the file r_temp.</li>
 </ol>
 
