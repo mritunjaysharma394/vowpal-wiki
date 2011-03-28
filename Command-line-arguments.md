@@ -74,6 +74,8 @@ By default VW hashes string features and does not hash integer features. `--hash
     --quantile_tau arg (=0.5)        Parameter \tau associated with Quantile loss
                                      Defaults to 0.5
     --minibatch arg (=1)             Minibatch size
+
+`--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are [[http://arxiv.org/abs/1002.4908]] [[http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf]]
    
 # Weight Options
     -b [ --bit_precision ] arg       number of bits in the feature table
