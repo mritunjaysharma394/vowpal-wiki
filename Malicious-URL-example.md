@@ -25,7 +25,7 @@ The above command-line can be used to feed the data directly into VW for trainin
       |sed -e 's/^-1/0 |f/' |sed -e 's/^+1/1 |f/' |sed -e 's/$/ const:.01/' \
       |vw --adaptive --cache_file cache_train
 
-The following options used above are:
+The [[command line arguments]] used above are:
 
 * `--adaptive`: use per-feature adaptive learning rates; this is sensible for highly diverse and variable features
 * `--cache_file cache_train`: cache the parsed input data into the file `cache_train`
