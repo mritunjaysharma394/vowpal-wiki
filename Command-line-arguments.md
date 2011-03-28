@@ -13,9 +13,9 @@ Running VW without any arguments produces a message which briefly explains each 
                                      of raw-text & compressed inputs are 
                                      supported if this option is on
 
-Raw training/testing data can be passed to VW using the `-d` or `--data` options which expect a file name as an argument (specifying a file name that is not associated with any option also works), or via `stdin` or via a TCP/IP port if the `--daemon` option is specified. The port itself is specified by `--port` otherwise the default port 39523 is used.  This data should be in the proper [[input format]].
+Raw training data can be passed to VW using the `-d` or `--data` options which expect a file name as an argument (specifying a file name that is not associated with any option also works), or via `stdin` or via a TCP/IP port if the `--daemon` option is specified. The port itself is specified by `--port` otherwise the default port 39523 is used. 
 
-Parsing raw data is slow so there are options to create or load data in VW's native format. Files containing data in VW's native format are called caches. It is important to understand that the exact contents of a cache file depend both on the input as well as the other options that are passed to VW during the creation of the cache. This implies that using the cache file with different options might cause VW to rebuild the cache. The easiest way to use a cache is to always specify the `-c` option. This way, VW will first look for a cache file and create it if it doesn't exist. To override the default cache file name use `--cache_file` followed by the file name.
+Parsing raw training data is slow so there are options to create or load data in VW's native format. Files containing data in VW's native format are called caches. It is important to understand that the exact contents of a cache file depend both on the input as well as the other options that are passed to VW during the creation of the cache. This implies that using the cache file with different options might cause VW to rebuild the cache. The easiest way to use a cache is to always specify the `-c` option. This way, VW will first look for a cache file and create it if it doesn't exist. To override the default cache file name use `--cache_file` followed by the file name.
 
 `--compressed` can be used for reading gzipped raw training data, writing gzipped caches, and reading gzipped caches.
 
@@ -112,6 +112,7 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
     --lda_rho arg (=0.100000001)     Prior on sparsity of topic distributions
     --lda_D arg (=10000)             Number of documents
 
+The `--lda` option switches VW to LDA mode. The argument is the number of topics. `--lda_apha` and `--lda_rho` specify prior hyperparameters. `--lda_D` specifies the number of documents. VW will still work the same if this number is incorrect, just the diagnostic information will be wrong. For details see [Online Learning for Latent DIrichlet Allocation](http://books.nips.cc/papers/files/nips23/NIPS2010_1291.pdf)
 
 # Active Learning Options
     --active_learning                active learning mode
@@ -119,6 +120,7 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
     --active_mellowness arg (=8)     active learning mellowness parameter c_0. 
                                      Default 8
 
+Given a fully labeled dataset, experimenting with active learning can be done with `--active_simulation`. The active learning algor
 
 # Parallelization Options
     --thread_bits arg (=0)           log_2 threads
