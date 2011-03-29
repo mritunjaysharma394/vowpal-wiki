@@ -1,1 +1,0 @@
-The default learning algorithm is a variant of online gradient descent. The main difference from vanilla online gradient descent is fast and correct handling of large importance weights. Various extensions, such as conjugate gradient (CG) and mini-batch CG, are included.
