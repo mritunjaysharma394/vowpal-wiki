@@ -1,4 +1,4 @@
-The [[v5.1_tutorial.pdf|version 5.1 tutorial]].  This the most uptodate version, although it does not include Matt's LDA slides (below) and it is not on videolectures.
+The [[version 5.1 tutorial|v5.1_tutorial.pdf]].  This the most uptodate version, although it does not include Matt's LDA slides (below) and it is not on videolectures.
 
 <a href="http://videolectures.net/nipsworkshops2010_langford_vow/">Version 5.0 Videolecture</a>.
 
