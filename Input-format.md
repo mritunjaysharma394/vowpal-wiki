@@ -15,6 +15,8 @@ and
 * `Namespace` is an identifier of a source of information for the example optionally followed by a float (e.g., `MetricFeatures:3.28`), which acts as a global scaling of all the values of the features in this namespace.  If value is omitted, the default is 1.
 * `Features` is a sequence of whitespace separated strings, each of which is optionally followed by a float (e.g., `NumberOfLegs:4.0 HasStripes`).  Each string is a feature and the value is the feature value for that example. Omitting a feature means that its value is zero.  Including a feature but omitting its value means that its value is 1.
 
+Currently, the only characters that can't be used in feature names are vertical bar, colon, space, and newline.
+
 ## Example
 
     1 1.0 |MetricFeatures:3.28 height:1.5 length:2.0 |Says black with white stripes |OtherFeatures NumberOfLegs:4.0 HasStripes
