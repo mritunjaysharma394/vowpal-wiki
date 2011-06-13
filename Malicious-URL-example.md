@@ -8,8 +8,9 @@ First, download the [data in SVM-light format](http://www.sysnet.ucsd.edu/projec
     tar xzf url_svmlight.tar.gz
 
 The following command-line converts these data from SVM-light format to VW input format:
-    for d in `seq 0 120`; do cat url_svmlight/Day$d.svm; done \
-      |sed -e 's/^-1/0 |f/' |sed -e 's/^+1/1 |f/' |sed -e 's/$/ const:.01/'
+
+    for d in `seq 0 120`; do cat url_svmlight/Day$d.svm; done | \
+      sed -e 's/^-1/0 |f/' |sed -e 's/^+1/1 |f/' |sed -e 's/$/ const:.01/'
 
 This conversion accomplishes the following:
 
