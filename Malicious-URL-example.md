@@ -9,8 +9,8 @@ First, download the [data in SVM-light format](http://www.sysnet.ucsd.edu/projec
 
 The following command-line converts these data from SVM-light format to VW input format:
 
-    for d in `seq 0 120`; do cat url_svmlight/Day$d.svm; done | \
-      sed -e 's/^-1/0 |f/' |sed -e 's/^+1/1 |f/' |sed -e 's/$/ const:.01/'
+    for d in `seq 0 120`; do cat url_svmlight/Day$d.svm; done \
+      | sed -e 's/^-1/0 |f/' |sed -e 's/^+1/1 |f/' |sed -e 's/$/ const:.01/'
 
 This conversion accomplishes the following:
 
@@ -24,6 +24,7 @@ This shell pipeline can be used directly with VW, as described below.
 ## Out-of-the-box online training and testing
 
 We can use the above command-line to feed the data directly into VW to simulate online training and testing:
+
     time for d in `seq 0 120`; do cat url_svmlight/Day$d.svm; done \
       |sed -e 's/^-1/0 |f/' |sed -e 's/^+1/1 |f/' |sed -e 's/$/ const:.01/' \
       |vw --adaptive --cache_file cache
