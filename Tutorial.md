@@ -7,4 +7,4 @@ The tutorial is in several parts.
 * The [[main|main.pdf]] piece
 * The [[importance weight invariant|iw.pdf]] update rule.
 * A part about [[active learning|active.pdf]].
-* A part about [[Latent Dirichlet Allocation|lda.pdf]]
+* A part about [[Latent Dirichlet Allocation|lda.pdf]].  See also [[Latent Dirichlet Allocation]]
