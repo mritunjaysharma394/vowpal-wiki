@@ -17,7 +17,7 @@ The data consist of `(user, item, rating, date)` events, where ratings are given
       --learning_rate 0.025 --passes 20 --decay_learning_rate 0.97 --power_t 0 \
       -f movielens.reg --cache_file movielens.cache
 
-Note that the combination of `-b 18` and `--rank 10` results in a weight vector of 10*2^18 elements. The `--regularization` option is used to avoid overfitting.
+Note that the combination of `-b 18` and `--rank 10` results in a weight vector of (1+2*10)*2^18 elements. The `--regularization` option is used to avoid overfitting.
 
 Testing the model on held-out data results in an average loss of ~0.89 (RMSE of ~0.94):
 
