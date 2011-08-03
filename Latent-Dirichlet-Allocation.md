@@ -8,4 +8,3 @@ This video tutorial is useful, but refers to the 5.0 version: http://videolectur
 
 This tutorial is similar, but with more up to date command-line arguments: https://github.com/JohnLangford/vowpal_wabbit/wiki/lda.pdf
 
-Note from Dan, June 2011: I do not know how to get 5.1 to work, it appears to be missing the --readable_topics argument.  So, I use head.
