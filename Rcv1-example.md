@@ -44,7 +44,7 @@ Here the flags are:
 <li><strong>-i r_temp</strong> loads the regressor at r_temp before examples are processed</li>
 <li> <strong>-p p_out</strong> makes the predictions be output to the file p_out.</li>
 </ol>
-To measure performance, I often use the <a href="http://kodiak.cs.cornell.edu/kddcup/software.html">perf</a> which Rich Caruana put together for the 2004 KDD cup challenge.  This software has the advantage that many people cared that it worked right.  To use perf, you first create a file with the labels 
+To measure performance, I often use the <a href="http://osmot.cs.cornell.edu/kddcup/software.html">perf</a> which Rich Caruana put together for the 2004 KDD cup challenge.  This software has the advantage that many people cared that it worked right.  To use perf, you first create a file with the labels 
 <pre>
 zless test.dat.gz | cut -d ' ' -f 1 | sed -e 's/^-1/0/' > labels
 </pre>
