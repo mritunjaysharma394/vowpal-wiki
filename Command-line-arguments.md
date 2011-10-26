@@ -69,7 +69,6 @@ By default VW hashes string features and does not hash integer features. `--hash
     --conjugate_gradient             use conjugate gradient based optimization
     --l1 arg (=1)                    l_1 lambda
     --l2 arg (=1)                    l_2 lambda
-    --regularization arg (=0.001)    minimize weight magnitude
     --decay_learning_rate arg (=1)   Set Decay factor for learning_rate between passes
     --initial_t arg (=1)             initial t value
     --power_t arg (=0.5)             t power value
@@ -86,7 +85,16 @@ By default VW hashes string features and does not hash integer features. `--hash
 and [Adaptive Subgradient Methods for Online Learning
 and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf). These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that cause examples to have many non-zero features such as `-q` and `--ngram`. 
 
-`--conjugate_gradient` uses a batch optimizer based on the nonlinear conjugate gradient method. To avoid overfitting, the objective that is being minimized is a tradeoff between empirical loss and the norm of the learned weight vector. `--regularization r`  controls this tradeoff. By default \(r=0.001\) so the penalty is \(0.001 ||w||_2^2\).   
+`--conjugate_gradient` uses a batch optimizer based on the nonlinear conjugate gradient method. To avoid overfitting, the objective that is being minimized is a tradeoff between empirical loss and the norm of the learned weight vector.
+
+`--l1` and `--l2` specify the level (lambda values) of L1 and L2 regularization, and can be nonzero at the same time.  These values are applied on a per-example basis in online learning (sgd):
+\[
+\sum_i \left(L(x_i,y_i,w) + \lambda_1 \|w\|_1 + \lambda_2/2 \|w\|_2^2\right) ,
+\]
+but on an aggregate level in batch learning (conjugate gradient and bfgs):
+\[
+\left(\sum_i L(x_i,y_i,w)\right) + \lambda_1 \|w\|_1 + \lambda_2/2 \|w\|_2^2 .
+\]
 
 `-l \(\lambda\)`, `--initial_t \(t_0\)`, `--power_t \(p\)`, and `--decay_learning_rate \(d\)` specify the learning rate schedule whose generic form in the \((k+1)\)-th epoch is 
 \[
