@@ -67,6 +67,8 @@ By default VW hashes string features and does not hash integer features. `--hash
 # Update Rule Options
     --adaptive                       use adaptive, individual learning rates.
     --conjugate_gradient             use conjugate gradient based optimization
+    --l1 arg (=1)                    l_1 lambda
+    --l2 arg (=1)                    l_2 lambda
     --regularization arg (=0.001)    minimize weight magnitude
     --decay_learning_rate arg (=1)   Set Decay factor for learning_rate between passes
     --initial_t arg (=1)             initial t value
