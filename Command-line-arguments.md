@@ -2,22 +2,28 @@ Running VW without any arguments produces a message which briefly explains each 
 
 # Input options
     -d [ --data ] arg                Example Set
-    --daemon                         read data from port 39523
+    --daemon                         read data from port 26542
     --port arg                       port to listen on
+    --num_children arg (=10)         number of children for 
+                                     persistent daemon mode
+    --pid_file arg                   Write pid file in 
+                                     persistent daemon mode
     --passes arg (=1)                Number of Training Passes
     -c [ --cache ]                   Use a cache.  The default is <data>.cache
     --cache_file arg                 The location(s) of cache_file.
-    --compressed                     use gzip format whenever appropriate. If a 
-                                     cache file is being created, this option 
-                                     creates a compressed cache file. A mixture 
-                                     of raw-text & compressed inputs are 
-                                     supported if this option is on
+    --compressed                     use gzip format whenever 
+                                     possible. If a cache file 
+                                     is being created, this 
+                                     option creates a compressed
+                                     cache file. A mixture of 
+                                     raw-text & compressed 
+                                     inputs are supported with autodetection.
 
 Raw training/testing data (in the proper plain text [[input format]]) can be passed to VW in a number of ways:
 
 * Using the `-d` or `--data` options which expect a file name as an argument (specifying a file name that is not associated with any option also works);
 * Via `stdin`;
-* Via a TCP/IP port if the `--daemon` option is specified. The port itself is specified by `--port` otherwise the default port 39523 is used.
+* Via a TCP/IP port if the `--daemon` option is specified. The port itself is specified by `--port` otherwise the default port 26542 is used.  The daemon by default creates 10 child processes which share the model state, allowing answering multiple simultaneous queries.  The number of child processes can be controlled with `--num_children`, and you can create a file with the jobid using `--pid_file` which is later useful for killing the job.
 
 Parsing raw data is slow so there are options to create or load data in VW's native format. Files containing data in VW's native format are called caches. It is important to understand that the exact contents of a cache file depend both on the input as well as the other options that are passed to VW during the creation of the cache. This implies that using the cache file with different options might cause VW to rebuild the cache. The easiest way to use a cache is to always specify the `-c` option. This way, VW will first look for a cache file and create it if it doesn't exist. To override the default cache file name use `--cache_file` followed by the file name.
 
