@@ -88,7 +88,13 @@ By default VW hashes string features and does not hash integer features. `--hash
 
 # Update Rule Options
     --adaptive                       use adaptive, individual learning rates.
+    --exact_adaptive_norm            use a more expensive exact 
+                                     norm for adaptive learning 
+                                     rates.
+    --nonormalize                    Do not normalize online updates.
     --conjugate_gradient             use conjugate gradient based optimization
+    --bfgs                           use bfgs optimization
+    --mem arg (=15)                  memory in bfgs
     --l1 arg (=1)                    l_1 lambda
     --l2 arg (=1)                    l_2 lambda
     --decay_learning_rate arg (=1)   Set Decay factor for learning_rate between passes
@@ -102,12 +108,14 @@ By default VW hashes string features and does not hash integer features. `--hash
                                      Defaults to 0.5
     --minibatch arg (=1)             Minibatch size
 
-`--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are
+`--exact_adaptive_norm` and `--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are
 [Adaptive Bound Optimization for Online Convex Optimization](http://arxiv.org/abs/1002.4908)
 and [Adaptive Subgradient Methods for Online Learning
-and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf). These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that cause examples to have many non-zero features such as `-q` and `--ngram`. 
+and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf). These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that cause examples to have many non-zero features such as `-q` and `--ngram`. Of the two `--exact_adaptive_norm` is recommended, and likely to become a default.
 
-`--conjugate_gradient` uses a batch optimizer based on the nonlinear conjugate gradient method. To avoid overfitting, the objective that is being minimized is a tradeoff between empirical loss and the norm of the learned weight vector.
+`--nonormalize` gets rid of normalization of the updates.   Normalized updates are generally recommended for stability and convergence, although getting rid of them makes the optimization specification simpler.
+
+`--bfgs` and `--conjugate_gradient` uses a batch optimizer based on LBFGS or nonlinear conjugate gradient method.  Of the two, `--bfgs` is recommended.  To avoid overfitting, you should specify `--l2`.  You may also want to adjust `--mem` which controls the rank of an inverse hessian approximation used by LBFGS.
 
 `--l1` and `--l2` specify the level (lambda values) of L1 and L2 regularization, and can be nonzero at the same time.  These values are applied on a per-example basis in online learning (sgd),
 \[
@@ -128,7 +136,7 @@ There is no single rule for the best learning rate form. For standard learning f
 
 To specify a loss function use `--loss_function` followed by either `squared`, `logistic`, `hinge`, or `quantile`. The latter is parametrized by \(\tau \in (0,1)\) whose value can be specified by `--quantile_tau`. By default this is 0.5. For more information see [[Loss functions]]
 
-To average the gradient from \(k\) examples and update the weights once every \(k\) examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation.   
+To average the gradient from \(k\) examples and update the weights once every \(k\) examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation and it's only enabled there.
   
 # Weight Options
     -b [ --bit_precision ] arg       number of bits in the feature table
