@@ -64,7 +64,7 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
     --sort_features                  turn this on to disregard order in which 
                                      features have been defined. This will lead 
                                      to smaller cache sizes
-
+    --noconstant                     Don't add a constant feature
     --ngram arg                      Generate N grams
     --skips arg                      Generate skips in N grams. This in conjunction 
                                      with the ngram tag can be used to generate 
@@ -77,6 +77,8 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 `-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `document`, then specifying `-q ud` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the `document` namespace. If a letter matches more than one namespace then all the matching namespaces are used. In our example if there is another namespace `url` then interactions between `url` and `document` will also be modeled.
 
 `--ignore` ignores a namespace, effectively making the features not there.  You can use it multiple times.
+
+`--noconstant` eliminates the constant feature that exists by default in VW.
 
 `--ngram` and `--skip` can be used to generate ngram features possibly with skips (a.k.a. don't cares). For example `--ngram 2` will generate (unigram and) bigram features by creating new features from features that appear next to each other, and  `--ngram 2 --skip 1` will generate (unigram, bigram, and) trigram features plus trigram features where we don't care about the identity of the middle token.
 
