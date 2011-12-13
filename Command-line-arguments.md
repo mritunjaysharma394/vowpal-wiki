@@ -152,6 +152,7 @@ To average the gradient from \(k\) examples and update the weights once every \(
     --random_weights arg             make initial weights random
     --initial_weight arg (=0)        Set all weights to an initial value of 1.
     --readable_model arg             Output human-readable final regressor
+    --save_per_pass                  Save the model after every pass over data
     --input_feature_regularizer arg  Per feature regularization input file
     --output_feature_regularizer_binary arg  Per feature regularization output file
     --output_feature_regularizer_text arg  Per feature regularization output file, in text
@@ -162,6 +163,8 @@ VW hashes all features to a predetermined range \([0,2^b-1]\) and uses a fixed w
 Use the `-f` option to write the weight vector to a file named after its argument. For testing purposes or to resume training, one can load a weight vector using  the `-i` option.
 
 `--readable_model` is identical to `-f`, except that the model is output in a human readable format.
+
+`--save_per_pass` saves the model after every pass over the data.  This is useful for early stopping.
 
 `--intput_feature_regularizer`, `--output_feature_regularizer_binary`, `--output_feature_regularizer_text` are analogs of `-i`, `-f`, and `--readable_model` for batch optimization where want to do _per feature_ regularization.  This is advanced, but allows efficient simulation of online learning with a batch optimizer.
 
@@ -174,6 +177,11 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
     --lda_D arg (=10000)             Number of documents
 
 The `--lda` option switches VW to LDA mode. The argument is the number of topics. `--lda_apha` and `--lda_rho` specify prior hyperparameters. `--lda_D` specifies the number of documents. VW will still work the same if this number is incorrect, just the diagnostic information will be wrong. For details see [Online Learning for Latent DIrichlet Allocation](http://books.nips.cc/papers/files/nips23/NIPS2010_1291.pdf)
+
+# Matrix Factorization Options
+  --rank arg (=0)                                   rank for matrix factorization.
+
+`--rank` sticks VW in matrix factorization mode.  You'll need a relatively small learning rate like `-l 0.01`.
 
 # Active Learning Options
     --active_learning                active learning mode
