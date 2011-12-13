@@ -178,22 +178,23 @@ The `--lda` option switches VW to LDA mode. The argument is the number of topics
 Given a fully labeled dataset, experimenting with active learning can be done with `--active_simulation`. All active learning algorithms need a parameter that defines the trade off between label complexity and generalization performance. This is specified here with `--active_mellowness`. A value of 0 means that the algorithm will not ask for any label. A large value means that the algorithm will ask for all the labels. If instead of `--active_simulation`, `--active_learning` is specified (together with `--daemon`) real active learning is implemented (examples are passed to VW via a TCP/IP port and VW responds with its prediction as well as how much it wants this example to be labeled if at all). If this is confusing, watch Daniel's explanation at the VW tutorial. The active learning algorithm is described in detail in [Agnostic Active Learning without Constraints](http://books.nips.cc/papers/files/nips23/NIPS2010_0363.pdf).
 
 # Parallelization Options
-    --thread_bits arg (=0)           log_2 threads
-    --multisource arg                multiple sources for daemon input
-    --predictto arg                  host to send predictions to
+    --span_server arg               Location of server for setting up spanning tree
+    --unique_id arg (=0)            unique id used for cluster parallel job
+    --total arg (=1)                total number of nodes used in cluster parallel job
+    --node arg (=0)                 node number in cluster parallel job
 
-For multicore parallelization, the `--thread_bits` option specifies the number of threads to use for  computing the inner product between the weight and feature vectors. This is especially useful with the options that generate many non-zero features such as `-q` and `--ngram` (with or without `--skip`). With an argument of \(k\), \(2^k\) threads are used.
+VW supports cluster parallel learning, potentially on thousands of nodes (it's known to work well on 1000 nodes) using the algorithms <a href="http://arxiv.org/abs/1110.4198">discussed here</a>.  
 
-For multinode parallelization (cluster parallelization) `--multisource` is used to specify that this VW process expect a number of workers to connect to it and send it their outputs. The number is specified by the option's argument. In a worker VW process `--predictto` is used to specify the machine at which a master VW process is waiting for the predictions of this process. 
+`--span_server` specifies the network address of a little server that sets up spanning trees over the nodes.
 
-## Experimental Parallelization Options
-    --unique_id arg (=0)             unique id used for cluster parallel
-    --backprop                       turn on delayed backprop
-    --corrective                     turn on corrective updates
-    --global_multiplier arg (=1)     Global update multiplier
-    --delayed_global                 Do delayed global updates
+`--unique_id` should be a number that is the same for all nodes executing a particular job and different for all others.
 
-These are subject to change in future releases.
+`--total` is the total number of nodes.
+
+`--node` should be unique for each node and range from {0,total-1}.
+
+More details are in the cluster directory.
+
 
 # Other options
     --noop                           do no learning
