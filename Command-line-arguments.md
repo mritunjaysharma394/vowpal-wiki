@@ -151,6 +151,9 @@ To average the gradient from \(k\) examples and update the weights once every \(
     --random_weights arg             make initial weights random
     --initial_weight arg (=0)        Set all weights to an initial value of 1.
     --readable_model arg             Output human-readable final regressor
+    --input_feature_regularizer arg  Per feature regularization input file
+    --output_feature_regularizer_binary arg  Per feature regularization output file
+    --output_feature_regularizer_text arg  Per feature regularization output file, in text
 
 VW hashes all features to a predetermined range \([0,2^b-1]\) and uses a fixed weight vector with \(2^b\) components. The argument of `-b` option determines the value of \(b\) which is 18 by default. Hashing the features allows the algorithm to work with very raw data (since there's no need to assign a unique id to each feature) and has only a negligible effect on generalization performance (see for example 
 [Feature Hashing for Large Scale Multitask Learning](http://arxiv.org/abs/0902.2206).
@@ -158,6 +161,8 @@ VW hashes all features to a predetermined range \([0,2^b-1]\) and uses a fixed w
 Use the `-f` option to write the weight vector to a file named after its argument. For testing purposes or to resume training, one can load a weight vector using  the `-i` option.
 
 `--readable_model` is identical to `-f`, except that the model is output in a human readable format.
+
+`--intput_feature_regularizer`, `--output_feature_regularizer_binary`, `--output_feature_regularizer_text` are analogs of `-i`, `-f`, and `--readable_model` for batch optimization where want to do _per feature_ regularization.  This is advanced, but allows efficient simulation of online learning with a batch optimizer.
 
 By default VW starts with the zero vector as its hypothesis. The `--random_weights` option initializes with random weights. This is often useful for symmetry breaking in advanced models.  It's also possible to initialize with a fixed value such as the all-ones vector using `--initial_weight`.
 
