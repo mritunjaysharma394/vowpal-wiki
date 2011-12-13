@@ -28,3 +28,12 @@ There are several features that (in combination) can be powerful.
 
 Many people have contributed to the project at this point.
 <a href="http://hunch.net/~jl">John Langford</a>, <a href="http://www.cs.berkeley.edu/~alekh/">Alekh Agarwal</a>, <a href="http://www.cs.cmu.edu/~mdudik/">Miroslav Dudik</a>, <a href="http://cseweb.ucsd.edu/~djhsu/">Daniel Hsu</a>, <a href="http://www.cs.cornell.edu/~nk/">Nikos Karampatziakis</a>, <a href="http://research.yahoo.com/Olivier_Chapelle">Olivier Chapelle</a>, <a href="http://www.machinedlearnings.com/">Paul Mineiro</a>, Matt Hoffman, Jake Hofman, <a href="http://labs.yahoo.com/Sudarshan_Lamkhede">Sudarshan Lamkhede</a>, Shubham Chopra, Ariel Faigon, <a href="http://www.research.rutgers.edu/~lihong/">Lihong Li</a>, Gordon Rios, and <a href="http://paul.rutgers.edu/~strehl/">Alex Strehl</a> have all worked on VW.  Many others have contributed via feature requests, bug reports, or bug patches.
+
+<h2>Research</h2>
+VW is also a vehicle for advanced research.  Many different algorithms and results have influenced it's design, including:
+
+1. <a href="http://www.ece.northwestern.edu/faculty/Nocedal_Jorge.html">Nocedal, J.</a> (1980). "Updating Quasi-Newton Matrices with Limited Storage". Mathematics of Computation 35: 773–782.
+2. <a href="http://www.cs.cmu.edu/~avrim/">Avrim Blum</a>, <a href="http://www.cs.cmu.edu/~akalai/">Adam Kalai</a>, and <a href="http://hunch.net/~jl">John Langford</a> <a href="http://hunch.net/~jl/projects/prediction_bounds/progressive_validation/coltfinal.pdf">Beating the Holdout: Bounds for KFold and Progressive Cross-Validation</a>. COLT99 pages 203-208.
+3. <a href="http://leon.bottou.org/">Leon Bottou</a>, <a href="http://leon.bottou.org/projects/sgd">Stochastic Gradient Descent</a>.
+4. <a href="http://hunch.net/~jl">John Langford</a>, <a href="http://www.research.rutgers.edu/~lihong/">Lihong Li</a>, and <a href="http://stat.rutgers.edu/home/tzhang/">Tong Zhang</a>, <a href="http://hunch.net/~jl/projects/interactive/sparse_online/paper_sparseonline.pdf">Sparse Online Learning via Truncated Gradient</a>, NIPS 2008.
+5. <a href="http://hunch.net/~beygel">Alina Beygelzimer</a>, <a href="http://cseweb.ucsd.edu/~djhsu/">Daniel Hsu</a>, <a href="http://hunch.net/~jl">John Langford</a>, and <a href="http://stat.rutgers.edu/home/tzhang/">Tong Zhang</a> <a href="http://arxiv.org/abs/1006.2588">Agnostic Active Learning Without Constraints</a> NIPS 2010.
