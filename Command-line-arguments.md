@@ -95,6 +95,7 @@ By default VW hashes string features and does not hash integer features. `--hash
     --conjugate_gradient             use conjugate gradient based optimization
     --bfgs                           use bfgs optimization
     --mem arg (=15)                  memory in bfgs
+    --initial_pass_length arg        initial number of examples per pass
     --l1 arg (=1)                    l_1 lambda
     --l2 arg (=1)                    l_2 lambda
     --decay_learning_rate arg (=1)   Set Decay factor for learning_rate between passes
@@ -116,6 +117,8 @@ and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHa
 `--nonormalize` gets rid of normalization of the updates.   Normalized updates are generally recommended for stability and convergence, although getting rid of them makes the optimization specification simpler.
 
 `--bfgs` and `--conjugate_gradient` uses a batch optimizer based on LBFGS or nonlinear conjugate gradient method.  Of the two, `--bfgs` is recommended.  To avoid overfitting, you should specify `--l2`.  You may also want to adjust `--mem` which controls the rank of an inverse hessian approximation used by LBFGS.
+
+`--initial_pass_length` is a trick to make LBFGS quasi-online.  You must first create a cache file, and then it will treat initial_pass_length as the number of examples in a pass, resetting to the beginning of the file after each pass.  After running `--passes` many times, it starts over warmstarting from the final solution with twice as many examples.  
 
 `--l1` and `--l2` specify the level (lambda values) of L1 and L2 regularization, and can be nonzero at the same time.  These values are applied on a per-example basis in online learning (sgd),
 \[
