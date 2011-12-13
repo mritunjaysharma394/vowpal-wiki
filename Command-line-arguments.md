@@ -136,13 +136,16 @@ To average the gradient from \(k\) examples and update the weights once every \(
     -f [ --final_regressor ] arg     Final regressor
     --random_weights arg             make initial weights random
     --initial_weight arg (=0)        Set all weights to an initial value of 1.
+    --readable_model arg             Output human-readable final regressor
 
 VW hashes all features to a predetermined range \([0,2^b-1]\) and uses a fixed weight vector with \(2^b\) components. The argument of `-b` option determines the value of \(b\) which is 18 by default. Hashing the features allows the algorithm to work with very raw data (since there's no need to assign a unique id to each feature) and has only a negligible effect on generalization performance (see for example 
 [Feature Hashing for Large Scale Multitask Learning](http://arxiv.org/abs/0902.2206).
 
-Use the `-f` option to write the weight vector to a file named after its argument. For testing purposes or to resume training, one can load a weight vector using  the `-i` option. Specifying this option multiple times with different arguments will cause the initial weight vector to be the average of the ones specified at the command line.
+Use the `-f` option to write the weight vector to a file named after its argument. For testing purposes or to resume training, one can load a weight vector using  the `-i` option.
 
-By default VW starts with the zero vector as its hypothesis. The `--random_weights` option initializes with random weights. This is useful if starting with a zero weight would cause the algorithm to be stuck as could happen in a backpropagation implementation, or with VW's LDA implementation. It's also possible to initialize with a fixed value such as the all-ones vector using `--initial_weight`.
+`--readable_model` is identical to `-f`, except that the model is output in a human readable format.
+
+By default VW starts with the zero vector as its hypothesis. The `--random_weights` option initializes with random weights. This is often useful for symmetry breaking in advanced models.  It's also possible to initialize with a fixed value such as the all-ones vector using `--initial_weight`.
 
 # Latent Dirichlet Allocation Options
     --lda arg                        Run lda with <int> topics
