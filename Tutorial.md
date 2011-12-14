@@ -142,7 +142,7 @@ Examining further, you'll notice that the feature 2006 uses the index 2006.  Thi
 
 ### What's next?
 
-The above only scratches the surface of VW.  You can learn with other loss function, with other optimizers, with other representations, with clusters of 1000s of machines, and even do ridiculously fast active learning.  Your primary resources for understanding these are:
+The above only scratches the surface of VW.  You can learn with other loss functions, with other optimizers, with other representations, with clusters of 1000s of machines, and even do ridiculously fast active learning.  Your primary resources for understanding these are:
 
 1. The presented tutorials at the top of the page.
 2. The <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples">examples</a>.
