@@ -7,7 +7,7 @@ The [[version 6.1 tutorial|v6.1_tutorial.pdf]].  This the most uptodate version,
 * [[Latent Dirichlet Allocation|lda.pdf]] (v5.0 presentation, little changed) See also [[Latent Dirichlet Allocation]]
 
 ### Older stuff
-The [[version 5.1 tutorial|v5.1_tutorial.pdf]].   
+The [[version 5.1 tutorial|v5.1_tutorial.pdf]] with a <a href="http://talks.eharmony.com/video/31936897">video</a>. 
 
 <a href="http://videolectures.net/nipsworkshops2010_langford_vow/">Version 5.0 Videolecture</a>.
 
