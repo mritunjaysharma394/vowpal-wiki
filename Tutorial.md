@@ -1,13 +1,18 @@
-The [[version 5.1 tutorial|v5.1_tutorial.pdf]].  This the most uptodate version, although it does not include Matt's LDA slides (below) and it is not on videolectures.
+The [[version 6.1 tutorial|v6.1_tutorial.pdf]].  This the most uptodate version,  Various pieces are covered separately, including:
+
+* The [[introduction|v6.1_tutorial.pdf]].
+* Description and use of [[L-BFGS|L-BFGS.pdf]].
+* [[Cluster parallel learning|Cluster_parallel.pdf]].
+* [[Active Learning|active.pdf]] (v5.0 presentation, but little changed)
+* [[Latent Dirichlet Allocation|lda.pdf]] (v5.0 presentation, little changed) See also [[Latent Dirichlet Allocation]]
+
+### Older stuff
+The [[version 5.1 tutorial|v5.1_tutorial.pdf]].   
 
 <a href="http://videolectures.net/nipsworkshops2010_langford_vow/">Version 5.0 Videolecture</a>.
 
-The tutorial is in several parts.
-
-* The [[main|main.pdf]] piece
-* The [[importance weight invariant|iw.pdf]] update rule.
-* A part about [[active learning|active.pdf]].
-* A part about [[Latent Dirichlet Allocation|lda.pdf]].  See also [[Latent Dirichlet Allocation]]
+* The [[main|main.pdf]] piece (v5.0)
+* The [[importance weight invariant|iw.pdf]] update rule. (covered in 6.1 intro)
 
 ### A Step by step introduction
 
