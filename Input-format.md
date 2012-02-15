@@ -27,4 +27,4 @@ Currently, the only characters that can't be used in feature names are vertical 
 
 
 ## Notes
-when using logistic or hinge loss, the labels need to be from the set {+1,-1}  (documented in the V6.1 tutorial slide deck, but not elsewhere)
+When using logistic or hinge loss, the labels need to be from the set {+1,-1}  (documented in the V6.1 tutorial slide deck, but not elsewhere)
