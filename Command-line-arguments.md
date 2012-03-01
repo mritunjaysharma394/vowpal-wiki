@@ -125,23 +125,37 @@ and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHa
 `--hessian_on` is a rarely used option for LBFGS which changes the way a step size is computed.  Instead of using the inverse hessian approximation directly, you compute a second derivative in the update direction and use that to compute the step size via a parabolic approximation.
 
 `--l1` and `--l2` specify the level (lambda values) of L1 and L2 regularization, and can be nonzero at the same time.  These values are applied on a per-example basis in online learning (sgd),
+
 \[
 \sum_i \left(L(x_i,y_i,w) + \lambda_1 \|w\|_1 + \lambda_2/2 \|w\|_2^2\right) ,
 \]
+
 but on an aggregate level in batch learning (conjugate gradient and bfgs).
+
 \[
 \left(\sum_i L(x_i,y_i,w)\right) + \lambda_1 \|w\|_1 + \lambda_2/2 \|w\|_2^2 .
 \]
 
-`-l \(\lambda\)`, `--initial_t \(t_0\)`, `--power_t \(p\)`, and `--decay_learning_rate \(d\)` specify the learning rate schedule whose generic form in the \((k+1)\)-th epoch is 
+`-l \(\lambda\)`,
+
+ `--initial_t \(t_0\)`,
+
+ `--power_t \(p\)`,
+
+ and `--decay_learning_rate \(d\)` specify the learning rate schedule whose generic form in the \((k+1)\)-th epoch is 
+
 \[
 \eta_t = \lambda d^k \left(\frac{t_0}{t_0 + w_t}\right)^p
 \]
+
 where \(w_t\) is the sum of the importance weights of all examples seen so far (\(w_t = t\) if all examples have importance weight 1).
 
-There is no single rule for the best learning rate form. For standard learning from an i.i.d. sample, typically \(p \in \{0, 0.5, 1\}\), \(d \in (0.5,1]\) and \(\lambda,t_0\) are searched in a logarithmic scale. Very often, the defaults are reasonable and only the -l option (\(\lambda\)) needs to be explored. For other problems the defaults may be inadequate, e.g. for tracking \(p=0\) is more sensible.
+There is no single rule for the best learning rate form. For standard learning from an i.i.d. sample, typically \(p \in \{0, 0.5, 1\}\),
+ \(d \in (0.5,1]\)
+ and \(\lambda,t_0\) are searched in a logarithmic scale. Very often, the defaults are reasonable and only the -l option (\(\lambda\)) needs to be explored. For other problems the defaults may be inadequate, e.g. for tracking \(p=0\) is more sensible.
 
-To specify a loss function use `--loss_function` followed by either `squared`, `logistic`, `hinge`, or `quantile`. The latter is parametrized by \(\tau \in (0,1)\) whose value can be specified by `--quantile_tau`. By default this is 0.5. For more information see [[Loss functions]]
+To specify a loss function use `--loss_function` followed by either `squared`, `logistic`, `hinge`, or `quantile`. The latter is parametrized by \(\tau \in (0,1)\) 
+whose value can be specified by `--quantile_tau`. By default this is 0.5. For more information see [[Loss functions]]
 
 To average the gradient from \(k\) examples and update the weights once every \(k\) examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation and it's only enabled there.
   
