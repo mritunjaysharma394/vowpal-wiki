@@ -10,14 +10,14 @@ The ratings can be obtained as follows:
     tar zxvf ml-data.tar__0.gz
     cd ml-data
 
-The data consist of `(user, item, rating, date)` events, where ratings are given on an (integer) scale of 1 to 5. Using awk to reformat the data to a VW-friendly format, we can learn a model with a constant term (representing a global average), linear terms (representing per-user and per-item rating biases) and a rank-10 approximation to the interaction terms (representing user-item iteractions) as follows:
+The data consist of `(user, item, rating, date)` events, where ratings are given on an (integer) scale of 1 to 5. Using awk to reformat the data to a VW-friendly format, we can learn a model with a constant term (representing a global average), linear terms (representing per-user and per-item rating biases) and a rank-10 approximation to the interaction terms (representing user-item interactions) as follows:
 
     awk -F"\t" '{printf "%d |u %d |i %d\n", $3,$1,$2}' < ua.base | \
       vw -b 18 -q ui --rank 10 --l2 0.001 \
       --learning_rate 0.025 --passes 20 --decay_learning_rate 0.97 --power_t 0 \
       -f movielens.reg --cache_file movielens.cache
 
-Note that the combination of `-b 18` and `--rank 10` results in a weight vector of (1+2*10)*2^18 elements. The `--regularization` option is used to avoid overfitting.
+Note that the combination of `-b 18` and `--rank 10` results in a weight vector of (1+2*10)*2^18 elements. The `--l2` option is the L2 regularization argument to avoid overfitting.
 
 Testing the model on held-out data results in an average loss of ~0.89 (RMSE of ~0.94):
 
