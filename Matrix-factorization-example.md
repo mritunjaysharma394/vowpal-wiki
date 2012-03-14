@@ -13,7 +13,7 @@ The ratings can be obtained as follows:
 The data consist of `(user, item, rating, date)` events, where ratings are given on an (integer) scale of 1 to 5. Using awk to reformat the data to a VW-friendly format, we can learn a model with a constant term (representing a global average), linear terms (representing per-user and per-item rating biases) and a rank-10 approximation to the interaction terms (representing user-item interactions) as follows:
 
     awk -F"\t" '{printf "%d |u %d |i %d\n", $3,$1,$2}' < ua.base | \
-      vw -b 18 -q ui --rank 10 --l2 0.001 \
+      vw /dev/stdin -b 18 -q ui --rank 10 --l2 0.001 \
       --learning_rate 0.025 --passes 20 --decay_learning_rate 0.97 --power_t 0 \
       -f movielens.reg --cache_file movielens.cache
 
@@ -22,6 +22,6 @@ Note that the combination of `-b 18` and `--rank 10` results in a weight vector 
 Testing the model on held-out data results in an average loss of ~0.89 (RMSE of ~0.94):
 
     awk -F"\t" '{printf "%d |u %d |i %d\n", $3,$1,$2}' < ua.test | \
-      vw -q ui --rank 10 -i movielens.reg -t
+      vw /dev/stdin -q ui --rank 10 -i movielens.reg -t
 
 Results may vary slightly due to random initialization of the weight vector in the training phase.
