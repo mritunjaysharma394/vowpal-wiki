@@ -22,6 +22,6 @@ Note that the combination of `-b 18` and `--rank 10` results in a weight vector 
 Testing the model on held-out data results in an average loss of ~0.89 (RMSE of ~0.94):
 
     awk -F"\t" '{printf "%d |u %d |i %d\n", $3,$1,$2}' < ua.test | \
-      vw /dev/stdin -q ui --rank 10 -i movielens.reg -t
+      vw /dev/stdin -i movielens.reg -t
 
 Results may vary slightly due to random initialization of the weight vector in the training phase.
