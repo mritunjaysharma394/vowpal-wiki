@@ -6,9 +6,9 @@ For example, consider the problem of predicting movie ratings for the [Movielens
 
 The ratings can be obtained as follows:
 
-    wget 'http://www.grouplens.org/system/files/ml-data.tar__0.gz'
-    tar zxvf ml-data.tar__0.gz
-    cd ml-data
+    wget http://www.grouplens.org/system/files/ml-100k.zip
+    unzip ml-100k.zip
+    cd ml-100k
 
 The data consist of `(user, item, rating, date)` events, where ratings are given on an (integer) scale of 1 to 5. Using awk to reformat the data to a VW-friendly format, we can learn a model with a constant term (representing a global average), linear terms (representing per-user and per-item rating biases) and a rank-10 approximation to the interaction terms (representing user-item interactions) as follows:
 
