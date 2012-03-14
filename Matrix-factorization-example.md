@@ -13,7 +13,7 @@ The ratings can be obtained as follows:
 The data consist of `(user, item, rating, date)` events, where ratings are given on an (integer) scale of 1 to 5. Using awk to reformat the data to a VW-friendly format, we can learn a model with a constant term (representing a global average), linear terms (representing per-user and per-item rating biases) and a rank-10 approximation to the interaction terms (representing user-item iteractions) as follows:
 
     awk -F"\t" '{printf "%d |u %d |i %d\n", $3,$1,$2}' < ua.base | \
-      vw -b 18 -q ui --rank 10 --regularization 0.001 \
+      vw -b 18 -q ui --rank 10 --l2 0.001 \
       --learning_rate 0.025 --passes 20 --decay_learning_rate 0.97 --power_t 0 \
       -f movielens.reg --cache_file movielens.cache
 
