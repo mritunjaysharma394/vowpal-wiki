@@ -40,7 +40,7 @@ Here the flags are:
 </ol>
 To measure performance, I often use the <a href="http://osmot.cs.cornell.edu/kddcup/software.html">perf</a> which Rich Caruana put together for the 2004 KDD cup challenge.  This software has the advantage that many people cared that it worked right.  To use perf, you first create a file with the labels 
 <pre>
-zless rcv1.test.dat.gz | cut -d ' ' -f 1 | sed -e 's/^-1/0/' > labels
+zcat rcv1.test.dat.gz | cut -d ' ' -f 1 | sed -e 's/^-1/0/' > labels
 </pre>
 
 and then type:
