@@ -1,12 +1,15 @@
 # Input format
 
 The raw (plain text) input data for VW should have one example per line.  Each example should be formatted as follows. 
+
     [Label] [Importance [Tag]]|Namespace Features |Namespace Features ... |Namespace Features
 
 where
+
     Namespace=String[:Value]
 
 and
+
     Features=(String[:Value] )*
 
 * `Label` is the real number that we are trying to predict for this example.  If the label is omitted, then no training will be performed with the corresponding example, although VW will still compute a prediction.
