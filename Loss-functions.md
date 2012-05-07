@@ -9,4 +9,4 @@ Given a prediction \(p\) and a label \(y\), a loss function \(\ell(p,y)\) measur
 4. \(\tau\)-Quantile loss
 \[\ell(p,y)=\tau(p-y)\mathbb{I}(y<p) +(1-\tau)(y-p)\mathbb{I}(y \geq p) \]
 
-To select a loss function in VW see the [[Command line arguments]] guide.
+To select a loss function in VW see the [[Command line arguments]] guide.  The Logistic and Hinge loss are for binary classification only, and thus all samples must have class "-1" or "1".
