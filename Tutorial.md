@@ -114,6 +114,13 @@ If we want to overfit like mad, we can simply use:
 
 You'll notice that the _since last_ column drops to 0, implying that we have a perfect predictor, as is unsurprising with 3 examples having 5 features each.
 
+### Saving your model to a file (aka regressor)
+
+By default vw learns the weights of the features and keeps them in a memory vector. If you want to save the final weights into a file, add **-f _filename_**:
+
+Example:
+&gt; **./vw house_dataset -c --passes 25 -f house.model**
+
 ### Getting predictions
 
 We want to make predictions of course.  A simple way to do this is:
@@ -124,6 +131,15 @@ The first output _0.000000_ is for the first example.
 The second output _0.000000 second_house_ is for the second example.  You'll notice the tag appears here, and this is the primary use of the tag.
 
 The third output _1.000000 third_house_ is for the third example.  Clearly, some learning happened, because the prediction is now 1.
+
+In the above example, we predicted while we learned.
+
+Alternatively, and more commonly we would first learn, save the model, and then predict using the model:
+You may load a initial model which was created in the above example, and predict using its weights. To do that we would add **-i house.model** (load initial model), and also **-t** which stands for test-only (do no learning):
+
+&gt; **./vw -i house.model -t house_dataset -p /dev/stdout --quiet**
+
+Obviously the results are different because in the first prediction example, we learned as we went and did only one pass, whereas in the 2nd example we first loaded an over-fitted (25 pass) model and used the data-set _house_dataset_ for testing only.
 
 ### Auditing
 
