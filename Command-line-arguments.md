@@ -127,13 +127,13 @@ and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHa
 `--l1` and `--l2` specify the level (lambda values) of L1 and L2 regularization, and can be nonzero at the same time.  These values are applied on a per-example basis in online learning (sgd),
 
 \[
-\sum_i \left(L(x_i,y_i,w) + \lambda_1 \|w\|_1 + \lambda_2/2 \|w\|_2^2\right) ,
+\sum_i \left(L(x_i,y_i,w) + \lambda_1 \|w\|_1 + 1/2 \cdot \lambda_2 \|w\|_2^2\right) ,
 \]
 
 but on an aggregate level in batch learning (conjugate gradient and bfgs).
 
 \[
-\left(\sum_i L(x_i,y_i,w)\right) + \lambda_1 \|w\|_1 + \lambda_2/2 \|w\|_2^2 .
+\left(\sum_i L(x_i,y_i,w)\right) + \lambda_1 \|w\|_1 + 1/2 \cdot\lambda_2 \|w\|_2^2 .
 \]
 
 `-l \(\lambda\)`,
