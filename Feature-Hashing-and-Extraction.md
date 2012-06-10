@@ -3,11 +3,12 @@
 ## Why Hash?
 
 ###(sparse) Dimension Reduction and fast feature lookups.
-the default is hashing / projecting feature names to a 32 bit unsigned word using a variant of the murmurhash2 algorithm which then is XORed with (2^k)-1  (ie it is projected down to the first k lower order bits with the rest 0'd out). by default k=18 (ie 2^18 entries in the feature vector), with a max number of bits on 32-bit machines of k=29, and on 64-bit machines of k=61.
+the default is hashing / projecting feature names to the machine architecture unsigned word using a variant of the murmurhash2 algorithm which then is XORed with (2^k)-1  (ie it is projected down to the first k lower order bits with the rest 0'd out). by default k=18 (ie 2^18 entries in the feature vector), with a max number of bits on 32-bit machines of k=29, and on 64-bit machines of k=61. 
+(note: vw seems to be in the process of supporting both 32 & 64 bit word sizes, but for now it seems the hashing is done with respect to 32 bit words)
 
 ### how is it implemented 
 for a consolidated model of the hashing code for feature string names, features with name spaces, and quadratic features over pairs of (name space, feature name) 
-see [this gist](https://gist.github.com/2903178) for details. 
+see [this gist](https://gist.github.com/2903178) for details. Note that this code as written is a model for the 32-bit implementation of the hashing.
 
 
 ## But I want to know the model weights for my input features, what can I do?
