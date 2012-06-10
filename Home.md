@@ -14,6 +14,7 @@ There are several optimization algorithms available with the baseline being spar
 <li>[[Examples]]</li>
 <li>[[Goals]]</li>
 <li>[[Discussions]]</li>
+<li>[[Feature Hashing and Extraction]]</li>
 
 </ul>
 
