@@ -15,7 +15,7 @@ Well, by default, Vowpal Wabbit does not hash integer feature names (ie the feat
 
 *  form your features (including any quadratic or other higher order ones) directly beforehand, so that vowpal just needs to work linearly over the features. Assign each feature a unique integer key. Also be sure to assign an integer for the constant feature. Store this feature <-> integer map for later usage. 
 * write your data to a file in the VW format (the integer representation thereof!)
-* run vw over  your data, and be sure to include both the --noconstant flag (so that vowpal does not include its own special constant feature), and also include the human readable flag to get the output model weights in an easy to parse format.
+* run vw over  your data, and be sure to include both the --noconstant flag (so that vowpal does not include its own special constant feature), and also include the human readable flag `--readable_model filename.model` to get the output model weights in an easy to parse format.
 
 enjoy!
 
