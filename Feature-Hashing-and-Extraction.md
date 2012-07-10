@@ -19,7 +19,7 @@ Well, by default, Vowpal Wabbit does not hash integer feature names (ie the feat
 
 A simpler way is now (July 9, 2012) supported. Use the utl/vw-varinfo script which in the source tree on your training-set file:
 
-    vw-varscore data.train
+    vw-varinfo mydata.train
 
 The output will look like this (example):
 
