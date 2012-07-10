@@ -17,11 +17,11 @@ Well, by default, Vowpal Wabbit does not hash integer feature names (ie the feat
 * write your data to a file in the VW format (the integer representation thereof!)
 * run vw over  your data, and be sure to include both the --noconstant flag (so that vowpal does not include its own special constant feature), and also include the human readable flag `--readable_model filename.model` to get the output model weights in an easy to parse format.
 
-A simpler way is now (as of July 9, 2012) supported. Simply use the utl/vw-varinfo script on your training-set file:
+A simpler way is now (July 9, 2012) supported. Use the utl/vw-varinfo script which in the source tree on your training-set file:
 
     vw-varscore data.train
 
-The results will look like this (example):
+The output will look like this (example):
 
     FeatureName        HashVal   MinVal   MaxVal    Weight   RelScore
     ^e                  180798     0.00     1.00   +5.0000    100.00%
