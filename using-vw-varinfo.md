@@ -82,6 +82,10 @@ which is exactly what was expected.
 
 IOW: vowpal_wabbit perfectly figured out our formula, without knowing it in advance, by looking at the training data alone. QED.
 
+## Exercise:
 
+* modify the _generate-trainset.pl_ so that y is always larger or smaller by some constant value.
+* how do you expect the result to be affected?
+* run your modified script, run vw-varinfo on the newly generated train-set and verify your hypothesis.
 
 
