@@ -23,7 +23,7 @@ Here's a hopefully self-explanatory example output showing which foods affect in
     ^oliveoil                    69559     0.00     1.00   -0.1570    -91.28%
     ^egg                           565     0.00     1.00   -0.1722   -100.00%
 
-The example shows that based on the training set that was passed to vw-varinfo, eating egg has the biggest negative correlation with weight-increase, and bread and sweetened drinks are the biggest weight gain agents. YMMV.
+The example shows that based on the training set that was passed to vw-varinfo, eating egg has the biggest negative correlation with weight-increase, and bread, icecream and sweetened drinks are the biggest weight gain agents. YMMV.
 
 # Usage:
 
@@ -42,13 +42,13 @@ If you want to call vw with more arguments, simply pass them through to the trai
 
 Here's a contrived example showing how vw-varinfo performs on a (contrived) perfect linear model
 
-1) Step 1: we write a script that generates 5 random variables named 'a' through 'e' each with a random value in the interval [0 .. 1) then it calculates the label y, as:
+Step 1) we write a script that generates 5 random variables named 'a' through 'e' each with a random value in the interval [0 .. 1) then it calculates the label y, as:
 
     y = a + 2*b + 3*c + 4*d + 5*e
 
 Obviously, 'e' is 5 times more important than 'a' in affecting the value of y.
 
-2) Step 2: Running vw-varinfo we get:
+Step 2) Running vw-varinfo we get:
 
     $ vw-varinfo ../y=atoe-1to5
     FeatureName        HashVal   MinVal   MaxVal    Weight   RelScore
