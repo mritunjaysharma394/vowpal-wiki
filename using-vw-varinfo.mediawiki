@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 vw-varinfo is a small wrapper around vw which exposes all variables of a model in human readable form. The output includes all the input variable names, including name-spaces where applicable, the vw hash value, the range [min, max] of the variable values in the training-set, the final model weight, and the relative distance from the best constant prediction.
 
@@ -25,7 +25,7 @@ Here's a hopefully self-explanatory example output showing which foods affect in
 
 The example shows that based on the training set that was passed to vw-varinfo, eating egg has the biggest negative correlation with weight-increase, and bread and sweetened drinks are the biggest weight gain agents. YMMV.
 
-## Usage:
+# Usage:
 
     vw-varinfo data.train
 
@@ -38,7 +38,7 @@ If you want to call vw with more arguments, simply pass them through to the trai
 
     vw-varinfo -P '--l1 0.0005 -c --passes 40' data.train
 
-## More detailed contrived example
+# More detailed contrived example
 
 Here's a contrived example showing how vw-varinfo performs on a (contrived) perfect linear model
 
