@@ -1,10 +1,10 @@
 # Introduction
 
-vw-varinfo is a small wrapper around vw which exposes all variables of a model in human readable form. The output includes all the input variable names, including name-spaces where applicable, the vw hash value, the range [min, max] of the variable values in the training-set, the final model weight, and the relative distance from the best constant prediction.
+vw-varinfo is a small wrapper around vw which exposes all variables of a model in human readable form. The output includes the input variable names, including name-spaces where applicable, the vw hash value, the range [min, max] of the variable values in the training-set, the final model (regressor) weight, and the relative distance of each variable from the best constant prediction.
 
 The wrapper is written in perl and can be found under _utl/vw-varinfo_ in the source tree.
 
-Here's a hopefully self-explanatory example output showing which foods affect increase vs decrease in daily weight during a diet:
+Here's a self-explanatory example output showing which foods affect increase vs decrease in daily weight during a diet:
 
     FeatureName                HashVal   MinVal   MaxVal    Weight   RelScore
     ^bread                      220390     0.00     2.00   +0.0984     55.36%
@@ -32,13 +32,13 @@ The example shows that based on the training set that was passed to vw-varinfo, 
 where data.train is a standard vw training-set.
 Just like vw itself, you may call vw-varinfo without any arguments to get a brief usage message.
 
-## More elaborate usage:
+## a more elaborate usage example:
 
 If you want to call vw with more arguments, simply pass them through to the training phase of vw via the -P (PassThrough) option like this:
 
     vw-varinfo -P '--l1 0.0005 -c --passes 40' data.train
 
-# Sanity check of vw-varinfo using a contrived example
+## Sanity check of vw-varinfo using a contrived example
 
 Here's a contrived example showing how vw-varinfo performs on a (contrived) perfect linear model.
 
@@ -78,7 +78,9 @@ Step 3) Running vw-varinfo we get:
     ^a                   24414     0.00     1.00   +1.0000     20.00%
     Constant            116060     0.00     0.00   +0.0000      0.00%
 
-which is exactly what was expected. IOW: vowpal_wabbit perfectly figured out our formula. QED.
+which is exactly what was expected.
+
+IOW: vowpal_wabbit perfectly figured out our formula, without knowing it in advance, by looking at the training data alone. QED.
 
 
 
