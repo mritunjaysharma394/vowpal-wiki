@@ -6,4 +6,5 @@ Here are some examples:
 <li>VW has a test suite.  <strong>tail -n 48 test/RunTests</strong> provides several little examples.</li>
 <li>[[Matrix factorization example]]</li>
 <li>[[Truncated gradient descent example]]</li>
+<li>Want to look at your model? [[using vw varinfo]]</li>
 </ol>
