@@ -23,7 +23,7 @@ Here's a hopefully self-explanatory example output showing which foods affect in
     ^oliveoil                    69559     0.00     1.00   -0.1570    -91.28%
     ^egg                           565     0.00     1.00   -0.1722   -100.00%
 
-The example shows that based on the training set that was passed to vw-varinfo, eating egg has the biggest negative correlation with weight-increase, and bread, icecream and sweetened drinks are the biggest weight gain agents. YMMV.
+The example shows that based on the training set that was passed to vw-varinfo, eating egg and olive oil has the biggest negative correlation with weight-increase, while bread, icecream and sweetened drinks are the biggest enemies of weight loss. YMMV.
 
 # Usage:
 
@@ -38,19 +38,19 @@ If you want to call vw with more arguments, simply pass them through to the trai
 
     vw-varinfo -P '--l1 0.0005 -c --passes 40' data.train
 
-# More detailed contrived example
+# Sanity check of vw-varinfo using a contrived example
 
-Here's a contrived example showing how vw-varinfo performs on a (contrived) perfect linear model
+Here's a contrived example showing how vw-varinfo performs on a (contrived) perfect linear model.
 
-Step 1) we write a script that generates 5 random variables named 'a' through 'e' each with a random value in the interval [0 .. 1) then it calculates the label y, as:
+Step 1) we write a script that generates 5 random variables named 'a' through 'e' each with a random value in the interval [0 .. 1] then it calculates the label y, as:
 
     y = a + 2*b + 3*c + 4*d + 5*e
 
-Obviously, 'e' is 5 times more important than 'a' in affecting the value of y.
+Obviously, 'e' is 5 times more "important" than 'a' in affecting the value of y.
 
 Step 2) Running vw-varinfo we get:
 
-    $ vw-varinfo ../y=atoe-1to5
+    $ vw-varinfo  y=atoe-1to5.train
     FeatureName        HashVal   MinVal   MaxVal    Weight   RelScore
     ^e                  180798     0.00     1.00   +5.0000    100.00%
     ^d                  193030     0.00     1.00   +4.0000     80.00%
@@ -59,7 +59,7 @@ Step 2) Running vw-varinfo we get:
     ^a                   24414     0.00     1.00   +1.0000     20.00%
     Constant            116060     0.00     0.00   +0.0000      0.00%
 
-which is exactly what was expected.
+which is exactly what was expected. QED.
 
 
 
