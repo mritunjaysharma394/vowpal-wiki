@@ -34,7 +34,7 @@ Just like vw itself, you may call vw-varinfo without any arguments to get a brie
 
 ## More elaborate usage:
 
-If you want to call vw with more arguments, simply pass them through to the training phase of vw via the -P option like this:
+If you want to call vw with more arguments, simply pass them through to the training phase of vw via the -P (PassThrough) option like this:
 
     vw-varinfo -P '--l1 0.0005 -c --passes 40' data.train
 
@@ -42,15 +42,34 @@ If you want to call vw with more arguments, simply pass them through to the trai
 
 Here's a contrived example showing how vw-varinfo performs on a (contrived) perfect linear model.
 
-Step 1) we write a script that generates 5 random variables named 'a' through 'e' each with a random value in the interval [0 .. 1] then it calculates the label y, as:
+Step 1) we write a script _generate-trainset.pl_ which loops 1000 times, in each loop iteration, it generates 5 random variables named 'a' through 'e' each with a random value in the interval [0 .. 1] and calculates the label y as:
 
     y = a + 2*b + 3*c + 4*d + 5*e
 
 Obviously, 'e' is 5 times more "important" than 'a' in affecting the value of y.
 
-Step 2) Running vw-varinfo we get:
+Here's the _generate-trainset.pl_ script:
 
-    $ vw-varinfo  y=atoe-1to5.train
+    #!/usr/bin/perl -w
+    my $N = 1000;
+    for ($i = 1; $i <= $N; $i++) {
+        my $a = rand(1);
+        my $b = rand(1);
+        my $c = rand(1);
+        my $d = rand(1);
+        my $e = rand(1);
+        my $y = $a + 2*$b + 3*$c + 4*$d + 5*$e;
+        printf "%g | a:%g b:%g c:%g d:%g e:%g\n", $y, $a, $b, $c, $d, $e;
+    }
+
+Step 2) We run the script and save its output in a training-set:
+
+    $ generate-trainset.pl > abcde.train
+
+    
+Step 3) Running vw-varinfo we get:
+
+    $ vw-varinfo  abcde.train
     FeatureName        HashVal   MinVal   MaxVal    Weight   RelScore
     ^e                  180798     0.00     1.00   +5.0000    100.00%
     ^d                  193030     0.00     1.00   +4.0000     80.00%
@@ -59,7 +78,7 @@ Step 2) Running vw-varinfo we get:
     ^a                   24414     0.00     1.00   +1.0000     20.00%
     Constant            116060     0.00     0.00   +0.0000      0.00%
 
-which is exactly what was expected. QED.
+which is exactly what was expected. IOW: vowpal_wabbit perfectly figured out our formula. QED.
 
 
 
