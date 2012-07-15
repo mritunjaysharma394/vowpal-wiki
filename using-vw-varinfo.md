@@ -40,7 +40,7 @@ If you want to call vw with more arguments, simply pass them through to the trai
 
 ## Sanity check of vw-varinfo using a contrived example
 
-Here's a contrived example showing how vw-varinfo performs on a (contrived) perfect linear model.
+Here's a contrived example showing how vw-varinfo performs on a perfect linear model.
 
 Step 1) we write a script _generate-trainset.pl_ which loops 1000 times, in each loop iteration, it generates 5 random variables named 'a' through 'e' each with a random value in the interval [0 .. 1] and calculates the label y as:
 
@@ -67,7 +67,7 @@ Step 2) We run the script and save its output in a training-set:
     $ generate-trainset.pl > abcde.train
 
     
-Step 3) Running vw-varinfo we get:
+Step 3) Running vw-varinfo on the training-set we get:
 
     $ vw-varinfo  abcde.train
     FeatureName        HashVal   MinVal   MaxVal    Weight   RelScore
