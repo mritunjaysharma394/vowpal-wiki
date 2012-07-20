@@ -26,6 +26,8 @@ Now we compile.
 
 This should "just work", at least on Linux and OSX, and plausibly on any Posix platform.  If it fails, you most likely need to install the boost program options header or library.
 
+Boost installation for Debian/Linux distributions use the command - "sudo apt-get install libboost-program-options-dev"
+
 Next, we test the result.
 
 &gt; **make test**
