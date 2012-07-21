@@ -23,7 +23,7 @@ Here's a self-explanatory example output showing which foods affect increase vs 
     ^oliveoil                    69559     0.00     1.00   -0.1570    -91.28%
     ^egg                           565     0.00     1.00   -0.1722   -100.00%
 
-The example shows that based on the training set that was passed to vw-varinfo, eating egg and olive oil has the biggest negative correlation with weight-increase, while bread, icecream and sweetened drinks are the biggest enemies of weight loss. YMMV.
+The example shows that based on the (simplistic) training set that was passed to vw-varinfo, eating egg and olive oil has the biggest negative correlation with weight-increase, while bread, icecream and sweetened drinks are the biggest enemies of weight loss. YMMV.
 
 # Usage:
 
@@ -32,11 +32,17 @@ The example shows that based on the training set that was passed to vw-varinfo, 
 where data.train is a standard vw training-set.
 Just like vw itself, you may call vw-varinfo without any arguments to get a brief usage message.
 
-## a more elaborate usage example:
+## more elaborate usage examples:
 
 If you want to call vw with more arguments, simply pass them through to the training phase of vw via the -P (PassThrough) option like this:
 
     vw-varinfo -P '--l1 0.0005 -c --passes 40' data.train
+
+Another example: say you want to find the strength of certain interactions between two groups of features with respect to the output label. Assuming your data-set has two input-feature name spaces starting with 'X' and 'Y', which separate your input features into two groups, you may run:
+
+    vw-varinfo -P '-q XY -c --passes 20 --exact_adaptive_norm' your_data_set
+
+And vw-varinfo will output all the pairs of interactions between features in name-space X and the features in name-space Y, ordered by their relative effect.
 
 ## Sanity check of vw-varinfo using a contrived example
 
