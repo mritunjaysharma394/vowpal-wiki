@@ -10,3 +10,10 @@ Given a prediction \(p\) and a label \(y\), a loss function \(\ell(p,y)\) measur
 \[\ell(p,y)=\tau(p-y)\mathbb{I}(y<p) +(1-\tau)(y-p)\mathbb{I}(y \geq p) \]
 
 To select a loss function in VW see the [[Command line arguments]] guide.  The Logistic and Hinge loss are for binary classification only, and thus all samples must have class "-1" or "1".
+
+# Which loss function should I use?
+
+    * If the problem is a binary classification problem your choices should be Logistic or hinge loss 
+        * Example: spam vs non-spam, odds of click vs no-click
+    * If the problem is a regression problem (the target label you're trying to predict is a real value) you should be using Squared or Quantile loss.  If you're trying to minimize the mean error, pick squared-loss, if OTOH you're trying to predict the median (or any other quantile), use quantile-loss.
+        * Example: revenue, height, weight  
