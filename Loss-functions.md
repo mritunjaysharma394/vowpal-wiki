@@ -13,7 +13,7 @@ To select a loss function in VW see the [[Command line arguments]] guide.  The L
 
 # Which loss function should I use?
 
-    * If the problem is a binary classification problem your choices should be Logistic or hinge loss 
-        * Example: spam vs non-spam, odds of click vs no-click
-    * If the problem is a regression problem (the target label you're trying to predict is a real value) you should be using Squared or Quantile loss.  If you're trying to minimize the mean error, pick squared-loss, if OTOH you're trying to predict the median (or any other quantile), use quantile-loss.
-        * Example: revenue, height, weight  
+* If the problem is a binary classification problem your choices should be Logistic or hinge loss 
+** Example: spam vs non-spam, odds of click vs no-click
+* If the problem is a regression problem (the target label you're trying to predict is a real value) you should be using Squared or Quantile loss.  If you're trying to minimize the mean error, pick squared-loss, if OTOH you're trying to predict the median (or any other quantile), use quantile-loss.
+** Example: revenue, height, weight
