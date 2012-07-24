@@ -15,6 +15,8 @@ To select a loss function in VW see the [[Command line arguments]] guide.  The L
 
 * If the problem is a **binary classification problem** your choices should be Logistic or hinge loss.
 **Example:** spam vs non-spam, odds of click vs no-click.  (*Q:* when should hinge-loss be used vs logistic?)
-* If the problem is a **regression problem** (the target label you're trying to predict is a real value) you should be using Squared or Quantile loss.
+* If the problem is a **regression problem**, meaning the target label you're trying to predict is a real value -- you should be using Squared or Quantile loss.
 **Example:** revenue, height, weight.
-If you're trying to minimize the mean error, pick squared-loss, if OTOH you're trying to predict rank/order and you don't mind the mean error to increase as long as you get the relative order correct, you need to minimize the error vs the median (or any other quantile), in this case, you should use quantile-loss.
+If you're trying to minimize the mean error, use squared-loss. See: [http://en.wikipedia.org/wiki/Least_squares].
+If OTOH you're trying to predict rank/order and you don't mind the mean error to increase as long as you get the relative order correct, you need to minimize the error vs the median (or any other quantile), in this case, you should use quantile-loss.
+See [http://en.wikipedia.org/wiki/Quantile_regression]
