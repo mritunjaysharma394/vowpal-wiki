@@ -29,6 +29,9 @@ Output the input examples but setting the importance of positively-signed exampl
     --neg_ex_val_imp=X
 Output the input examples but setting the important of negatively-signed examples to X. This helps to emphasize negative examples during training, especially useful for imbalanced datasets (over-sampling).
 
+    --to_class
+Output the input examples but &rdquo;binning&ldquo; all positively-signed examples to a +1 label, and all negatively-signed examples to a -1 label. This converts the dataset from a regression framework to classification, and is especially useful for testing logistic loss on a regression-style dataset.
+
     --ex_val_desc
 Output a description of the input examples, including the number of examples with positive sign, the number with negative sign and the mean & standard deviation of the example labels.
 
