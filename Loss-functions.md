@@ -7,7 +7,7 @@ Given a prediction \(p\) and a label \(y\), a loss function \(\ell(p,y)\) measur
 3. Hinge loss
 \[\ell(p,y)=\max(0,1-yp)\]
 4. \(\tau\)-Quantile loss
-\[\ell(p,y)=\tau(p-y)\mathbb{I}(y \le p) +(1-\tau)(y-p)\mathbb{I}(y \geq p) \]
+\[\ell(p,y)=\tau(p-y)\mathbb{I}(y \lt p) +(1-\tau)(y-p)\mathbb{I}(y \geq p) \]
 
 To select a loss function in VW see the [[Command line arguments]] guide.  The Logistic and Hinge loss are for binary classification only, and thus all samples must have class "-1" or "1".
 
