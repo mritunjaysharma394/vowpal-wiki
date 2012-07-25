@@ -7,4 +7,5 @@ Here are some examples:
 <li>[[Matrix factorization example]]</li>
 <li>[[Truncated gradient descent example]]</li>
 <li>[[using vw varinfo]] - a vw wrapper to inspect your training-set & model</li>
+<li>[[Using vw regr]] - a script for aiding regression applications</li>
 </ol>
