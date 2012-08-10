@@ -34,13 +34,13 @@ Just like vw itself, you may call vw-varinfo without any arguments to get a brie
 
 ## more elaborate usage examples:
 
-If you want to call vw with more arguments, simply pass them through to the training phase of vw via the -P (PassThrough) option like this:
+If you want to call vw with more arguments, simply pass them through to the training phase of vw like this:
 
-    vw-varinfo -P '--l1 0.0005 -c --passes 40' data.train
+    vw-varinfo --l1 0.0005 -c --passes 40 data.train
 
 Another example. Say you want to find the strength of certain interactions between two groups of features with respect to the output label.  Assuming your data-set has two input-feature name-spaces starting with 'X' and 'Y', which separate your input features into two groups, you may run:
 
-    vw-varinfo -P '-q XY' your_data_set
+    vw-varinfo -q XY your_data_set
 
 And vw-varinfo will output all the pairs of interactions between features in name-space X and the features in name-space Y, ordered by their relative effect.  You may add additional parameters to pass to vw training phase.  Ones that I find often improve the results are multiple passes: '-c --passes 20' and '--exact_adaptive_norm'.
 
