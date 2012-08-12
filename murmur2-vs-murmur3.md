@@ -24,13 +24,16 @@ Note: changing the seed value (hash_base constant in hash.h) from 97562527 to 0 
 
 ### Data-sets tested + number of features + winner-hash-method
 
-
-    DataSet           #-features     Winner (dominates on most -b bits range)
-    0001.dat                4290     Murmur3
-    0002.dat                 289     Murmur2
-    rcv1_small.dat         23530     Murmur3
-    wsj_small.dat          13762     Murmur3
-    ner.train             292497     Murmur3
+                                      #-of-collisons
+                                   @ -b 18 (default)    Winning hash method
+    DataSet           #-features          M2      M3    (dominates on most -b bits range)
+    0001.dat                4290           0       0    Murmur3
+    0002.dat                 289           0       2    Murmur2
+    zero.dat                1032           0       0    same
+    wiki1K.dat              6330           0       0    same
+    rcv1_small.dat         23530           1       0    Murmur3
+    wsj_small.dat          13762         383     334    Murmur3
+    ner.train             292497      116204  116108    Murmur3
 
 ### Random feature interaction as a result of hash collisions
 
