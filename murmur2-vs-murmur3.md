@@ -20,6 +20,8 @@ One exception was 0002.dat where murmur2 achieves no-colisions @ -b 18 (the defa
     T^DXJ               100053
     T^GML               100053
 
+Note: changing the seed value (hash_base constant in hash.h) from 97562527 to 0 avoids these 2 collisions
+
 ### Data-sets tested + number of features + winner-hash-method
 
 
