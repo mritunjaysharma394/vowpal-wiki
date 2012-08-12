@@ -12,7 +12,13 @@ I used --exact_adaptive_norm and varied the -b bits parameter from as low as 12 
 
 I found that on most data-sets I tried, murmur3 had a slight advantage in hash collision avoidance.
 
-One exception was 0002.dat where murmur2 achieves no-colisions @ -b 18 (the default) while murmur3 achieves no-collisions only at -b 21.
+One exception was 0002.dat where murmur2 achieves no-colisions @ -b 18 (the default) while murmur3 achieves no-collisions only at -b 21.  The 2 colliding feature-names were short.
+
+    Feature         Hash Value
+    T^BKF                10281
+    T^IWR                10281
+    T^DXJ               100053
+    T^GML               100053
 
 ### Data-sets tested + number of features + winner-hash-method
 
@@ -28,11 +34,12 @@ One exception was 0002.dat where murmur2 achieves no-colisions @ -b 18 (the defa
 
 [[http://yendor.com/Img/wsj-m2-vs-m3-colpct.png]]
 
+[[http://yendor.com/Img/ner-m2-vs-m3.png]]
+
 [[http://yendor.com/Img/rcv1-m2-vs-m4-colpct.png]]
 
 [[http://yendor.com/Img/ner-m3-vs-m2-pct-improvement.png]]
 
-[[http://yendor.com/Img/ner-m2-vs-m3.png]]
 
 
 
