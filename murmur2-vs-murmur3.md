@@ -26,7 +26,7 @@ Note: changing the seed value (hash_base constant in hash.h) from 97562527 to 0 
 
                                       #-of-collisons
                                    @ -b 18 (default)    Winning hash method
-    DataSet           #-features          M2      M3    (dominates on most -b bits range)
+    DataSet           #-features          M2      M3    (dominates most -b 12..30 range)
     0001.dat                4290           0       0    Murmur3
     0002.dat                 289           0       2    Murmur2
     zero.dat                1032           0       0    same
