@@ -32,6 +32,11 @@ Note: changing the seed value (hash_base constant in hash.h) from 97562527 to 0 
     wsj_small.dat          13762     Murmur3
     ner.train             292497     Murmur3
 
+### Random feature interaction as a result of hash collisions
+
+Having less collisions doesn't always lead to lower training errors.
+I found some evidence among our test-suite examples that random collisions may sometime act as some kind of regularization and the surprising result is a lower average loss at the end.
+
 ### Sample charts
 
 [[http://yendor.com/Img/wsj-m2-vs-m3-colpct.png]]
