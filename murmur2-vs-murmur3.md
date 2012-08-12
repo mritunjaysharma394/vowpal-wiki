@@ -20,7 +20,7 @@ One exception was 0002.dat where murmur2 achieves no-colisions @ -b 18 (the defa
     T^DXJ               100053
     T^GML               100053
 
-Note: changing the seed value (hash_base constant in hash.h) from 97562527 to 0 avoids these 2 collisions
+Note: changing the seed value (hash_base constant in hash.h) from 97562527 to 0 avoids these 2 collisions. In the final commited version I switched to seed 0.  Most of the results below are with seed 97562527.
 
 ### Data-sets tested + number of features + winner-hash-method
 
@@ -41,6 +41,11 @@ Having less collisions doesn't always lead to lower training errors.
 I found some evidence among our test-suite examples that random collisions may sometime act as some kind of regularization and the surprising result is a lower average loss at the end.
 
 ### Sample charts
+
+Note, some charts have clipped X and/or Y ranges since otherwise the difference is too small to easily see.
+I did run all test on all the 12 .. 30 bit range.
+
+Also, not all charts have the same comparison criterion. Criterion was chosen to emphasize difference.
 
 [[http://yendor.com/Img/wsj-m2-vs-m3-colpct.png]]
 
