@@ -24,7 +24,7 @@ One exception was 0002.dat where murmur2 achieves no-colisions @ -b 18 (the defa
     wsj_small.dat          13762     Murmur3
     ner.train             292497     Murmur3
 
-### Charts
+### Sample charts
 
 [[http://yendor.com/Img/wsj-m2-vs-m3-colpct.png]]
 
@@ -32,5 +32,7 @@ One exception was 0002.dat where murmur2 achieves no-colisions @ -b 18 (the defa
 
 [[http://yendor.com/Img/ner-m3-vs-m2-pct-improvement.png]]
 
-[[http://yendor.com/Img/ner-m2-vs-m3.png]
+[[http://yendor.com/Img/ner-m2-vs-m3.png]]
+
+
 
