@@ -26,5 +26,11 @@ One exception was 0002.dat where murmur2 achieves no-colisions @ -b 18 (the defa
 
 ### Charts
 
-need to figure out how to upload images...
+[http://yendor.com/Img/wsj-m2-vs-m3-colpct.png]
+
+[http://yendor.com/Img/rcv1-m2-vs-m4-colpct.png]
+
+[http://yendor.com/Img/ner-m3-vs-m2-pct-improvement.png]
+
+[http://yendor.com/Img/ner-m2-vs-m3.png]
 
