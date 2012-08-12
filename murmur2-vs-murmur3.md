@@ -17,12 +17,12 @@ One exception was 0002.dat where murmur2 achieves no-colisions @ -b 18 (the defa
 ### Data-sets tested with number of features
 
 
-    DataSet     #-features    Winner (dominates on most -b bits range)
-    0001.dat          4290    Murmur3
-    0002.dat           289    Murmur2
-    rcv1_small.dat   23530    Murmur3
-    wsj_small.dat    13762    Murmur3
-    ner.train       292497    Murmur3
+    DataSet           #-features     Winner (dominates on most -b bits range)
+    0001.dat                4290     Murmur3
+    0002.dat                 289     Murmur2
+    rcv1_small.dat         23530     Murmur3
+    wsj_small.dat          13762     Murmur3
+    ner.train             292497     Murmur3
 
 ### Charts
 
