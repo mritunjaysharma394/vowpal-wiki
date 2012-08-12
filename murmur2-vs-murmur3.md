@@ -14,7 +14,7 @@ I found that on most data-sets I tried, murmur3 had a slight advantage in hash c
 
 One exception was 0002.dat where murmur2 achieves no-colisions @ -b 18 (the default) while murmur3 achieves no-collisions only at -b 21.
 
-### Data-sets tested with number of features
+### Data-sets tested + number of features + winner-hash-method
 
 
     DataSet           #-features     Winner (dominates on most -b bits range)
