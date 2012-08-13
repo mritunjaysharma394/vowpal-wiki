@@ -1,4 +1,4 @@
-I integrated murmur3 as a compile time (Add -DMURMUR3 to FLAGS macro in Makefile) option to vw.
+I integrated Austin Appleby's murmur3 (the 32-bit version only) as a compile time (add -DMURMUR3 to FLAGS macro in Makefile) option to vw.
 
 ## Results:
 
