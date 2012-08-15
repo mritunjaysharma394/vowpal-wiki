@@ -5,7 +5,7 @@ I integrated Austin Appleby's murmur3 (the 32-bit version only) as a compile tim
 ### Speed:
 In a few early runs on an older version of murmur3 I found murmur3 slightly faster than murmur2 (~3%).
 
-Update: after uprading to the latest version of murmur3 and running more extensive tests on bigger data-sets, I find that murmur3 is actually sllightly slower.  Here are two examples:
+Update: after upgrading to the latest version of murmur3 and running more extensive tests on bigger data-sets, I find that murmur3 is actually sllightly slower.  Here are two examples:
 
     Dataset newdev (not public):
     M2: 12.512u 2.448s 0:07.94 188.2%
@@ -89,6 +89,6 @@ Also, not all charts have the same comparison criterion. Criterion was chosen to
 
 ## Current conclusion
 
-Had murmur3 been consistently faster, I would have recommended switching.  While it is better on collision avoidance, the differences are small and you can achieve less collisions by simply increasing the weight-vector if you have a large number of features (using -b ...).  I'm split about the advantages of Murmur3 and currently (Aug 15, 2012) I'm not sure the switch is worth it.
+Had murmur3 been consistently faster, I would have recommended switching.  While it is better on collision avoidance, the differences are small and you can achieve less collisions by simply increasing the weight-vector if you have a large number of features (using -b ...).  I'm split about the advantages of Murmur3 and currently (Aug 15, 2012) I'm not sure a switch is worth it.
 
 
