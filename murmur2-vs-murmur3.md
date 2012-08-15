@@ -5,6 +5,36 @@ I integrated Austin Appleby's murmur3 (the 32-bit version only) as a compile tim
 ### Speed:
 murmur3 brings a slight ~3% speed advantage in training time vs murmur2.
 
+Update: after uprading to the latest version of murmur3 and running more extensive tests on bigger data-sets, I find that murmur3 is actually sllightly slower.  Here are two examples:
+
+    Dataset newdev (not public):
+    M2: 12.512u 2.448s 0:07.94 188.2%
+        12.992u 2.628s 0:08.39 186.0%
+        12.608u 2.632s 0:08.11 187.7%
+        12.556u 2.668s 0:08.11 187.5%
+        12.632u 2.568s 0:08.10 187.5%
+        12.580u 2.520s 0:08.03 188.0%
+        12.660u 2.624s 0:08.21 186.1%   Mean elapsed time: 8.127143 sec  
+
+    M3: 12.824u 2.612s 0:08.23 187.4%
+        12.764u 2.852s 0:08.40 185.8%
+        12.888u 2.592s 0:08.32 185.9%
+        12.912u 2.624s 0:08.29 187.3%
+        12.736u 2.720s 0:08.25 187.2%
+        12.456u 2.892s 0:08.19 187.3%
+        13.052u 2.420s 0:08.27 187.0%   Mean elapsed time 8.278571 sec (1.8632% slower)
+
+    Dataset: concatenate ner.train.gz 10 times:
+    M2: 19.493u 1.560s 0:14.92 141.0%
+        19.509u 1.520s 0:14.92 140.8%
+        19.553u 1.488s 0:14.92 140.9%
+        19.389u 1.824s 0:15.20 139.4%   Mean elapsed time: 14:99 sec
+
+    M3: 19.757u 1.444s 0:15.12 140.1%
+        20.521u 1.388s 0:15.60 140.3%
+        20.301u 1.896s 0:15.84 140.0%
+        20.013u 1.696s 0:15.53 139.7%   Mean elapsed time: 15.5225 sec (3.55% slower)
+
 ### Collision avoidance / dispersion
 I used the data-sets in the test suite.  Most data-sets don't have collisions with neither hash because -b 18 (the default) seems large enough to achieve hash sparsity.
 
