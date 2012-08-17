@@ -31,3 +31,10 @@ Currently, the only characters that can't be used in feature names are vertical 
 
 ## Notes
 When using logistic or hinge loss, the labels need to be from the set {+1,-1}  (documented in the V6.1 tutorial slide deck, but not elsewhere)
+
+The spacing around the | characters is important and significant:
+    * Around the 1st | if there's no space preceding it, the string that touches the | is considered a tag (id of example)
+    * After any |
+    ** If there's a space, the next non-space token is considered a regular feature name
+    ** If there's no space, the next non-space token is considered a name-space
+    ** name-spaces are considered as feature name prefixes, they are prepended to all feature names in the name-space
