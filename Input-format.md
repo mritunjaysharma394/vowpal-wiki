@@ -29,7 +29,7 @@ Currently, the only characters that can't be used in feature names are vertical 
     1 1.0 zebra|MetricFeatures:3.28 height:1.5 length:2.0 |Says black with white stripes |OtherFeatures NumberOfLegs:4.0 HasStripes
 
 
-# Notes
+## Notes
 When using logistic or hinge loss, the labels need to be from the set {+1,-1}  (documented in the V6.1 tutorial slide deck, but not elsewhere)
 
 The spacing around the | characters is important and significant:
