@@ -37,5 +37,6 @@ The spacing around the | characters is important and significant:
 
 After any |
 * If there's a space, the next non-space token is considered a regular feature name
-*If there's no space, the next non-space token is considered a name-space
-* name-spaces are considered as feature name prefixes, they are prepended to all feature names in the name-space
+* If there's no space, the next non-space token is considered a name-space
+
+name-spaces are considered as feature name prefixes, they are prepended to all feature names in the name-space
