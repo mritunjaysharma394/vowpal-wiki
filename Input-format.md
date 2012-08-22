@@ -40,3 +40,17 @@ After any |
 * If there's no space, the next non-space token is considered a name-space
 
 name-spaces are considered as feature name prefixes, they are prepended to all feature names in the name-space
+
+## multi-class algorithm formats
+
+Some of the vw algorithms support multiple classes.  For these algorithms the input format is expanded to support multiple-classes per example (input line).
+
+### weighted-all-pairs & cost-sensitive-one-against-all format
+
+The label information for the weighted-all-pairs algorithm (--wap) and the cost-sensitive-one-against-all (--csoaa) algorithm are the same.  This format is a sparse specification of costs per label (see csoaa.cc:parse_label() in the source tree for reference).
+
+Here's an example:
+
+    echo "1:0 2:3 3:1.5 4:1 |f input features come here" | vw --csoaa 4
+
+Preceding the 1st | char we have 4 classes: 1, 2, 3, 4  each of them has a weight/cost (the number after the colon).  It is important to specify the number of features as an argument to vw (--csoaa 4) and have class labels in the range [1,N] in the input (N=4 in this example).  Since the representation is sparse, there's no need to have all labels in all lines.
