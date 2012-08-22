@@ -53,4 +53,4 @@ Here's an example:
 
     echo "1:0 2:3 3:1.5 4:1 |f input features come here" | vw --csoaa 4
 
-Preceding the 1st | char we have 4 classes: 1, 2, 3, 4  each of them has a weight/cost (the number after the colon).  It is important to specify the number of features as an argument to vw (--csoaa 4) and have class labels in the range [1,N] in the input (N=4 in this example).  Since the representation is sparse, there's no need to have all labels in all lines.
+Preceding the 1st | char we have 4 classes: 1, 2, 3, 4  each of them has a weight/cost (the number after the colon).  It is important to specify the number of classes as an argument to vw (--csoaa 4) and have class labels in the range [1,N] in the input (N=4 in this example).  Since the representation is sparse, there's no need to have all labels in all lines.
