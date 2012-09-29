@@ -1,1 +1,1 @@
-All tagged versions can be <a href="https://github.com/JohnLangford/vowpal_wabbit/archives/master">downloaded from github</a>.  We try to have zero bugs, so the latest version is always recommended.
+All <a href="https://github.com/JohnLangford/vowpal_wabbit/tags">tagged versions</a> can be downloaded from github.  We try to have zero bugs, so a <a href="https://github.com/JohnLangford/vowpal_wabbit">checkout from the master branch</a> is almost always sane and often preferred.
