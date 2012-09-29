@@ -91,4 +91,10 @@ Also, not all charts have the same comparison criterion. Criterion was chosen to
 
 Had murmur3 been consistently faster, I would have recommended switching.  While it is better on collision avoidance, the differences are small and you can achieve less collisions by simply increasing the weight-vector if you have a large number of features (using -b ...).  I'm split about the advantages of Murmur3 and currently (Aug 15, 2012) I'm not sure a switch is worth it.
 
+## Update: September 29, 2012
+
+John felt the superior collision avoidance of murmur3 is worth the switch, especially with all the new reductions which tend to require larger per-feature space in the hash vector, so we have switched to murmur3.
+
+The latest v 7.0 vowpal wabbit uses murmur3 (32 bit) as its core hash function. There's no longer a compile time option to switch back to murmur2.
+
 
