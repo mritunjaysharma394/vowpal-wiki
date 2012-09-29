@@ -93,7 +93,7 @@ Learning rates often decay over time, and this specifies the initial time.  You 
 
 _power_t = 0.5_
 
-This specifies the power on the learning rate decay.  You can adjust this **--power_t p** where p in the range [0,1] can make sense.  0 means the learning rate does not decay, which can be helpful when state tracking, while 1 is very aggressive, but plausibly optimal for IID datasets.  0.5 is a minimax optimal choice.
+This specifies the power on the learning rate decay.  You can adjust this **--power_t p** where p is in the range [0,1].  0 means the learning rate does not decay, which can be helpful when state tracking, while 1 is very aggressive, but plausibly optimal for IID datasets.  0.5 is a minimax optimal choice. A different way of stating this is: stationary data-sets where the fundamental relation between the input features and target label are not changing over time, should benefit from a high (close to 1.0) _power_t_ while learning against changing conditions, like learning against an adversary who continuously changes the rules-of-the-game, would benefit from low (close to 0) _power_t_ so the learner can react quickly to these changing conditions. For many problems, 0.5, which is the default, seems to work best.
 
 Next, there is a bunch of header information.  VW is going to print out some live diagnostic information. 
 
