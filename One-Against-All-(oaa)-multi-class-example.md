@@ -13,13 +13,12 @@ directs vw to perform K multi-class (as opposed to binary) classification.
 * Uses a loop of K separate binary classifications.                
 * Each iteration classifies target feature i of K against all others (binary classification).
 
-### example
+### Example
 
 Assume we have a 3-class classfication problem. We label our 3 classes {1,2,3}
 
-Our data set may look like this
+Our data set `oaa.dat` may look like this
 
-    $ cat oaa.dat
     1 ex1| a
     2 ex2| a b
     3 ex3| a b c
