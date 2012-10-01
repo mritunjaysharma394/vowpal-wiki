@@ -6,8 +6,8 @@ The option `--oaa <K>` where <K> is the number of distinct classes
 directs vw to perform K multi-class (as opposed to binary) classification.
 
 ### Note:
-* Data-set labels must be in the set {1 .. <K>}
-* <K> is the maximum label value, and must be passed as an argument to --oaa  
+* Data-set labels must be in the set {1 .. \<K\>}
+* \<K\> is the maximum label value, and must be passed as an argument to `--oaa` 
                                                                   
 ### Implementation of the reduction:                                     
 * Uses a loop of K separate binary classifications.                
