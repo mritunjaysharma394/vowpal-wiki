@@ -32,6 +32,7 @@ We train:
     vw --oaa 3 oaa.dat -f oaa.model
 
 Which gives this progress output:
+
     final_regressor = oaa.model
     Num weight bits = 18
     learning rate = 0.5
