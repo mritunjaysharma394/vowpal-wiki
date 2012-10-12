@@ -4,7 +4,7 @@ CSOAA stands for "Cost Sensitive One Against All".
 ### Purpose:
 The option `--csoaa <K>` where <K> is the number of distinct classes
 directs vw to perform cost-sensitive K multi-class (as opposed to binary)
-classification.  It extends `-oaa <K>` to support multiple labels per input example, and costs associated with classifying these labels.
+classification.  It extends `--oaa <K>` to support multiple labels per input example, and costs associated with classifying these labels.
 
 ### Notes:
 * Data-set labels must be in the natural number set {1 .. \<K\>}
