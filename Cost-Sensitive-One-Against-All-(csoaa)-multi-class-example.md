@@ -31,12 +31,12 @@ Our data set `csoaa.dat` may look like this:
     1:3.0 3:1.0 ac1_expect_3| a c
     2:3.0 d1_expect_2| d
 
-Note how
-* The first 3 examples (lines) have only one label (with costs) each, and the next 3 examples have multiple labels on the same line.
+Notes:
+* The first 3 examples (lines) have only one label (with costs) each, and the next 3 examples have multiple labels on the same line. Any number of class-labels between {1 .. \<K\>} (1..3 in this case) is allowed on each line.
 * Each label belongs to one of the {1..\<K\>} classes, i.e. a natural number between 1 and \<K\>.
-* We assign a _lower_ cost to the label we want to be preferred. e.g. in line 4 (tagged `ab1_expect_2`) we have a cost of 1.0 for class-label 2, and a higher cost (2.0) for class-label 1.
+* We assign a _lower_ cost to the label we want to be preferred. e.g. in line 4 (tagged `ab1_expect_2`) we have a cost of 1.0, for class-label 2; and a higher cost 2.0, for class-label 1.
 * You may add a cost to each label. If you don't, the default cost of 1.0 is used.
-* The input feature section following the '|' is the same as in  traditional VW: you may have multiple name-spaces, numeric features, and optional *weights* for features and/or name-spaces.
+* The input feature section following the '|' is the same as in  traditional VW: you may have multiple name-spaces, numeric features, and optional *weights* for features and/or name-spaces (Note in this section the weights are weights, not costs, so they are positively correlated with chosen labels)
 
 We train:
 
