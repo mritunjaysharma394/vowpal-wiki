@@ -89,3 +89,8 @@ Which is a perfect classification:
 
 QED
 
+## Credits
+* Thanks to Ciemo for the example and for asking the right Qs on the mailing list.
+* Thanks to Stephane for patiently answering Ciemo's Qs.
+
+
