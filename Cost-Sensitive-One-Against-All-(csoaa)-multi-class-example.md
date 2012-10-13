@@ -11,7 +11,7 @@ classification.  It extends `--oaa <K>` to support multiple labels per input exa
 * \<K\> is the maximum label value, and must be passed as an argument to `--csoaa`
 * The input/training format for `--csoaa <K>` is different than the traditional VW format:
     * It supports *multiple labels* on the *same line*
-    * Each label has a trailing optional *cost* (default cost is 1.0)
+    * Each label has a trailing optional *cost* (default cost, when omitted is 1.0)
     * Cost syntax *looks* just like weight syntax: a colon followed by a floating-point number.
       For example:  `4:3.2` means the class-label 4 with a cost of 3.2, but *means* the opposite of weights.
     * It is critical to note that costs are *not* weights. They are the inverse of weights.
@@ -21,7 +21,7 @@ classification.  It extends `--oaa <K>` to support multiple labels per input exa
 ### Example
 Assume we have a 3-class classfication problem. We label our 3 classes {1,2,3}
 
-Our data set `csoaa.dat` may look like this:
+Our data set `csoaa.dat` is:
 
     1:1.0 a1_expect_1| a
     2:1.0 b1_expect_2| b
@@ -33,9 +33,7 @@ Our data set `csoaa.dat` may look like this:
 
 Notes:
 * The first 3 examples (lines) have only one label (with costs) each, and the next 3 examples have multiple labels on the same line. Any number of class-labels between {1 .. \<K\>} (1..3 in this case) is allowed on each line.
-* Each label belongs to one of the {1..\<K\>} classes, i.e. a natural number between 1 and \<K\>.
 * We assign a _lower_ cost to the label we want to be preferred. e.g. in line 4 (tagged `ab1_expect_2`) we have a cost of 1.0, for class-label 2; and a higher cost 2.0, for class-label 1.
-* You may add a cost to each label. If you don't, the default cost of 1.0 is used.
 * The input feature section following the '|' is the same as in  traditional VW: you may have multiple name-spaces, numeric features, and optional *weights* for features and/or name-spaces (Note in this section the weights are weights, not costs, so they are positively correlated with chosen labels)
 
 We train:
