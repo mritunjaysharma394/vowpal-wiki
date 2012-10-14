@@ -1,8 +1,8 @@
 ## Overview
-CSOAA stands for "Cost Sensitive One Against All".
+CSOAA stands for "Cost Sensitive One Against All" - A multi-class predictive modeling reduction in VW.
 
 ### Purpose:
-The option `--csoaa <K>` where <K> is the number of distinct classes
+The option `--csoaa <K>` where \<K\> is the number of distinct classes
 directs vw to perform cost-sensitive K multi-class (as opposed to binary)
 classification.  It extends `--oaa <K>` to support multiple labels per input example, and costs associated with classifying these labels.
 
