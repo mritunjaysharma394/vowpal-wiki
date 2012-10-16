@@ -1,4 +1,4 @@
-A new [[version 7.0 tutorial|v7.0_tutorial.pdf] is available. It covers the basics and most common options, how to use VW and the data format for different types of problems, such as Binary Classification, Regression, Multiclass Classification, Cost-Sensitive Multiclass Classification, "Offline" Contextual Bandit and Sequence Predictions. Many more advanced options in terms of flags and the data format are not covered. You can refer to previous tutorials for these more advanced details.
+A new [[version 7.0 tutorial|v7.0_tutorial.pdf]] is available. It covers the basics and most common options, how to use VW and the data format for different types of problems, such as Binary Classification, Regression, Multiclass Classification, Cost-Sensitive Multiclass Classification, "Offline" Contextual Bandit and Sequence Predictions. Many more advanced options in terms of flags and the data format are not covered. You can refer to previous tutorials for these more advanced details.
 
 The [[version 6.1 tutorial|v6.1_tutorial.pdf]] and various pieces below covers some topics not covered in the version 7 tutorial, as most of these haven't change in the latest version:
 
