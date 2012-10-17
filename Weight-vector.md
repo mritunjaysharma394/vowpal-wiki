@@ -1,3 +1,5 @@
 VW's weight vector has \(2^b\) weights (where \(b\) is specified by the `-b` option) and each example's features are hash to an index in \([0,2^b-1]\). The weight vector is also used to store other vectors needed by more sophisticated learning algorithms, such as the conjugate gradient method (`--conjugate_gradient`), or adaptive gradient descent (`--adaptive` and/or `--exact_adaptive_norm`).
 
 When more than one vector is stored in the same global \(2^b\) space, every hash-value slot will store two (or more) "weights" so the slot hash value is first integer divided (hash_value / N) to store N values per slot.  You may want to consider increasing the `-b` option value to avoid hash-collisions in these cases.
+
+VW uses -b 18 by default.  2^18 is 262144 meaning if you have much less than 262144 distinct features in your training set you should be relatively safe from hash-collisions.  If you use reductions like multiclass, you may want to increase the default by requesting a bigger -b value.
