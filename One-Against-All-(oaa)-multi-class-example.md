@@ -15,7 +15,7 @@ directs vw to perform K multi-class (as opposed to binary) classification.
 
 ### Example
 
-Assume we have a 3-class classfication problem. We label our 3 classes {1,2,3}
+Assume we have a 3-class classification problem. We label our 3 classes {1,2,3}
 
 Our data set `oaa.dat` may look like this
 
