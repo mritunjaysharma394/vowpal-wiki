@@ -3,7 +3,7 @@
 ## Why Hash?
 
 ###(sparse) Dimension Reduction and fast feature lookups.
-the default is hashing / projecting feature names to the machine architecture unsigned word using a variant of the murmurhash2 algorithm which then is XORed with (2^k)-1  (ie it is projected down to the first k lower order bits with the rest 0'd out). by default k=18 (ie 2^18 entries in the feature vector), with a max number of bits on 32-bit machines of k=29, and on a 64 bit machine, up to k=32). 
+the default is hashing / projecting feature names to the machine architecture unsigned word using a variant of the murmurhash v3 (32-bit only) algorithm which then is XORed with (2^k)-1  (ie it is projected down to the first k lower order bits with the rest 0'd out). by default k=18 (ie 2^18 entries in the feature vector), with a max number of bits on 32-bit machines of k=29, and on a 64 bit machine, up to k=32). 
 
 ### how is it implemented 
 for a consolidated model of the hashing code for feature string names, features with name spaces, and quadratic features over pairs of (name space, feature name) 
@@ -34,5 +34,15 @@ The output will look like this (example):
 
 enjoy!
 
+### Notes on the hashing algorithm
 
+* VW has switched from jenkins hash to murmur hash (v2) in 2009.
+* VW has switched from murmur hash v2 to murmur hash v3 in August 2012
 
+hash function switching was driven by considering both better collision avoidance and faster run-time performance.
+
+In the first case we improved both, in the second case collision avoidance was improved at the expense of a small (~3%) runtime degradation.
+
+It is important to note that we are only using the 32-bit version of the hash
+
+Collisions can be avoided by mapping your original features into natural numbers using a precomputed dictionary and using the numbers as feature names.  VW will use the integer as the value of the hash if the feature name is a natural number.  The command line `--hash [strings|all]` can force all feature names to be hashed.  The default is `--hash strings` which will hash feature names that look like strings but not those that look like integers.
