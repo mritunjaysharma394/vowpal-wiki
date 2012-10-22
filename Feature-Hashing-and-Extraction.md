@@ -31,9 +31,6 @@ The output will look like this (example):
     ^a                   24414     0.00     1.00   +1.0000     20.00%
     Constant            116060     0.00     0.00   +0.0000      0.00%
 
-
-enjoy!
-
 ### Notes on the hashing algorithm
 
 * VW has switched from jenkins hash to murmur hash (v2) in 2009.
@@ -43,6 +40,15 @@ hash function switching was driven by considering both better collision avoidanc
 
 In the first case we improved both, in the second case collision avoidance was improved at the expense of a small (~3%) runtime degradation.
 
-It is important to note that we are only using the 32-bit version of the hash
+Note that we are using the 32-bit version of the murmur v3 hash, so even on 64-bit machines with a lot of RAM you can't have more than -b 32 or (2^32 =~ 4 billion features).
 
-Collisions can be avoided by mapping your original features into natural numbers using a precomputed dictionary and using the numbers as feature names.  VW will use the integer as the value of the hash if the feature name is a natural number.  The command line `--hash [strings|all]` can force all feature names to be hashed.  The default is `--hash strings` which will hash feature names that look like strings but not those that look like integers.
+=== The `--hash` command line option
+
+The command line option `--hash [all|strings]` affects how feature names are hashed:
+
+* `--hash all` forces *all* feature names through the murmur3 hash-function.
+* `--hash strings` which is the default behavior, operates differently on feature names that look like strings (start with a non-numeric char) and those that are numeric. Feature names that are numeric are assumed to be hashed already, i.e the name itself is the value of the hash, so the hashing is skipped.
+
+=== Collision avoidance technique
+
+As a result of the `--hash strings` default behavior, collisions can be avoided by pre-mapping your original features into natural numbers using a precomputed dictionary to map all feature names to unique numbers.
