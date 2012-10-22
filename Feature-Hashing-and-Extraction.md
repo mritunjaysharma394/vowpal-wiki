@@ -42,13 +42,13 @@ In the first case we improved both, in the second case collision avoidance was i
 
 Note that we are using the 32-bit version of the murmur v3 hash, so even on 64-bit machines with a lot of RAM you can't have more than -b 32 or (2^32 =~ 4 billion features).
 
-=== The `--hash` command line option
+### The `--hash` command line option
 
 The command line option `--hash [all|strings]` affects how feature names are hashed:
 
 * `--hash all` forces *all* feature names through the murmur3 hash-function.
 * `--hash strings` which is the default behavior, operates differently on feature names that look like strings (start with a non-numeric char) and those that are numeric. Feature names that are numeric are assumed to be hashed already, i.e the name itself is the value of the hash, so the hashing is skipped.
 
-=== Collision avoidance technique
+### Collision avoidance technique
 
 As a result of the `--hash strings` default behavior, collisions can be avoided by pre-mapping your original features into natural numbers using a precomputed dictionary to map all feature names to unique numbers.
