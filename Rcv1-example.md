@@ -1,7 +1,7 @@
 <h2>RCV1-V2 Example for <a href="http://hunch.net/~vw/">VW</a></h2>
 One source for test data come from <a href="http://leon.bottou.org/">Leon Bottou</a>'s page on <a href="http://leon.bottou.org/projects/sgd">stochastic gradient descent</a>.  To use this, download the RCV1-V2 dataset <a href="http://hunch.net/~vw/rcv1.tar.gz">here</a>. <p>
 
-There are 3 files, rcv1.train.vw.gz, rcv1.test.vw.gz and vw_process.  vw_process is a simple script that converts from an svmlight format to VW's format.
+There are 3 files, rcv1.train.dat.gz, rcv1.test.dat.gz and vw_process.  vw_process is a simple script that converts from an svmlight format to VW's format.
 
 The individual files look like:
 <pre>
