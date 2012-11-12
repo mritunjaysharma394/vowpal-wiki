@@ -9,16 +9,14 @@ the algorithm used.  The data input format is the same.
 
 ### Note:
 * Data-set labels must be in the natural number set {1 .. \<K\>}
-* \<K\> is the maximum label value, and must be passed as an
-* argument to `--ect`
+* \<K\> is the maximum label value, and must be passed as an argument to `--ect`
 
 ### Implementation of the reduction:                                     
 * See the paper http://arxiv.org/abs/0902.3176
 
 ### Example
 
-Assume we have a 3-class classification problem. We label our 3
-classes {1,2,3}
+Assume we have a 3-class classification problem. We label our 3 classes {1,2,3}
 
 Our data set `ect.dat` may look like this
 
@@ -27,6 +25,7 @@ Our data set `ect.dat` may look like this
     3 ex3| c d e
     2 ex4| b a
     1 ex5| f g
+
 This is essentially the same format as the non multi-class case
 (classification or regression) where each label must belong to one
 of the {1..\<K\>} classes, i.e. a natural number between 1 and
@@ -58,6 +57,7 @@ Which gives this progress output:
     average loss = 0.6
     best constant = 0
     total feature number = 15
+
 Now we can try and predict, using the same data set as our test-set:
 
     vw -t -i ect.model ect.dat -p ect.predict
