@@ -53,7 +53,7 @@ Which gives this progress output:
     best constant = 0
     total feature number = 15
 
-We then can try and predict, using the same data set as out test-set:
+Now we can predict, using the same data set as our test-set:
 
     vw -t -i oaa.model oaa.dat -p oaa.predict
 
