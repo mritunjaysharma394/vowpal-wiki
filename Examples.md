@@ -7,6 +7,7 @@ Here are some examples:
 <li>[[Matrix factorization example]]</li>
 <li>[[One Against All (oaa) multi class example]]</li>
 <li>[[Cost Sensitive One Against All (csoaa) multi class example]]</li>
+<li>[[Error Correcting Tournament (ect) multi class example]]</li>
 <li>[[Truncated gradient descent example]]</li>
 <li>[[Contextual Bandit Example]]</li>
 <li>[[using vw varinfo]] - a vw wrapper to inspect your training-set & model</li>
