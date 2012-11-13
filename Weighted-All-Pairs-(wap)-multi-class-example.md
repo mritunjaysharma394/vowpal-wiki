@@ -11,7 +11,9 @@ these labels.
 
 ### Algorithm:
 `--wap <K>` reduces k-class cost-sensitive classification to importance weighted binary
-classification.  See details in the paper:
+classification.
+
+See details in the paper:
 http://hunch.net/~jl/projects/reductions/tutorial/paper/chapter.pdf
 
 ### Notes:
