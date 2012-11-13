@@ -48,7 +48,7 @@ Which gives this progress output:
     num sources = 1
     average    since         example     example  current  current  current
     loss       last          counter      weight    label  predict  features
-    0.666667   0.666667            3         3.0      3        1     4
+    0.666667   0.666667            3         3.0        3        1         4
 
     finished run
     number of examples = 5
@@ -58,7 +58,7 @@ Which gives this progress output:
     best constant = 0
     total feature number = 15
 
-Now we can try and predict, using the same data set as our test-set:
+Now we can predict, using the same data set as our test-set:
 
     vw -t -i ect.model ect.dat -p ect.predict
 
