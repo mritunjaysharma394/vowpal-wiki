@@ -5,8 +5,7 @@ Here are some examples:
 <li>[[Malicious URL example]].  A sequential binary classification problem with temporally correlated data.</li>
 <li>VW has a test suite.  <strong>tail -n 48 test/RunTests</strong> provides several little examples.</li>
 <li>[[Matrix factorization example]]</li>
-<li><b>Multi Class Examples</b>
-<ol>
+<li>Multi Class Examples<ol>
 <li>[[One Against All (oaa) multi class example]]</li>
 <li>[[Cost Sensitive One Against All (csoaa) multi class example]]</li>
 <li>[[Error Correcting Tournament (ect) multi class example]]</li>
