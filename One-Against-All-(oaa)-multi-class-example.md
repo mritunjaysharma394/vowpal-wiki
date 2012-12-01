@@ -13,6 +13,8 @@ directs vw to perform K multi-class (as opposed to binary) classification.
 * Uses a loop of K separate binary classifications.                
 * Each iteration classifies target feature i of K against all others (binary classification).
 
+Note: since the reduction is to binary classifications, using logistic-loss (`--loss_function logistic`) is natural with --oaa.
+
 ### Example
 
 Assume we have a 3-class classification problem. We label our 3 classes {1,2,3}
