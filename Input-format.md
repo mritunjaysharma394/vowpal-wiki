@@ -57,4 +57,4 @@ Preceding the 1st | char we have 4 classes: 1, 2, 3, 4  each of them has a cost 
 
 ## Format validation
 
-You can check that vw is correctly parsing your input by pasting a view lines into the [VW validator](http://hunch.net/~vw/validate.html).
+You can check that vw is correctly parsing your input by pasting a few lines into the [VW validator](http://hunch.net/~vw/validate.html).
