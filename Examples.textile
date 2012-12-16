@@ -10,7 +10,7 @@ Here are some examples:
 <li>[[Cost Sensitive One Against All (csoaa) multi class example]]</li>
 <li>[[Error Correcting Tournament (ect) multi class example]]</li>
 <li>[[Weighted All Pairs (wap) multi class example]]</li>
-<li>Predicting closed questions on Stack Overflow (text classification): http://fastml.com/predicting-closed-questions-on-stack-overflow/</li>
+<li><a href="http://fastml.com/predicting-closed-questions-on-stack-overflow/" target="_blank">Predicting closed questions on Stack Overflow</a> (text classification)</li>
 </ol>
 <li>[[Truncated gradient descent example]]</li>
 <li>[[Contextual Bandit Example]]</li>
