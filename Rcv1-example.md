@@ -20,7 +20,7 @@ There are a couple variation on the above format.  If you want to importance wei
 <p>
 A command for training is the following.
 <pre>
-zcat rcv1.train.dat.gz | vw --cache_file cache_train -f r_temp 
+zcat rcv1.train.vw.gz | vw --cache_file cache_train -f r_temp 
 </pre>
 Here: 
 <ol>
@@ -30,7 +30,7 @@ Here:
 
 Next, you can test according to the following:
 <pre>
-zcat rcv1.test.dat.gz | vw -t --cache_file cache_test -i r_temp -p p_out
+zcat rcv1.test.vw.gz | vw -t --cache_file cache_test -i r_temp -p p_out
 </pre>
 Here the flags are:
 <ol>
@@ -40,7 +40,7 @@ Here the flags are:
 </ol>
 To measure performance, I often use the <a href="http://osmot.cs.cornell.edu/kddcup/software.html">perf</a> which Rich Caruana put together for the 2004 KDD cup challenge.  This software has the advantage that many people cared that it worked right.  To use perf, you first create a file with the labels 
 <pre>
-zcat rcv1.test.dat.gz | cut -d ' ' -f 1 | sed -e 's/^-1/0/' > labels
+zcat rcv1.test.vw.gz | cut -d ' ' -f 1 | sed -e 's/^-1/0/' > labels
 </pre>
 
 and then type:
