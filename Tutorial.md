@@ -170,7 +170,7 @@ _0_ is the value of the feature's weight.
 
 Examining further, you'll notice that the feature 2006 uses the index 2006.  This means that you can freely use the hashing or pre-compute indices as is common in for other machine learning programs.
 
-The advantage of using unique integer-based feature-names is that they are guaranteed not to collide after hashing.  The advantage of free-text (non integer) feature names is readability and self-documentation. Since only ':', '|', and _spaces_ are special to the vw parser, you can give features extremely readable names like: _height>2_   _valueinrange[1..5]_   _color=red_    and so on.  Features names can even start with a digit, e.g.: _1st-guess:0.5_   _2nd-guess:3_  etc.
+The advantage of using unique integer-based feature-names is that they are guaranteed not to collide after hashing.  The advantage of free-text (non integer) feature names is readability and self-documentation. Since only ':', '|', and _spaces_ are special to the vw parser, you can give features extremely readable names like:  &nbsp; _height>2_ &nbsp;  _valueinrange[1..5]_  &nbsp;  _color=red_  &nbsp;  and so on.  Feature-names may even start with a digit, e.g.:  &nbsp; _1st-guess:0.5_  &nbsp;  _2nd-guess:3_  etc.
 
 ### What's next?
 
