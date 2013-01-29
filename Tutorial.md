@@ -111,17 +111,17 @@ _current label_ tells you the label of the second example.
 
 _current predict_ tells you the prediction (before training) on the current example.
 
-_current features_ tells you how many features the current example has.  This is great for debugging, and you'll note that we have 5 features when you expect 4.  This exists, because VW has a default constant feature which is always added in.  Use **--noconstant** to turn it off.
+_current features_ tells you how many features the current example has.  This is great for debugging, and you'll note that we have 5 features when you expect 4.  This happens, because VW has a default constant feature which is always added in.  Use **--noconstant** to turn it off.
 
 VW prints a new line with an exponential backoff.  This is very handy, because often you can debug some problem before the learning algorithm finishes going through a dataset.
 
 At the end, some more straightforward totals are printed.  The only mysterious one is:
-_best constant_ and _best constant's loss_  These really only work if you are using squared loss, which is the default.  They compute the best constant's predictor and the loss of the best constant predictor.  If _average loss_ is not better than _best constant's loss_, something is wrong.  In this case, we have to few examples to generalize.
+_best constant_ and _best constant's loss_  These really only work if you are using squared loss, which is the default.  They compute the best constant's predictor and the loss of the best constant predictor.  If _average loss_ is not better than _best constant's loss_, something is wrong.  In this case, we have too few examples to generalize.
 
 If we want to overfit like mad, we can simply use:
 &gt; **./vw house_dataset -c --passes 25**
 
-You'll notice that the _since last_ column drops to 0, implying that we have a perfect predictor, as is unsurprising with 3 examples having 5 features each.
+You'll notice that the _since last_ column drops to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.
 
 ### Saving your model (a.k.a. regressor) into a file
 
@@ -136,7 +136,7 @@ We want to make predictions of course.  A simple way to do this is:
 
 The first output _0.000000_ is for the first example.
 
-The second output _0.000000 second_house_ is for the second example.  You'll notice the tag appears here, and this is the primary use of the tag.
+The second output _0.000000 second_house_ is for the second example.  You'll notice the tag appears here, and this is the primary use of the tag: mapping predictions to the examples they belong to.
 
 The third output _1.000000 third_house_ is for the third example.  Clearly, some learning happened, because the prediction is now 1.
 
@@ -162,13 +162,15 @@ _^price:43641:0.23:0_
 
 The _^price_ is the original feature.  If you use a namespace, it appears before _^_.  Namespaces are an advanced feature which allows you to group features and operate them in the core of VW with **-q** and **--ignore**.
 
-_43641_ is the index of the feature, computed by a hash.
+_43641_ is the index of the feature, computed by a hash function on the feature name.
 
 _0.23_ is the value of the feature.
 
 _0_ is the value of the feature's weight.
 
-Examining further, you'll notice that the feature 2006 uses the index 2006.  This means that you can freely use the hashing or precompute indicies as is common in for other machine learning programs.
+Examining further, you'll notice that the feature 2006 uses the index 2006.  This means that you can freely use the hashing or pre-compute indices as is common in for other machine learning programs.
+
+The advantage of using unique integer-based feature-names is that they are guaranteed not to collide after hashing.  The advantage of free-text (non integer) feature names is readability and self-documentation. Since only '**_:_**', '**_|_**', and _**spaces**_ are special to the vw parser, you can give features extremely readable names like: **height>2**  **value_in_range[1..5]**  **color=red**   and so on.  Features names can even start with a digit, e.g.: 1st_guess:0.5  2nd_guess:3 etc.
 
 ### What's next?
 
