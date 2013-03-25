@@ -25,3 +25,47 @@ Testing the model on held-out data results in an average loss of ~0.89 (RMSE of 
       vw /dev/stdin -i movielens.reg -t
 
 Results may vary slightly due to random initialization of the weight vector in the training phase.
+
+# Notes on factorization with multiple features and/or namespaces
+
+The matrix factorization code allows factorization over multiple namespaces. You may have multiple features in the same namespace as well as separate namespaces. Both of the examples below differ only syntactically and should provide same results up to differences due to random initialization which is enforced by matrix factorization.
+
+## Multiple namespaces
+
+Lets take an example ``multiple-namespaces.vw``:
+```
+1 |user 1 |item a |producer P
+```
+
+```
+$ vw -t -d multiple-namespaces.vw --audit --rank 1 -q ui -q up --quiet | grep "^\t"| tr '\t' "\n" 
+
+u^1:60292(60292):1:0.00678545
+i^a:254788(254788):1:0.0143628
+p^X:300696(300696):1:0.0243403
+464240:1:0.0723715
+u1^1:60293(60293):1:0.0619221:i1^a:254789(254789):1:0.0403681:0.00249968
+u1^1:60293(60293):1:0.0619221:p1^X:300697(300697):1:0.0563977:0.00349226
+```
+
+As you can see above the latent features ``u1^1`` etc are shared across the two ``-q`` factorizations.
+
+## Multiple features in a namespace
+
+Alternatively you we can represent your data as in ``multiple-features.vw``:
+```
+1 |user 1 |item a P
+```
+
+```
+$ vw -t -d multiple-features.vw --audit --rank 1 -q ui --quiet | grep "^\t"| tr '\t' "\n" 
+
+u^1:60292(60292):1:0.00678545
+i^a:254788(254788):1:0.0143628
+i^X:748324(748324):1:0.0125303
+464240:1:0.0723715
+u1^1:60293(60293):1:0.0619221:i1^a:254789(254789):1:0.0403681:0.00249968
+u1^1:60293(60293):1:0.0619221:i1^X:748325(748325):1:0.00410265:0.000254045
+```
+
+We get three linear features as usual, the numeric feature is Constant and then latent feature interactions. Number of latent features will vary as you vary ``--rank``.
