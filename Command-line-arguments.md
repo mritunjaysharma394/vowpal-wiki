@@ -61,6 +61,8 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
     -q [ --quadratic ] arg           Create and use quadratic features
     --ignore arg                     ignore namespaces beginning
                                      with character <arg>
+    --keep arg                       keep namespaces beginning with 
+                                     character <arg>
     --sort_features                  turn this on to disregard order in which 
                                      features have been defined. This will lead 
                                      to smaller cache sizes
@@ -77,6 +79,8 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 `-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `document`, then specifying `-q ud` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the `document` namespace. If a letter matches more than one namespace then all the matching namespaces are used. In our example if there is another namespace `url` then interactions between `url` and `document` will also be modeled.
 
 `--ignore` ignores a namespace, effectively making the features not there.  You can use it multiple times.
+
+`--keep` keeps namespace(s) ignoring those not listed, it is a counterpart to `--ignore`.  You can use it multiple times. Useful for example to train a baseline using just a single namespace.
 
 `--noconstant` eliminates the constant feature that exists by default in VW.
 
