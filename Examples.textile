@@ -10,10 +10,11 @@ Here are some examples:
 <li>[[Cost Sensitive One Against All (csoaa) multi class example]]</li>
 <li>[[Error Correcting Tournament (ect) multi class example]]</li>
 <li>[[Weighted All Pairs (wap) multi class example]]</li>
-<li><a href="http://fastml.com/predicting-closed-questions-on-stack-overflow/" target="_blank">Predicting closed questions on Stack Overflow</a> (text classification)</li>
 </ol>
 <li>[[Truncated gradient descent example]]</li>
 <li>[[Contextual Bandit Example]]</li>
 <li>[[using vw varinfo]] - a vw wrapper to inspect your training-set & model</li>
 <li>[[Using vw regr]] - a script for aiding regression applications</li>
 </ol>
+
+See also <a href="http://fastml.com/blog/categories/vw/" target="_blank">http://fastml.com/blog/categories/vw/</a> for several examples of using Vowpal Wabbit in practice.
