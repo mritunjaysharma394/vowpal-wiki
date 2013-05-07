@@ -42,7 +42,7 @@ Another example. Say you want to find the strength of certain interactions betwe
 
     vw-varinfo -q XY your_data_set
 
-And vw-varinfo will output all the pairs of interactions between features in name-space X and the features in name-space Y, ordered by their relative effect.  You may add additional parameters to pass to vw training phase.  Ones that I find often improve the results are multiple passes: '-c --passes 20' and '--exact_adaptive_norm'.
+And vw-varinfo will output all the pairs of interactions between features in name-space X and the features in name-space Y, ordered by their relative effect.  You may add additional parameters to pass to vw training phase.
 
 ## Sanity check of vw-varinfo using a contrived example
 
