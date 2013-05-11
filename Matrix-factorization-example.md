@@ -17,7 +17,19 @@ The data consist of `(user, item, rating, date)` events, where ratings are given
       --learning_rate 0.025 --passes 20 --decay_learning_rate 0.97 --power_t 0 \
       -f movielens.reg --cache_file movielens.cache
 
-Note that the combination of `-b 18` and `--rank 10` results in a weight vector of (1+2*10)*2^18 elements. The `--l2` option is the L2 regularization argument to avoid overfitting.
+Note that the combination of `-b 18` and `--rank 10` results in a weight vector of (1+2*10)*2^18 elements. The `--l2` option is the L2 regularization argument to avoid overfitting. For reference, the first few lines of input sent to Vowpal Wabbit's STDIN is:
+
+    5 |u 1 |i 1
+    3 |u 1 |i 2
+    4 |u 1 |i 3
+    3 |u 1 |i 4
+    3 |u 1 |i 5
+    5 |u 1 |i 6
+    4 |u 1 |i 7
+    1 |u 1 |i 8
+    5 |u 1 |i 9
+    3 |u 1 |i 10
+    ...
 
 Testing the model on held-out data results in an average loss of ~0.89 (RMSE of ~0.94):
 
