@@ -52,7 +52,7 @@ As you can see above the latent features ``u1^1`` etc are shared across the two 
 
 ## Multiple features in a namespace
 
-Alternatively you we can represent your data as in ``multiple-features.vw``:
+Alternatively you can represent your data as in ``multiple-features.vw``:
 ```
 1 |user 1 |item a P
 ```
