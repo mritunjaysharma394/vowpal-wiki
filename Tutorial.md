@@ -31,8 +31,8 @@ This should "just work", at least on Linux and OSX, and plausibly on any Posix p
 Boost installation for Debian/Linux distributions use the command - "sudo apt-get install libboost-program-options-dev"
 Boost installation for Mac OSX is a little bit more involved: 
    1) Download the source at http://sourceforge.net/projects/boost/files/boost/1.50.0/
-   2) Execute the shell script with "./bootstrap.sh"
-   3) Next run the command "bjam install"
+   2) Execute the shell script with "sudo ./bootstrap.sh"
+   3) Next run the command "sudo ./bjam --layout=tagged install"
    4) You should be good to go
 
 Next, we test the result.
