@@ -158,7 +158,7 @@ When developing a new ML application, it's very helpful to debug.  VW can help a
 
 Every example uses two lines.  The first line has the prediction, and the second line has one entry per feature.  Looking at the first feature, we see:
 
-_^price:43641:0.23:0_
+_^price:43641:0.23:0@0.25_
 
 The _^price_ is the original feature.  If you use a namespace, it appears before _^_.  Namespaces are an advanced feature which allows you to group features and operate them in the core of VW with **-q** and **--ignore**.
 
@@ -167,6 +167,8 @@ _43641_ is the index of the feature, computed by a hash function on the feature 
 _0.23_ is the value of the feature.
 
 _0_ is the value of the feature's weight.
+
+_@0.25_ represents the sum of gradients squared for that feature when you are using per-feature adaptive learning rates.
 
 Examining further, you'll notice that the feature 2006 uses the index 2006.  This means that you can freely use the hashing or pre-compute indices as is common in for other machine learning programs.
 
