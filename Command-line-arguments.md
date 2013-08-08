@@ -174,7 +174,7 @@ whose value can be specified by `--quantile_tau`. By default this is 0.5. For mo
 
 To average the gradient from \(k\) examples and update the weights once every \(k\) examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation and it's only enabled there.
 
-`--feature_mask` allows to specify directly a set of parameters which can update, from a model file. This is useful in combination with --l1. One can use --l1 to discover which features should have a nonzero weight, then use --feature_mask without --l1 to learn a better regressor.
+`--feature_mask` allows to specify directly a set of parameters which can update, from a model file. This is useful in combination with `--l1`. One can use `--l1` to discover which features should have a nonzero weight, then use `--feature_mask` without `--l1` to learn a better regressor.
  
  
 # Weight Options
