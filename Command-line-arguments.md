@@ -59,10 +59,13 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 # Example Manipulation Options
     -t [ --testonly ]                Ignore label information and just test
     -q [ --quadratic ] arg           Create and use quadratic features
+    --cubic arg                      Create and use cubic features
     --ignore arg                     ignore namespaces beginning
                                      with character <arg>
     --keep arg                       keep namespaces beginning with 
                                      character <arg>
+    --holdout_off                    no holdout data in multiple passes
+    --holdout_period                 holdout period for test only, default 10
     --sort_features                  turn this on to disregard order in which 
                                      features have been defined. This will lead 
                                      to smaller cache sizes
@@ -76,11 +79,17 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 
 `-t` makes VW run in testing mode. The labels are ignored so this is useful for assessing the generalization performance of the learned model on a test set.
 
-`-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `document`, then specifying `-q ud` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the `document` namespace. If a letter matches more than one namespace then all the matching namespaces are used. In our example if there is another namespace `url` then interactions between `url` and `document` will also be modeled.
+`-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `document`, then specifying `-q ud` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the `document` namespace. If a letter matches more than one namespace then all the matching namespaces are used. In our example if there is another namespace `url` then interactions between `url` and `document` will also be modeled. The letter ':' is a wildcard to interact with all namespaces. -q a: (or -q :a) will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the namespaces starting with 'a' and `y` is a feature from the all namespaces. -q :: would interact any combination of pairs of features.
+
+'--cubic' is similar to '-q', but it takes three letters as the argument, thus enabling interaction among the features of three namespaces. 
 
 `--ignore` ignores a namespace, effectively making the features not there.  You can use it multiple times.
 
 `--keep` keeps namespace(s) ignoring those not listed, it is a counterpart to `--ignore`.  You can use it multiple times. Useful for example to train a baseline using just a single namespace.
+
+'--holdout_off' disables holdout validation for multiple pass learning. By default, VW holds out a (controllable default = 1/10th) subset of examples whenever --passes > 1 and reports the test loss on the print out. This is used to prevent overfitting in multiple pass learning. An extra 'h' is printed at the end of the line to specify the reported losses are holdout validation loss, instead of progressive validation loss. 
+
+'--holdout_period' specifies the period of holdout example used for holdout validation in multiple pass learning. For example, if user specifies '--holdout_period 5', every one in 5 examples is used for holdout validation. In other words, 80% of the data is used for training.   
 
 `--noconstant` eliminates the constant feature that exists by default in VW.
 
@@ -114,6 +123,8 @@ By default VW hashes string features and does not hash integer features. `--hash
     --quantile_tau arg (=0.5)        Parameter \tau associated with Quantile loss
                                      Defaults to 0.5
     --minibatch arg (=1)             Minibatch size
+    --feature_mask arg               Use existing regressor to determine which 
+                                     parameters may be updated
 
 `--exact_adaptive_norm` and `--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are
 [Adaptive Bound Optimization for Online Convex Optimization](http://arxiv.org/abs/1002.4908)
@@ -162,7 +173,10 @@ To specify a loss function use `--loss_function` followed by either `squared`, `
 whose value can be specified by `--quantile_tau`. By default this is 0.5. For more information see [[Loss functions]]
 
 To average the gradient from \(k\) examples and update the weights once every \(k\) examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation and it's only enabled there.
-  
+
+'--feature_mask' allows to specify directly a set of parameters which can update, from a model file. This is useful in combination with --l1. One can use --l1 to discover which features should have a nonzero weight, then use --feature_mask without --l1 to learn a better regressor.
+ 
+ 
 # Weight Options
     -b [ --bit_precision ] arg       number of bits in the feature table
     -i [ --initial_regressor ] arg   Initial regressor(s)
@@ -170,6 +184,7 @@ To average the gradient from \(k\) examples and update the weights once every \(
     --random_weights arg             make initial weights random
     --initial_weight arg (=0)        Set all weights to an initial value of 1.
     --readable_model arg             Output human-readable final regressor
+    --invert_hash arg                Output human-readable final regressor with feature names
     --save_per_pass                  Save the model after every pass over data
     --input_feature_regularizer arg  Per feature regularization input file
     --output_feature_regularizer_binary arg  Per feature regularization output file
@@ -181,6 +196,8 @@ VW hashes all features to a predetermined range \([0,2^b-1]\) and uses a fixed w
 Use the `-f` option to write the weight vector to a file named after its argument. For testing purposes or to resume training, one can load a weight vector using  the `-i` option.
 
 `--readable_model` is identical to `-f`, except that the model is output in a human readable format.
+
+'--invert_hash' is similar to '--readable_model', but the model is output in a more human readable format with feature names followed by weights, instead of hash indexes and weights. Note that if -c is on, it is suggested to use -k as well (especially when the cached data file already exists), because the cached data files do not contain feature names.  
 
 `--save_per_pass` saves the model after every pass over the data.  This is useful for early stopping.
 
