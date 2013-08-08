@@ -79,17 +79,17 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 
 `-t` makes VW run in testing mode. The labels are ignored so this is useful for assessing the generalization performance of the learned model on a test set.
 
-`-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `document`, then specifying `-q ud` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the `document` namespace. If a letter matches more than one namespace then all the matching namespaces are used. In our example if there is another namespace `url` then interactions between `url` and `document` will also be modeled. The letter ':' is a wildcard to interact with all namespaces. -q a: (or -q :a) will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the namespaces starting with 'a' and `y` is a feature from the all namespaces. -q :: would interact any combination of pairs of features.
+`-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `document`, then specifying `-q ud` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the `document` namespace. If a letter matches more than one namespace then all the matching namespaces are used. In our example if there is another namespace `url` then interactions between `url` and `document` will also be modeled. The letter `:` is a wildcard to interact with all namespaces. -q a: (or -q :a) will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the namespaces starting with `a` and `y` is a feature from the all namespaces. -q :: would interact any combination of pairs of features.
 
-'--cubic' is similar to '-q', but it takes three letters as the argument, thus enabling interaction among the features of three namespaces. 
+`--cubic` is similar to `-q`, but it takes three letters as the argument, thus enabling interaction among the features of three namespaces. 
 
 `--ignore` ignores a namespace, effectively making the features not there.  You can use it multiple times.
 
 `--keep` keeps namespace(s) ignoring those not listed, it is a counterpart to `--ignore`.  You can use it multiple times. Useful for example to train a baseline using just a single namespace.
 
-'--holdout_off' disables holdout validation for multiple pass learning. By default, VW holds out a (controllable default = 1/10th) subset of examples whenever --passes > 1 and reports the test loss on the print out. This is used to prevent overfitting in multiple pass learning. An extra 'h' is printed at the end of the line to specify the reported losses are holdout validation loss, instead of progressive validation loss. 
+`--holdout_off` disables holdout validation for multiple pass learning. By default, VW holds out a (controllable default = 1/10th) subset of examples whenever --passes > 1 and reports the test loss on the print out. This is used to prevent overfitting in multiple pass learning. An extra `h` is printed at the end of the line to specify the reported losses are holdout validation loss, instead of progressive validation loss. 
 
-'--holdout_period' specifies the period of holdout example used for holdout validation in multiple pass learning. For example, if user specifies '--holdout_period 5', every one in 5 examples is used for holdout validation. In other words, 80% of the data is used for training.   
+`--holdout_period` specifies the period of holdout example used for holdout validation in multiple pass learning. For example, if user specifies `--holdout_period 5`, every one in 5 examples is used for holdout validation. In other words, 80% of the data is used for training.   
 
 `--noconstant` eliminates the constant feature that exists by default in VW.
 
@@ -174,7 +174,7 @@ whose value can be specified by `--quantile_tau`. By default this is 0.5. For mo
 
 To average the gradient from \(k\) examples and update the weights once every \(k\) examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation and it's only enabled there.
 
-'--feature_mask' allows to specify directly a set of parameters which can update, from a model file. This is useful in combination with --l1. One can use --l1 to discover which features should have a nonzero weight, then use --feature_mask without --l1 to learn a better regressor.
+`--feature_mask` allows to specify directly a set of parameters which can update, from a model file. This is useful in combination with --l1. One can use --l1 to discover which features should have a nonzero weight, then use --feature_mask without --l1 to learn a better regressor.
  
  
 # Weight Options
@@ -197,7 +197,7 @@ Use the `-f` option to write the weight vector to a file named after its argumen
 
 `--readable_model` is identical to `-f`, except that the model is output in a human readable format.
 
-'--invert_hash' is similar to '--readable_model', but the model is output in a more human readable format with feature names followed by weights, instead of hash indexes and weights. Note that if -c is on, it is suggested to use -k as well (especially when the cached data file already exists), because the cached data files do not contain feature names.  
+`--invert_hash` is similar to `--readable_model`, but the model is output in a more human readable format with feature names followed by weights, instead of hash indexes and weights. Note that if -c is on, it is suggested to use -k as well (especially when the cached data file already exists), because the cached data files do not contain feature names.  
 
 `--save_per_pass` saves the model after every pass over the data.  This is useful for early stopping.
 
