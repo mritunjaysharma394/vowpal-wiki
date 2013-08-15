@@ -2,7 +2,7 @@
 
 vw-varinfo is a small wrapper around vw which exposes all variables of a model in human readable form. The output includes the input variable names, including name-spaces where applicable, the vw hash value, the range [min, max] of the variable values in the training-set, the final model (regressor) weight, and the relative distance of each variable from the best constant prediction.
 
-The wrapper is written in perl and can be found under _utl/vw-varinfo_ in the source tree.  _vw-varinfo_ calls _vw_ so vw should be installed somewhere in your _PATH_ for _vw-varnifo_ to work properly.
+The wrapper is written in perl and can be found under _utl/vw-varinfo_ in the source tree.  _vw-varinfo_ calls _vw_ so vw should be installed somewhere in your _PATH_ for _vw-varinfo_ to work properly.
 
 Here's a self-explanatory example output showing which foods affect increase vs decrease in daily weight during a diet:
 
