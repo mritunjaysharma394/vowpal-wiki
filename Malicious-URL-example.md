@@ -67,7 +67,7 @@ If you want to compare the actual predictions to the true labels, re-run the com
     for d in `seq 0 120`; do cat url_svmlight/Day$d.svm; done \
       |cut -d ' ' -f 1 |sed -e 's/^-1/0/' >labels
 
-One can use Rich Caruana's [perf](http://kodiak.cs.cornell.edu/kddcup/software.html) software to compute the cumulative accuracy, but this requires a minor tweak in the code to allow more than 500000 predictions.  Once that is dealt with, executing the command-line:
+One can use Rich Caruana's [perf](http://osmot.cs.cornell.edu/kddcup/software.html) software to compute the cumulative accuracy, but this requires a minor tweak in the code to allow more than 500000 predictions.  Once that is dealt with, executing the command-line:
 
     perf -ACC -files labels p_out
 
