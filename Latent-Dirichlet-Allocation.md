@@ -8,3 +8,6 @@ This video tutorial is useful, but refers to the 5.0 version: http://videolectur
 
 This tutorial is similar, but with more up to date command-line arguments: https://github.com/JohnLangford/vowpal_wabbit/wiki/lda.pdf
 
+### Note on LDA Audits
+
+The audit output from VW for LDA includes interaction terms (i.e. "feat1^feat2:[hash]\t[topic1-weight]\t[topic2-weight]..."), which make it difficult to attribute a single feature to a single topic & feature weight. In this case, Matt Hoffman recommends doing your own hashing before calling VW, and then interpreting the readable model ("--readable_model") output instead of the audit.
