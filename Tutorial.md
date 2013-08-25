@@ -7,6 +7,7 @@ The [[version 6.1 tutorial|v6.1_tutorial.pdf]] and various pieces below covers s
 * [[Cluster parallel learning|Cluster_parallel.pdf]].
 * [[Active Learning|active.pdf]] (v5.0 presentation, but little changed)
 * [[Latent Dirichlet Allocation|lda.pdf]] (v5.0 presentation, little changed) See also [[Latent Dirichlet Allocation]]
+* <a href="http://zinkov.com/posts/2013-08-13-vowpal-tutorial/">Vowpal Wabbit tutorial for the Uninitiated</a> by Rob Zinkov
 
 ### Older stuff
 The [[version 5.1 tutorial|v5.1_tutorial.pdf]] with a <a href="http://talks.eharmony.com/video/31936897">video</a>. 
