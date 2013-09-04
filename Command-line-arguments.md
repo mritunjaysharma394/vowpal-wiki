@@ -201,7 +201,7 @@ Use the `-f` option to write the weight vector to a file named after its argumen
 
 `--save_per_pass` saves the model after every pass over the data.  This is useful for early stopping.
 
-`--intput_feature_regularizer`, `--output_feature_regularizer_binary`, `--output_feature_regularizer_text` are analogs of `-i`, `-f`, and `--readable_model` for batch optimization where want to do _per feature_ regularization.  This is advanced, but allows efficient simulation of online learning with a batch optimizer.
+`--input_feature_regularizer`, `--output_feature_regularizer_binary`, `--output_feature_regularizer_text` are analogs of `-i`, `-f`, and `--readable_model` for batch optimization where want to do _per feature_ regularization.  This is advanced, but allows efficient simulation of online learning with a batch optimizer.
 
 By default VW starts with the zero vector as its hypothesis. The `--random_weights` option initializes with random weights. This is often useful for symmetry breaking in advanced models.  It's also possible to initialize with a fixed value such as the all-ones vector using `--initial_weight`.
 
