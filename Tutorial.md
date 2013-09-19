@@ -121,9 +121,10 @@ At the end, some more straightforward totals are printed.  The only mysterious o
 `best constant` and `best constant's loss`  These really only work if you are using squared loss, which is the default.  They compute the best constant's predictor and the loss of the best constant predictor.  If `average loss` is not better than `best constant's loss`, something is wrong.  In this case, we have too few examples to generalize.
 
 If we want to overfit like mad, we can simply use:
+
     ./vw house_dataset -c --passes 25 --holdout_off
 
-You'll notice that the _since last_ column drops to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.  The reason we have to add _--holdout_off_ (new option in version 7.3, added August 2013) is that when running multiple-passes, vw automatically switches to 'overfit avoidance' mode by holding-out 10% of the data and evaluating performance on the held-out data instead of using the progressive loss.
+You'll notice that the `since last` column drops to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.  The reason we have to add `--holdout_off` (new option in version 7.3, added August 2013) is that when running multiple-passes, vw automatically switches to 'over-fit avoidance' mode by holding-out 10% of (the period "one in 10" can be changed using `--holdout_period period`) the data and evaluating performance on the held-out data instead of using the online-training progressive loss.
 
 ### Saving your model (a.k.a. regressor) into a file
 
