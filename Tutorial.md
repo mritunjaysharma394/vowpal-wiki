@@ -120,15 +120,15 @@ At the end, some more straightforward totals are printed.  The only mysterious o
 _best constant_ and _best constant's loss_  These really only work if you are using squared loss, which is the default.  They compute the best constant's predictor and the loss of the best constant predictor.  If _average loss_ is not better than _best constant's loss_, something is wrong.  In this case, we have too few examples to generalize.
 
 If we want to overfit like mad, we can simply use:
-&gt; **./vw house_dataset -c --passes 25**
+&gt; **./vw house_dataset -c --passes 25 --holdout_off**
 
-You'll notice that the _since last_ column drops to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.
+You'll notice that the _since last_ column drops to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.  The reason we have to add _--holdout_off_ (new option in version 7.3, added August 2013) is that when running multiple-passes, vw automatically switches to 'overfit avoidance' mode by holding-out 10% of the data and evaluating performance on the held-out data instead of using the progressive loss.
 
 ### Saving your model (a.k.a. regressor) into a file
 
 By default vw learns the weights of the features and keeps them in a memory vector. If you want to save the final regressor weights into a file, add **-f _filename_**:
 
-&gt; **./vw house_dataset -c --passes 25 -f house.model**
+&gt; **./vw house_dataset -c --passes 25 --holdout_off -f house.model**
 
 ### Getting predictions
 
