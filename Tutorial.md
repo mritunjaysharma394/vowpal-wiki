@@ -41,7 +41,13 @@ Boost installation on Mac OS-X is a little bit more involved:
   3. Next run the command `sudo ./bjam --layout=tagged install`
   4. You should be good to go
 
-Now test the newly built vw executable:
+Once boost is in place, the command:
+
+    make
+
+Should create `vowpalwabbit/vw` - the vw executable
+
+Now we can test the newly built vw executable:
 
     make test
 
