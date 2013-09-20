@@ -25,21 +25,23 @@ The first step is downloading a version of VW.  We'll use the <a href="https://g
 
 Now we compile.
 
-    cd vowpal_wabbit; make
+    cd vowpal_wabbit
+    make
 
-This should "just work", at least on Linux and OSX, and plausibly on any Posix platform.  If it fails, you most likely need to install the boost program options header or library.
+This should "just work", at least on Linux and OSX, and plausibly on any POSIX platform.  If it fails, you most likely need to install the boost program options headers and library.
 
-Boost installation for Debian/Linux distributions use the command
+Boost installation on Debian/Linux distributions:
 
     sudo apt-get install libboost-program-options-dev
 
-Boost installation for Mac OSX is a little bit more involved: 
-   1) Download the source at http://sourceforge.net/projects/boost/files/boost/1.50.0/
-   2) Execute the shell script with `sudo ./bootstrap.sh`
-   3) Next run the command `sudo ./bjam --layout=tagged install`
-   4) You should be good to go
+Boost installation on Mac OSX is a little bit more involved:
 
-Next, we test the result.
+  1. Download the source from [[http://sourceforge.net/projects/boost/files/boost/1.50.0/]]
+  2. Execute the shell script with `sudo ./bootstrap.sh`
+  3. Next run the command `sudo ./bjam --layout=tagged install`
+  4. You should be good to go
+
+Test the newly built vw executable:
 
     make test
 
@@ -54,7 +56,7 @@ That's ok.  One of the things we do for speed is use the `-ffast-math` option wh
 Now, let's create a data-set.  Suppose we want to predict whether a house will require a new roof in the next 10 years.
 
     echo "0 | price:.23 sqft:.25 age:.05 2006
-    1 2 'second_house | price:.18 sqft:.15 age:.35 1976**
+    1 2 'second_house | price:.18 sqft:.15 age:.35 1976
     0 1 0.5 'third_house | price:.53 sqft:.32 age:.87 1924" > house_dataset
 
 There is quite a bit going on here.  The first thing is a label, `0`, corresponding to no roof replacement.  The bar `|` separates label from features.   The features are `price`, `sqft`, `age`, and `2006`.  The first 3 features use an index derived from a hash function while the last feature uses index 2006 directly and has a default value of 1.
