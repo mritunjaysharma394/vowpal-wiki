@@ -23,25 +23,25 @@ The first step is downloading a version of VW.  We'll use the <a href="https://g
 
     git clone git://github.com/JohnLangford/vowpal_wabbit.git
 
-Now we compile.
+Now we compile:
 
     cd vowpal_wabbit
     make
 
-This should "just work", at least on Linux and OSX, and plausibly on any POSIX platform.  If it fails, you most likely need to install the boost program options headers and library.
+This should "just work", at least on Linux and OS-X, and plausibly on any POSIX platform.  If it fails, you most likely need to install the boost program options headers and library.
 
 Boost installation on Debian/Linux distributions:
 
     sudo apt-get install libboost-program-options-dev
 
-Boost installation on Mac OSX is a little bit more involved:
+Boost installation on Mac OS-X is a little bit more involved:
 
   1. Download the source from [[http://sourceforge.net/projects/boost/files/boost/1.50.0/]]
   2. Execute the shell script with `sudo ./bootstrap.sh`
   3. Next run the command `sudo ./bjam --layout=tagged install`
   4. You should be good to go
 
-Test the newly built vw executable:
+Now test the newly built vw executable:
 
     make test
 
@@ -61,9 +61,9 @@ Now, let's create a data-set.  Suppose we want to predict whether a house will r
 
 There is quite a bit going on here.  The first thing is a label, `0`, corresponding to no roof replacement.  The bar `|` separates label from features.   The features are `price`, `sqft`, `age`, and `2006`.  The first 3 features use an index derived from a hash function while the last feature uses index 2006 directly and has a default value of 1.
 
-The next example, on the next line, is similar, but the label information is more complex.  The `2` is an importance weight which implies that this example counts twice.  Importance weights come up in many settings.  A missing importance weight defaults to 1. `'second_house` is the tag, it is used elsewhere to identify the example.
+The next example, on the next line, is similar, but the label information is more complex.  The `1` is the label indicating a roof-replacement is required.  The `2` is an importance weight which implies that this example counts twice.  Importance weights come up in many settings.  A missing importance weight defaults to 1. `'second_house` is the tag, it is used elsewhere to identify the example.
 
-The third example is straightforward except there is a `0.5` in the label information.  This is an initial prediction.  Sometimes you have multiple interacting learning systems and want to be able to predict an offset rather than an absolute value.
+The 3rd example is straightforward, except there is an additional number: `0.5` following the weight, in the label information.  This is an initial prediction.  Sometimes you have multiple interacting learning systems and want to be able to predict an offset rather than an absolute value.
 
 Next, we learn:
 
@@ -79,7 +79,7 @@ This says you are not using a cache.  If you use multiple passes with `--passes`
 
     Reading from house_dataset
 
-There are many different ways to input data to VW.  Here we're just using a simple text file and vw tells us the source of the data.  Alternatives sources include cache files (from previous VW runs), stdin, or a tcp socket.
+There are many different ways to input data to VW.  Here we're just using a simple text file and vw tells us the source of the data.  Alternative sources include cache files (from previous VW runs), stdin, or a tcp socket.
 
     num sources = 1
 
