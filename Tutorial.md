@@ -89,9 +89,9 @@ There is only one input file in our example.  But you can specify multiple files
 
 Only 18 bits of the hash function will be used.  That's much more than necessary for this example.  You could adjust the number of bits using `-b bits`
 
-    learning rate = 10
+    learning rate = 0.5
 
-The default learning rate is 10.  This is too aggressive when there is noise, but it's a good default because when there is noise you'll need a larger data-set and/or multiple passes to predict well.  On these larger data-sets, our learning rate will by default decay towards 0 as we run through examples.  You can adjust with `-l rate`.
+The default learning rate is 0.5 which we found to be a good default with the current default update (`--normalized --invariant --adaptive`). If the data is noisy you'll need a larger data-set and/or multiple passes to predict well.  On these larger data-sets, our learning rate will by default decay towards 0 as we run through examples.  You can adjust the learning rate up or down with `-l rate`.  A higher learning rate will make the model converge faster but a too high learning rate may over-fit and end up be worse on average.
 
     initial_t = 1
 
