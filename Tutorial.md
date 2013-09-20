@@ -83,7 +83,7 @@ There are many different ways to input data to VW.  Here we're just using a simp
 
     num sources = 1
 
-There is only one input file.  In general, you can specify multiple files.
+There is only one input file in our example.  But you can specify multiple files.
 
     Num weight bits = 18
 
@@ -124,41 +124,64 @@ At the end, some more straightforward totals are printed.  The only mysterious o
 
 If we want to overfit like mad, we can simply use:
 
-    ./vw house_dataset -c --passes 25 --holdout_off
+    ./vw house_dataset -l 10 -c --passes 25 --holdout_off
 
-You'll notice that the `since last` column drops to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.  The reason we have to add `--holdout_off` (new option in version 7.3, added August 2013) is that when running multiple-passes, vw automatically switches to 'over-fit avoidance' mode by holding-out 10% of (the period "one in 10" can be changed using `--holdout_period period`) the data and evaluating performance on the held-out data instead of using the online-training progressive loss.
+The progress section of the output is:
+
+    average    since         example     example  current  current  current
+    loss       last          counter      weight    label  predict features
+    0.666667   0.666667            2         3.0   1.0000   0.0000        5
+    0.558318   0.477056            5         7.0   1.0000   0.3314        5
+    0.475057   0.329351            8        11.0   1.0000   0.6017        5
+    0.239335   0.023256           17        23.0   1.0000   0.9784        5
+    0.125118   0.000023           33        44.0   0.0000   0.0001        5
+    0.063278   0.000000           65        87.0   1.0000   1.0000        5
+
+You'll notice that by example 65 (25 passes over 3 examples result in 75 examples), the `since last` column has dropped to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.  The reason we have to add `--holdout_off` (new option in version 7.3, added August 2013) is that when running multiple-passes, vw automatically switches to 'over-fit avoidance' mode by holding-out 10% of (the period "one in 10" can be changed using `--holdout_period period`) the data and evaluating performance on the held-out data instead of using the online-training progressive loss.
 
 ### Saving your model (a.k.a. regressor) into a file
 
 By default vw learns the weights of the features and keeps them in a memory vector. If you want to save the final regressor weights into a file, add **-f _filename_**:
 
-    ./vw house_dataset -c --passes 25 --holdout_off -f house.model
+    ./vw house_dataset -l 10 -c --passes 25 --holdout_off -f house.model
 
 ### Getting predictions
 
-We want to make predictions of course.  A simple way to do this is:
+We want to make predictions of course:
 
     ./vw house_dataset -p /dev/stdout --quiet
 
-The first output _0.000000_ is for the first example.
+The output is:
 
-The second output _0.000000 second_house_ is for the second example.  You'll notice the tag appears here, and this is the primary use of the tag: mapping predictions to the examples they belong to.
+    0.000000
+    0.000000 second_house
+    1.000000 third_house
 
-The third output _1.000000 third_house_ is for the third example.  Clearly, some learning happened, because the prediction is now 1.
+The 1st output line `0.000000` is for the 1st example which has an empty tag.
 
-Note that in this last example, we predicted _while we learned_.
+The 2nd output `0.000000 second_house` is for the 2nd example.  You'll notice the tag appears here. This is the primary use of the tag: mapping predictions to the examples they belong to.
+
+The 3rd output `1.000000 third_house` is for the 3rd example.  Clearly, some learning happened, because the prediction is now `1.000000` while the initial prediction was set to `0.5`.
+
+Note that in this last example, we predicted _while we learned_.  The model was being incrementally built in memory as vw went over the examples.
 
 Alternatively, and more commonly, we would first learn and save the model into a file. Later we would predict using the saved model.
 
-You may load a initial model we would add **-i house.model** (load initial model), and also **-t** which stands for test-only (do no learning):
+You may load a initial model to memory by adding `-i house.model`.  You may also want to specify `-t` which stands for "test-only" (do no learning):
 
     ./vw -i house.model -t house_dataset -p /dev/stdout --quiet
 
-Obviously the results are different this time, because in the first prediction example, we learned as we went, and made only one pass over the data, whereas in the 2nd example we first loaded an over-fitted (25 pass) model and used our data-set _house_dataset_ for testing only.
+Which would output:
+
+    0.000000
+    1.000000 second_house
+    0.000000 third_house
+
+Obviously the results are different this time, because in the first prediction example, we learned as we went, and made only one pass over the data, whereas in the 2nd example we first loaded an over-fitted (25 pass) model and used our data-set `house_dataset` with `-t` (testing only mode).  In real prediction settings, one should use a different data-set for testing vs training.
 
 ### Auditing
 
-When developing a new ML application, it's very helpful to debug.  VW can help a great deal with this using the --audit option.
+When developing a new ML application, it's very helpful to debug.  VW can help a great deal with this using the `--audit` option.
 
     ./vw house_dataset --audit --quiet
 
