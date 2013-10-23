@@ -34,6 +34,10 @@ Boost installation on Debian/Linux distributions:
 
     sudo apt-get install libboost-program-options-dev
 
+On Ubuntu 13.10 also install:
+
+    sudo apt-get install zlib1g-dev
+
 Boost installation on Mac OS-X is a little bit more involved:
 
   1. Download the source from [[http://sourceforge.net/projects/boost/files/boost/1.50.0/]]
