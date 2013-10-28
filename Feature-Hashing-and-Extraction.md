@@ -55,4 +55,4 @@ As a result of the `--hash strings` default behavior, collisions can be avoided 
 
 ### Ensuring the hash is large enough
 
-The hash table, by default, can hold 2^18 or 262144 entries.  For many problems this is plenty but in some cases, more space is needed to avoid collisions. To count unique features after hashing, add the parameter `--readable_model <fname>` then use `wc -l <fname>`.  The value of the -b parameter should be set to the nearest power of two.
+The hash table, by default, can hold 2^18 or 262144 entries.  For many problems this is plenty but in some cases, more space is needed to avoid collisions. To count unique features after hashing, add the parameter `--readable_model <fname>` then use `wc -l <fname>`.  Calculate the nearest power of two to the result and use this to set the -b parameter.
