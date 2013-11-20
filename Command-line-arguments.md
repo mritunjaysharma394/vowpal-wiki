@@ -255,6 +255,12 @@ More details are in the cluster directory.
 
 **Warning:** Make sure to disable the holdout feature in parallel learning using `--holdout_off`. Otherwise, some nodes might attempt to terminate earlier while others continue running. If nodes become out of sync in this fashion, usually a deadlock will take place. You can detect this situation if you see all your `vw` instances hanging with a CPU usage of 0% for a long time.
 
+# Label dependent features
+    --csoaa_ldf multiline|singleline
+    --wap_ldf multiline|singleline
+
+See http://groups.yahoo.com/neo/groups/vowpal_wabbit/conversations/topics/626
+
 # Other options
     --noop                           do no learning
     -h [ --help ]                    Output Arguments
