@@ -29,7 +29,7 @@ Our data set `oaa.dat` may look like this
 
 This is essentially the same format as the non multi-class case (classification or regression) where each label must belong to one of the {1..\<K\>} classes, i.e. a natural number between 1 and \<K\>. You may add weights to the example and the features, use name-spaces, etc.
 
-We train:
+Now, we train:
 
     vw --oaa 3 oaa.dat -f oaa.model
 
@@ -60,7 +60,8 @@ Now we can predict, using the same data set as our test-set:
     vw -t -i oaa.model oaa.dat -p oaa.predict
 
 Similar to what we do in vanilla classification or regression.
-The resulting `oaa.predict` file has contents:
+
+The resulting `oaa.predict` file is:
 
     1.000000 ex1
     2.000000 ex2
@@ -68,4 +69,4 @@ The resulting `oaa.predict` file has contents:
     2.000000 ex4
     1.000000 ex5
 
-Which is as expected: 'ex1' and 'ex5' belong to class 1, 'ex2' and 'ex4' belong to class 2, and 'ex3' belongs to class 3.
+Which is as expected: `ex1` and `ex5` belong to class 1, `ex2` and `ex4` belong to class 2, and `ex3` belongs to class 3.
