@@ -125,7 +125,7 @@ By default VW hashes string features and does not hash integer features. `--hash
     --decay_learning_rate arg (=1)   Set Decay factor for learning_rate between passes
     --initial_t arg (=1)             initial t value
     --power_t arg (=0.5)             t power value
-    -l [ --learning_rate ] arg (=10) Set Learning Rate
+    -l [ --learning_rate ] arg (=0.5) Set Learning Rate
     --loss_function arg (=squared)   Specify the loss function to be used, uses 
                                      squared by default. Currently available ones
                                      are squared, hinge, logistic and quantile.
