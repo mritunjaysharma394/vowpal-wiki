@@ -147,7 +147,7 @@ The progress section of the output is:
     0.125118   0.000023           33        44.0   0.0000   0.0001        5
     0.063278   0.000000           65        87.0   1.0000   1.0000        5
 
-You'll notice that by example 65 (25 passes over 3 examples result in 75 examples), the `since last` column has dropped to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.  The reason we have to add `--holdout_off` (new option in version 7.3, added August 2013) is that when running multiple-passes, vw automatically switches to 'over-fit avoidance' mode by holding-out 10% of (the period "one in 10" can be changed using `--holdout_period period`) the data and evaluating performance on the held-out data instead of using the online-training progressive loss.
+You'll notice that by example 65 (25 passes over 3 examples result in 75 examples), the `since last` column has dropped to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.  The reason we have to add `--holdout_off` (new option in version 7.3, added August 2013) is that when running multiple-passes, vw automatically switches to 'over-fit avoidance' mode by holding-out 10% of the examples (the period "one in 10" can be changed using `--holdout_period period`) and evaluating performance on the held-out data instead of using the online-training progressive loss.
 
 ### Saving your model (a.k.a. regressor) into a file
 
