@@ -63,15 +63,15 @@ That's ok.  One of the things we do for speed is use the `-ffast-math` option wh
 
 ### A first data-set
 
-Now, let's create a data-set.  Suppose we want to predict whether a house will require a new roof in the next 10 years.
+Now, let's create a data-set.  Suppose we want to predict whether a house will require a new roof in the next 10 years. We can create a file `house_dataset` with the following contents:
 
-    echo "0 | price:.23 sqft:.25 age:.05 2006
+    0 | price:.23 sqft:.25 age:.05 2006
     1 2 'second_house | price:.18 sqft:.15 age:.35 1976
-    0 1 0.5 'third_house | price:.53 sqft:.32 age:.87 1924" > house_dataset
+    0 1 0.5 'third_house | price:.53 sqft:.32 age:.87 1924
 
-There is quite a bit going on here.  The first thing is a label, `0`, corresponding to no roof replacement.  The bar `|` separates label from features.   The features are `price`, `sqft`, `age`, and `2006`.  The first 3 features use an index derived from a hash function while the last feature uses index 2006 directly and has a default value of 1.
+There is quite a bit going on here.  The first number in each line is a label. A `0` label corresponds to no roof-replacement, while a `1` label corresponds to a roof-replacement.  The bar `|` separates label related data (what we want to predict) from features (what we always know).   The features in the 1st line are `price`, `sqft`, `age`, and `2006`.  Each feature may have an optional `:<numeric_value>` following it or, if the value is missing, an implied value of `1`.  vowpal-wabbit hashes feature names into in-memory indexes unless the feature names themselves are positive integers.  In this case, the first 3 features use an index derived from a hash function while the last feature uses index 2006 directly.  Also the 1st 3 features have explicit values (`.23`, `.25`, and `.05` respectively) while the last, `2006` has a implicit default value of 1.
 
-The next example, on the next line, is similar, but the label information is more complex.  The `1` is the label indicating a roof-replacement is required.  The `2` is an importance weight which implies that this example counts twice.  Importance weights come up in many settings.  A missing importance weight defaults to 1. `'second_house` is the tag, it is used elsewhere to identify the example.
+The next example, on the next line, is similar, but the label information is more complex.  The `1` is the label indicating that a roof-replacement is required.  The `2` is an optional importance weight which implies that this example counts twice.  Importance weights come up in many settings.  A missing importance weight defaults to 1. `'second_house` is the tag, it is used elsewhere to identify the example.
 
 The 3rd example is straightforward, except there is an additional number: `0.5` following the weight, in the label information.  This is an initial prediction.  Sometimes you have multiple interacting learning systems and want to be able to predict an offset rather than an absolute value.
 
