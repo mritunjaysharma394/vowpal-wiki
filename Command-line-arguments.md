@@ -120,8 +120,8 @@ By default VW hashes string features and does not hash integer features. `--hash
     --termination arg (=0.001)       Termination threshold
     --hessian_on                     use second derivative in line search
     --initial_pass_length arg        initial number of examples per pass
-    --l1 arg (=1)                    l_1 lambda
-    --l2 arg (=1)                    l_2 lambda
+    --l1 arg (=0)                    l_1 lambda (L1 regularization)
+    --l2 arg (=0)                    l_2 lambda (L2 regularization)
     --decay_learning_rate arg (=1)   Set Decay factor for learning_rate between passes
     --initial_t arg (=1)             initial t value
     --power_t arg (=0.5)             t power value
