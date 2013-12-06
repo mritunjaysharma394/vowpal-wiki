@@ -11,7 +11,7 @@ classification.  It extends `--oaa <K>` to support multiple labels per input exa
 * \<K\> is the maximum label value, and must be passed as an argument to `--csoaa`
 * The input/training format for `--csoaa <K>` is different than the traditional VW format:
     * It supports *multiple labels* on the *same line*
-    * Each label has a trailing optional *cost* (default cost, when omitted is 1.0)
+    * Each label has a trailing *cost*
     * Cost syntax *looks* just like weight syntax: a colon followed by a floating-point number.
       For example:  `4:3.2` means the class-label 4 with a cost of 3.2, but *means* the opposite of weights.
     * It is critical to note that costs are *not* weights. They are the inverse of weights.
