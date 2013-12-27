@@ -70,6 +70,9 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
                                      features have been defined. This will lead 
                                      to smaller cache sizes
     --noconstant                     Don't add a constant feature
+    -C [ --constant ] arg            Set initial value of the constant feature to arg
+                                     (Useful for faster convergence on data-sets
+                                      where the label isn't centered around zero)
     --ngram arg                      Generate N grams
     --skips arg                      Generate skips in N grams. This in conjunction 
                                      with the ngram tag can be used to generate 
