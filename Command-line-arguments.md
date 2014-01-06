@@ -37,6 +37,7 @@ Parsing raw data is slow so there are options to create or load data in VW's nat
     -r [ --raw_predictions ] arg     File to output unnormalized predictions to
     --sendto arg                     send compressed examples to <host>
     --quiet                          Don't output diagnostics
+    -P [ --progress ] arg            Progress update frequency. int: additive, float: multiplicative
     --min_prediction arg             Smallest prediction to output
     --max_prediction arg             Largest prediction to output
 
@@ -44,7 +45,9 @@ Parsing raw data is slow so there are options to create or load data in VW's nat
 
 `-r` is rarely used.
 
-`--quiet` shuts off the normal diagnostic printout of vw.
+`--quiet` shuts off the normal diagnostic printout of progress updates.
+
+`--progress arg` changes the frequency of the diagnostic progress-update printouts.  If `arg` is an integer, the printouts happen every `arg` (fixed) interval, e.g: `arg` is 10, we get printouts at 10, 20, 30, ... Alternatively, if `arg` has a dot in it, it is interpreted as a floating point number, and the printouts happen on a multiplicative schedule: e.g. when `arg` is 2.0 (the default) progress updates will be printed on examples numbered: 1, 2, 4, 8, ..., 2^n
 
 `--sendto` is used with another VW using `--daemon` to send examples and get back predictions from the daemon VW.
 
