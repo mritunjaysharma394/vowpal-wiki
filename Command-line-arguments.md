@@ -205,17 +205,17 @@ To average the gradient from \(k\) examples and update the weights once every \(
 
 
 # Weight Options
-    -b [ --bit_precision ] arg       number of bits in the feature table
-    -i [ --initial_regressor ] arg   Initial regressor(s)
-    -f [ --final_regressor ] arg     Final regressor
-    --random_weights arg             make initial weights random
-    --initial_weight arg (=0)        Set all weights to an initial value of 1.
-    --readable_model arg             Output human-readable final regressor
-    --invert_hash arg                Output human-readable final regressor with feature names
-    --save_per_pass                  Save the model after every pass over data
-    --input_feature_regularizer arg  Per feature regularization input file
-    --output_feature_regularizer_binary arg  Per feature regularization output file
-    --output_feature_regularizer_text arg  Per feature regularization output file, in text
+    -b [ --bit_precision ] arg                 number of bits in the feature table
+    -i [ --initial_regressor ] arg             Initial regressor(s) to load into memory (arg is filename)
+    -f [ --final_regressor ] arg               Final regressor to save (arg is filename)
+    --random_weights arg                       make initial weights random
+    --initial_weight arg (=0)                  Set all weights to an initial value of 1.
+    --readable_model arg                       Output human-readable final regressor
+    --invert_hash arg                          Output human-readable final regressor with feature names
+    --save_per_pass                            Save the model after every pass over data
+    --input_feature_regularizer arg            Per feature regularization input file
+    --output_feature_regularizer_binary arg    Per feature regularization output file
+    --output_feature_regularizer_text arg      Per feature regularization output file, in text
 
 VW hashes all features to a predetermined range \([0,2^b-1]\) and uses a fixed weight vector with \(2^b\) components. The argument of `-b` option determines the value of \(b\) which is 18 by default. Hashing the features allows the algorithm to work with very raw data (since there's no need to assign a unique id to each feature) and has only a negligible effect on generalization performance (see for example 
 [Feature Hashing for Large Scale Multitask Learning](http://arxiv.org/abs/0902.2206).
