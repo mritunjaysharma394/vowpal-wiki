@@ -1,7 +1,16 @@
 Running VW without any arguments produces a message which briefly explains each argument. Below arguments are grouped according to their function and each argument is explained in more detail.
 
+# VW options:
+    -h [ --help ]                    Look here: http://hunch.net/~vw/ and
+                                     click on Tutorial.
+    --version                        Version information
+    --random_seed arg                seed random number generator
+    --noop                           do no learning
+
 # Input options
     -d [ --data ] arg                Example Set
+    --ring_size arg                  size of example ring
+    --examples arg                   number of examples to parse
     --daemon                         read data from port 26542
     --port arg                       port to listen on
     --num_children arg (=10)         number of children for 
@@ -18,6 +27,9 @@ Running VW without any arguments produces a message which briefly explains each 
                                      cache file. A mixture of 
                                      raw-text & compressed 
                                      inputs are supported with autodetection.
+    --no_stdin                       do not default to reading from stdin
+    --save_resume                    save extra state so learning can be resumed
+                                     later with new data
 
 Raw training/testing data (in the proper plain text [[input format]]) can be passed to VW in a number of ways:
 
@@ -85,7 +97,7 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 
 `-t` makes VW run in testing mode. The labels are ignored so this is useful for assessing the generalization performance of the learned model on a test set.
 
-`-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `document`, then specifying `-q ud` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the `document` namespace. If a letter matches more than one namespace then all the matching namespaces are used. In our example if there is another namespace `url` then interactions between `url` and `document` will also be modeled. The letter `:` is a wildcard to interact with all namespaces. `-q a:` (or `-q :a`) will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the namespaces starting with `a` and `y` is a feature from the all namespaces. `-q ::` would interact any combination of pairs of features.
+`-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `document`, then specifying `-q ud` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the `document` namespace. If a letter matches more than one namespace then all the matching namespaces are used. In our example if there is another namespace `url` then interactions between `url` and `document` will also be modeled. The letter `:` is a wildcard to interact with all namespaces. `-q a:` (or `-q :a`) will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the namespaces starting with `a` and `y` is a feature 2013-12-26:from the all namespaces. `-q ::` would interact any combination of pairs of features.
 
 `--cubic` is similar to `-q`, but it takes three letters as the argument, thus enabling interaction among the features of three namespaces. 
 
@@ -99,7 +111,7 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 
 `--noconstant` eliminates the constant feature that exists by default in VW.
 
-`--ngram` and `--skip` can be used to generate ngram features possibly with skips (a.k.a. don't cares). For example `--ngram 2` will generate (unigram and) bigram features by creating new features from features that appear next to each other, and  `--ngram 2 --skip 1` will generate (unigram, bigram, and) trigram features plus trigram features where we don't care about the identity of the middle token.
+`--ngram` and `--skip` can be used to generate ngram features possibly with skips (a.k.a. don't cares). For example `--ngram 2` will generate (unigram and) bigram features by creating new features from features that appear next to each other, and  `--ngram 2 --skip 1` will generate (unigram, bigram, and) trigram features plus trigram features2013-12-26: where we don't care about the identity of the middle token.
 
 Unlike `--ngram` where the order of the features matters, `--sort_features` destroys the order in which features are presented and writes them in cache in a way that minimizes the cache size. `--sort_features` and `--ngram` are mutually exclusive
 
@@ -190,8 +202,8 @@ whose value can be specified by `--quantile_tau`. By default this is 0.5. For mo
 To average the gradient from \(k\) examples and update the weights once every \(k\) examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation and it's only enabled there.
 
 `--feature_mask` allows to specify directly a set of parameters which can update, from a model file. This is useful in combination with `--l1`. One can use `--l1` to discover which features should have a nonzero weight and do `-f model`, then use `--feature_mask model` without `--l1` to learn a better regressor.
- 
- 
+
+
 # Weight Options
     -b [ --bit_precision ] arg       number of bits in the feature table
     -i [ --initial_regressor ] arg   Initial regressor(s)
@@ -220,6 +232,32 @@ Use the `-f` option to write the weight vector to a file named after its argumen
 
 By default VW starts with the zero vector as its hypothesis. The `--random_weights` option initializes with random weights. This is often useful for symmetry breaking in advanced models.  It's also possible to initialize with a fixed value such as the all-ones vector using `--initial_weight`.
 
+# Holdout options
+    --holdout_off             no holdout data in multiple passes
+    --holdout_period arg      holdout period for test only, default 10
+    --holdout_after arg       holdout after n training examples, default off 
+                              (disables holdout_period)
+    --early_terminate arg     Specify the number of passes tolerated when holdout 
+                              loss doesn't decrease before early termination,
+                              default is 3
+
+Feature namespace options:
+    --hash arg                how to hash the features. Available options: strings, all
+    --ignore arg              ignore namespaces beginning with character <arg>
+    --keep arg                keep namespaces beginning with character <arg>
+    --noconstant              Don't add a constant feature
+    -C [ --constant ] arg     Set initial value of constant
+    --sort_features           turn this on to disregard order in which features have 
+                              been defined. This will lead to smaller cache sizes
+    --ngram arg               Generate N grams
+    --skips arg               Generate skips in N grams. This in conjunction with the
+                              ngram tag can be used to generate generalized n-skip-k-gram.
+    --affix arg               generate prefixes/suffixes of features; argument '+2a,-3b,+1'
+                              means generate 2-char prefixes for namespace a, 3-char suffixes
+                              for b and 1 char prefixes for default namespace
+    --spelling arg            compute spelling features for a give namespace (use '_'
+                              for default namespace)
+
 # Latent Dirichlet Allocation Options
     --lda arg                        Run lda with <int> topics
     --lda_alpha arg (=0.100000001)   Prior on sparsity of per-document topic weights
@@ -232,6 +270,20 @@ The `--lda` option switches VW to LDA mode. The argument is the number of topics
     --rank arg (=0)                                   rank for matrix factorization.
 
 `--rank` sticks VW in matrix factorization mode.  You'll need a relatively small learning rate like `-l 0.01`.
+
+# Low Rank Quadratic options:
+    --lrq arg             use low rank quadratic features
+    --lrqdropout          use dropout training for low rank quadratic features
+
+Multiclass options:
+    --oaa arg             Use one-against-all multiclass learning with <k> labels
+    --ect arg             Use error correcting tournament with <k> labels
+    --csoaa arg           Use one-against-all multiclass learning with <k> costs
+    --wap arg             Use weighted all-pairs multiclass learning with <k> costs
+    --csoaa_ldf arg       Use one-against-all multiclass learning with label
+                          dependent features.  Specify singleline or multiline.
+    --wap_ldf arg         Use weighted all-pairs multiclass learning with label
+                          dependent features.  Specify singleline or multiline.
 
 # Active Learning Options
     --active_learning                active learning mode
@@ -267,12 +319,17 @@ More details are in the cluster directory.
 
 See http://groups.yahoo.com/neo/groups/vowpal_wabbit/conversations/topics/626
 
-# Other options
-    --noop                           do no learning
-    -h [ --help ]                    Output Arguments
-    --version                        Version information
-
-  
+# Learning algorithm / reduction options
+    --bs arg              bootstrap mode with k rounds by online importance resampling
+    --top arg             top k recommendation
+    --bs_type arg         bootstrap mode - currently 'mean' or 'vote'
+    --autolink arg        create link function with polynomial d
+    --cb arg              Use contextual bandit learning with <k> costs
+    --lda arg             Run lda with <int> topics
+    --nn arg              Use sigmoidal feedforward network with <k> hidden units
+    --cbify arg           Convert multiclass on <k> classes into a contextual
+                          bandit problem and solve
+    --searn arg           use searn, argument=maximum action id or 0 for LDF
 
  
 
