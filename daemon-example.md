@@ -51,6 +51,9 @@ total feature number = 160
 ```
 
 ### Starting the daemon
+
+Now that we have a model `model.vw`, we can start `vw` in daemon mode:
+
 ```
 $ vw -i model.vw  -t --daemon --quiet --port 26542
 
