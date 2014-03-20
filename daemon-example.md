@@ -4,6 +4,8 @@
 
 When you run `vw` in daemon mode.  It loads the model once into memory at startup and listens to requests coming over a tcp socket. If you run `vw` in test-only (`-t`) mode, it will only test (i.e. predict).  Every write of an example into the socket should result in an immediate response on the same socket.
 
+In performance tests I (arielf) was able to sustain about 50,000 requests+predictions per second on standard hardware on a simple (~20 feature) model. 
+
 Here's a short howto:
 
 ### Training set `train.vw`
