@@ -4,7 +4,7 @@
 
 When you run `vw` in daemon mode.  It loads the model once into memory at startup and listens to requests coming over a tcp socket. If you run `vw` in test-only (`-t`) mode, it will only test (i.e. predict).  Every write of an example into the socket should result in an immediate response on the same socket.
 
-In performance tests I (arielf) was able to sustain about 50,000 requests+predictions per second on standard hardware on a simple (~20 feature) model. 
+In performance tests I (arielf) was able to sustain a throughput of about 50,000 requests+predictions per second on standard hardware on a simple (~20 feature) model. 
 
 Here's a short howto:
 
@@ -67,6 +67,7 @@ $ pgrep vw| wc -l
 ```
 
 ### Sending examples and getting predictions
+
 ```
 $ echo " abc-example| a b c" | netcat localhost 26542
 0.000000 abc-example
@@ -75,6 +76,19 @@ $ echo " xyz-example| x y z" | netcat localhost 26542
 1.000000 xyz-example
 ```
 As expected, we got a prediction of `0` for `a b c` and a prediction of `1` for `x y z`.
+The tags on the two examples are for illustrative purposes, they aren't mandatory.
+
+There's no need to read the response after every request.  Since network buffers are large, you may also send multiple examples and then read multiple responses.  A new line character is both the input and the output record (example) separator.
+```
+$ echo '| a c
+| b c
+| y x
+| z y x' | netcat localhost 26542
+0.079382
+0.079382
+0.746049
+1.000000
+```
 
 ### Stopping the daemon
 ```
