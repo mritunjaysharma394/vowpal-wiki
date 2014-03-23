@@ -2,9 +2,11 @@
 
 **Use case:** You have a model and you want `vw` to efficiently serve predictions based on the model.
 
-When you run `vw` in daemon mode.  It loads the model once into memory at startup and listens to requests coming over a tcp socket. If you run `vw` in test-only (`-t`) mode, it will only test (i.e. predict).  Every write of an example into the socket should result in an immediate response on the same socket.
+When you run `vw` in daemon mode.  It loads the model once into memory at startup (using `-i modelfile`) and listens to requests coming over a tcp socket (using the `--daemon` option). If you run `vw` in test-only (`-t`) mode, it will only test (i.e. predict).  Every write of an example into the socket should result in an immediate response on the same socket.
 
 In performance tests I (arielf) was able to sustain a throughput of about 50,000 requests+predictions per second on standard hardware on a simple (~20 feature) model. 
+
+**Deployment note:** since `vw` is already highly optimized for performance, the step of rewriting code to deploy a model in production is redundant. Using `vw` itself for deployment, with the same model that was produced during training, is the recommended way to deploy a model.
 
 Here's a short howto:
 
