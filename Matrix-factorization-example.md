@@ -38,6 +38,26 @@ Testing the model on held-out data results in an average loss of ~0.89 (RMSE of 
 
 Results may vary slightly due to random initialization of the weight vector in the training phase.
 
+# Readable model
+
+The `library/gd_mf_weights.cc` code dumps a readable version of the matrix factorization model to disk. Usage is similar to recommend.cc, where you provide a vw parameter string to load up a model and give examples as input, best explained by an example.
+
+For example, extract weights for user 42 and item 7 under a (randomly initialized) rank 10 model:
+
+    echo '|u 42 |i 7' | ./gd_mf_weights -I /dev/stdin --vwparams '-q ui --rank 10'
+
+Presumably you have a model to load, so the param string would include `-i model.reg`, etc., in the vwparams.
+
+Five files will be written out:
+
+    constant: a float for the global constant
+    outdir/left_ns.linear: featureweight
+    outdir/left_ns.quadratic: featurerank1 weightrank2 weight...rankK weight
+    outdir/right_ns.linear: featureweight
+    outdir/right_ns.quadratic: featurerank1 weightrank2 weight...rankK weight
+
+In the example above, this results in `constant`, `u.linear`, `u.quadratic`, `i.linear`, and `i.quadratic files`.
+
 # Notes on factorization with multiple features and/or namespaces
 
 The matrix factorization code allows factorization over multiple namespaces. You may have multiple features in the same namespace as well as separate namespaces. Both of the examples below differ only syntactically and should provide same results up to differences due to random initialization which is enforced by matrix factorization.
