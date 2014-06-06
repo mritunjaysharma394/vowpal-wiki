@@ -224,7 +224,7 @@ Use the `-f` option to write the weight vector to a file named after its argumen
 
 `--readable_model` is identical to `-f`, except that the model is output in a human readable format.
 
-`--invert_hash` is similar to `--readable_model`, but the model is output in a more human readable format with feature names followed by weights, instead of hash indexes and weights. Note that if -c is on, it is suggested to use -k as well (especially when the cached data file already exists), because the cached data files do not contain feature names.  
+`--invert_hash` is similar to `--readable_model`, but the model is output in a more human readable format with feature names followed by weights, instead of hash indexes and weights. Note that running vw with `--invert_hash` is **much slower** and needs much **more memory**. Feature names are not stored in the cache files (so if `-c` is on and the cache file exists and you want to use `--invert_hash`, either delete the cache or use `-k` to do it automatically). For multi-pass learning (where `-c` is necessary), it is recommended to first train the model without `--invert_hash` and then do another run with no learning (`-t`) which will just read the previously created binary model (`-i my.model`) and store it in human-readable format (`--invert_hash my.invert_hash`).
 
 `--save_per_pass` saves the model after every pass over the data.  This is useful for early stopping.
 
