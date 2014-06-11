@@ -17,6 +17,7 @@ Here are some examples:
 <li>[[using vw varinfo]] - a vw wrapper to inspect your training-set & model</li>
 <li>[[Using vw regr]] - a script for aiding regression applications</li>
 <li>[[daemon example]] - how to run vw in daemon mode and get predictions</li>
+<li>"vw-top-errors: online learning debugging for better models":https://github.com/arielf/vowpal_wabbit/wiki/vw-top-errors:-online-learning-debugging-for-better-models
 </ol>
 
 See also <a href="http://fastml.com/blog/categories/vw/" target="_blank">http://fastml.com/blog/categories/vw/</a> for several examples of using Vowpal Wabbit in practice.
