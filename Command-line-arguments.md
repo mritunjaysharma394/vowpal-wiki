@@ -1,6 +1,6 @@
 Running VW without any arguments produces a message which briefly explains each argument. Below arguments are grouped according to their function and each argument is explained in more detail.
 
-# VW options:
+# VW options
     -h [ --help ]                    Look here: http://hunch.net/~vw/ and
                                      click on Tutorial.
     --version                        Version information
@@ -43,7 +43,7 @@ Parsing raw data is slow so there are options to create or load data in VW's nat
 
 `--passes` takes as an argument the number of times the algorithm will cycle over the data (epochs). 
 
-# Output Options
+# Output options
     -a [ --audit ]                   print weights of features  
     -p [ --predictions ] arg         File to output predictions to
     -r [ --raw_predictions ] arg     File to output unnormalized predictions to
@@ -71,7 +71,7 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 
 `prediction` is VW's prediction on the example with tag `tag`. Then there's a list of feature information. `namespace` is the namespace where the feature belongs, `feature` is the name of the feature, `hashindex` is the position where it hashes, `value` is the value of the feature, `weight` is the current learned weight associated with that feature and finally `ssgrad` is the sum of squared gradients (plus 1) if adaptive updates are used.
 
-# Example Manipulation Options
+# Example Manipulation options
     -t [ --testonly ]                Ignore label information and just test
     -q [ --quadratic ] arg           Create and use quadratic features
     --cubic arg                      Create and use cubic features
@@ -117,7 +117,7 @@ Unlike `--ngram` where the order of the features matters, `--sort_features` dest
 
 By default VW hashes string features and does not hash integer features. `--hash all` hashes all feature identifiers. This is useful if your features are integers and you want to use parallelization as it will spread the features almost equally among the threads or cluster nodes, having a load balancing effect.
 
-# Update Rule Options
+# Update Rule options
     --sgd                            use regular/classic/simple stochastic
                                      gradient descent update (this is no longer
                                      the default since it is often sub-optimal)
@@ -204,7 +204,7 @@ To average the gradient from \(k\) examples and update the weights once every \(
 `--feature_mask` allows to specify directly a set of parameters which can update, from a model file. This is useful in combination with `--l1`. One can use `--l1` to discover which features should have a nonzero weight and do `-f model`, then use `--feature_mask model` without `--l1` to learn a better regressor.
 
 
-# Weight Options
+# Weight options
     -b [ --bit_precision ] arg                 number of bits in the feature table
     -i [ --initial_regressor ] arg             Initial regressor(s) to load into memory (arg is filename)
     -f [ --final_regressor ] arg               Final regressor to save (arg is filename)
@@ -241,7 +241,7 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
                               loss doesn't decrease before early termination,
                               default is 3
 
-Feature namespace options:
+# Feature namespace options
     --hash arg                how to hash the features. Available options: strings, all
     --ignore arg              ignore namespaces beginning with character <arg>
     --keep arg                keep namespaces beginning with character <arg>
@@ -258,7 +258,7 @@ Feature namespace options:
     --spelling arg            compute spelling features for a give namespace (use '_'
                               for default namespace)
 
-# Latent Dirichlet Allocation Options
+# Latent Dirichlet Allocation options
     --lda arg                        Run lda with <int> topics
     --lda_alpha arg (=0.100000001)   Prior on sparsity of per-document topic weights
     --lda_rho arg (=0.100000001)     Prior on sparsity of topic distributions
@@ -266,16 +266,16 @@ Feature namespace options:
 
 The `--lda` option switches VW to LDA mode. The argument is the number of topics. `--lda_alpha` and `--lda_rho` specify prior hyperparameters. `--lda_D` specifies the number of documents. VW will still work the same if this number is incorrect, just the diagnostic information will be wrong. For details see [Online Learning for Latent DIrichlet Allocation](http://books.nips.cc/papers/files/nips23/NIPS2010_1291.pdf)
 
-# Matrix Factorization Options
+# Matrix Factorization options
     --rank arg (=0)                                   rank for matrix factorization.
 
 `--rank` sticks VW in matrix factorization mode.  You'll need a relatively small learning rate like `-l 0.01`.
 
-# Low Rank Quadratic options:
+# Low Rank Quadratic options
     --lrq arg             use low rank quadratic features
     --lrqdropout          use dropout training for low rank quadratic features
 
-Multiclass options:
+# Multiclass options
     --oaa arg             Use one-against-all multiclass learning with <k> labels
     --ect arg             Use error correcting tournament with <k> labels
     --csoaa arg           Use one-against-all multiclass learning with <k> costs
@@ -285,7 +285,20 @@ Multiclass options:
     --wap_ldf arg         Use weighted all-pairs multiclass learning with label
                           dependent features.  Specify singleline or multiline.
 
-# Active Learning Options
+# Stagewise Polynomial options
+    --stage_poly                     stagewise polynomial features
+    --sched_exponent arg1 ( = 1.0)   exponent controlling quantity of included features
+    --batch_sz arg2 ( = -1000)       batch size before including more features
+
+`--stage_poly` tells VW to maintain polynomial features: training examples are augmented with features obtained by producting together subsets (and even sub-multisets) of features.  VW starts with the original feature set, and uses `--batch_sz` to determine when to include new features (otherwise, the feature set is held fixed), with `--sched_exponent` controlling the quantitty of new features.
+
+`--batch_sz arg2`, on a single machine, has three types of settings: `arg2 = 0` means features are constructed at the end of every non-final pass, `arg2 > 0` means features are constructed every every `arg2` examples, and `arg2 < 0` means features are constructed when the number of features is equal to `-arg2`, then `-2*arg2`, `-4*arg2`, and so on.  When VW is run on multiple machines, then the options are similar, except that no feature set updates occur after the first pass (so that features have more time to stabilize across multiple machines).  The default setting is `arg2 = -1000`.
+
+`--sched_exponent arg1` tells VW to include `s^arg1` features every time it updates the feature set (as according to `-batch_sz` above), where s is the (running) average number of nonzero features.  The default is `arg1 = 1.0`.
+
+While care was taken to choose sensible defaults, the choices do matter.  For instance, good performance was obtained by using `arg2 = #examples / 6`, however `arg2 = -1000` was made default since `#examples` is not available to VW a priori.  As usual, including too many features (by updating the support to frequently, or by including too many features each time) can lead to overfitting.
+
+# Active Learning options
     --active_learning                active learning mode
     --active_simulation              active learning simulation mode
     --active_mellowness arg (=8)     active learning mellowness parameter c_0. 
@@ -293,7 +306,7 @@ Multiclass options:
 
 Given a fully labeled dataset, experimenting with active learning can be done with `--active_simulation`. All active learning algorithms need a parameter that defines the trade off between label complexity and generalization performance. This is specified here with `--active_mellowness`. A value of 0 means that the algorithm will not ask for any label. A large value means that the algorithm will ask for all the labels. If instead of `--active_simulation`, `--active_learning` is specified (together with `--daemon`) real active learning is implemented (examples are passed to VW via a TCP/IP port and VW responds with its prediction as well as how much it wants this example to be labeled if at all). If this is confusing, watch Daniel's explanation at the VW tutorial. The active learning algorithm is described in detail in [Agnostic Active Learning without Constraints](http://books.nips.cc/papers/files/nips23/NIPS2010_0363.pdf).
 
-# Parallelization Options
+# Parallelization options
     --span_server arg               Location of server for setting up spanning tree
     --unique_id arg (=0)            unique id used for cluster parallel job
     --total arg (=1)                total number of nodes used in cluster parallel job
