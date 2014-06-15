@@ -294,7 +294,7 @@ The `--lda` option switches VW to LDA mode. The argument is the number of topics
 
 `--batch_sz arg2`, on a single machine, has three types of settings: `arg2 = 0` means features are constructed at the end of every non-final pass, `arg2 > 0` means features are constructed every every `arg2` examples, and `arg2 < 0` means features are constructed when the number of features is equal to `-arg2`, then `-2*arg2`, `-4*arg2`, and so on.  When VW is run on multiple machines, then the options are similar, except that no feature set updates occur after the first pass (so that features have more time to stabilize across multiple machines).  The default setting is `arg2 = -1000`.
 
-`--sched_exponent arg1` tells VW to include `s^arg1` features every time it updates the feature set (as according to `-batch_sz` above), where s is the (running) average number of nonzero features.  The default is `arg1 = 1.0`.
+`--sched_exponent arg1` tells VW to include `s^arg1` features every time it updates the feature set (as according to `--batch_sz` above), where `s` is the (running) average number of nonzero features.  The default is `arg1 = 1.0`.
 
 While care was taken to choose sensible defaults, the choices do matter.  For instance, good performance was obtained by using `arg2 = #examples / 6`, however `arg2 = -1000` was made default since `#examples` is not available to VW a priori.  As usual, including too many features (by updating the support to frequently, or by including too many features each time) can lead to overfitting.
 
