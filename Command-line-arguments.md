@@ -290,15 +290,15 @@ The `--lda` option switches VW to LDA mode. The argument is the number of topics
     --stage_poly                     stagewise polynomial features
     --sched_exponent arg1 ( = 1.0)   exponent controlling quantity of included features
     --batch_sz arg2 ( = 1000)        multiplier on batch size before including more features
-    --batch_sz_no_doubling           batch_sz does not double.
+    --batch_sz_no_doubling           batch_sz does not double
 
 `--stage_poly` tells VW to maintain polynomial features: training examples are augmented with features obtained by producting together subsets (and even sub-multisets) of features.  VW starts with the original feature set, and uses `--batch_sz` and (and `--batch_sz_no_doubling` if present) to determine when to include new features (otherwise, the feature set is held fixed), with `--sched_exponent` controlling the quantitty of new features.
 
-`--batch_sz arg2` (together with `--batch_sz_no_doubling`), on a single machine, cause three types of behaviors: `arg2 = 0` means features are constructed at the end of every non-final pass, `arg2 > 0` with `--batch_sz_no_doubling` means features are constructed every every `arg2` examples, and `arg2 > 0` (without `batch_sz_no_doubling`) means features are constructed when the number of examples seen so far is equal to `arg2`, then `2*arg2`, `4*arg2`, and so on.  When VW is run on multiple machines, then the options are similar, except that no feature set updates occur after the first pass (so that features have more time to stabilize across multiple machines).  The default setting is `arg2 = 1000` (and doubling is enabled).
+`--batch_sz arg2` (together with `--batch_sz_no_doubling`), on a single machine, causes three types of behaviors: `arg2 = 0` means features are constructed at the end of every non-final pass, `arg2 > 0` with `--batch_sz_no_doubling` means features are constructed every every `arg2` examples, and `arg2 > 0` (without `--batch_sz_no_doubling`) means features are constructed when the number of examples seen so far is equal to `arg2`, then `2*arg2`, `4*arg2`, and so on.  When VW is run on multiple machines, then the options are similar, except that no feature set updates occur after the first pass (so that features have more time to stabilize across multiple machines).  The default setting is `arg2 = 1000` (and doubling is enabled).
 
 `--sched_exponent arg1` tells VW to include `s^arg1` features every time it updates the feature set (as according to `--batch_sz` above), where `s` is the (running) average number of nonzero features (in the input representation).  The default is `arg1 = 1.0`.
 
-While care was taken to choose sensible defaults, the choices do matter.  For instance, good performance was obtained by using `arg2 = #examples / 6`, however `arg2 = -1000` was made default since `#examples` is not available to VW a priori.  As usual, including too many features (by updating the support to frequently, or by including too many features each time) can lead to overfitting.
+While care was taken to choose sensible defaults, the choices do matter.  For instance, good performance was obtained by using `arg2 = #examples / 6` and `--batch_sz_no_doubling`, however `arg2 = 1000` (without `--batch_sz_no_doubling`) was made default since `#examples` is not available to VW a priori.  As usual, including too many features (by updating the support to frequently, or by including too many features each time) can lead to overfitting.
 
 # Active Learning options
     --active_learning                active learning mode
