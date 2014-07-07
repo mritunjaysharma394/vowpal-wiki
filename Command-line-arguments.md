@@ -1,4 +1,4 @@
-Running VW without any arguments produces a message which briefly explains each argument. Below arguments are grouped according to their function and each argument is explained in more detail.
+Running VW with the`-h` or `--help` option produces a message which briefly explains each argument. Below arguments are grouped according to their function and each argument is explained in more detail.
 
 # VW options
     -h [ --help ]                    Look here: http://hunch.net/~vw/ and
