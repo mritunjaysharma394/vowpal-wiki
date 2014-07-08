@@ -1,7 +1,7 @@
 ## Setup
 Start vw in active learning mode and listening on a port together with all the other options you need
 
-`vw --active_learning --port 6075`
+`vw --active --port 6075`
 
 ## Invoking active_interactor.py
 active_interactor.py talks to vw in plain text via a TCP socket. It needs to know where vw is listening on and a set of unlabeled examples. These should be in text VW format except that the label should be missing. Suppose vw is running on the same machine, invoked as above, and the unlabeled data is in file unlabeled.dat. Then
@@ -18,4 +18,4 @@ The following options are currently supported  by active_interactor.py
 * -o output. Writes the user provided labels (and corresponding examples) to a (line buffered) file. The absence of full buffering allows one to hit Ctrl-C anytime and still have all their labels saved in the output file.
 
 ## Tips
-Choice of hyperparameters is tricky. If you have a labeled subsample, use it together with `--active_simulation` to discover a good value for `--active_mellowness` and the learning rate.
+Choice of hyperparameters is tricky. If you have a labeled subsample, use it together with `--active --simulation` to discover a good value for `--mellowness` and the learning rate.
