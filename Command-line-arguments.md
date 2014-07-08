@@ -335,12 +335,12 @@ More details are in the cluster directory.
 See http://groups.yahoo.com/neo/groups/vowpal_wabbit/conversations/topics/626
 
 # Learning algorithm / reduction options
-    --bs arg              bootstrap mode with k rounds by online importance resampling
-    --top arg             top k recommendation
-    --bs_type arg         bootstrap mode - currently 'mean' or 'vote'
-    --autolink arg        create link function with polynomial d
-    --cb arg              Use contextual bandit learning with <k> costs
-    --lda arg             Run lda with <int> topics
+    -B [ --bootstrap ] arg    bootstrap mode with k rounds by online importance resampling
+    --top arg                 top k recommendation
+    --bs_type arg             bootstrap mode - currently 'mean' or 'vote'
+    --autolink arg            create link function with polynomial d
+    --cb arg                  Use contextual bandit learning with <k> costs
+    --lda arg                 Run LDA with <int> topics
     --nn arg              Use sigmoidal feedforward network with <k> hidden units
     --cbify arg           Convert multiclass on <k> classes into a contextual
                           bandit problem and solve
