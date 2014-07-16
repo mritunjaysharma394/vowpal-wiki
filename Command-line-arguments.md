@@ -285,6 +285,8 @@ The `--lda` option switches VW to LDA mode. The argument is the number of topics
                           dependent features.  Specify singleline or multiline.
     --wap_ldf arg         Use weighted all-pairs multiclass learning with label
                           dependent features.  Specify singleline or multiline.
+    --log_multi arg       Use online (decision) trees for <arg> classes (in log(arg) time).
+                          See http://arxiv.org/pdf/1406.1822
 
 # Stagewise Polynomial options
     --stage_poly                     stagewise polynomial features
