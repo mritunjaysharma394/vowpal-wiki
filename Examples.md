@@ -2,7 +2,7 @@
 
  - [[RCV1 example]].  Here we use online gradient descent on TFIDF transformed features while taking advantage of a cache file.
  - [[Malicious URL example]].  A sequential binary classification problem with temporally correlated data.
- - VW has a test suite.  _**less +/^__DATA test/RunTests**_ provides several little examples.
+ - VW has a test suite.  `less +/^__DATA test/RunTests` provides several little examples.
  - [[Matrix factorization example]]
  - Multi Class Examples
     - [[One Against All (oaa) multi class example]]
