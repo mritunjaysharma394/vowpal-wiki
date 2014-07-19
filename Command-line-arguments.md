@@ -131,7 +131,6 @@ By default VW hashes string features and does not hash integer features. `--hash
                                      learning rates.
                                      (superseded by --adaptive --normalized --invariant
                                       which are on by default, so no longer needed.)
-    --nonormalize                    Do not normalize online updates.
     --conjugate_gradient             use conjugate gradient based optimization
     --bfgs                           use bfgs optimization
     --mem arg (=15)                  memory in bfgs
