@@ -1,1 +1,1 @@
-111
+[Zhen Qin's slides on holdout/bootstrap/topk etc.](https://github.com/JohnLangford/vowpal_wabbit/wiki/Zhen.pdf)
