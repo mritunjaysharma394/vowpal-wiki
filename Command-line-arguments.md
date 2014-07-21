@@ -173,13 +173,18 @@ but on an aggregate level in batch learning (conjugate gradient and bfgs).
 
 ![\left(\sum_i L(x_i,y_i,w)\right) + \lambda_1 \|w\|_1 + 1/2 \cdot\lambda_2 \|w\|_2^2 .](http://i.imgur.com/Cnt5IXS.png)
 
-`-l \(\lambda\)`,
 
- `--initial_t \(t_0\)`,
+`-l <lambda>`,
 
- `--power_t \(p\)`,
+ `--initial_t <t_0>`,
 
- and `--decay_learning_rate \(d\)` specify the learning rate schedule whose generic form in the \((k+1)\)-th epoch is 
+ `--power_t <p>`,
+
+ and 
+
+`--decay_learning_rate <d>`
+
+ specify the learning rate schedule whose generic form in the ![(k+1)^{th}](http://i.imgur.com/9RejDsg.png) epoch is 
 
 ![\eta_t = \lambda d^k \left(\frac{t_0}{t_0 + w_t}\right)^p](http://i.imgur.com/Zawclow.png)
 
@@ -192,7 +197,7 @@ There is no single rule for the best learning rate form. For standard learning f
 To specify a loss function use `--loss_function` followed by either `squared`, `logistic`, `hinge`, or `quantile`. The latter is parametrized by ![\tau \in (0,1)\)](http://i.imgur.com/EHfPa0T.png) 
 whose value can be specified by `--quantile_tau`. By default this is 0.5. For more information see [[Loss functions]]
 
-To average the gradient from _k_ examples and update the weights once every _k_ examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation and it's only enabled there.
+To average the gradient from _k_ examples and update the weights once every _k_ examples use `--minibatch <k>`. Minibatch updates make a big difference for Latent Dirichlet Allocation and it's only enabled there.
 
 <a name="feature_mask"></a>
 `--feature_mask` allows to specify directly a set of parameters which can update, from a model file. This is useful in combination with `--l1`. One can use `--l1` to discover which features should have a nonzero weight and do `-f model`, then use `--feature_mask model` without `--l1` to learn a better regressor.
