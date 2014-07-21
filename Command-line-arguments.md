@@ -167,15 +167,11 @@ and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHa
 
 `--l1` and `--l2` specify the level (lambda values) of L1 and L2 regularization, and can be nonzero at the same time.  These values are applied on a per-example basis in online learning (sgd),
 
-\[
-\sum_i \left(L(x_i,y_i,w) + \lambda_1 \|w\|_1 + 1/2 \cdot \lambda_2 \|w\|_2^2\right) ,
-\]
+![\sum_i \left(L(x_i,y_i,w) + \lambda_1 |w|_1 + 1/2 \cdot \lambda_2 |w|_2^2\right)](http://i.imgur.com/H01IthR.png?1)
 
 but on an aggregate level in batch learning (conjugate gradient and bfgs).
 
-\[
-\left(\sum_i L(x_i,y_i,w)\right) + \lambda_1 \|w\|_1 + 1/2 \cdot\lambda_2 \|w\|_2^2 .
-\]
+![\left(\sum_i L(x_i,y_i,w)\right) + \lambda_1 \|w\|_1 + 1/2 \cdot\lambda_2 \|w\|_2^2 .](http://i.imgur.com/Cnt5IXS.png)
 
 `-l \(\lambda\)`,
 
@@ -185,20 +181,18 @@ but on an aggregate level in batch learning (conjugate gradient and bfgs).
 
  and `--decay_learning_rate \(d\)` specify the learning rate schedule whose generic form in the \((k+1)\)-th epoch is 
 
-\[
-\eta_t = \lambda d^k \left(\frac{t_0}{t_0 + w_t}\right)^p
-\]
+![\eta_t = \lambda d^k \left(\frac{t_0}{t_0 + w_t}\right)^p](http://i.imgur.com/Zawclow.png)
 
-where \(w_t\) is the sum of the importance weights of all examples seen so far (\(w_t = t\) if all examples have importance weight 1).
+where ![\(w_t\)](http://i.imgur.com/asQbRe4.png) is the sum of the importance weights of all examples seen so far (![\(w_t = t\)](http://i.imgur.com/sBi5pNW.png) if all examples have importance weight 1).
 
-There is no single rule for the best learning rate form. For standard learning from an i.i.d. sample, typically \(p \in \{0, 0.5, 1\}\),
- \(d \in (0.5,1]\)
- and \(\lambda,t_0\) are searched in a logarithmic scale. Very often, the defaults are reasonable and only the -l option (\(\lambda\)) needs to be explored. For other problems the defaults may be inadequate, e.g. for tracking \(p=0\) is more sensible.
+There is no single rule for the best learning rate form. For standard learning from an i.i.d. sample, typically ![ p \in \{0, 0.5, 1\}, \   d \in (0.5,1\] ](http://i.imgur.com/jozy5Xw.png)
 
-To specify a loss function use `--loss_function` followed by either `squared`, `logistic`, `hinge`, or `quantile`. The latter is parametrized by \(\tau \in (0,1)\) 
+ and ![\lambda,t_0](http://i.imgur.com/Is1EDyk.png) are searched in a logarithmic scale. Very often, the defaults are reasonable and only the -l option (![\lambda](http://i.imgur.com/6Hw5vOo.png)) needs to be explored. For other problems the defaults may be inadequate, e.g. for tracking \(p=0\) is more sensible.
+
+To specify a loss function use `--loss_function` followed by either `squared`, `logistic`, `hinge`, or `quantile`. The latter is parametrized by ![\tau \in (0,1)\)](http://i.imgur.com/EHfPa0T.png) 
 whose value can be specified by `--quantile_tau`. By default this is 0.5. For more information see [[Loss functions]]
 
-To average the gradient from \(k\) examples and update the weights once every \(k\) examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation and it's only enabled there.
+To average the gradient from _k_ examples and update the weights once every _k_ examples use `--minibatch \(k\)`. Minibatch updates make a big difference for Latent Dirichlet Allocation and it's only enabled there.
 
 <a name="feature_mask"></a>
 `--feature_mask` allows to specify directly a set of parameters which can update, from a model file. This is useful in combination with `--l1`. One can use `--l1` to discover which features should have a nonzero weight and do `-f model`, then use `--feature_mask model` without `--l1` to learn a better regressor.
@@ -217,7 +211,7 @@ To average the gradient from \(k\) examples and update the weights once every \(
     --output_feature_regularizer_binary arg    Per feature regularization output file
     --output_feature_regularizer_text arg      Per feature regularization output file, in text
 
-VW hashes all features to a predetermined range \([0,2^b-1]\) and uses a fixed weight vector with \(2^b\) components. The argument of `-b` option determines the value of \(b\) which is 18 by default. Hashing the features allows the algorithm to work with very raw data (since there's no need to assign a unique id to each feature) and has only a negligible effect on generalization performance (see for example 
+VW hashes all features to a predetermined range ![ \[0,2^b-1\] ](http://i.imgur.com/ce7NfyJ.png) and uses a fixed weight vector with ![2^b](http://i.imgur.com/SuQvjP3.png) components. The argument of `-b` option determines the value of \(b\) which is 18 by default. Hashing the features allows the algorithm to work with very raw data (since there's no need to assign a unique id to each feature) and has only a negligible effect on generalization performance (see for example 
 [Feature Hashing for Large Scale Multitask Learning](http://arxiv.org/abs/0902.2206).
 
 Use the `-f` option to write the weight vector to a file named after its argument. For testing purposes or to resume training, one can load a weight vector using  the `-i` option.
