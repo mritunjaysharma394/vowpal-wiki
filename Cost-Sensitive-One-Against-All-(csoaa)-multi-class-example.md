@@ -88,8 +88,29 @@ Which is a perfect classification:
 
 QED
 
+### Difference from other VW formats
+
+Test examples are different from standard VW test examples because you have to tell VW which labels are allowed. For example, assuming 4 possible labels (1,2,3,4), this is how a test line could look like:
+
+    1 2 3 4 | b d e
+
+And here's another, where only labels (1,4) are allowed:
+
+    1 4 | b d e
+
+At training time, if there's an example with label 2 that you know (for whatever reason) will never be label 4, you could specify it as:
+
+    1:1 2:0 3:1 | example...
+
+This means that labels 1 and 3 have a cost of 1, label 2 has a cost of zero, and no other labels are allowed. You can do the same at test time:
+
+    1 2 3 | example...
+
+VW will never predict anything other than the provided "possible" labels.
+
 ## Credits
 * Thanks to Ciemo for the example and for asking the right Qs on the mailing list.
 * Thanks to Stephane for patiently answering Ciemo's Qs.
+* See also Hal's doc at:  [http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html](http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html)
 
 
