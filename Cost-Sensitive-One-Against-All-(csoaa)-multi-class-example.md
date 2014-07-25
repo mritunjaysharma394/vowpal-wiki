@@ -17,7 +17,9 @@ classification.  It extends `--oaa <K>` to support multiple labels per input exa
     * It is critical to note that costs are *not* weights. They are the inverse of weights.
       A label with a *lower* cost is prefered over a label with a higher cost on the same line.
       That's why they are called `'costs'`.
-* The reduction with `--csoaa` is to a regression problem (i.e. conditional mean estimation), so forcing the loss function to logistic does not make much sense. Generally, when using multi-class, you should leave the `--loss_function` alone and let the algorithm use the built-in default. 
+    * Another difference from traditional `vw` input format is that every line (both in training and testing) must include all the _**allowed labels**_ at the beginning (before the 1st `|` char).
+
+* The reduction with `--csoaa` is to a regression problem (i.e. conditional mean estimation), so forcing the loss function to logistic does not make much sense. Generally, when using multi-class, you should leave the `--loss_function` alone and let the algorithm use the built-in default.
 
 ### Example
 Assume we have a 3-class classfication problem. We label our 3 classes {1,2,3}
