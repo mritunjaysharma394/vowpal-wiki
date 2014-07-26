@@ -30,11 +30,13 @@ Additional arguments can be passed to `vw-hypersearch` preceding `vw` itself:
 
 ## Examples
 
-    # Find the learning-rate resulting in the lowest average loss for a logistic loss train-set:
+    # Find the learning-rate resulting in the lowest average loss
+    # for a logistic loss train-set:
     vw-hypersearch 0.1 100 vw --loss_function logistic --learning_rate % train.dat
 
     # Find the bootstrap resulting in the lowest average loss
-    # vw-hypersearch will automatically search in integer-space since --bootstrap expects an integer
+    # vw-hypersearch will automatically search in integer-space
+    # since --bootstrap expects an integer
     vw-hypersearch 2 16 vw --bootstrap % train.dat
 
 ## Implementation notes
