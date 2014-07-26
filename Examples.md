@@ -11,11 +11,13 @@
  - [[Weighted All Pairs (wap) multi class example]]
  - [[Truncated gradient descent example]]
  - [[Contextual Bandit Example]]
+ - [[daemon example]] - how to run vw in daemon mode and get predictions
+
+### Utilities
  - [[Using active_interactor.py]] an interactive way to interface with vw's active learning
  - [[Using vw-hypersearch]] a vw wrapper to search for "optimal" (argmin) parameters
  - [[using vw varinfo]] - a vw wrapper to inspect your training-set & model
  - [[Using vw regr]] - a script for aiding regression applications
- - [[daemon example]] - how to run vw in daemon mode and get predictions
  - [vw-top-errors: online learning debugging for better models](https://github.com/arielf/vowpal_wabbit/wiki/vw-top-errors:-online-learning-debugging-for-better-models)
 
 ### Demos
