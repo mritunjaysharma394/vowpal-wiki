@@ -7,9 +7,9 @@
 
 In the call:
 
-* the `%` character is a placeholder for the parameter we are searching.
-* 1e-10 is the lower-bound for the search range
-* 1 is the upper-bound of the search range
+* the `%` character is a placeholder for the (argmin) parameter we are looking for.
+* `1e-10` is the lower-bound for the search range
+* `1` is the upper-bound of the search range
 
 The lower & upper bounds are arguments to `vw-hypersearch`. Anything from `vw` on, are normal `vw` arguments exactly as you would use in training.  The only change you must apply to the training command is to use `%` instead of the *_value_* of the parameter you're trying to optimize on.
 
