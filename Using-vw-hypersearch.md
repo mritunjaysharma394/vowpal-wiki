@@ -1,9 +1,13 @@
 ## Introduction
 
-`vw-hypersearch` is a simple wrapper to `vw` to help in finding lowest-loss hyper-parameters **_(argmin)_**.  For example: say you want to find the lowest average loss for `--l1` (L1-norm regularization) on a train-set called `train.dat`.  You can run:
+`vw-hypersearch` is a simple wrapper to `vw` to help in finding lowest-loss hyper-parameters **_(argmin)_**.
+
+For example: say you want to find the lowest average loss for `--l1` (L1-norm regularization) on a train-set called `train.dat`.  You can run:
 ```
     $ vw-hypersearch 1e-10 1 vw --l1 % train.dat
 ```
+
+`vw-hypersearch` will train multiple times (but in a efficient way) until it finds the `--l1` value resulting in the lowest average training loss.
 
 In the call:
 
