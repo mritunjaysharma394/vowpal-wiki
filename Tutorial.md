@@ -83,7 +83,7 @@ The 3rd example is straightforward, except there is an additional number: `0.5` 
 
 Next, we learn:
 
-    ./vw house_dataset
+    vw house_dataset
 
 ### VWs diagnostic information
 
@@ -140,7 +140,7 @@ At the end, some more straightforward totals are printed.  The only mysterious o
 
 If we want to overfit like mad, we can simply use:
 
-    ./vw house_dataset -l 10 -c --passes 25 --holdout_off
+    vw house_dataset -l 10 -c --passes 25 --holdout_off
 
 The progress section of the output is:
 
@@ -159,13 +159,13 @@ You'll notice that by example 65 (25 passes over 3 examples result in 75 example
 
 By default vw learns the weights of the features and keeps them in a memory vector. If you want to save the final regressor weights into a file, add **-f _filename_**:
 
-    ./vw house_dataset -l 10 -c --passes 25 --holdout_off -f house.model
+    vw house_dataset -l 10 -c --passes 25 --holdout_off -f house.model
 
 ### Getting predictions
 
 We want to make predictions of course:
 
-    ./vw house_dataset -p /dev/stdout --quiet
+    vw house_dataset -p /dev/stdout --quiet
 
 The output is:
 
@@ -185,7 +185,7 @@ Alternatively, and more commonly, we would first learn and save the model into a
 
 You may load a initial model to memory by adding `-i house.model`.  You may also want to specify `-t` which stands for "test-only" (do no learning):
 
-    ./vw -i house.model -t house_dataset -p /dev/stdout --quiet
+    vw -i house.model -t house_dataset -p /dev/stdout --quiet
 
 Which would output:
 
@@ -199,7 +199,7 @@ Obviously the results are different this time, because in the first prediction e
 
 When developing a new ML application, it's very helpful to debug.  VW can help a great deal with this using the `--audit` option.
 
-    ./vw house_dataset --audit --quiet
+    vw house_dataset --audit --quiet
 
 Every example uses two lines.  The first line has the prediction, and the second line has one entry per feature.  Looking at the first feature, we see:
 
