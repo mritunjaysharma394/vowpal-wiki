@@ -2,7 +2,7 @@ Below is a list of VW's main components.
 * [[Command line arguments]]
 * [[Learning Algorithm]]
     * [[Loss Functions]]
-    * Search-based structured prediction (SEARN or DAgger) [paper](http://arxiv.org/pdf/1406.1837v2.pdf)
+    * [Search-based structured prediction (SEARN or DAgger)](http://arxiv.org/pdf/1406.1837v2.pdf)
 * [[Input format]]
 * [[Parser]]
 * [[Weight Vector]]
