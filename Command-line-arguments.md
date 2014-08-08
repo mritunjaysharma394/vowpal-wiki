@@ -157,8 +157,6 @@ By default VW hashes string features and does not hash integer features. `--hash
 and [Adaptive Subgradient Methods for Online Learning
 and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf). These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that cause examples to have many non-zero features such as `-q` and `--ngram`. Of the two `--exact_adaptive_norm` used to be recommended in the past, it is now the default so there's no need to specify it.
 
-`--nonormalize` gets rid of normalization of the updates.   Normalized updates are generally recommended for stability and convergence, although getting rid of them makes the optimization specification simpler.
-
 `--bfgs` and `--conjugate_gradient` uses a batch optimizer based on LBFGS or nonlinear conjugate gradient method.  Of the two, `--bfgs` is recommended.  To avoid overfitting, you should specify `--l2`.  You may also want to adjust `--mem` which controls the rank of an inverse hessian approximation used by LBFGS. `--termination` causes bfgs to terminate early when only a  very small gradient remains.
 
 `--initial_pass_length` is a trick to make LBFGS quasi-online.  You must first create a cache file, and then it will treat initial_pass_length as the number of examples in a pass, resetting to the beginning of the file after each pass.  After running `--passes` many times, it starts over warmstarting from the final solution with twice as many examples.  
