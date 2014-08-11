@@ -94,7 +94,9 @@ $ echo '| a c
 
 ### Stopping the daemon
 ```
-$ killall vw
+# this kills only the set of vw procs which listen to our 26542 port
+# On Ubuntu you need package 'psmisc' installed to have 'pkill' and 'pgrep'
+$ pkill -9 -f 'vw.*--port 26542'
 
 # Verify that it no longer runs:
 $ pgrep vw | wc -l
