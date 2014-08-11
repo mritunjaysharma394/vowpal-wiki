@@ -32,10 +32,10 @@ Currently, the only characters that can't be used in feature or namespace names 
 ## Notes
 When using logistic or hinge loss, the labels need to be from the set {+1,-1}  (documented in the V6.1 tutorial slide deck, but not elsewhere)
 
-The spacing around the | characters is important and significant:
-* Around the 1st | if there's no space preceding it, the string that touches the | is considered a tag (id of example)
+The spacing around the `|` characters is important and significant:
+* Around the 1st `|` if there's no space preceding it, the string that touches the `|` is considered a tag (id of example)
 
-After any |
+After any `|`
 * If there's a space, the next non-space token is considered a regular feature name
 * If there's no space, the next non-space token is considered a name-space
 
@@ -53,7 +53,7 @@ Here's an example:
 
     echo "1:0 2:3 3:1.5 4:1 |f input features come here" | vw --csoaa 4
 
-Preceding the 1st | char we have 4 classes: 1, 2, 3, 4  each of them has a cost (the number after the colon).  It is important to specify the number of classes as an argument to vw (--csoaa 4) and have class labels in the range [1,N] in the input (N=4 in this example).  Since the representation is sparse, there's no need to have all labels in all lines.
+Preceding the 1st `|` char we have 4 classes: 1, 2, 3, 4  each of them has a cost (the number after the colon).  It is important to specify the number of classes as an argument to vw (--csoaa 4) and have class labels in the range [1,N] in the input (N=4 in this example).  Since the representation is sparse, there's no need to have all labels in all lines.
 
 ## Format validation
 
