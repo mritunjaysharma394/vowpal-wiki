@@ -33,4 +33,4 @@ The source tree has a sub-directory `demo` which includes somewhat more involved
 
 ### External sites examples:
 
- - [ Zygmunt Zając's FASTML blog](http://fastml.com/blog/categories/vw/) several examples of using Vowpal Wabbit in practice.
+ - Zygmunt Zając's [FastML](http://fastml.com/blog/categories/vw/) has several examples of using Vowpal Wabbit in practice.
