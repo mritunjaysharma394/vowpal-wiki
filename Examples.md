@@ -31,6 +31,6 @@ The source tree has a sub-directory `demo` which includes somewhat more involved
  - [`--normalized` effect on SGD online learning](https://github.com/JohnLangford/vowpal_wabbit/tree/master/demo/normalized)
  - [Ability of `vw` to separate signal from artificially injected noise](https://github.com/JohnLangford/vowpal_wabbit/tree/master/demo/random-noise)
 
-### External sites examples:
+### External sites examples
 
  - Zygmunt Zając's [FastML](http://fastml.com/blog/categories/vw/) has several examples of using Vowpal Wabbit in practice.
