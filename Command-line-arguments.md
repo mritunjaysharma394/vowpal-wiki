@@ -272,7 +272,7 @@ The `--lda` option switches VW to LDA mode. The argument is the number of topics
     --lrq arg             use low rank quadratic features
     --lrqdropout          use dropout training for low rank quadratic features
 
-# Binary classification 
+# Binary 
     --binary              Reports loss as binary classification with -1,1 labels
 
 # Multiclass options
