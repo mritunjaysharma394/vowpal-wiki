@@ -67,6 +67,14 @@ Everything should pass.  If you see:
 
 That's ok.  One of the things we do for speed is use the `-ffast-math` option which implies that floating point arithmetic does not round exactly the same way on all platforms.
 
+You can install the vw executable into system path (`/usr/local/bin/vw`) using
+
+    sudo make install
+
+Alternatively, you can create an alias (in your `~/.bashrc`), so you can execute `vw` from any directory
+
+    alias vw=/path/where/I/have/vowpal_wabbit/vowpalwabbit/vw
+
 ### A first data-set
 
 Now, let's create a data-set.  Suppose we want to predict whether a house will require a new roof in the next 10 years. We can create a training-set file, `house_dataset` with the following contents:
