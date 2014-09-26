@@ -234,5 +234,5 @@ The above only scratches the surface of VW.  You can learn with other loss funct
 1. The presented tutorials at the top of the page.
 2. The <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples">examples</a>.
 3. The <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments">commandline specification</a>.
-4. The <a href="http://tech.groups.yahoo.com/group/vowpal_wabbit/">mailing list</a>.
+4. The <a href="https://groups.yahoo.com/neo/groups/vowpal_wabbit/info">mailing list</a>.
 5. You. If something isn't covered adequately, ask questions and consider creating an example or a test case.
