@@ -333,7 +333,7 @@ More details are in the cluster directory.
     --csoaa_ldf multiline|singleline
     --wap_ldf multiline|singleline
 
-See http://groups.yahoo.com/neo/groups/vowpal_wabbit/conversations/topics/626
+See http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html and http://groups.yahoo.com/neo/groups/vowpal_wabbit/conversations/topics/626
 
 # Learning algorithm / reduction options
     -B [ --bootstrap ] arg    bootstrap mode with k rounds by online importance resampling
