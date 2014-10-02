@@ -15,6 +15,8 @@ There are several optimization algorithms available with the baseline being spar
 <li>[[Goals]]</li>
 <li>[[Discussions]]</li>
 <li>[[Feature Hashing and Extraction]]</li>
+<li>[[http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html Multiclass Classification]</li>
+<li>[[http://nbviewer.ipython.org/github/hal3/vowpal_wabbit/blob/master/python/Learning_to_Search.ipynb Python interface for learning to search]]</li>
 
 </ul>
 
