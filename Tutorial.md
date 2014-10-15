@@ -44,16 +44,21 @@ On Ubuntu 13.10 also install:
 
     sudo apt-get install zlib1g-dev
 
-Boost installation on Mac OS-X is a little bit more involved:
+Boost installation on Mac OS-X is a little bit more involved and depends on your preferred tool chain:
 
-  1. Download the source from [[http://sourceforge.net/projects/boost/files/boost/1.50.0/]]
+One way is to start from source:
+  1. Download the boost source from [[http://sourceforge.net/projects/boost/files/boost/]]
   2. Execute the shell script with `sudo ./bootstrap.sh`
   3. Next run the command `sudo ./bjam --layout=tagged install`
-  4. You should be good to go
+
+or if you use `brew`, just make sure you have `libboost-program-options` installed
+
+Note:
+  1. For the recent python bindings you will need to pre-install `libboost-python`, followed by `make python`
 
 Once boost is in place, the command:
 
-    make
+    make vw
 
 Should create `vowpalwabbit/vw` - the vw executable
 
