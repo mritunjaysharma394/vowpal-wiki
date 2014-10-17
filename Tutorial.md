@@ -228,7 +228,7 @@ The `^price` is the original feature.  If you use a namespace, it appears before
 
 `@0.25` represents the sum of gradients squared for that feature when you are using per-feature adaptive learning rates.
 
-Examining further, you'll notice that the feature `2006` uses the index 2006.  This means that you can freely use the hashing or pre-compute indices as is common in for other machine learning programs.
+Examining further, you'll notice that the feature `2006` uses the index 2006.  This means that you may use hashes or pre-computed indices for features, as is common in other machine learning programs.
 
 The advantage of using unique integer-based feature-names is that they are guaranteed not to collide after hashing.  The advantage of free-text (non integer) feature names is readability and self-documentation. Since only `:`, `|`, and _spaces_ are special to the vw parser, you can give features extremely readable names like:  `height>2  value_in_range[1..5]  color=red`  and so on.  Feature-names may even start with a digit, e.g.: `1st-guess:0.5    2nd-guess:3`  etc.
 
