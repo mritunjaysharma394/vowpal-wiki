@@ -58,3 +58,10 @@ Preceding the 1st `|` char we have 4 classes: 1, 2, 3, 4  each of them has a cos
 ## Format validation
 
 You can check that vw is correctly parsing your input by pasting a few lines into the [VW validator](http://hunch.net/~vw/validate.html).
+
+## LibSVM format
+[LibSVM](www.csie.ntu.edu.tw/~cjlin/libsvm/) uses a simpler format than VW, which can be easily converted to VW format just by adding a pipe symbol between the label and the features.
+
+    perl -pe 's/\s/ | /' data.libsvm | vw -f model
+
+For other formats (csv) and preprocessing see e.g. [Phraug](https://github.com/zygmuntz/phraug2).
