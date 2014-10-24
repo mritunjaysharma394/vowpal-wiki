@@ -55,6 +55,15 @@ Here's an example:
 
 Preceding the 1st `|` char we have 4 classes: 1, 2, 3, 4  each of them has a cost (the number after the colon).  It is important to specify the number of classes as an argument to vw (--csoaa 4) and have class labels in the range [1,N] in the input (N=4 in this example).  Since the representation is sparse, there's no need to have all labels in all lines.
 
+## On-demand model saving
+This feature is useful especially in the daemon mode, where you can decide in any moment of the training that you want to save the current model in arbitrary file, using a dummy example whose Tag starts with _save_ and optionally specifies also the filename (no label or features are needed in this dummy example), e.g.:
+
+     vw --daemon --port 9999
+     cat data1.vw | nc localhost:9999
+     echo save_/tmp/my1.model | nc localhost:9999
+     cat data2.vw | nc localhost:9999
+     echo save_/tmp/my1and2.model | nc localhost:9999
+
 ## Format validation
 
 You can check that vw is correctly parsing your input by pasting a few lines into the [VW validator](http://hunch.net/~vw/validate.html).
