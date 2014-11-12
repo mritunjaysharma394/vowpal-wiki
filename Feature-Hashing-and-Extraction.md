@@ -31,6 +31,8 @@ The output will look like this (example):
     ^a                   24414     0.00     1.00   +1.0000     20.00%
     Constant            116060     0.00     0.00   +0.0000      0.00%
 
+Yet another option is to use `--invert_hash` option. See [this page](Command-line-arguments#weight-options) for details how to use it (and how to not use it).
+
 ### Notes on the hashing algorithm
 
 * VW has switched from jenkins hash to murmur hash (v2) in 2009.
