@@ -44,6 +44,10 @@ On Ubuntu 13.10 also install:
 
     sudo apt-get install zlib1g-dev
 
+On Ubuntu 12.04, the default Boost version is too old (1.46), so install a newer one either from source (see below) or with
+
+    sudo apt-get install libboost1.48-all-dev
+
 Boost installation on Mac OS-X is a little bit more involved and depends on your preferred tool chain:
 
 One way is to start from source:
