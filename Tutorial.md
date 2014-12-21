@@ -1,3 +1,11 @@
+We did a new version 7.8 tutorial which includes:
+* [[Intro + reductions + log_multi + exploration library + AzureML|intro_2014.pdf]]
+* [[Polynomial learning|poly.pdf]]
+* [[LRQ + Hogwild mode|lrq_hogwild.pdf]]
+* [[Online kernel SVM|ksvm.pdf]]
+* [[Learning2Search + python|learning2search_python.pdf]]
+* [[Entity Relation and Dependency Parsing|ER_dep_parse.pdf]]
+
 New tutorials associated with Version 7.4.  This includes:
 * The [[Learning Reduction and Searn systems|reductions_and_searn.pdf]]
 * Several improvements from Zhen including [[holdout, bootstrap, early termination, top k|Zhen.pdf]]
