@@ -52,6 +52,7 @@ Parsing raw data is slow so there are options to create or load data in VW's nat
     -P [ --progress ] arg            Progress update frequency. int: additive, float: multiplicative
     --min_prediction arg             Smallest prediction to output
     --max_prediction arg             Largest prediction to output
+    --progressive_validation        File to record progressive validation for FTRL-Proximal (option in ftrl)
 
 `-p /dev/stdout` is often a handy trick for seeing outputs. 
 
@@ -133,6 +134,9 @@ By default VW hashes string features and does not hash integer features. `--hash
                                       which are on by default, so no longer needed.)
     --conjugate_gradient             use conjugate gradient based optimization (option in bfgs)
     --bfgs                           use bfgs optimization
+    --ftrl                           use FTRL-Proximal optimization
+    --ftrl_alpha                     ftrl alpha parameter (default 0.1) (option in ftrl)
+    --ftrl_beta                      ftrl beta patameter (default 0) (option in ftrl)
     --mem arg (=15)                  memory in bfgs
     --termination arg (=0.001)       Termination threshold
     --hessian_on                     use second derivative in line search
@@ -158,6 +162,9 @@ and [Adaptive Subgradient Methods for Online Learning
 and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf). These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that cause examples to have many non-zero features such as `-q` and `--ngram`. Of the two `--exact_adaptive_norm` used to be recommended in the past, it is now the default so there's no need to specify it.
 
 `--bfgs` and `--conjugate_gradient` uses a batch optimizer based on LBFGS or nonlinear conjugate gradient method.  Of the two, `--bfgs` is recommended.  To avoid overfitting, you should specify `--l2`.  You may also want to adjust `--mem` which controls the rank of an inverse hessian approximation used by LBFGS. `--termination` causes bfgs to terminate early when only a  very small gradient remains.
+
+`--ftrl` and `--ftrl_alpha` and `--ftrl_beta` uses a per-Coordinate FTRL-Proximal with L1 and
+L2 Regularization for Logistic Regression. Detailed information about the algorithm can be found [in this paper.](http://www.eecs.tufts.edu/~dsculley/papers/ad-click-prediction.pdf)
 
 `--initial_pass_length` is a trick to make LBFGS quasi-online.  You must first create a cache file, and then it will treat initial_pass_length as the number of examples in a pass, resetting to the beginning of the file after each pass.  After running `--passes` many times, it starts over warmstarting from the final solution with twice as many examples.  
 
