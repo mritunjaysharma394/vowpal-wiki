@@ -135,8 +135,8 @@ By default VW hashes string features and does not hash integer features. `--hash
     --conjugate_gradient             use conjugate gradient based optimization (option in bfgs)
     --bfgs                           use bfgs optimization
     --ftrl                           use FTRL-Proximal optimization
-    --ftrl_alpha                     ftrl alpha parameter (default 0.1) (option in ftrl)
-    --ftrl_beta                      ftrl beta patameter (default 0) (option in ftrl)
+    --ftrl_alpha (=0.1)              ftrl alpha parameter (option in ftrl)
+    --ftrl_beta (=0.0)               ftrl beta patameter (option in ftrl)
     --mem arg (=15)                  memory in bfgs
     --termination arg (=0.001)       Termination threshold
     --hessian_on                     use second derivative in line search
