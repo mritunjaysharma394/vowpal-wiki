@@ -52,7 +52,7 @@ Parsing raw data is slow so there are options to create or load data in VW's nat
     -P [ --progress ] arg            Progress update frequency. int: additive, float: multiplicative
     --min_prediction arg             Smallest prediction to output
     --max_prediction arg             Largest prediction to output
-    --progressive_validation        File to record progressive validation for FTRL-Proximal (option in ftrl)
+    --progressive_validation         File to record progressive validation for FTRL-Proximal (option in ftrl)
 
 `-p /dev/stdout` is often a handy trick for seeing outputs. 
 
