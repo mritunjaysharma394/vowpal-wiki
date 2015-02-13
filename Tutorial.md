@@ -230,7 +230,7 @@ Every example uses two lines.  The first line has the prediction, and the second
 
     ^price:43641:0.23:0@0.25
 
-The `^price` is the original feature.  If you use a namespace, it appears before `^`.  Namespaces are an advanced feature which allows you to group features and operate them in the core of VW with `-q` and `--ignore`.
+The `^price` is the original feature.  If you use a namespace, it appears before `^`.  Namespaces are an advanced feature which allows you to group features and operate them on-the-fly, in the core of VW with the options: `-q XY` (cross a pair of name-spaces), `--cubic XYZ` (cross 3 name-spaces), `--lrq XYn` (low-rank quadratic interactions), and `--ignore X` (skip all features belonging to a name-space).
 
 `43641` is the index of the feature, computed by a hash function on the feature name.
 
