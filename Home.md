@@ -13,7 +13,6 @@ There are several optimization algorithms available with the baseline being spar
 <li>[[Algorithm details]] (e.g., [[input format]], [[loss functions]])</li>
 <li>[[Examples]]</li>
 <li>[[Goals]]</li>
-<li>[[Discussions]]</li>
 <li>[[Feature Hashing and Extraction]]</li>
 <li><a href="http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html">Multiclass Classification</a></li>
 <li><a href="http://nbviewer.ipython.org/github/hal3/vowpal_wabbit/blob/master/python/Learning_to_Search.ipynb">Python interface for learning to search</a></li>
