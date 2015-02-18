@@ -119,19 +119,15 @@ Unlike `--ngram` where the order of the features matters, `--sort_features` dest
 By default VW hashes string features and does not hash integer features. `--hash all` hashes all feature identifiers. This is useful if your features are integers and you want to use parallelization as it will spread the features almost equally among the threads or cluster nodes, having a load balancing effect.
 
 # Update Rule options
-    --sgd                            use regular/classic/simple stochastic
-                                     gradient descent update (this is no longer
-                                     the default since it is often sub-optimal)
+    --sgd                            use regular/classic/simple stochastic gradient descent update,
+                                     i.e., non adaptive, non normalized, non invariant
+                                     (this is no longer the default since it is often sub-optimal)
     --adaptive                       use adaptive, individual learning rates
                                      (on by default)
     --normalized                     use per feature normalized updates.
                                      (on by default)
     --invariant                      use safe/importance aware updates
                                      (on by default)
-    --exact_adaptive_norm            use a more expensive exact norm for adaptive
-                                     learning rates.
-                                     (superseded by --adaptive --normalized --invariant
-                                      which are on by default, so no longer needed.)
     --conjugate_gradient             use conjugate gradient based optimization (option in bfgs)
     --bfgs                           use bfgs optimization
     --ftrl                           use FTRL-Proximal optimization
@@ -156,10 +152,13 @@ By default VW hashes string features and does not hash integer features. `--hash
     --feature_mask arg               Use existing regressor to determine which 
                                      parameters may be updated
 
-`--exact_adaptive_norm` and `--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are
+Currently, `--adaptive`, `--normalized` and `--invariant` are on by default,
+but if you specify any of those flags explicitly, the effect is that the rest of these flags is turned off.
+
+`--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are
 [Adaptive Bound Optimization for Online Convex Optimization](http://arxiv.org/abs/1002.4908)
 and [Adaptive Subgradient Methods for Online Learning
-and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf). These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that cause examples to have many non-zero features such as `-q` and `--ngram`. Of the two `--exact_adaptive_norm` used to be recommended in the past, it is now the default so there's no need to specify it.
+and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf). These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that cause examples to have many non-zero features such as `-q` and `--ngram`.
 
 `--bfgs` and `--conjugate_gradient` uses a batch optimizer based on LBFGS or nonlinear conjugate gradient method.  Of the two, `--bfgs` is recommended.  To avoid overfitting, you should specify `--l2`.  You may also want to adjust `--mem` which controls the rank of an inverse hessian approximation used by LBFGS. `--termination` causes bfgs to terminate early when only a  very small gradient remains.
 
