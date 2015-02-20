@@ -92,9 +92,9 @@ You can install the vw executable into system path (`/usr/local/bin/vw`) using
 
     sudo make install
 
-Alternatively, you can create an alias (in your `~/.bashrc`), so you can execute `vw` from any directory
+You may need to add the directory where the `vw` executable resides to `PATH` (in your `~/.bashrc`), so you can execute `vw` from any directory and from any shell:
 
-    alias vw=/path/where/I/have/vowpal_wabbit/vowpalwabbit/vw
+    export PATH=/usr/local/bin:$PATH
 
 ### A first data-set
 
