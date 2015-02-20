@@ -74,7 +74,11 @@ Once boost is in place, the command:
 
 Should create `vowpalwabbit/vw` - the vw executable
 
-Now we can test the newly built vw executable:
+There's also a library usage example which you can build with:
+
+    make library_example
+
+Now we can test the newly built vw executable and examples:
 
     make test
 
