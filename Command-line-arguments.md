@@ -80,6 +80,11 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
                                      with character <arg>
     --keep arg                       keep namespaces beginning with 
                                      character <arg>
+    --redefine arg                   redefine namespaces beginning with characters of 
+                                     string S as namespace N. <arg> shall be in form 
+                                     'N:=S' where := is operator. Empty N or S are 
+                                     treated as default namespace. Use ':' as a 
+                                     wildcard in S.
     --holdout_off                    no holdout data in multiple passes
     --holdout_period                 holdout period for test only, default 10
     --sort_features                  turn this on to disregard order in which 
@@ -105,6 +110,8 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 `--ignore` ignores a namespace, effectively making the features not there.  You can use it multiple times.
 
 `--keep` keeps namespace(s) ignoring those not listed, it is a counterpart to `--ignore`.  You can use it multiple times. Useful for example to train a baseline using just a single namespace.
+
+`--redefine` allows namespace(s) renaming without any changes in input data. Its argument shall be in form `N:=S` where `:=` is operator, `N` - new namespace character, `S`- list of old namespaces. Empty `S` or `N` are treated as default namespace (features without namespace explicitly specified). Wildcard character `:` may be used to address all namespaces except default. For example, `--redefine :=:` will rename all namespaces to default one (e.g. all features will be stored in default namespace). The order of redefinition is matter. For example, `--redefine A:=: --redefine B:= --redefine B:=q --ignore B -q AA` will ignore features of namespaces starting with `q` and default nemespace, put all other features into one namespace `A` and generate quadratic interactions between them.
 
 `--holdout_off` disables holdout validation for multiple pass learning. By default, VW holds out a (controllable default = 1/10th) subset of examples whenever --passes > 1 and reports the test loss on the print out. This is used to prevent overfitting in multiple pass learning. An extra `h` is printed at the end of the line to specify the reported losses are holdout validation loss, instead of progressive validation loss. 
 
