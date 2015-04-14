@@ -2,7 +2,7 @@
 ECT stands for "Error Correcting Tournament".
 
 ### Purpose:
-The option `--ect <K>` where <K> is the number of distinct classes
+The option `--ect <K>` where \<K\> is the number of distinct classes
 directs vw to perform K multi-class (as opposed to binary)
 classification.  This methods differs from `--oaa <K>` only in
 the algorithm used.  The data input format is the same.
