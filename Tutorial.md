@@ -86,7 +86,7 @@ Everything should pass.  If you see:
 
     minor (<0.001) precision differences ignored
 
-That's ok.  One of the things we do for speed is use the `-ffast-math` option which implies that floating point arithmetic does not round exactly the same way on all platforms.
+That's ok. Floating point arithmetic does not round exactly the same way on all platforms.
 
 You can install the vw executable into system path (`/usr/local/bin/vw`) using
 
