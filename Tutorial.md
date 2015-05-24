@@ -46,7 +46,7 @@ This should "just work", at least on Linux and OS-X, and plausibly on any POSIX 
 
 Boost installation on Debian-based (Debian, Ubuntu, Mint etc.) Linux distributions:
 
-    sudo apt-get install libboost-program-options-dev libboost-python
+    sudo apt-get install libboost-program-options-dev libboost-python-dev
 
 On Ubuntu 13.10 also install:
 
