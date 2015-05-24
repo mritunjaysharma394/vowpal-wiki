@@ -44,7 +44,7 @@ Now we compile:
 
 This should "just work", at least on Linux and OS-X, and plausibly on any POSIX platform.  If it fails, you most likely need to install the boost program options headers and library.
 
-Boost installation on Debian/Linux distributions:
+Boost installation on Debian-based (Debian, Ubuntu, Mint etc.) Linux distributions:
 
     sudo apt-get install libboost-program-options-dev libboost-python
 
