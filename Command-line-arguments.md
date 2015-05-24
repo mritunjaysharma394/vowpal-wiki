@@ -107,6 +107,8 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 
 `--cubic` is similar to `-q`, but it takes three letters as the argument, thus enabling interaction among the features of three namespaces. 
 
+`--interactions` same as `-q` and `--cubic` but can create feature interactions of any level, like `--interactions abcde`. For example `--interactions abc` is equal to `--cubic abc`. 
+
 `--ignore` ignores a namespace, effectively making the features not there.  You can use it multiple times.
 
 `--keep` keeps namespace(s) ignoring those not listed, it is a counterpart to `--ignore`.  You can use it multiple times. Useful for example to train a baseline using just a single namespace.
