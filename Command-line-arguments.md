@@ -92,6 +92,8 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
     --sort_features                  turn this on to disregard order in which 
                                      features have been defined. This will lead 
                                      to smaller cache sizes
+    --permutations                   Use permutations instead of combinations for 
+                                     feature interactions of same namespace.
     --noconstant                     Don't add a constant feature
     -C [ --constant ] arg            Set initial value of the constant feature to arg
                                      (Useful for faster convergence on data-sets
@@ -126,6 +128,8 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 `--ngram` and `--skip` can be used to generate ngram features possibly with skips (a.k.a. don't cares). For example `--ngram 2` will generate (unigram and) bigram features by creating new features from features that appear next to each other, and  `--ngram 2 --skip 1` will generate (unigram, bigram, and) trigram features plus trigram features where we don't care about the identity of the middle token.
 
 Unlike `--ngram` where the order of the features matters, `--sort_features` destroys the order in which features are presented and writes them in cache in a way that minimizes the cache size. `--sort_features` and `--ngram` are mutually exclusive
+
+`--permutations` defines how vw interacts features of the same namespace. For example, in case `-q aa`. If namespace `a` contains 3 features than by default vw generates only simple combinations of them: `aa:{(1,2),(1,3),(2,3)}`. With `--permutations` specified it will generate permutations of interacting features `aa:{(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)}`. It's recommended to not use `--permutations` without a good reason as it may cause generation of a lot more features than usual. 
 
 By default VW hashes string features and does not hash integer features. `--hash all` hashes all feature identifiers. This is useful if your features are integers and you want to use parallelization as it will spread the features almost equally among the threads or cluster nodes, having a load balancing effect.
 
