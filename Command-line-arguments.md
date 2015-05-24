@@ -76,6 +76,8 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
     -t [ --testonly ]                Ignore label information and just test
     -q [ --quadratic ] arg           Create and use quadratic features
     --cubic arg                      Create and use cubic features
+    --interactions arg               Create feature interactions of any level 
+                                     between namespaces.
     --ignore arg                     ignore namespaces beginning
                                      with character <arg>
     --keep arg                       keep namespaces beginning with 
