@@ -26,6 +26,7 @@ Additional arguments can be passed to `vw-hypersearch` preceding `vw` itself:
 * -L will do a _log-space_ golden-section search instead of a _simple_ golden-section search.
 * `-t test.dat` (note: this must come _before_ the `vw` argument) will search for the training parameter that results in a minimum loss on `test.dat` rather than `train.dat` (ignoring the training errors)
 * `-c test.dat.cache` use `test.dat.cache` as test-cache file + evaluate goodness on it (this implies `-t` except the cache `test.dat.cache` will be used instead of `test.dat`)
+* `-e <script_name>` or even `-e '<script_name> <script_args>...'` will use an external program `<script_name>` and will try to minimize its last numeric output. This allows you to plug-in any external tool for the `argmin`.  For example, you could write a script that will call `vw` with the just generated model, in prediction mode, and then use `perf` to calculate accuracy, various AUCs etc. The only interface between `vw-hyperseach` and the <script_name> is the last numeric value printed to `stdout` by <script_name> which vw-hypersearch will try to minimize.  Negate the value inside <script_name> if you'd rather maximize the value. 
 * An optional 3rd numeric parameter will be interpreted as a `tolerance` parameter directing `vw-hypersearch` to stop only when a difference in two consecutive run errors is less than `tolerance`
 
 
