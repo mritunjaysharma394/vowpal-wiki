@@ -363,17 +363,18 @@ More details are in the cluster directory.
 See http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html and http://groups.yahoo.com/neo/groups/vowpal_wabbit/conversations/topics/626
 
 # Learning algorithm / reduction options
-    -B [ --bootstrap ] arg    bootstrap mode with k rounds by online importance resampling
-    --top arg                 top k recommendation
-    --bs_type arg             bootstrap mode - currently 'mean' or 'vote'
-    --autolink arg            create link function with polynomial d
-    --cb arg                  Use contextual bandit learning with <k> costs
-    --lda arg                 Run LDA with <int> topics
-    --nn arg              Use sigmoidal feedforward network with <k> hidden units
-    --cbify arg           Convert multiclass on <k> classes into a contextual
-                          bandit problem and solve
-    --search arg          use search-based structured prediction (SEARN or DAgger), arg=maximum action id or 0 for LDF
-    --ksvm                online kernel Support Vector Machine, see [a documentation](https://github.com/JohnLangford/vowpal_wabbit/wiki/ksvm.pdf)
+<big><pre>
+-B [ --bootstrap ] arg    bootstrap mode with k rounds by online importance resampling
+--top arg                 top k recommendation
+--bs_type arg             bootstrap mode - currently 'mean' or 'vote'
+--autolink arg            create link function with polynomial d
+--cb arg                  Use contextual bandit learning with <k> costs
+--lda arg                 Run LDA with <int> topics
+--nn arg              Use sigmoidal feedforward network with <k> hidden units
+--cbify arg           Convert multiclass on <k> classes into a contextual
+                      bandit problem and solve
+--search arg          use search-based structured prediction (SEARN or DAgger), arg=maximum action id or 0 for LDF
+--ksvm                online kernel Support Vector Machine, see [a documentation](https://github.com/JohnLangford/vowpal_wabbit/wiki/ksvm.pdf)</big></pre>
 
  
 
