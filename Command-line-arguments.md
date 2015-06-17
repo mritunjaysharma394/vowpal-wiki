@@ -364,17 +364,18 @@ See http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html and http://groups.yahoo
 
 # Learning algorithm / reduction options
 <big><pre>
--B [ --bootstrap ] arg    bootstrap mode with k rounds by online importance resampling
---top arg                 top k recommendation
---bs_type arg             bootstrap mode - currently 'mean' or 'vote'
---autolink arg            create link function with polynomial d
---cb arg                  Use contextual bandit learning with <k> costs
---lda arg                 Run LDA with <int> topics
---nn arg              Use sigmoidal feedforward network with <k> hidden units
---cbify arg           Convert multiclass on <k> classes into a contextual
-                      bandit problem and solve
---search arg          use search-based structured prediction (SEARN or DAgger), arg=maximum action id or 0 for LDF
---ksvm                online kernel Support Vector Machine, see [a documentation](https://github.com/JohnLangford/vowpal_wabbit/wiki/ksvm.pdf)</big></pre>
+--bootstrap K  bootstrap mode with K rounds by online importance resampling
+--bs_type arg  bootstrap mode - arg can be 'mean' or 'vote'
+--top K        top K recommendation
+--autolink N   create link function with polynomial N
+--cb K         use contextual bandit learning with K costs
+--cbify K      convert multiclass on K classes into a contextual bandit problem
+--lda N        run LDA with N topics
+--nn N         use sigmoidal feedforward network with N hidden units
+--search N     use search-based structured prediction (SEARN or DAgger), N=maximum action id or 0 for LDF
+--ksvm         online kernel Support Vector Machine, see [a documentation](https://github.com/JohnLangford/vowpal_wabbit/wiki/ksvm.pdf)
+--boosting N   online boosting with <N> weak learners, see [a theoretic paper](http://arxiv.org/abs/1502.02651)
+</big></pre>
 
  
 
