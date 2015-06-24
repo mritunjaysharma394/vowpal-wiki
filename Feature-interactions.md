@@ -41,7 +41,7 @@ Note: due to the implementation of the simple combinations generation algorithm 
 
 ```
 $ vw --cubic bab --cubic aaa
-creating cubic features for triples: bba aaa 
+creating cubic features for triples: bab aaa 
 WARNING: some interactions contain duplicate characters and their characters order has been changed.
 Interactions affected: 1.
 ```
