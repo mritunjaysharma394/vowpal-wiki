@@ -1,4 +1,4 @@
-Since VW v 7.10.2 number of changes was introduced in mechanism of feature interactions generation (`-q` and `--cubic`):
+Since VW v 7.10.2 number of changes were introduced in mechanism of feature interactions generation (`-q` and `--cubic`):
 
 * Support of interactions of arbitrary length.
 * Better hashing.
@@ -9,7 +9,7 @@ These may result in less number of generated features, changes in their values a
 
 ## Support of interactions of arbitrary length
 
-VW's command line parameters `-q a` or `--cubic ab` (where `a` and `b` are namespaces) are commonly used to generate pairs or triples of features from namespaces specified.   
+VW's command line parameters `-q a` or `--cubic ab` (where `a` and `b` are namespaces) are commonly used to generate pairs or triples of features from specified namespaces.   
 
 Now VW provides additional `--interaction` parameter that works like `-q` or `--cubic` but its argument's value may be longer. E.g. it could be `--interaction ab`, `--interaction abcd`, `--interaction abcdef` etc. Moreover, `-q` and `--cubic` arguments are internally converted to `--interaction` values. Both `-q` and `--cubic` are still supported for backward compatibility.   
 
