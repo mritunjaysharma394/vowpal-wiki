@@ -27,15 +27,10 @@ Since version 7.10.2 VW uses 32bit [FNV hash](http://www.isthe.com/chongo/tech/c
 
 In previous versions, VW generated permutations of features for self-interacting namespaces. This means that `-q ff` for `f| a b c` produced the following new features:   
 ``a*a, a*b, a*c, b*a, b*b, b*c, c*a, c*b, c*c``  
-There are 2 groups of generated features that won't improve your model:
 
-1. `b*a, c*a, c*b` will have the same weights after training as `a*b, a*c, b*c` and processing them is just a waste of time. Although they'll have different hashes it seems that they can't improve model's result by making it more robust to hash collisions. Removal of such features may significantly reduce time required for model training and slightly improve its prediction power.
-2. features `a*a, b*b, c*c` will have the same weights as simple `a, b, c` unless they have values != 1.0. This exception is made for parts of bigger interactions too. For example: `--cubic fff` where `f| a:0.5 b c` will result in `a*a*a, a*a*b, a*a*c, a*b*c`.
+There is a group of generated features that won't improve your model. `b*a, c*a, c*b` will have the same weights after training as `a*b, a*c, b*c` and processing them is just a waste of time. Although they'll have different hashes it seems that they can't improve model's result by making it more robust to hash collisions. Removal of such features may significantly reduce time required for model training and slightly improve its prediction power.
 
-Since 7.10.2, VW doesn't generate unnecessary features for self-interacting namespaces. Restated, VW generates permutations with the exception of features with weight != 1.0.
-
-The new rules of feature generation for interacting namespaces is enabled by default, but could be switched off by passing the `--permutations` flag via VW command line.
-The exception for features with weight != 1.0 can be disabled by switching off `const bool feature_self_interactions_for_weight_other_than_1` in `interactions.h` and rebuilding the project.
+Since 7.10.2, VW doesn't generate unnecessary features for self-interacting namespaces. The new rule of feature generation for interacting namespaces is enabled by default, but could be switched off by passing the `--permutations` flag via VW command line.   
 
 Note: due to the implementation of the simple combinations generation algorithm the namespaces in the interaction string are sorted. This allows grouping the same namespaces together and efficiently detecting the presence of self-interacting namespaces. This could affect the order of features in interaction and thus its hash value. So vw prints a warning message if such changes have been made. For example:
 
@@ -46,6 +41,8 @@ WARNING: some interactions contain duplicate characters and their characters ord
 Interactions affected: 1.
 ```
 In the example above, VW will continue to work with interactions `aaa` and `abb`.
+
+P.S.: It may be noticed that categorical features `a*a, b*b, c*c` will have the same weights as simple `a, b, c` unless they have weight values != 1.0. VW currently doesn't exclude such features as it was [shown](https://github.com/JohnLangford/vowpal_wabbit/issues/698) that this rule is dataset dependant.
 
 ## Filtering out unnecessary namespace interactions
 
