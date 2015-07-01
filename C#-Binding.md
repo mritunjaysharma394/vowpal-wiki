@@ -237,4 +237,9 @@ A very common scenario when scoring is to rollout updates of new models. The [Ob
 # Example level caching
 To improve performance especially in scenarios using action dependent features, examples can be cached on a per VowpalWabbit instance base. To enable example level cache simply annotate the type using the [\[Cachable\]](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/Serializer/Attributes/CacheableAttribute.cs) attribute. This can **only** be used for **predictions** as labels cannot be updated once an example is created.
 The cache size can be configured using [VowpalWabbitSerializerSettings](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/Serializer/VowpalWabbitSerializerSettings.cs).
-It's considered best practice to use the same annotated user types at training and scoring time. As example level caching is only supported for predictions, one must disable caching at training time using VowpalWabbitSerializerSettings.EnableExampleCaching = false.
+
+It's considered best practice to use the same annotated user types at training and scoring time. As example level caching is only supported for predictions, one must disable caching at training time using
+
+```c#
+new VowpalWabbit("", new VowpalWabbitSerializerSettings { EnableExampleCaching = false })
+```
