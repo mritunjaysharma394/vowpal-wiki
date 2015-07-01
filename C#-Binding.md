@@ -77,7 +77,7 @@ Name | name of the feature (e.g. 13, 24, 69 from the example above) | property n
 Enumerize | if true, features will be converted to string and then hashed. e.g. VW line format: Age_15 (Enumerize=true), Age:15 (Enumerize=false) | false
 Order | feature serialization order. Useful for comparison with VW command line version | 0
 
-Furthermore the serializer will recursively traverse all properties of the supplied example type on the search for more \[Feature\](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attributed properties (Note: recursive data structures are not supported). Feature groups and namespaces are inherited from parent properties and can be overridden. Finally all annotated properties are put into the corresponding namespaces.
+Furthermore the serializer will recursively traverse all properties of the supplied example type on the search for more [\[Feature\]](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attributed properties (Note: recursive data structures are not supported). Feature groups and namespaces are inherited from parent properties and can be overridden. Finally all annotated properties are put into the corresponding namespaces.
 
 ```c#
 using VW.Serializer.Attributes;
@@ -201,7 +201,7 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 }
 ```
 
-# Thread-saftey and Object Pools
+# Multi-threading
 VW.VowpalWabbit are not thread-safe, but by using object pools and shared models we can enable multi-thread scenarios without multiplying the memory requirements by the number of threads.
 
 Consider the following excerpt from [TestSharedModel Unit Test](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs_unittest/TestCbAdf.cs)
@@ -232,4 +232,9 @@ using (var vwPool = new ObjectPool<VowpalWabbit<DataString, DataStringADF>>(new 
 ```
 
 vwModel is the shared model. Each call to vwPool.Get() will either get a new instance spawned of the shared model or re-use an existing.  
-A very common scenario when scoring is to rollout updates of new models. The ObjectPool class allows safe updating of the factory and proper disposal. After the call to vwPool.UpdateFactory(), vwPool.Get() will only return instances spawned of the new shared model (newVwModel). Not-in-use VowpalWabbit instances are disposed as part of UpdateFactory(). VowpalWabbit instances currently in-use are diposed upon return to the pool (PooledObject.Dispose). 
+A very common scenario when scoring is to rollout updates of new models. The [ObjectPool](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/ObjectPool.cs) class allows safe updating of the factory and proper disposal. After the call to vwPool.UpdateFactory(), vwPool.Get() will only return instances spawned of the new shared model (newVwModel). Not-in-use VowpalWabbit instances are disposed as part of UpdateFactory(). VowpalWabbit instances currently in-use are diposed upon return to the pool (PooledObject.Dispose). 
+
+# Example level caching
+To improve performance especially in scenarios using action dependent features, examples can be cached on a per VowpalWabbit instance base. To enable example level cache simply annotate the type using the [\[Cachable\]](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/Serializer/Attributes/CacheableAttribute.cs) attribute. This can **only** be used for **predictions** as labels cannot be updated once an example is created.
+The cache size can be configured using [VowpalWabbitSerializerSettings](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/Serializer/VowpalWabbitSerializerSettings.cs).
+It's considered best practice to use the same annotated user types at training and scoring time. As example level caching is only supported for predictions, one must disable caching at training time using VowpalWabbitSerializerSettings.EnableExampleCaching = false.
