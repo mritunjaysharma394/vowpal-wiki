@@ -67,17 +67,17 @@ public class Row : IExample
 }
 ```
 
-The serializer follows an opt-in model, thus only properties annotated using \[Feature\](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) are transformed into vowpal wabbit features. The feature attribute supports the following properties:
+The serializer follows an opt-in model, thus only properties annotated using \[Feature\](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) are transformed into vowpal wabbit features. The \[Feature\](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attribute supports the following properties:
 
 Property | Description | Default
 -------- | ----------- | -------
 FeatureGroup | it's the first character of the namespace in the string format | 0
-Namespace | concatenated with the FeatureGroup | hash() = 0
-Name | name of the feature (e.g. 13, 24, 69 from the example above) | Property name
+Namespace | concatenated with the FeatureGroup | 0 = hash(Namespace)
+Name | name of the feature (e.g. 13, 24, 69 from the example above) | property name
 Enumerize | if true, features will be converted to string and then hashed. e.g. VW line format: Age_15 (Enumerize=true), Age:15 (Enumerize=false) | false
 Order | feature serialization order. Useful for comparison with VW command line version | 0
 
-Furthermore the serializer will recursively traverse all properties of the supplied example type on the search for more \[Feature\] attributed properties (recursive data structures are not supported). Feature groups and namespaces are inherited from parent properties, but can be overridden. Finally all properties are flattened and put into the corresponding namespace.
+Furthermore the serializer will recursively traverse all properties of the supplied example type on the search for more \[Feature\](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attributed properties (Note: recursive data structures are not supported). Feature groups and namespaces are inherited from parent properties and can be overridden. Finally all annotated properties are put into the corresponding namespaces.
 
 ```c#
 using VW.Serializer.Attributes;
@@ -102,9 +102,9 @@ public class CommonFeatures
         [Feature(FeatureGroup = 'g', Name="Beta")]
         public float B { get; set; }
 }
-```
 
-```c#
+// ...
+
 var row = new ParentRow
 {
 	UserFeatures = new CommonFeatures
@@ -124,7 +124,6 @@ The vowpal wabbit string equivalent of the above instance is
 ```
 
 ```c#
-// make sure to properly dispose to free native memory 
 using (var vw = new VW.VowpalWabbit<Row>("-f rcv1.model"))
 {
 	var userExample = new Row { /* ... */ };
@@ -136,7 +135,8 @@ using (var vw = new VW.VowpalWabbit<Row>("-f rcv1.model"))
 }
 ```
 
-Serializers are globally cached per type (read static variable). Native example memory is cached using a pool per VW.VowpalWabbit instance. Each ReadExample call will either get memory from the pool or allocate new memory. Disposing VowpalWabbitExample returns the native memory to the pool. Thus if you loop over many examples and dispose them immediately the pool size will be equal to 1.
+* Serializers are globally cached per type (read static variable). 
+* Native example memory is cached using a pool per VW.VowpalWabbit instance. Each ReadExample call will either get memory from the pool or allocate new memory. Disposing VowpalWabbitExample returns the native memory to the pool. Thus if you loop over many examples and dispose them immediately the pool size will be equal to 1.
 
 ## Generic data structures
 Pro | Cons
@@ -182,7 +182,7 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
             }
         }
 }
-``
+```
 
 ## String based examples
 Pro | Cons
