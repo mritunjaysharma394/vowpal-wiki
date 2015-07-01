@@ -14,11 +14,13 @@ The C# binding is structured in layers and enables multiple use cases ordered by
 
 # Usage
 
+Install the [Vowpal Wabbit NuGet Package](https://www.nuget.org/packages/VowpalWabbit/) using
+
 ```PowerShell
 Install-Package VowpalWabbit
 ```
 
-The package includes:
+The nuget includes:
 
 * C++ part of vowpal wabbit compiled for Windows x64 Release
 * C++/CLI wrapper
