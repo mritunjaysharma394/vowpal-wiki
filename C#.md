@@ -14,7 +14,7 @@ The C# binding is structured in layers and enables multiple use cases:
 
 # String based examples
 
-Consider the following input data from the [Rcv1-example]
+Consider the following input data from the [[Rcv1-example]]
 
 <pre>
 1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02 85:6.1853945e-02 ... 
@@ -22,3 +22,7 @@ Consider the following input data from the [Rcv1-example]
 ...
 </pre>
 
+```c#
+var x = 3.0;
+
+```
