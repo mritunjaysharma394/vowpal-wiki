@@ -191,7 +191,6 @@ no pitfalls when it comes to reproducibility/compatibility when used together wi
 supports affixes |
 
 ```c#
-// make sure to properly dispose to free native memory 
 using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 {
 	vw.Learn("1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02");
@@ -201,3 +200,36 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 	System.Console.WriteLine("Prediction: " + prediction.Value);
 }
 ```
+
+# Thread-saftey and Object Pools
+VW.VowpalWabbit are not thread-safe, but by using object pools and shared models we can enable thread-safe usage without multiplying the memory requirements by the number of threads.
+
+Consider the following excerpt from [TestSharedModel Unit Test](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs_unittest/TestCbAdf.cs)
+
+```c#
+using (var vwModel = new VowpalWabbitModel("-t", File.OpenRead(cbadfModelFile)))
+using (var vwPool = new ObjectPool<VowpalWabbit<DataString, DataStringADF>>(new VowpalWabbitFactory<DataString, DataStringADF>(vwModel)))
+{
+    Parallel.For
+    (
+        fromInclusive: 0,
+        toExclusive: 20,
+        parallelOptions: new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount * 2 },
+        body: i =>
+        {
+            using (PooledObject<VowpalWabbit<DataString, DataStringADF>> vwObject = vwPool.Get())
+            {
+		// do learning/predictions here
+		var example = new DataString { /* ... */ };
+		vwObject.Value.Predict(example);
+            }
+        }
+    );
+
+    var newVwModel = new VowpalWabbitModel("-t", File.OpenRead("new file"));
+    vwPool.UpdateFactory(new VowpalWabbitFactory<DataString, DataStringADF>(newVwModel));
+}
+```
+
+vwModel is the shared model. Each call to vwPool.Get() will either get a new instance spawned of the shared model or re-use an existing.  
+A very common scenario when scoring is to rollout updates of new models. The ObjectPool class allows safe updating of the factory and proper disposal. After the call to vwPool.UpdateFactory(), vwPool.Get() will only return instances spawned of the new shared model (newVwModel). Not-in-use VowpalWabbit instances are disposed as part of UpdateFactory(). VowpalWabbit instances currently in-use are diposed upon return to the pool (PooledObject.Dispose). 
