@@ -12,6 +12,12 @@ The C# binding is structured in layers and enables multiple use cases ordered by
 2. Generic data structures (e.g. records consisting of key/value/type tuples): use [VW.VowpalWabbit](https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vw_clr.h) and [VW.VowpalWabbitNamespaceBuilder] (https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vw_clr.h)
 3. String based examples: use [VW.VowpalWabbit](https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vw_clr.h)
 
+# Usage
+
+```PM 
+Install-Package VowpalWabbit
+```
+
 Through out the samples the following dataset from [[Rcv1-example]] is used:
 
 <pre>
@@ -21,11 +27,9 @@ Through out the samples the following dataset from [[Rcv1-example]] is used:
 </pre>
 
 # User defined data types
-Pro: very performant.
-
-Pro: declarative data to feature conversion using attributes and type information.
-
-Con: one-time overhead of rather expensive serializer compilation.
+Pro: very performant.  
+Pro: declarative data to feature conversion using attributes and type information.  
+Con: one-time overhead of rather expensive serializer compilation.  
 
 The following class Row is an example of a user defined type usable by the serializer.
 
@@ -54,10 +58,10 @@ The serializer follows an opt-in model, thus only properties annotated using \[F
 * Namespace: concatenated with the FeatureGroup
 
 # Generic data structures
-Pro: most performant variant.
-Pro: provides maximum flexibility with feature representation.
-Pro: suited for generic data structures (e.g. records, data table, ...).
-Con: results might not be reproducible using VW binary as it allows for feature representation not expressible through the string format. 
+Pro: most performant variant.  
+Pro: provides maximum flexibility with feature representation.  
+Pro: suited for generic data structures (e.g. records, data table, ...).  
+Con: results might not be reproducible using VW binary as it allows for feature representation not expressible through the string format.   
 Con: verbose.
 
 ```c#
@@ -100,9 +104,9 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 ``
 
 # String based examples
-Pro: no pitfalls when it comes to reproducibility/compatibility when used together with VW binary.
-Pro: supports affixes
-Con: slowest variant due to string marshaling.
+Pro: no pitfalls when it comes to reproducibility/compatibility when used together with VW binary.  
+Pro: supports affixes.  
+Con: slowest variant due to string marshaling.  
 Con: --affix is not supported, though easy to replicate in C#.
 
 ```c#
