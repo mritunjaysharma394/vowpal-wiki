@@ -14,10 +14,22 @@ The C# binding is structured in layers and enables multiple use cases ordered by
 
 # Usage
 
-```PM 
+```PowerShell
 Install-Package VowpalWabbit
 ```
 
+The package includes:
+
+* C++ part of vowpal wabbit compiled for Windows x64 Release
+* C++/CLI wrapper
+* C# wrapper supporting declarative data to feature conversion
+* PDB debug symbols
+* Source
+* IntelliSense documentation
+
+Note: I'm aware of symbolsource.org, but due to some weird reference to system headers such as undname.h, I was unable to upload a symbols nuget. 
+
+# Examples
 Through out the samples the following dataset from [[Rcv1-example]] is used:
 
 <pre>
@@ -26,10 +38,11 @@ Through out the samples the following dataset from [[Rcv1-example]] is used:
 ...
 </pre>
 
-# User defined data types
-Pro: very performant.  
-Pro: declarative data to feature conversion using attributes and type information.  
-Con: one-time overhead of rather expensive serializer compilation.  
+## User defined data types
+Pro | Cons
+--- | ----
+very performant | one-time overhead of rather expensive serializer compilation
+declarative data to feature conversion using attributes and type information | 
 
 The following class Row is an example of a user defined type usable by the serializer.
 
@@ -57,7 +70,7 @@ The serializer follows an opt-in model, thus only properties annotated using \[F
 * FeatureGroup: it's the first character of the namespace in the string format.
 * Namespace: concatenated with the FeatureGroup
 
-# Generic data structures
+## Generic data structures
 Pro: most performant variant.  
 Pro: provides maximum flexibility with feature representation.  
 Pro: suited for generic data structures (e.g. records, data table, ...).  
@@ -103,7 +116,7 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 }
 ``
 
-# String based examples
+## String based examples
 Pro: no pitfalls when it comes to reproducibility/compatibility when used together with VW binary.  
 Pro: supports affixes.  
 Con: slowest variant due to string marshaling.  
