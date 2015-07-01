@@ -219,9 +219,9 @@ using (var vwPool = new ObjectPool<VowpalWabbit<DataString, DataStringADF>>(new 
         {
             using (PooledObject<VowpalWabbit<DataString, DataStringADF>> vwObject = vwPool.Get())
             {
-		// do learning/predictions here
-		var example = new DataString { /* ... */ };
-		vwObject.Value.Predict(example);
+                // do learning/predictions here
+                var example = new DataString { /* ... */ };
+                vwObject.Value.Predict(example);
             }
         }
     );
