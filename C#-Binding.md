@@ -70,7 +70,7 @@ public class Row : IExample
 The serializer follows an opt-in model, thus only properties annotated using \[Feature\](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) are transformed into vowpal wabbit features. The feature attribute supports the following properties:
 
 Property | Description | Default
-======== | =========== | =======
+-------- | ----------- | -------
 FeatureGroup | it's the first character of the namespace in the string format | 0
 Namespace | concatenated with the FeatureGroup | hash() = 0
 Name | name of the feature (e.g. 13, 24, 69 from the example above) | Property name
