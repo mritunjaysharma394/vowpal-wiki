@@ -20,15 +20,80 @@ Through out the samples the following dataset from [[Rcv1-example]] is used:
 ...
 </pre>
 
+# User defined data types
+Pro: very performant.
+Pro: declarative data to feature conversion using attributes and type information.
+Con: one-time overhead of rather expensive serializer compilation.
+
+The following class Row is an example of a user defined type usable by the serializer.
+
+```c#
+using VW.Interfaces;
+using VW.Serializer.Attributes;
+using System.Collections.Generic;
+
+public class Row : IExample
+{
+	[Feature(FeatureGroup = 'f', Namespace = "eatures", Name = "const", Order = 2)]
+        public float Constant { get; set; }
+
+        [Feature(FeatureGroup = 'f', Namespace = "eatures", Order = 1)]
+        public IList<KeyValuePair<string, float>> Features { get; set; }
+
+        public string Line { get; set; }
+
+        public ILabel Label { get; set;}
+}
+```
+
+The serializer follows an opt-in model, thus only properties annotated using \[Feature\] are transformed into vowpal wabbit features. The feature attribute supports the following properties:
+
+* FeatureGroup: it's the first character of the namespace in the string format.
+* Namespace: concatenated with the FeatureGroup
+
 # Generic data structures
-Pro: most performant variant
+Pro: most performant variant.
 Pro: provides maximum flexibility with feature representation.
-Con: results might not be reproducible using VW binary as it allows for feature representation not exposed through the string format. 
+Pro: suited for generic data structures (e.g. records, data table, ...).
+Con: results might not be reproducible using VW binary as it allows for feature representation not expressible through the string format. 
+Con: verbose.
 
 ```c#
 using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 {
+	VW.VowpalWabbitExample example = null;
+        try
+        {
+            // 1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02
+            using (var exampleBuilder = new VW.VowpalWabbitExampleBuilder(vw))
+            {
+                var ns = exampleBuilder.AddNamespace('f');
+                var namespaceHash = vw.HashSpace("f");
 
+                var featureHash = vw.HashFeature("13", namespaceHash);
+                ns.AddFeature(featureHash, 8.5609287e-02f);
+
+                featureHash = vw.HashFeature("24", namespaceHash);
+                ns.AddFeature(featureHash, 3.4781646e-02f);
+
+                featureHash = vw.HashFeature("69", namespaceHash);
+                ns.AddFeature(featureHash, 4.6296168e-02f);
+
+                exampleBuilder.Label = "1";
+
+                // hand over of memory management
+                example = exampleBuilder.CreateExample();
+            }
+
+            example.Learn();
+        }
+        finally
+        {
+            if (example != null)
+            {
+                example.Dispose();
+            }
+        }
 }
 ``
 
