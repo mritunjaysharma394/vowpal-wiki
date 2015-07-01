@@ -67,7 +67,7 @@ public class Row : IExample
 }
 ```
 
-The serializer follows an opt-in model, thus only properties annotated using \[Feature\](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) are transformed into vowpal wabbit features. The \[Feature\](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attribute supports the following properties:
+The serializer follows an opt-in model, thus only properties annotated using [\[Feature\]](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) are transformed into vowpal wabbit features. The [\[Feature\]](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attribute supports the following properties:
 
 Property | Description | Default
 -------- | ----------- | -------
