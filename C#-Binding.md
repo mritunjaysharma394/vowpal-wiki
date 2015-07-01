@@ -202,7 +202,7 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 ```
 
 # Thread-saftey and Object Pools
-VW.VowpalWabbit are not thread-safe, but by using object pools and shared models we can enable thread-safe usage without multiplying the memory requirements by the number of threads.
+VW.VowpalWabbit are not thread-safe, but by using object pools and shared models we can enable multi-thread scenarios without multiplying the memory requirements by the number of threads.
 
 Consider the following excerpt from [TestSharedModel Unit Test](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs_unittest/TestCbAdf.cs)
 
