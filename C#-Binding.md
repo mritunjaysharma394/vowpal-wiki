@@ -29,7 +29,7 @@ The nuget includes:
 * Source
 * IntelliSense documentation
 
-Note: I'm aware of symbolsource.org, but due to some PDB reference to system headers such as undname.h, I was unable to upload a -symbols.nupkg nuget. 
+Note: I'm aware of symbolsource.org, but due to some PDB reference to system headers such as undname.h, I was unable to create a "symbolsource.org" valid -symbols.nupkg. 
 
 # Examples
 Through out the examples the following dataset from [[Rcv1-example]] is used:
@@ -43,8 +43,8 @@ Through out the examples the following dataset from [[Rcv1-example]] is used:
 ## User defined data types
 Pro | Cons
 --- | ----
-very performant | one-time overhead of rather expensive serializer compilation
-declarative data to feature conversion using attributes and type information | 
+very performant | one-time overhead of serializer compilation
+declarative data to feature conversion | 
 
 The following class Row is an example of a user defined type usable by the serializer.
 
@@ -67,13 +67,15 @@ public class Row : IExample
 }
 ```
 
-The serializer follows an opt-in model, thus only properties annotated using \[Feature\] are transformed into vowpal wabbit features. The feature attribute supports the following properties:
+The serializer follows an opt-in model, thus only properties annotated using \[Feature\](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) are transformed into vowpal wabbit features. The feature attribute supports the following properties:
 
-* FeatureGroup: it's the first character of the namespace in the string format. Default: 0
-* Namespace: concatenated with the FeatureGroup. Default: hash() = 0
-* Name: name of the feature (e.g. 13, 24, 69 from the example above). Default: property name.
-* Enumerize: if true, features will be converted to string and then hashed. e.g. VW line format: Age_15 (Enumerize=true), Age:15 (Enumerize=false). Default: false. 
-* Order: feature serialization order. Useful for comparison with VW command line version.
+Property | Description | Default
+======== | =========== | =======
+FeatureGroup | it's the first character of the namespace in the string format | 0
+Namespace | concatenated with the FeatureGroup | hash() = 0
+Name | name of the feature (e.g. 13, 24, 69 from the example above) | Property name
+Enumerize | if true, features will be converted to string and then hashed. e.g. VW line format: Age_15 (Enumerize=true), Age:15 (Enumerize=false) | false
+Order | feature serialization order. Useful for comparison with VW command line version | 0
 
 Furthermore the serializer will recursively traverse all properties of the supplied example type on the search for more \[Feature\] attributed properties (recursive data structures are not supported). Feature groups and namespaces are inherited from parent properties, but can be overridden. Finally all properties are flattened and put into the corresponding namespace.
 
