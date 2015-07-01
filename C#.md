@@ -1,6 +1,6 @@
 This is a tutorial for the new Vowpal Wabbit C# binding. Here's a list of the major features:
 
-* Very efficient serialization from managed to native space using runtime compiled serializers.
+* Very efficient serialization from managed to native space using runtime compilation.
 * Declarative specification of example data structure.
 * Thread-saftey through object pooling and shared models.
 * Example level caching (prediction only).
@@ -24,6 +24,13 @@ Through out the samples the following dataset from [[Rcv1-example]] is used:
 Pro: most performant variant
 Pro: provides maximum flexibility with feature representation.
 Con: results might not be reproducible using VW binary as it allows for feature representation not exposed through the string format. 
+
+```c#
+using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
+{
+
+}
+``
 
 # String based examples
 Pro: no pitfalls when it comes to reproducibility/compatibility when used together with VW binary.
