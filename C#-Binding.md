@@ -197,7 +197,7 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 	vw.Learn("1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02");
 	// read more data ...
 
-	var prediction = vw.Predict<VW.VowpalWabbitScalarPrediction>("0 |f 9:8.5609287e-02 14:2.9904654e-02 19:6.1031535e-02 20:2.1757640e-02");
+	var prediction = vw.Predict<VW.VowpalWabbitScalarPrediction>("|f 9:8.5609287e-02 14:2.9904654e-02 19:6.1031535e-02 20:2.1757640e-02");
 	System.Console.WriteLine("Prediction: " + prediction.Value);
 }
 ```
