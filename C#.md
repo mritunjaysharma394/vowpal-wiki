@@ -22,7 +22,9 @@ Through out the samples the following dataset from [[Rcv1-example]] is used:
 
 # User defined data types
 Pro: very performant.
+
 Pro: declarative data to feature conversion using attributes and type information.
+
 Con: one-time overhead of rather expensive serializer compilation.
 
 The following class Row is an example of a user defined type usable by the serializer.
