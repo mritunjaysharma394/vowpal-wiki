@@ -6,7 +6,7 @@ This is a tutorial for the new Vowpal Wabbit C# binding. Here's a list of major 
 * Example level caching (prediction only).
 * Improved memory management.
 
-The C# binding is structured in layers and enables multiple use cases ordered by the level of abstraction:
+The binding exposes three different options to interact with native vowpal wabbit, each having pros and cons:
 
 1. User defined data types: use [VW.VowpalWabbit<TUserType>] (https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/VowpalWabbit.cs)
 2. Generic data structures (e.g. records consisting of key/value/type tuples): use [VW.VowpalWabbit](https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vw_clr.h) and [VW.VowpalWabbitNamespaceBuilder] (https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vw_clr.h)
@@ -29,10 +29,10 @@ The nuget includes:
 * Source
 * IntelliSense documentation
 
-Note: I'm aware of symbolsource.org, but due to some weird reference to system headers such as undname.h, I was unable to upload a symbols nuget. 
+Note: I'm aware of symbolsource.org, but due to some PDB reference to system headers such as undname.h, I was unable to upload a -symbols.nupkg nuget. 
 
 # Examples
-Through out the samples the following dataset from [[Rcv1-example]] is used:
+Through out the examples the following dataset from [[Rcv1-example]] is used:
 
 <pre>
 1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02 85:6.1853945e-02 ... 
@@ -69,15 +69,79 @@ public class Row : IExample
 
 The serializer follows an opt-in model, thus only properties annotated using \[Feature\] are transformed into vowpal wabbit features. The feature attribute supports the following properties:
 
-* FeatureGroup: it's the first character of the namespace in the string format.
-* Namespace: concatenated with the FeatureGroup
+* FeatureGroup: it's the first character of the namespace in the string format. Default: 0
+* Namespace: concatenated with the FeatureGroup. Default: hash() = 0
+* Name: name of the feature (e.g. 13, 24, 69 from the example above). Default: property name.
+* Enumerize: if true, features will be converted to string and then hashed. e.g. VW line format: Age_15 (Enumerize=true), Age:15 (Enumerize=false). Default: false. 
+* Order: feature serialization order. Useful for comparison with VW command line version.
+
+Furthermore the serializer will recursively traverse all properties of the supplied example type on the search for more \[Feature\] attributed properties (recursive data structures are not supported). Feature groups and namespaces are inherited from parent properties, but can be overridden. Finally all properties are flattened and put into the corresponding namespace.
+
+```c#
+using VW.Serializer.Attributes;
+
+public class ParentRow
+{
+	[Feature(FeatureGroup = 'f')]
+        public CommonFeatures UserFeatures { get; set; }
+
+        [Feature(FeatureGroup = 'f')]
+        public String Country { get; set; }
+
+        [Feature(FeatureGroup = 'g', Enumerize=true)]
+        public int Age { get; set; }
+}
+
+public class CommonFeatures
+{
+        [Feature]
+        public int A { get; set; }
+
+        [Feature(FeatureGroup = 'g', Name="Beta")]
+        public float B { get; set; }
+}
+```
+
+```c#
+var row = new ParentRow
+{
+	UserFeatures = new CommonFeatures
+	{
+		A = 2,
+		B = 3.1f
+	},
+	Country = "Austria",
+	Age = 25
+};
+```
+
+The vowpal wabbit string equivalent of the above instance is
+
+```
+|f A:2 Country:Austria |g Beta:3.1 Age_25
+```
+
+```c#
+// make sure to properly dispose to free native memory 
+using (var vw = new VW.VowpalWabbit<Row>("-f rcv1.model"))
+{
+	var userExample = new Row { /* ... */ };
+	
+        using (var vwExample = vw.ReadExample(userExample))
+        {
+        	vwExample.Learn();
+        }
+}
+```
+
+Serializers are globally cached per type (read static variable). Native example memory is cached using a pool per VW.VowpalWabbit instance. Each ReadExample call will either get memory from the pool or allocate new memory. Disposing VowpalWabbitExample returns the native memory to the pool. Thus if you loop over many examples and dispose them immediately the pool size will be equal to 1.
 
 ## Generic data structures
-Pro: most performant variant.  
-Pro: provides maximum flexibility with feature representation.  
-Pro: suited for generic data structures (e.g. records, data table, ...).  
-Con: results might not be reproducible using VW binary as it allows for feature representation not expressible through the string format.   
-Con: verbose.
+Pro | Cons
+--- | ----
+most performant variant | results might not be reproducible using VW binary as it allows for feature representation not expressible through the string format 
+provides maximum flexibility with feature representation | verbose
+suited for generic data structures (e.g. records, data table, ...) | --affix is not supported, though easy to replicate in C#
 
 ```c#
 using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
@@ -119,10 +183,10 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 ``
 
 ## String based examples
-Pro: no pitfalls when it comes to reproducibility/compatibility when used together with VW binary.  
-Pro: supports affixes.  
-Con: slowest variant due to string marshaling.  
-Con: --affix is not supported, though easy to replicate in C#.
+Pro | Cons
+--- | ----
+no pitfalls when it comes to reproducibility/compatibility when used together with VW binary | slowest variant due to string marshaling  
+supports affixes |
 
 ```c#
 // make sure to properly dispose to free native memory 
