@@ -3,7 +3,7 @@ Given a prediction \(p\) and a label \(y\), a loss function ![loss function](htt
 |Loss|Function|Minimizer|Example usage|
 |---|---|---|---|---|---|
 |Squared|![squared loss function](http://i.imgur.com/LXWLynq.png "\ell(p,y)=\frac{1}{2}(p-y)^2")|Expectation (mean)|Regression<br>_Expected return on stock_|
-|Quantile|![quantile loss function](http://i.imgur.com/naPtxt9.png "\ell(p,y)=\tau(y-p)\mathbb{I}(y \ge p) +(1-\tau)(p-y)\mathbb{I}(y \leq p)")|Median|Regression<br>_What is a typical price for a house?_|
+|Quantile| <img src="http://i.imgur.com/naPtxt9.png" alt="\ell(p,y)=\tau(y-p)\mathbb{I}(y \ge p) +(1-\tau)(p-y)\mathbb{I}(y \leq p)" height="25"> |Median|Regression<br>_What is a typical price for a house?_|
 |Logistic|![logistic loss function](http://i.imgur.com/E7WAZzw.png "\ell(p,y)=\log(1+\exp(-yp))")|Probability|Classification<br>_Probability of click on ad_|
 |Hinge|![hinge loss function](http://i.imgur.com/Q7SU0Bu.png "\ell(p,y)=\max(0,1-yp)")|0-1 approximation|Classification<br>_Is the digit a 7?_|
 |Classic|Squared loss without<br> [importance weight aware updates](http://arxiv.org/abs/1011.1576)|Expectation (mean)|Regression<br>_squared loss often performs better than classic._|
