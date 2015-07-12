@@ -152,8 +152,8 @@ VW removes duplicate interactions of same set of namespaces. For example in `-q 
     --conjugate_gradient             use conjugate gradient based optimization (option in bfgs)
     --bfgs                           use bfgs optimization
     --ftrl                           use FTRL-Proximal optimization
-    --ftrl_alpha (=0.1)              ftrl alpha parameter (option in ftrl)
-    --ftrl_beta (=0.0)               ftrl beta patameter (option in ftrl)
+    --ftrl_alpha (=0.005)            ftrl alpha parameter (option in ftrl)
+    --ftrl_beta (=0.1)               ftrl beta patameter (option in ftrl)
     --mem arg (=15)                  memory in bfgs
     --termination arg (=0.001)       Termination threshold
     --hessian_on                     use second derivative in line search
