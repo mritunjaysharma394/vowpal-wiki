@@ -37,26 +37,29 @@ We train:
     vw --ect 3 ect.dat -f ect.model
 
 Which gives this progress output:
+```
+final_regressor = ect.model
+Num weight bits = 18
+learning rate = 0.5
+initial_t = 0
+power_t = 0.5
+using no cache
+Reading datafile = ect.dat
+num sources = 1
+average  since         example        example  current  current  current
+loss     last          counter         weight    label  predict features
+0.000000 0.000000            1            1.0        1        1        2
+0.500000 1.000000            2            2.0        2        1        3
+0.500000 0.500000            4            4.0        2        2        3
 
-    final_regressor = ect.model
-    Num weight bits = 18
-    learning rate = 0.5
-    initial_t = 0
-    power_t = 0.5
-    using no cache
-    Reading from ect.dat
-    num sources = 1
-    average    since         example     example  current  current  current
-    loss       last          counter      weight    label  predict  features
-    0.666667   0.666667            3         3.0        3        1         4
-
-    finished run
-    number of examples = 5
-    weighted example sum = 5
-    weighted label sum = 0
-    average loss = 0.6
-    best constant = 0
-    total feature number = 15
+finished run
+number of examples per pass = 5
+passes used = 1
+weighted example sum = 5.000000
+weighted label sum = 0.000000
+average loss = 0.600000
+total feature number = 15
+```
 
 Now we can predict, using the same data set as our test-set:
 
@@ -64,12 +67,12 @@ Now we can predict, using the same data set as our test-set:
 
 Similar to what we do in vanilla classification or regression.
 The resulting `ect.predict` file has contents:
-
-    1.000000 ex1
-    2.000000 ex2
-    3.000000 ex3
-    2.000000 ex4
-    1.000000 ex5
-
-Which is as expected: 'ex1' and 'ex5' belong to class 1, 'ex2' and
+```
+2.000000 ex1
+2.000000 ex2
+3.000000 ex3
+2.000000 ex4
+1.000000 ex5
+```
+Which is as expected: 'ex5' belong to class 1, 'ex1', 'ex2' and
 'ex4' belong to class 2, and 'ex3' belongs to class 3.
