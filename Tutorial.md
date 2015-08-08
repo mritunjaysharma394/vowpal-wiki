@@ -40,6 +40,7 @@ The first step is downloading a version of VW.  We'll use the <a href="https://g
 Now we compile:
 
     cd vowpal_wabbit
+    ./configure
     make
 
 This should "just work", at least on Linux and OS-X, and plausibly on any POSIX platform.  If it fails, you most likely need to install the boost program options headers and library.
