@@ -121,7 +121,11 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 
 `--keep` keeps namespace(s) ignoring those not listed, it is a counterpart to `--ignore`.  You can use it multiple times. Useful for example to train a baseline using just a single namespace.
 
-`--redefine` allows namespace(s) renaming without any changes in input data. Its argument shall be in form `N:=S` where `:=` is operator, `N` - new namespace character, `S`- list of old namespaces. Empty `S` or `N` are treated as default namespace (features without namespace explicitly specified). Wildcard character `:` may be used to address all namespaces including default. For example, `--redefine :=:` will rename all namespaces to default one (e.g. all features will be stored in default namespace). The order of redefinition is matter. For example, `--redefine A:=: --redefine B:= --redefine B:=q --ignore B -q AA` will ignore features of namespaces starting with `q` and default nemespace, put all other features into one namespace `A` and generate quadratic interactions between them.
+`--redefine` allows namespace(s) renaming without any changes in input data. Its argument takes the form `N:=S` where `:=` is the redefine operator, `S` is the list of old namespaces and `N` is the new namespace character. Empty `S` or `N` refer to the default namespace (features without namespace explicitly specified). The wildcard character `:` may be used to represent all namespaces, including default. For example, `--redefine :=:` will rename all namespaces to the default one (all features will be stored in default namespace). The order of `--redefine`, `--ignore`, and other name-space options (like `-q` or `--cubic`) matters. For example:
+```
+   --redefine A:=: --redefine B:= --redefine B:=q --ignore B -q AA
+```
+will ignore features of namespaces starting with `q` and the default namespace, put all other features into one namespace `A` and finally generate quadratic interactions between the newly defined `A` namespace.
 
 `--holdout_off` disables holdout validation for multiple pass learning. By default, VW holds out a (controllable default = 1/10th) subset of examples whenever --passes > 1 and reports the test loss on the print out. This is used to prevent overfitting in multiple pass learning. An extra `h` is printed at the end of the line to specify the reported losses are holdout validation loss, instead of progressive validation loss. 
 
