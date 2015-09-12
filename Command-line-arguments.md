@@ -75,41 +75,43 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 `prediction` is VW's prediction on the example with tag `tag`. Then there's a list of feature information. `namespace` is the namespace where the feature belongs, `feature` is the name of the feature, `hashindex` is the position where it hashes, `value` is the value of the feature, `weight` is the current learned weight associated with that feature and finally `ssgrad` is the sum of squared gradients (plus 1) if adaptive updates are used.
 
 # Example Manipulation options
-    -t [ --testonly ]                Ignore label information and just test
-    -q [ --quadratic ] arg           Create and use quadratic features
-    --cubic arg                      Create and use cubic features
-    --interactions arg               Create feature interactions of any level 
-                                     between namespaces.
-    --ignore arg                     ignore namespaces beginning
-                                     with character <arg>
-    --keep arg                       keep namespaces beginning with 
-                                     character <arg>
-    --redefine arg                   redefine namespaces beginning with characters of 
-                                     string S as namespace N. <arg> shall be in form 
-                                     'N:=S' where := is operator. Empty N or S are 
-                                     treated as default namespace. Use ':' as a 
-                                     wildcard in S.
-    --holdout_off                    no holdout data in multiple passes
-    --holdout_period                 holdout period for test only, default 10
-    --sort_features                  turn this on to disregard order in which 
-                                     features have been defined. This will lead 
-                                     to smaller cache sizes
-    --permutations                   Use permutations instead of combinations for 
-                                     feature interactions of same namespace.
-    --noconstant                     Don't add a constant feature
-    -C [ --constant ] arg            Set initial value of the constant feature to arg
-                                     (Useful for faster convergence on data-sets
-                                      where the label isn't centered around zero)
-    --ngram arg                      Generate N grams
-    --skips arg                      Generate skips in N grams. This in conjunction 
-                                     with the ngram tag can be used to generate 
-                                     generalized n-skip-k-gram.
-    --hash arg                       how to hash the features. Available options:
-                                     strings, all
-    --leave_duplicate_interactions   Don't remove interactions with duplicate 
-                                     combinations of namespaces. For ex. this is a
-                                     duplicate: '-q ab -q ba' and a lot more in 
-                                     '-q ::'.
+    -t [ --testonly ]        Ignore label information and just test
+    -q [ --quadratic ] arg   Create and use quadratic features
+    --cubic arg              Create and use cubic features
+    --interactions arg       Create feature interactions of any level 
+                             between namespaces.
+    --ignore arg             ignore namespaces beginning
+                             with character <arg>
+    --keep arg               keep namespaces beginning with 
+                             character <arg>
+    --redefine arg           redefine namespaces beginning with chars
+                             of string S as namespace N.
+                             <arg> format is 'N:=S' where := is the
+                             redefine operator. Empty N or S are the
+                             default namespace.
+                             Use ':' as a wildcard in S.
+    --holdout_off            no holdout data in multiple passes
+    --holdout_period         holdout period for test only, default 10
+    --sort_features          turn this on to disregard order in which 
+                             features have been defined. This will lead 
+                             to smaller cache sizes
+    --permutations           Use permutations instead of combinations for 
+                             feature interactions of same namespace.
+    --noconstant             Don't add a constant feature
+    -C [ --constant ] arg    Set initial value of the constant feature to arg
+                             (Useful for faster convergence on data-sets
+                              where the label isn't centered around zero)
+    --ngram arg              Generate N grams
+    --skips arg              Generate skips in N grams. This in conjunction 
+                             with the ngram tag can be used to generate 
+                             generalized n-skip-k-gram.
+    --hash arg               how to hash the features. Available options:
+                                 strings, all
+    --leave_duplicate_interactions
+                             Don't remove order-dependent duplicate
+                             interactions when crossing namespaces.
+                             e.g: '-q ab -q ba' is a duplicate, and
+                             '-q ::' may create many more duplicates
 
 `-t` and `--testonly` makes VW run in testing mode. The labels are ignored so this is useful for assessing the generalization performance of the learned model on a test set. This has the same effect as passing a 0 importance weight on every example.
 
@@ -146,38 +148,49 @@ By default VW hashes string features and does not hash integer features. `--hash
 VW removes duplicate interactions of same set of namespaces. For example in `-q ab -q ba -q ab` only first `-q ab` will be used. That is helpful to remove unnecessary interactions generated by wildcards, like `-q ::`. You can switch off this behavior with `--leave_duplicate_interactions`.
 
 # Update Rule options
-    --sgd                            use regular/classic/simple stochastic gradient descent update,
-                                     i.e., non adaptive, non normalized, non invariant
-                                     (this is no longer the default since it is often sub-optimal)
-    --adaptive                       use adaptive, individual learning rates
-                                     (on by default)
-    --normalized                     use per feature normalized updates.
-                                     (on by default)
-    --invariant                      use safe/importance aware updates
-                                     (on by default)
-    --conjugate_gradient             use conjugate gradient based optimization (option in bfgs)
-    --bfgs                           use bfgs optimization
-    --ftrl                           use FTRL-Proximal optimization
-    --ftrl_alpha (=0.005)            ftrl alpha parameter (option in ftrl)
-    --ftrl_beta (=0.1)               ftrl beta patameter (option in ftrl)
-    --mem arg (=15)                  memory in bfgs
-    --termination arg (=0.001)       Termination threshold
-    --hessian_on                     use second derivative in line search
-    --initial_pass_length arg        initial number of examples per pass
-    --l1 arg (=0)                    l_1 lambda (L1 regularization)
-    --l2 arg (=0)                    l_2 lambda (L2 regularization)
-    --decay_learning_rate arg (=1)   Set Decay factor for learning_rate between passes
-    --initial_t arg (=0)             initial t value
-    --power_t arg (=0.5)             t power value
-    -l [ --learning_rate ] arg (=0.5) Set Learning Rate
-    --loss_function arg (=squared)   Specify the loss function to be used, uses 
-                                     squared by default. Currently available ones
-                                     are squared, hinge, logistic and quantile.
-    --quantile_tau arg (=0.5)        Parameter \tau associated with Quantile loss
-                                     Defaults to 0.5
-    --minibatch arg (=1)             Minibatch size
-    --feature_mask arg               Use existing regressor to determine which 
-                                     parameters may be updated
+    --sgd                        use regular/classic/simple stochastic
+                                 gradient descent update, i.e., non adaptive,
+                                 non normalized, non invariant
+                                 (this is no longer the default since it is
+                                  often sub-optimal)
+    --adaptive                   use adaptive, individual learning rates
+                                 (on by default)
+    --normalized                 use per feature normalized updates.
+                                 (on by default)
+    --invariant                  use safe/importance aware updates
+                                 (on by default)
+    --conjugate_gradient         use conjugate gradient based optimization
+                                 (option in bfgs)
+    --bfgs                       use bfgs optimization
+    --ftrl                       use FTRL-Proximal optimization
+    --ftrl_alpha (=0.005)        ftrl alpha parameter (option in ftrl)
+    --ftrl_beta (=0.1)           ftrl beta patameter (option in ftrl)
+    --mem arg (=15)              memory in bfgs
+    --termination arg (=0.001)   Termination threshold
+    --hessian_on                 use second derivative in line search
+    --initial_pass_length arg    initial number of examples per pass
+    --l1 arg (=0)                l_1 lambda (L1 regularization)
+    --l2 arg (=0)                l_2 lambda (L2 regularization)
+    --decay_learning_rate arg (=1)
+                                 Set Decay factor for learning_rate
+                                 between passes
+    --initial_t arg (=0)         initial t value
+    --power_t arg (=0.5)         t power value
+    -l [ --learning_rate ] arg (=0.5)
+                                 Set (initial) learning Rate
+    --loss_function arg (=squared)
+                                 Specify the loss function to be used,
+                                 uses squared by default. Currently available
+                                 ones are:
+                                     squared
+                                     hinge
+                                     logistic
+                                     quantile
+    --quantile_tau arg (=0.5)    Parameter \tau associated with Quantile loss
+                                 Defaults to 0.5
+    --minibatch arg (=1)         Minibatch size
+    --feature_mask arg           Use existing regressor to determine which 
+                                 parameters may be updated
 
 Currently, `--adaptive`, `--normalized` and `--invariant` are on by default,
 but if you specify any of those flags explicitly, the effect is that the rest of these
@@ -236,17 +249,23 @@ To average the gradient from _k_ examples and update the weights once every _k_ 
 
 
 # Weight options
-    -b [ --bit_precision ] arg                 number of bits in the feature table
-    -i [ --initial_regressor ] arg             Initial regressor(s) to load into memory (arg is filename)
-    -f [ --final_regressor ] arg               Final regressor to save (arg is filename)
-    --random_weights arg                       make initial weights random
-    --initial_weight arg (=0)                  Set all weights to an initial value of 1.
-    --readable_model arg                       Output human-readable final regressor
-    --invert_hash arg                          Output human-readable final regressor with feature names
-    --save_per_pass                            Save the model after every pass over data
-    --input_feature_regularizer arg            Per feature regularization input file
-    --output_feature_regularizer_binary arg    Per feature regularization output file
-    --output_feature_regularizer_text arg      Per feature regularization output file, in text
+    -b [ --bit_precision ] arg             number of bits in the feature table
+    -i [ --initial_regressor ] arg         Initial regressor(s) to load into
+                                           memory (arg is filename)
+    -f [ --final_regressor ] arg           Final regressor to save
+                                           (arg is filename)
+    --random_weights arg                   make initial weights random
+    --initial_weight arg (=0)              Set all weights to an initial value
+                                           of 1.
+    --readable_model arg                   Output human-readable final regressor
+    --invert_hash arg                      Output human-readable final regressor
+                                           with feature names
+    --save_per_pass                        Save model after every pass over data
+    --input_feature_regularizer arg        Per feature regularization input file
+    --output_feature_regularizer_binary arg
+                                           Per feature regularization output file
+    --output_feature_regularizer_text arg  Per feature regularization output file,
+                                           in text format
 
 VW hashes all features to a predetermined range ![ \[0,2^b-1\] ](http://i.imgur.com/ce7NfyJ.png) and uses a fixed weight vector with ![2^b](http://i.imgur.com/SuQvjP3.png) components. The argument of `-b` option determines the value of \(b\) which is 18 by default. Hashing the features allows the algorithm to work with very raw data (since there's no need to assign a unique id to each feature) and has only a negligible effect on generalization performance (see for example 
 [Feature Hashing for Large Scale Multitask Learning](http://arxiv.org/abs/0902.2206).
@@ -268,30 +287,36 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
     --holdout_period arg      holdout period for test only, default 10
     --holdout_after arg       holdout after n training examples, default off 
                               (disables holdout_period)
-    --early_terminate arg     Specify the number of passes tolerated when holdout 
-                              loss doesn't decrease before early termination,
-                              default is 3
+    --early_terminate arg     Specify the number of passes tolerated when
+                              holdout loss doesn't decrease before early
+                              termination. Default is 3
 
 # Feature namespace options
-    --hash arg              how to hash the features. Available options: strings, all
-    --ignore arg            ignore namespaces beginning with character <arg>
-    --keep arg              keep namespaces beginning with character <arg>
+    --hash arg              how to hash the features.
+                            Available options:
+                                 strings
+                                 all
+    --ignore arg            ignore namespaces starting with character <arg>
+    --keep arg              keep namespaces starting with character <arg>
     --noconstant            Don't add a constant feature
     -C [ --constant ] arg   Set initial value of constant
-    --sort_features         turn this on to disregard order in which features have 
-                            been defined. This will lead to smaller cache sizes
+    --sort_features         turn this on to disregard order in which features
+                            have been defined. Will lead to smaller cache sizes
     --ngram arg             Generate N grams
-    --skips arg             Generate skips in N grams. This in conjunction with the
-                            ngram tag can be used to generate generalized n-skip-k-gram.
-    --affix arg             generate prefixes/suffixes of features; argument '+2a,-3b,+1'
-                            means generate 2-char prefixes for namespace a, 3-char suffixes
-                            for b and 1 char prefixes for default namespace
-    --spelling arg          compute spelling features for a give namespace (use '_'
-                            for default namespace)
+    --skips arg             Generate skips in N grams. This in conjunction
+                            with the ngram tag can be used to generate
+                            generalized n-skip-k-gram.
+    --affix arg             generate prefixes/suffixes of features;
+                            argument '+2a,-3b,+1' means generate 2-char prefixes
+                            for namespace a, 3-char suffixes for b,
+                            and 1 char prefixes for default namespace
+    --spelling arg          compute spelling features for a give namespace
+                            (use '_' for default namespace)
 
 # Latent Dirichlet Allocation options
     --lda arg                        Run lda with <int> topics
-    --lda_alpha arg (=0.100000001)   Prior on sparsity of per-document topic weights
+    --lda_alpha arg (=0.100000001)   Prior on sparsity of per-document
+                                     topic weights
     --lda_rho arg (=0.100000001)     Prior on sparsity of topic distributions
     --lda_D arg (=10000)             Number of documents
 
@@ -307,24 +332,27 @@ The `--lda` option switches VW to LDA mode. The argument is the number of topics
     --lrqdropout          use dropout training for low rank quadratic features
 
 # Binary 
-    --binary              Reports loss as binary classification with -1,1 labels
+    --binary          Reports loss as binary classification with -1,1 labels
 
 # Multiclass options
-    --oaa arg             Use one-against-all multiclass learning with <k> labels
-    --ect arg             Use error correcting tournament with <k> labels
-    --csoaa arg           Use one-against-all multiclass learning with <k> costs
-    --wap arg             Use weighted all-pairs multiclass learning with <k> costs
-    --csoaa_ldf arg       Use one-against-all multiclass learning with label
-                          dependent features.  Specify singleline or multiline.
-    --wap_ldf arg         Use weighted all-pairs multiclass learning with label
-                          dependent features.  Specify singleline or multiline.
-    --log_multi arg       Use online (decision) trees for <arg> classes (in log(arg) time).
-                          See http://arxiv.org/pdf/1406.1822
+    --oaa arg         Use one-against-all multiclass learning with <k> labels
+    --ect arg         Use error correcting tournament with <k> labels
+    --csoaa arg       Use one-against-all multiclass learning with <k> costs
+    --wap arg         Use weighted all-pairs multiclass learning with <k> costs
+    --csoaa_ldf arg   Use one-against-all multiclass learning with label
+                      dependent features.  Specify singleline or multiline.
+    --wap_ldf arg     Use weighted all-pairs multiclass learning with label
+                      dependent features.  Specify singleline or multiline.
+    --log_multi arg   Use online (decision) trees for <arg> classes
+                      (in log(arg) time).
+                      See http://arxiv.org/pdf/1406.1822
 
 # Stagewise Polynomial options
     --stage_poly                     stagewise polynomial features
-    --sched_exponent arg1 ( = 1.0)   exponent controlling quantity of included features
-    --batch_sz arg2 ( = 1000)        multiplier on batch size before including more features
+    --sched_exponent arg1 ( = 1.0)   exponent controlling quantity
+                                     of included features
+    --batch_sz arg2 ( = 1000)        multiplier on batch size before
+                                     including more features
     --batch_sz_no_doubling           batch_sz does not double
 
 `--stage_poly` tells VW to maintain polynomial features: training examples are augmented with features obtained by producting together subsets (and even sub-multisets) of features.  VW starts with the original feature set, and uses `--batch_sz` and (and `--batch_sz_no_doubling` if present) to determine when to include new features (otherwise, the feature set is held fixed), with `--sched_exponent` controlling the quantity of new features.
@@ -376,16 +404,15 @@ See http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html and http://groups.yahoo
 --top K        top K recommendation
 --autolink N   create link function with polynomial N
 --cb K         use contextual bandit learning with K costs
---cbify K      convert multiclass on K classes into a contextual bandit problem
+--cbify K      convert multiclass on K classes into a
+               contextual bandit problem
 --lda N        run LDA with N topics
 --nn N         use sigmoidal feedforward network with N hidden units
---search N     use search-based structured prediction (SEARN or DAgger), N=maximum action id or 0 for LDF
---ksvm         online kernel Support Vector Machine, see [a documentation](https://github.com/JohnLangford/vowpal_wabbit/wiki/ksvm.pdf)
---boosting N   online boosting with <N> weak learners, see [a theoretic paper](http://arxiv.org/abs/1502.02651)
+--search N     use search-based structured prediction (SEARN or DAgger),
+               N=maximum action id or 0 for LDF
+--ksvm         online kernel Support Vector Machine. See [documentation](https://github.com/JohnLangford/vowpal_wabbit/wiki/ksvm.pdf)
+--boosting N   online boosting with <N> weak learners. See [theoretic paper](http://arxiv.org/abs/1502.02651)
 </big></pre>
-
- 
-
 
 
 
