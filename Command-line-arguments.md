@@ -183,7 +183,7 @@ but if you specify any of those flags explicitly, the effect is that the rest of
 `--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are
 [Adaptive Bound Optimization for Online Convex Optimization](http://arxiv.org/abs/1002.4908)
 and [Adaptive Subgradient Methods for Online Learning
-and Stochastic Optimization](http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.pdf). These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that cause examples to have many non-zero features such as `-q` and `--ngram`.
+and Stochastic Optimization](http://www.magicbroom.info/Papers/DuchiHaSi10.pdf). These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that cause examples to have many non-zero features such as `-q` and `--ngram`.
 
 `--bfgs` and `--conjugate_gradient` uses a batch optimizer based on LBFGS or nonlinear conjugate gradient method.  Of the two, `--bfgs` is recommended.  To avoid overfitting, you should specify `--l2`.  You may also want to adjust `--mem` which controls the rank of an inverse hessian approximation used by LBFGS. `--termination` causes bfgs to terminate early when only a  very small gradient remains.
 
