@@ -249,23 +249,23 @@ To average the gradient from _k_ examples and update the weights once every _k_ 
 
 
 # Weight options
-    -b [ --bit_precision ] arg             number of bits in the feature table
-    -i [ --initial_regressor ] arg         Initial regressor(s) to load into
-                                           memory (arg is filename)
-    -f [ --final_regressor ] arg           Final regressor to save
-                                           (arg is filename)
-    --random_weights arg                   make initial weights random
-    --initial_weight arg (=0)              Set all weights to an initial value
-                                           of 1.
-    --readable_model arg                   Output human-readable final regressor
-    --invert_hash arg                      Output human-readable final regressor
-                                           with feature names
-    --save_per_pass                        Save model after every pass over data
-    --input_feature_regularizer arg        Per feature regularization input file
+    -b [ --bit_precision ] arg         number of bits in the feature table
+    -i [ --initial_regressor ] arg     Initial regressor(s) to load into
+                                       memory (arg is filename)
+    -f [ --final_regressor ] arg       Final regressor to save
+                                       (arg is filename)
+    --random_weights arg               make initial weights random
+    --initial_weight arg (=0)          Set all weights to initial value of 1
+    --readable_model arg               Output human-readable final regressor
+    --invert_hash arg                  Output human-readable final regressor
+                                       with feature names
+    --save_per_pass                    Save model after every pass over data
+    --input_feature_regularizer arg    Per feature regularization input file
     --output_feature_regularizer_binary arg
-                                           Per feature regularization output file
-    --output_feature_regularizer_text arg  Per feature regularization output file,
-                                           in text format
+                                       Per feature regularization output file
+    --output_feature_regularizer_text arg
+                                       Per feature regularization output file
+                                       in text format
 
 VW hashes all features to a predetermined range ![ \[0,2^b-1\] ](http://i.imgur.com/ce7NfyJ.png) and uses a fixed weight vector with ![2^b](http://i.imgur.com/SuQvjP3.png) components. The argument of `-b` option determines the value of \(b\) which is 18 by default. Hashing the features allows the algorithm to work with very raw data (since there's no need to assign a unique id to each feature) and has only a negligible effect on generalization performance (see for example 
 [Feature Hashing for Large Scale Multitask Learning](http://arxiv.org/abs/0902.2206).
@@ -301,13 +301,13 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
     --noconstant            Don't add a constant feature
     -C [ --constant ] arg   Set initial value of constant
     --sort_features         turn this on to disregard order in which features
-                            have been defined. Will lead to smaller cache sizes
+                            have been defined. Leads to smaller cache sizes
     --ngram arg             Generate N grams
     --skips arg             Generate skips in N grams. This in conjunction
                             with the ngram tag can be used to generate
                             generalized n-skip-k-gram.
     --affix arg             generate prefixes/suffixes of features;
-                            argument '+2a,-3b,+1' means generate 2-char prefixes
+                            argument '+2a,-3b,+1' means 2-char prefixes
                             for namespace a, 3-char suffixes for b,
                             and 1 char prefixes for default namespace
     --spelling arg          compute spelling features for a give namespace
@@ -338,14 +338,13 @@ The `--lda` option switches VW to LDA mode. The argument is the number of topics
     --oaa arg         Use one-against-all multiclass learning with <k> labels
     --ect arg         Use error correcting tournament with <k> labels
     --csoaa arg       Use one-against-all multiclass learning with <k> costs
-    --wap arg         Use weighted all-pairs multiclass learning with <k> costs
+    --wap arg         Use weighted all-pairs multiclass learning w/ <k> costs
     --csoaa_ldf arg   Use one-against-all multiclass learning with label
                       dependent features.  Specify singleline or multiline.
     --wap_ldf arg     Use weighted all-pairs multiclass learning with label
                       dependent features.  Specify singleline or multiline.
     --log_multi arg   Use online (decision) trees for <arg> classes
-                      (in log(arg) time).
-                      See http://arxiv.org/pdf/1406.1822
+                      (in log(arg) time). See [theoretic paper](http://arxiv.org/pdf/1406.1822)
 
 # Stagewise Polynomial options
     --stage_poly                     stagewise polynomial features
@@ -399,15 +398,15 @@ See http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html and http://groups.yahoo
 
 # Learning algorithm / reduction options
 <big><pre>
---bootstrap K  bootstrap mode with K rounds by online importance resampling
---bs_type arg  bootstrap mode - arg can be 'mean' or 'vote'
+--bootstrap K  bootstrap with K rounds by online importance resampling
+--bs_type arg  the bootstrap mode - arg can be 'mean' or 'vote'
 --top K        top K recommendation
 --autolink N   create link function with polynomial N
 --cb K         use contextual bandit learning with K costs
 --cbify K      convert multiclass on K classes into a
                contextual bandit problem
 --lda N        run LDA with N topics
---nn N         use sigmoidal feedforward network with N hidden units
+--nn N         use sigmoidal feedforward network w/ N hidden units
 --search N     use search-based structured prediction (SEARN or DAgger),
                N=maximum action id or 0 for LDF
 --ksvm         online kernel Support Vector Machine. See [documentation](https://github.com/JohnLangford/vowpal_wabbit/wiki/ksvm.pdf)
