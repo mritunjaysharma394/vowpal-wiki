@@ -1,35 +1,35 @@
 Running VW with the `-h` or `--help` option produces a message which briefly explains each argument. If you want to know all parameters of a given reduction (e.g. `--ksvm` or `--nn`), you must add the reduction parameter to the help command (e.g. `vw -h --ksvm` or `vw -h --nn 1`). Below arguments are grouped according to their function and each argument is explained in more detail.
 
 # VW options
-    -h [ --help ]                    Look here: http://hunch.net/~vw/ and
-                                     click on Tutorial.
-    --version                        Version information
-    --random_seed arg                seed random number generator
-    --noop                           do no learning
+    -h [ --help ]                Look here: http://hunch.net/~vw/ and
+                                 click on Tutorial.
+    --version                    Version information
+    --random_seed arg            seed random number generator
+    --noop                       do no learning
 
 # Input options
-    -d [ --data ] arg                Example Set
-    --ring_size arg                  size of example ring
-    --examples arg                   number of examples to parse
-    --daemon                         read data from port 26542
-    --port arg                       port to listen on
-    --num_children arg (=10)         number of children for 
-                                     persistent daemon mode
-    --pid_file arg                   Write pid file in 
-                                     persistent daemon mode
-    --passes arg (=1)                Number of Training Passes
-    -c [ --cache ]                   Use a cache.  The default is <data>.cache
-    --cache_file arg                 The location(s) of cache_file.
-    --compressed                     use gzip format whenever 
-                                     possible. If a cache file 
-                                     is being created, this 
-                                     option creates a compressed
-                                     cache file. A mixture of 
-                                     raw-text & compressed 
-                                     inputs are supported with autodetection.
-    --no_stdin                       do not default to reading from stdin
-    --save_resume                    save extra state so learning can be resumed
-                                     later with new data
+    -d [ --data ] arg            Example Set
+    --ring_size arg              size of example ring
+    --examples arg               number of examples to parse
+    --daemon                     read data from port 26542
+    --port arg                   port to listen on
+    --num_children arg (=10)     number of children for 
+                                 persistent daemon mode
+    --pid_file arg               Write pid file in 
+                                 persistent daemon mode
+    --passes arg (=1)            Number of Training Passes
+    -c [ --cache ]               Use a cache.  The default is <data>.cache
+    --cache_file arg             The location(s) of cache_file.
+    --compressed                 use gzip format whenever 
+                                 possible. If a cache file 
+                                 is being created, this 
+                                 option creates a compressed
+                                 cache file. A mixture of 
+                                 raw-text & compressed 
+                                 inputs are supported with autodetection.
+    --no_stdin                   do not default to reading from stdin
+    --save_resume                save extra state so learning can be resumed
+                                 later with new data
 
 Raw training/testing data (in the proper plain text [[input format]]) can be passed to VW in a number of ways:
 
@@ -44,15 +44,17 @@ Parsing raw data is slow so there are options to create or load data in VW's nat
 `--passes` takes as an argument the number of times the algorithm will cycle over the data (epochs). 
 
 # Output options
-    -a [ --audit ]                   print weights of features  
-    -p [ --predictions ] arg         File to output predictions to
-    -r [ --raw_predictions ] arg     File to output unnormalized predictions to
-    --sendto arg                     send compressed examples to <host>
-    --quiet                          Don't output diagnostics
-    -P [ --progress ] arg            Progress update frequency. int: additive, float: multiplicative
-    --min_prediction arg             Smallest prediction to output
-    --max_prediction arg             Largest prediction to output
-    --progressive_validation         File to record progressive validation for FTRL-Proximal (option in ftrl)
+    -a [ --audit ]                 print weights of features  
+    -p [ --predictions ] arg       File to output predictions to
+    -r [ --raw_predictions ] arg   File to output unnormalized predictions
+    --sendto arg                   to send compressed examples to <host>
+    --quiet                        Don't output diagnostics
+    -P [ --progress ] arg          Progress update frequency.
+                                   integer: additive; float: multiplicative
+    --min_prediction arg           Smallest prediction to output
+    --max_prediction arg           Largest prediction to output
+    --progressive_validation       File to record progressive validation
+                                   for FTRL-Proximal (option in ftrl)
 
 `-p /dev/stdout` is often a handy trick for seeing outputs. 
 
@@ -178,7 +180,8 @@ VW removes duplicate interactions of same set of namespaces. For example in `-q 
                                      parameters may be updated
 
 Currently, `--adaptive`, `--normalized` and `--invariant` are on by default,
-but if you specify any of those flags explicitly, the effect is that the rest of these flags is turned off.
+but if you specify any of those flags explicitly, the effect is that the rest of these
+flags is turned off.
 
 `--adaptive` turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. For details the relevant papers are
 [Adaptive Bound Optimization for Online Convex Optimization](http://arxiv.org/abs/1002.4908)
@@ -270,21 +273,21 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
                               default is 3
 
 # Feature namespace options
-    --hash arg                how to hash the features. Available options: strings, all
-    --ignore arg              ignore namespaces beginning with character <arg>
-    --keep arg                keep namespaces beginning with character <arg>
-    --noconstant              Don't add a constant feature
-    -C [ --constant ] arg     Set initial value of constant
-    --sort_features           turn this on to disregard order in which features have 
-                              been defined. This will lead to smaller cache sizes
-    --ngram arg               Generate N grams
-    --skips arg               Generate skips in N grams. This in conjunction with the
-                              ngram tag can be used to generate generalized n-skip-k-gram.
-    --affix arg               generate prefixes/suffixes of features; argument '+2a,-3b,+1'
-                              means generate 2-char prefixes for namespace a, 3-char suffixes
-                              for b and 1 char prefixes for default namespace
-    --spelling arg            compute spelling features for a give namespace (use '_'
-                              for default namespace)
+    --hash arg              how to hash the features. Available options: strings, all
+    --ignore arg            ignore namespaces beginning with character <arg>
+    --keep arg              keep namespaces beginning with character <arg>
+    --noconstant            Don't add a constant feature
+    -C [ --constant ] arg   Set initial value of constant
+    --sort_features         turn this on to disregard order in which features have 
+                            been defined. This will lead to smaller cache sizes
+    --ngram arg             Generate N grams
+    --skips arg             Generate skips in N grams. This in conjunction with the
+                            ngram tag can be used to generate generalized n-skip-k-gram.
+    --affix arg             generate prefixes/suffixes of features; argument '+2a,-3b,+1'
+                            means generate 2-char prefixes for namespace a, 3-char suffixes
+                            for b and 1 char prefixes for default namespace
+    --spelling arg          compute spelling features for a give namespace (use '_'
+                            for default namespace)
 
 # Latent Dirichlet Allocation options
     --lda arg                        Run lda with <int> topics
@@ -295,7 +298,7 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
 The `--lda` option switches VW to LDA mode. The argument is the number of topics. `--lda_alpha` and `--lda_rho` specify prior hyperparameters. `--lda_D` specifies the number of documents. VW will still work the same if this number is incorrect, just the diagnostic information will be wrong. For details see [Online Learning for Latent Dirichlet Allocation](http://books.nips.cc/papers/files/nips23/NIPS2010_1291.pdf)
 
 # Matrix Factorization options
-    --rank arg (=0)                                   rank for matrix factorization.
+    --rank arg (=0)       rank for matrix factorization.
 
 `--rank` sticks VW in matrix factorization mode.  You'll need a relatively small learning rate like `-l 0.01`.
 
@@ -333,18 +336,18 @@ The `--lda` option switches VW to LDA mode. The argument is the number of topics
 While care was taken to choose sensible defaults, the choices do matter.  For instance, good performance was obtained by using `arg2 = #examples / 6` and `--batch_sz_no_doubling`, however `arg2 = 1000` (without `--batch_sz_no_doubling`) was made default since `#examples` is not available to VW a priori.  As usual, including too many features (by updating the support to frequently, or by including too many features each time) can lead to overfitting.
 
 # Active Learning options
-    --active                active learning mode
+    --active                  active learning mode
     --simulation              active learning simulation mode
     --mellowness arg (=8)     active learning mellowness parameter c_0. 
-                                     Default 8
+                              Default 8
 
 Given a fully labeled dataset, experimenting with active learning can be done with `--simulation`. All active learning algorithms need a parameter that defines the trade off between label complexity and generalization performance. This is specified here with `--mellowness`. A value of 0 means that the algorithm will not ask for any label. A large value means that the algorithm will ask for all the labels. If instead of `--simulation`, `--active` is specified (together with `--daemon`) real active learning is implemented (examples are passed to VW via a TCP/IP port and VW responds with its prediction as well as how much it wants this example to be labeled if at all). If this is confusing, watch Daniel's explanation at the VW tutorial. The active learning algorithm is described in detail in [Agnostic Active Learning without Constraints](http://books.nips.cc/papers/files/nips23/NIPS2010_0363.pdf).
 
 # Parallelization options
-    --span_server arg               Location of server for setting up spanning tree
-    --unique_id arg (=0)            unique id used for cluster parallel job
-    --total arg (=1)                total number of nodes used in cluster parallel job
-    --node arg (=0)                 node number in cluster parallel job
+    --span_server arg       Location of server for setting up spanning tree
+    --unique_id arg (=0)    unique id used for cluster parallel job
+    --total arg (=1)        total number of nodes used in cluster parallel job
+    --node arg (=0)         node number in cluster parallel job
 
 VW supports cluster parallel learning, potentially on thousands of nodes (it's known to work well on 1000 nodes) using the algorithms <a href="http://arxiv.org/abs/1110.4198">discussed here</a>.  
 
