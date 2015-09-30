@@ -11,5 +11,5 @@ nuget\NuGet.exe restore vw.sln
 
 # Random tips
 
-* Select x64 platform.
+* Select x64 platform (Configuration Manager \ Active solution platfrom)
 * Select x64 as test platform (Test \ Test settings \ Default Processor Architecture)
