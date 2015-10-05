@@ -1,12 +1,12 @@
-This is a tutorial for the new Vowpal Wabbit C# binding. Here's a list of major features:
+This is a tutorial for the Vowpal Wabbit C# binding. Here's a list of major features:
 
 * Very efficient serialization from managed to native space using runtime compilation.
 * Declarative specification of example data structure.
-* Thread-saftey through object pooling and shared models.
+* Thread-safety through object pooling and shared models.
 * Example level caching (prediction only).
 * Improved memory management.
 
-The binding exposes three different options to interact with native vowpal wabbit, each having pros and cons:
+The binding exposes three different options to interact with native Vowpal Wabbit, each having pros and cons:
 
 1. User defined data types: use [VW.VowpalWabbit\<TUserType\>] (https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/VowpalWabbit.cs)
 2. Generic data structures (e.g. records consisting of key/value/type tuples): use [VW.VowpalWabbit](https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vw_clr.h) and [VW.VowpalWabbitNamespaceBuilder] (https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vw_clr.h)
