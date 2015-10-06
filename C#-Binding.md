@@ -25,11 +25,11 @@ The nuget includes:
 * C++ part of vowpal wabbit compiled for Windows x64 Release
 * C++/CLI wrapper
 * C# wrapper supporting declarative data to feature conversion
-* PDB debug symbols
+* PDB debug symbols (for Windows newbies, PDB here is a program database file, not the Python debugger)
 * Source
 * IntelliSense documentation
 
-Note: I'm aware of symbolsource.org, but due to some PDB reference to system headers such as undname.h, I was unable to create a "symbolsource.org" valid -symbols.nupkg. 
+Note: I'm aware of symbolsource.org, but due to some PDB references to system headers such as undname.h, I was unable to create a "symbolsource.org" valid -symbols.nupkg. 
 
 # Examples
 Through out the examples the following dataset from [[Rcv1-example]] is used:
@@ -135,7 +135,7 @@ using (var vw = new VW.VowpalWabbit<Row>("-f rcv1.model"))
 }
 ```
 
-* Serializers are globally cached per type (read static variable). 
+* Serializers are globally cached per type (read: static variable).  I.e., there's a static dictionary from user-defined types to serializers.
 * Native example memory is cached using a pool per VW.VowpalWabbit instance. Each ReadExample call will either get memory from the pool or allocate new memory. Disposing VowpalWabbitExample returns the native memory to the pool. Thus if you loop over many examples and dispose them immediately the pool size will be equal to 1.
 
 ## Generic data structures
@@ -187,7 +187,7 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 ## String based examples
 Pro | Cons
 --- | ----
-no pitfalls when it comes to reproducibility/compatibility when used together with VW binary | slowest variant due to string marshaling  
+no pitfalls when it comes to reproducibility/compatibility when used together with VW binary | slowest variant due to string marshaling  (and character encoding differences between the C# and C++ worlds)
 supports affixes |
 
 ```c#
