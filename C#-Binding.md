@@ -1,4 +1,4 @@
-** slightly outdated for https://github.com/eisber/vowpal_wabbit - update coming soon **
+**slightly outdated for https://github.com/eisber/vowpal_wabbit - update coming soon**
 
 This is a tutorial for the Vowpal Wabbit C# binding. Here's a list of major features:
 
