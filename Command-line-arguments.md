@@ -321,6 +321,9 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
                                      topic weights
     --lda_rho arg (=0.100000001)     Prior on sparsity of topic distributions
     --lda_D arg (=10000)             Number of documents
+    --lda_epsilon arg (=0.00100000005) Loop convergence threshold
+    --minibatch arg (=1)               Minibatch size, for LDA
+    --math-mode arg (=0)               Math mode: simd, accuracy, fast-approx
 
 The `--lda` option switches VW to LDA mode. The argument is the number of topics. `--lda_alpha` and `--lda_rho` specify prior hyperparameters. `--lda_D` specifies the number of documents. VW will still work the same if this number is incorrect, just the diagnostic information will be wrong. For details see [Online Learning for Latent Dirichlet Allocation](http://books.nips.cc/papers/files/nips23/NIPS2010_1291.pdf)
 
