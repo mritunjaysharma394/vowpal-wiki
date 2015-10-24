@@ -123,7 +123,7 @@ There is a burble of diagnostic information which you can turn off with `--quiet
 
 This says you are not using a cache.  If you use multiple passes with `--passes`, you would need to also pass `-c` so vw can cache the data in a faster to handle format (passes > 1 should be much faster). By default, the cache file name will be the data-set file with `.cache` appended. In this case: `house_dataset.cache`.  You may also override the default cache file name by passing: `--cache_file housing.cache`.  A cache file can greatly speed up training when you run many experiments (with different options) on the same data-set even if each experiment is only a single pass. So if you want to experiment with the same data-set over and over, it is highly recommended to pass `-c` every time you train.  If the cache exists and is newer than the data-set, it will be used, if it doesn't exist, it'll be created the first time `-c` is used.
 
-    Reading from house_dataset
+    Reading datafile = house_dataset
 
 There are many different ways to input data to VW.  Here we're just using a simple text file and vw tells us the source of the data.  Alternative sources include cache files (from previous VW runs), stdin, or a tcp socket.
 
@@ -139,7 +139,7 @@ Only 18 bits of the hash function will be used.  That's much more than necessary
 
 The default learning rate is 0.5 which we found to be a good default with the current default update (`--normalized --invariant --adaptive`). If the data is noisy you'll need a larger data-set and/or multiple passes to predict well.  On these larger data-sets, our learning rate will by default decay towards 0 as we run through examples.  You can adjust the learning rate up or down with `-l rate`.  A higher learning rate will make the model converge faster but a too high learning rate may over-fit and end up be worse on average.
 
-    initial_t = 1
+    initial_t = 0
 
 Learning rates should often decay over time, and this specifies the initial time.  You can adjust with `--initial_t time`, although this is rarely necessary these days.
 
@@ -148,6 +148,11 @@ Learning rates should often decay over time, and this specifies the initial time
 This specifies the power on the learning rate decay.  You can adjust this `--power_t p` where _p_ is in the range [0,1].  0 means the learning rate does not decay, which can be helpful when state tracking, while 1 is very aggressive, but plausibly optimal for IID data-sets.  0.5 is a minimax optimal choice. A different way of stating this is: stationary data-sets where the fundamental relation between the input features and target label are not changing over time, should benefit from a high (close to 1.0) `--power_t` while learning against changing conditions, like learning against an adversary who continuously changes the rules-of-the-game, would benefit from low (close to 0) `--power_t` so the learner can react quickly to these changing conditions. For many problems, 0.5, which is the default, seems to work best.
 
 Next, there is a bunch of header information.  VW is going to print out some live diagnostic information. 
+
+    average  since         example        example  current  current  current
+    loss     last          counter         weight    label  predict features
+    0.000000 0.000000            1            1.0   0.0000   0.0000        5
+    0.666667 1.000000            2            3.0   1.0000   0.0000        5
 
 The first column, `average loss` computes the <a href="http://hunch.net/~jl/projects/prediction_bounds/progressive_validation/coltfinal.pdf">progressive validation</a> loss.  The critical thing to understand here is that progressive validation loss deviates like a test set, and hence is a reliable indicator of success on the first pass over any data-set.
 
@@ -173,17 +178,17 @@ If we want to overfit like mad, we can simply use:
     vw house_dataset -l 10 -c --passes 25 --holdout_off
 
 The progress section of the output is:
+    
+    average  since         example        example  current  current  current
+    loss     last          counter         weight    label  predict features
+    0.000000 0.000000            1            1.0   0.0000   0.0000        5
+    0.666667 1.000000            2            3.0   1.0000   0.0000        5
+    0.589385 0.531424            5            7.0   1.0000   0.2508        5
+    0.378923 0.194769           11           15.0   1.0000   0.8308        5
+    0.184476 0.002182           23           31.0   1.0000   0.9975        5
+    0.090774 0.000000           47           63.0   1.0000   1.0000        5
 
-    average    since         example     example  current  current  current
-    loss       last          counter      weight    label  predict features
-    0.666667   0.666667            2         3.0   1.0000   0.0000        5
-    0.558318   0.477056            5         7.0   1.0000   0.3314        5
-    0.475057   0.329351            8        11.0   1.0000   0.6017        5
-    0.239335   0.023256           17        23.0   1.0000   0.9784        5
-    0.125118   0.000023           33        44.0   0.0000   0.0001        5
-    0.063278   0.000000           65        87.0   1.0000   1.0000        5
-
-You'll notice that by example 65 (25 passes over 3 examples result in 75 examples), the `since last` column has dropped to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.  The reason we have to add `--holdout_off` (new option in version 7.3, added August 2013) is that when running multiple-passes, vw automatically switches to 'over-fit avoidance' mode by holding-out 10% of the examples (the period "one in 10" can be changed using `--holdout_period period`) and evaluating performance on the held-out data instead of using the online-training progressive loss.
+You'll notice that by example 47 (25 passes over 3 examples result in 75 examples), the `since last` column has dropped to 0, implying that by looking at the same (3 lines of) data 25 times we have reached a perfect predictor. This is unsurprising with 3 examples having 5 features each.  The reason we have to add `--holdout_off` (new option in version 7.3, added August 2013) is that when running multiple-passes, vw automatically switches to 'over-fit avoidance' mode by holding-out 10% of the examples (the period "one in 10" can be changed using `--holdout_period period`) and evaluating performance on the held-out data instead of using the online-training progressive loss.
 
 ### Saving your model (a.k.a. regressor) into a file
 
@@ -233,9 +238,9 @@ When developing a new ML application, it's very helpful to debug.  VW can help a
 
 Every example uses two lines.  The first line has the prediction, and the second line has one entry per feature.  Looking at the first feature, we see:
 
-    ^price:43641:0.23:0@0.25
+    price:43641:0.23:0@0.25
 
-The `^price` is the original feature.  If you use a namespace, it appears before `^`.  Namespaces are an advanced feature which allows you to group features and operate them on-the-fly, in the core of VW with the options: `-q XY` (cross a pair of name-spaces), `--cubic XYZ` (cross 3 name-spaces), `--lrq XYn` (low-rank quadratic interactions), and `--ignore X` (skip all features belonging to a name-space).
+The `price` is the original feature.  If you use a namespace, it appears before `^` (i.e. `Namespace^Feature`).  Namespaces are an advanced feature which allows you to group features and operate them on-the-fly, in the core of VW with the options: `-q XY` (cross a pair of name-spaces), `--cubic XYZ` (cross 3 name-spaces), `--lrq XYn` (low-rank quadratic interactions), and `--ignore X` (skip all features belonging to a name-space).
 
 `43641` is the index of the feature, computed by a hash function on the feature name.
 
