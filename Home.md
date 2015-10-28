@@ -4,7 +4,9 @@ The <a href="http://hunch.net/~vw">Vowpal Wabbit</a> (VW) project is a fast out-
 
 There are two ways to have a fast learning algorithm: (a) start with a slow algorithm and speed it up, or (b) build an intrinsically fast learning algorithm. This project is about approach (b), and it's reached a state where it may be useful to others as a platform for research and experimentation.
 
-There are several optimization algorithms available with the baseline being sparse gradient descent (GD) on a loss function (several are available), The code should be easily usable. Its only external dependence is on the <a href="http://www.boost.org/">boost library</a>, which is often installed by default. 
+There are several optimization algorithms available with the baseline being sparse gradient descent (GD) on a loss function (several are available), The code should be easily usable. Its only external dependence is on the <a href="http://www.boost.org/">boost library</a>, which is often installed by default.
+
+To build vw from source, in various environments, please follow the instructions in the <a href="https://github.com/JohnLangford/vowpal_wabbit/blob/master/README.md">README.md</a> file.
 
 <ul>
 <li>[[Download]]</li>
