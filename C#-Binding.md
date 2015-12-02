@@ -133,23 +133,63 @@ The vowpal wabbit string equivalent of the above instance is
 using (var vw = new VW.VowpalWabbit<Row>("-f rcv1.model"))
 {
 	var userExample = new Row { /* ... */ };
-	
-        using (var vwExample = vw.ReadExample(userExample))
-        {
-        	vwExample.Learn();
-        }
+        	
+        vw.Learn(userExample, new SimpleLabel { / *... */ });
+
+        var prediction = vw.Predict(userExample, VowpalWabbitPredictionType.Scalar);
 }
 ```
 
 * Serializers are globally cached per type (read: static variable).  I.e., there's a static dictionary from user-defined types to serializers.
-* Native example memory is cached using a pool per VW.VowpalWabbit instance. Each ReadExample call will either get memory from the pool or allocate new memory. Disposing VowpalWabbitExample returns the native memory to the pool. Thus if you loop over many examples and dispose them immediately the pool size will be equal to 1.
+* Native example memory is cached using a pool per VW.VowpalWabbit instance. Each Learn/Predict call will either get memory from the pool or allocate new memory.
+
+The serialization infrastructure is extensible by providing type based custom featurizers (VowpalWabbitSettings.CustomFeaturizer). Consider the following example:
+
+```c#
+    public class CustomClass
+    {
+        public int X { get; set; }
+    }
+
+    public class MyContext
+    {
+        [Feature]
+        public CustomClass Feature { get; set; }
+    }
+
+    public class CustomFeaturizer
+    {
+        public void MarshalFeature(VowpalWabbitMarshalContext context, Namespace ns, Feature feature, CustomClass value)
+        {
+            var featureHash = context.VW.HashFeature("prefix"+ feature.Name, ns.NamespaceHash);
+            context.NamespaceBuilder.AddFeature(featureHash, value.X);
+
+            context.AppendStringExample(feature.Dictify, " prefix{0}:{1}", feature.Name, value.X);
+        }
+    }
+
+
+            var context = new MyContext() { Feature = new CustomClass() { X = 5 }};
+            using (var vw = new VowpalWabbit<MyContext>(new VowpalWabbitSettings(customFeaturizer: new List<Type> { typeof(CustomFeaturizer) })))
+            {
+                vw.Learn(context);
+            }
+```
+
+In the above example features of type CustomClass will be marshalled using CustomFeaturizer. The serializer infrastructure looks for methods of the form __public void MarshalFeature(VowpalWabbitMarshalContext context, Namespace ns, Feature feature, CustomClass value)__ among others. A good reference is [VowpalWabbitDefaultMarshaller](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/VowpalWabbitDefaultMarshaller.cs) which is internally added to the same featurizer list. Custom featurizers are given priority over the default marshaller.
+Serializing data to string format (see VowpalWabbitMarshalContext.AppendStringExample) is optional when working through the native interface only, but considered good practice to ease debugging.
 
 ## Generic data structures
 Pro | Cons
 --- | ----
-most performant variant | results might not be reproducible using VW binary as it allows for feature representation not expressible through the string format 
-provides maximum flexibility with feature representation | verbose
+very performant | results might not be reproducible using VW binary as it allows for feature representation not expressible through the string format 
+provides maximum flexibility with feature representation | System.Linq.Expression based - a bit harder use
 suited for generic data structures (e.g. records, data table, ...) | --affix is not supported, though easy to replicate in C#
+
+
+* * overriding which feature resolution (VowpalWabbitSettings.AllFeatures)
+
+
 
 ```c#
 using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
