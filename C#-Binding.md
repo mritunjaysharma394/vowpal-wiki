@@ -253,27 +253,15 @@ VW.VowpalWabbit are not thread-safe, but by using object pools and shared models
 Consider the following excerpt from [TestSharedModel Unit Test](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs_unittest/TestCbAdf.cs)
 
 ```c#
-using (var vwModel = new VowpalWabbitModel("-t", File.OpenRead(cbadfModelFile)))
-using (var vwPool = new ObjectPool<VowpalWabbit<DataString, DataStringADF>>(new VowpalWabbitFactory<DataString, DataStringADF>(vwModel)))
+var vwModel = new VowpalWabbitModel("-t -i m1.model");
+using (var pool = new VowpalWabbitThreadedPrediction<Row>(vwModel))
 {
-    Parallel.For
-    (
-        fromInclusive: 0,
-        toExclusive: 20,
-        parallelOptions: new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount * 2 },
-        body: i =>
-        {
-            using (PooledObject<VowpalWabbit<DataString, DataStringADF>> vwObject = vwPool.Get())
-            {
-                // do learning/predictions here
-                var example = new DataString { /* ... */ };
-                vwObject.Value.Predict(example);
-            }
-        }
-    );
+     using (var vw = pool.GetOrCreate())
+     {
+          vw.Value.Predict(example);
+     }
 
-    var newVwModel = new VowpalWabbitModel("-t", File.OpenRead("new file"));
-    vwPool.UpdateFactory(new VowpalWabbitFactory<DataString, DataStringADF>(newVwModel));
+     pool.UpdateModel(new VowpalWabbitModel("-t -i m2.model"));
 }
 ```
 
