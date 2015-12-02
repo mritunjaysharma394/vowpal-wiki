@@ -74,7 +74,7 @@ The serializer follows an opt-in model, thus only properties annotated using [\[
 
 Property | Description | Default
 -------- | ----------- | -------
-FeatureGroup | it's the first character of the namespace in the string format | 0
+FeatureGroup | it's the first character of the namespace in the string format | Space
 Namespace | concatenated with the FeatureGroup | 0 = hash(Namespace)
 Name | name of the feature (e.g. 13, 24, 69 from the example above) | property name
 Enumerize | if true, features will be converted to string and then hashed. e.g. VW line format: Age_15 (Enumerize=true), Age:15 (Enumerize=false) | false
@@ -83,7 +83,7 @@ StringProcessing | String features are either escaped (spaces are replaced with 
 AddAnchor | use with dense features and --interact to mark the beginning of a set of dense features | false
 Dictify | when generating Vowpal Wabbit string formatted examples, this will replace the annotated feature with a surrogate. The serialized feature will be stored and checked against a dictionary passed to VowpalWabbitSerializer.SerializeToString(). | false
 
-Furthermore the serializer will recursively traverse all properties of the supplied example type on the search for more [\[Feature\]](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attributed properties (Note: recursive data structures are not supported). Feature groups and namespaces are inherited from parent properties and can be overridden. Finally all annotated properties are put into the corresponding namespaces.
+Furthermore the serializer will recursively traverse all properties of the supplied example type on the search for more [\[Feature\]](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attributed properties (Note: recursive data structures are not supported). Feature groups, namespaces and dictify are inherited from parent properties and can be overridden for sub trees. Finally all annotated properties are put into the corresponding namespaces.
 
 ```c#
 using VW.Serializer.Attributes;
