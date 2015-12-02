@@ -1,4 +1,4 @@
-**slightly outdated for https://github.com/eisber/vowpal_wabbit - update coming soon**
+*** The latest version of the C# Binding can be found in https://github.com/eisber/vowpal_wabbit **
 
 This is a tutorial for the Vowpal Wabbit C# binding. Here's a list of major features:
 
@@ -11,8 +11,8 @@ This is a tutorial for the Vowpal Wabbit C# binding. Here's a list of major feat
 The binding exposes three different options to interact with native Vowpal Wabbit, each having pros and cons:
 
 1. User defined data types: use [VW.VowpalWabbit\<TUserType\>] (https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/VowpalWabbit.cs)
-2. Generic data structures (e.g. records consisting of key/value/type tuples): use [VW.VowpalWabbit](https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vw_clr.h) and [VW.VowpalWabbitNamespaceBuilder] (https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vw_clr.h)
-3. String based examples: use [VW.VowpalWabbit](https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vw_clr.h)
+2. Generic data structures (e.g. records consisting of key/value/type tuples): use [VW.VowpalWabbit](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/serializer/VowpalWabbitSerializerFactory.cs)
+3. String based examples: use [VW.VowpalWabbit](https://github.com/JohnLangford/vowpal_wabbit/blob/master/vw_clr/vowpalwabbit.h)
 
 # Usage
 
@@ -28,8 +28,9 @@ The nuget includes:
 * C++/CLI wrapper
 * C# wrapper supporting declarative data to feature conversion
 * PDB debug symbols (for Windows newbies, PDB here is a program database file, not the Python debugger)
-* Source
+* Source files
 * IntelliSense documentation
+* zlib native dll 
 
 Note: I'm aware of symbolsource.org, but due to some PDB references to system headers such as undname.h, I was unable to create a "symbolsource.org" valid -symbols.nupkg. 
 
@@ -57,7 +58,7 @@ using System.Collections.Generic;
 
 public class Row : IExample
 {
-	[Feature(FeatureGroup = 'f', Namespace = "eatures", Name = "const", Order = 2)]
+        [Feature(FeatureGroup = 'f', Namespace = "eatures", Name = "const", Order = 2)]
         public float Constant { get; set; }
 
         [Feature(FeatureGroup = 'f', Namespace = "eatures", Order = 1)]
@@ -69,7 +70,7 @@ public class Row : IExample
 }
 ```
 
-The serializer follows an opt-in model, thus only properties annotated using [\[Feature\]](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) are transformed into vowpal wabbit features. The [\[Feature\]](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attribute supports the following properties:
+The serializer follows an opt-in model, thus only properties annotated using [\[Feature\]](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) are transformed into Vowpal Wabbit features. The [\[Feature\]](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attribute supports the following properties:
 
 Property | Description | Default
 -------- | ----------- | -------
@@ -78,6 +79,9 @@ Namespace | concatenated with the FeatureGroup | 0 = hash(Namespace)
 Name | name of the feature (e.g. 13, 24, 69 from the example above) | property name
 Enumerize | if true, features will be converted to string and then hashed. e.g. VW line format: Age_15 (Enumerize=true), Age:15 (Enumerize=false) | false
 Order | feature serialization order. Useful for comparison with VW command line version | 0
+StringProcessing | String features are either escaped (spaces are replaced with underscores) or split by space producing individual features. | Split
+AddAnchor | use with dense features and --interact to mark the beginning of a set of dense features | false
+Dictify | when generating Vowpal Wabbit string formatted examples, this will replace the annotated feature with a surrogate. The serialized feature will be stored and checked against a dictionary passed to VowpalWabbitSerializer.SerializeToString(). | false
 
 Furthermore the serializer will recursively traverse all properties of the supplied example type on the search for more [\[Feature\]](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/Attributes/FeatureAttribute.cs) attributed properties (Note: recursive data structures are not supported). Feature groups and namespaces are inherited from parent properties and can be overridden. Finally all annotated properties are put into the corresponding namespaces.
 
