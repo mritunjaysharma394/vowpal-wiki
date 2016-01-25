@@ -192,43 +192,43 @@ Let me point out that using VowpalWabbitDefaultMarshaller is another option. The
 ```c#
 using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 {
-	VW.VowpalWabbitExample example = null;
-        try
-        {
-            // 1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02
-            using (var exampleBuilder = new VW.VowpalWabbitExampleBuilder(vw))
-            {
-		// import to dispose the namespace builder at the end, as data is only added to the example
-		// if there is any feature added to the namespace
-                using (var ns = exampleBuilder.AddNamespace('f'))
-		{
-               		var namespaceHash = vw.HashSpace("f");
+   VW.VowpalWabbitExample example = null;
+   try
+   {
+      // 1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02
+      using (var exampleBuilder = new VW.VowpalWabbitExampleBuilder(vw))
+      {
+         // import to dispose the namespace builder at the end, as data is only added to the example
+         // if there is any feature added to the namespace
+         using (var ns = exampleBuilder.AddNamespace('f'))
+	 {
+            var namespaceHash = vw.HashSpace("f");
 
-                	var featureHash = vw.HashFeature("13", namespaceHash);
-                	ns.AddFeature(featureHash, 8.5609287e-02f);
+	    var featureHash = vw.HashFeature("13", namespaceHash);
+	    ns.AddFeature(featureHash, 8.5609287e-02f);
 
-                	featureHash = vw.HashFeature("24", namespaceHash);
-                	ns.AddFeature(featureHash, 3.4781646e-02f);
+	    featureHash = vw.HashFeature("24", namespaceHash);
+	    ns.AddFeature(featureHash, 3.4781646e-02f);
 
-                	featureHash = vw.HashFeature("69", namespaceHash);
-                	ns.AddFeature(featureHash, 4.6296168e-02f);
-		}
+	    featureHash = vw.HashFeature("69", namespaceHash);
+	    ns.AddFeature(featureHash, 4.6296168e-02f);
+	 }
 
-                exampleBuilder.ParseLabel("1");
+	 exampleBuilder.ParseLabel("1");
 
-                // hand over of memory management
-                example = exampleBuilder.CreateExample();
-            }
+	 // hand over of memory management
+	 example = exampleBuilder.CreateExample();
+      }
 
-            vw.Learn(example);
-        }
-        finally
-        {
-            if (example != null)
-            {
-                example.Dispose();
-            }
-        }
+      vw.Learn(example);
+   }
+   finally
+   {
+      if (example != null)
+      {
+         example.Dispose();
+      }
+   }
 }
 ```
 
