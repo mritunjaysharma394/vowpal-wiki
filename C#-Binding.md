@@ -187,7 +187,6 @@ provides maximum flexibility with feature representation | System.Linq.Expressio
 suited for generic data structures (e.g. records, data table, ...) | --affix is not supported, though easy to replicate in C#
 
 Let me point out that using VowpalWabbitDefaultMarshaller is another option. The biggest upside is that it optionally generates the corresponding VW string features, but maybe less flexible than the direct approach below. 
-* * overriding which feature resolution (VowpalWabbitSettings.AllFeatures)
 
 ```c#
 using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
@@ -212,7 +211,7 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
         
             featureHash = vw.HashFeature("69", namespaceHash);
             ns.AddFeature(featureHash, 4.6296168e-02f);
-	 }
+         }
 
          exampleBuilder.ParseLabel("1");
         
