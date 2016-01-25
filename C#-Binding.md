@@ -186,10 +186,8 @@ very performant | results might not be reproducible using VW binary as it allows
 provides maximum flexibility with feature representation | System.Linq.Expression based - a bit harder use
 suited for generic data structures (e.g. records, data table, ...) | --affix is not supported, though easy to replicate in C#
 
-
+Let me point out that using VowpalWabbitDefaultMarshaller is another option. The biggest upside is that it optionally generates the corresponding VW string features, but maybe less flexible than the direct approach below. 
 * * overriding which feature resolution (VowpalWabbitSettings.AllFeatures)
-
-
 
 ```c#
 using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
@@ -200,25 +198,29 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
             // 1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02
             using (var exampleBuilder = new VW.VowpalWabbitExampleBuilder(vw))
             {
-                var ns = exampleBuilder.AddNamespace('f');
-                var namespaceHash = vw.HashSpace("f");
+		// import to dispose the namespace builder at the end, as data is only added to the example
+		// if there is any feature added to the namespace
+                using (var ns = exampleBuilder.AddNamespace('f'))
+		{
+               		var namespaceHash = vw.HashSpace("f");
 
-                var featureHash = vw.HashFeature("13", namespaceHash);
-                ns.AddFeature(featureHash, 8.5609287e-02f);
+                	var featureHash = vw.HashFeature("13", namespaceHash);
+                	ns.AddFeature(featureHash, 8.5609287e-02f);
 
-                featureHash = vw.HashFeature("24", namespaceHash);
-                ns.AddFeature(featureHash, 3.4781646e-02f);
+                	featureHash = vw.HashFeature("24", namespaceHash);
+                	ns.AddFeature(featureHash, 3.4781646e-02f);
 
-                featureHash = vw.HashFeature("69", namespaceHash);
-                ns.AddFeature(featureHash, 4.6296168e-02f);
+                	featureHash = vw.HashFeature("69", namespaceHash);
+                	ns.AddFeature(featureHash, 4.6296168e-02f);
+		}
 
-                exampleBuilder.Label = "1";
+                exampleBuilder.ParseLabel("1");
 
                 // hand over of memory management
                 example = exampleBuilder.CreateExample();
             }
 
-            example.Learn();
+            vw.Learn(example);
         }
         finally
         {
