@@ -58,15 +58,15 @@ using System.Collections.Generic;
 
 public class Row : IExample
 {
-        [Feature(FeatureGroup = 'f', Namespace = "eatures", Name = "const", Order = 2)]
-        public float Constant { get; set; }
+    [Feature(FeatureGroup = 'f', Namespace = "eatures", Name = "const", Order = 2)]
+    public float Constant { get; set; }
 
-        [Feature(FeatureGroup = 'f', Namespace = "eatures", Order = 1)]
-        public IList<KeyValuePair<string, float>> Features { get; set; }
+    [Feature(FeatureGroup = 'f', Namespace = "eatures", Order = 1)]
+    public IList<KeyValuePair<string, float>> Features { get; set; }
 
-        public string Line { get; set; }
+    public string Line { get; set; }
 
-        public ILabel Label { get; set;}
+    public ILabel Label { get; set;}
 }
 ```
 
@@ -90,36 +90,36 @@ using VW.Serializer.Attributes;
 
 public class ParentRow
 {
-	[Feature(FeatureGroup = 'f')]
-        public CommonFeatures UserFeatures { get; set; }
+    [Feature(FeatureGroup = 'f')]
+    public CommonFeatures UserFeatures { get; set; }
 
-        [Feature(FeatureGroup = 'f')]
-        public String Country { get; set; }
+    [Feature(FeatureGroup = 'f')]
+    public String Country { get; set; }
 
-        [Feature(FeatureGroup = 'g', Enumerize=true)]
-        public int Age { get; set; }
+    [Feature(FeatureGroup = 'g', Enumerize=true)]
+    public int Age { get; set; }
 }
 
 public class CommonFeatures
 {
-        [Feature]
-        public int A { get; set; }
+    [Feature]
+    public int A { get; set; }
 
-        [Feature(FeatureGroup = 'g', Name="Beta")]
-        public float B { get; set; }
+    [Feature(FeatureGroup = 'g', Name="Beta")]
+    public float B { get; set; }
 }
 
 // ...
 
 var row = new ParentRow
 {
-	UserFeatures = new CommonFeatures
-	{
-		A = 2,
-		B = 3.1f
-	},
-	Country = "Austria",
-	Age = 25
+    UserFeatures = new CommonFeatures
+    {
+        A = 2,
+        B = 3.1f
+    },
+    Country = "Austria",
+    Age = 25
 };
 ```
 
@@ -132,11 +132,11 @@ The vowpal wabbit string equivalent of the above instance is
 ```c#
 using (var vw = new VW.VowpalWabbit<Row>("-f rcv1.model"))
 {
-	var userExample = new Row { /* ... */ };
-        	
-        vw.Learn(userExample, new SimpleLabel { / *... */ });
+    var userExample = new Row { /* ... */ };
 
-        var prediction = vw.Predict(userExample, VowpalWabbitPredictionType.Scalar);
+    vw.Learn(userExample, new SimpleLabel { / *... */ });
+
+    var prediction = vw.Predict(userExample, VowpalWabbitPredictionType.Scalar);
 }
 ```
 
@@ -146,34 +146,34 @@ using (var vw = new VW.VowpalWabbit<Row>("-f rcv1.model"))
 The serialization infrastructure is extensible by providing type based custom featurizers (VowpalWabbitSettings.CustomFeaturizer). Consider the following example:
 
 ```c#
-    public class CustomClass
+public class CustomClass
+{
+    public int X { get; set; }
+}
+
+public class MyContext
+{
+    [Feature]
+    public CustomClass Feature { get; set; }
+}
+
+public class CustomFeaturizer
+{
+    public void MarshalFeature(VowpalWabbitMarshalContext context, Namespace ns, Feature feature, CustomClass value)
     {
-        public int X { get; set; }
+        var featureHash = context.VW.HashFeature("prefix"+ feature.Name, ns.NamespaceHash);
+        context.NamespaceBuilder.AddFeature(featureHash, value.X);
+
+        context.AppendStringExample(feature.Dictify, " prefix{0}:{1}", feature.Name, value.X);
     }
-
-    public class MyContext
-    {
-        [Feature]
-        public CustomClass Feature { get; set; }
-    }
-
-    public class CustomFeaturizer
-    {
-        public void MarshalFeature(VowpalWabbitMarshalContext context, Namespace ns, Feature feature, CustomClass value)
-        {
-            var featureHash = context.VW.HashFeature("prefix"+ feature.Name, ns.NamespaceHash);
-            context.NamespaceBuilder.AddFeature(featureHash, value.X);
-
-            context.AppendStringExample(feature.Dictify, " prefix{0}:{1}", feature.Name, value.X);
-        }
-    }
-
-
-            var context = new MyContext() { Feature = new CustomClass() { X = 5 }};
-            using (var vw = new VowpalWabbit<MyContext>(new VowpalWabbitSettings(customFeaturizer: new List<Type> { typeof(CustomFeaturizer) })))
-            {
-                vw.Learn(context);
-            }
+}
+```
+```c#
+var context = new MyContext() { Feature = new CustomClass() { X = 5 }};
+using (var vw = new VowpalWabbit<MyContext>(new VowpalWabbitSettings(customFeaturizer: new List<Type> { typeof(CustomFeaturizer) })))
+{
+    vw.Learn(context);
+}
 ```
 
 In the above example features of type CustomClass will be marshalled using CustomFeaturizer. The serializer infrastructure looks for methods of the form __public void MarshalFeature(VowpalWabbitMarshalContext context, Namespace ns, Feature feature, CustomClass value)__ among others. A good reference is [VowpalWabbitDefaultMarshaller](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/VowpalWabbitDefaultMarshaller.cs) which is internally added to the same featurizer list. Custom featurizers are given priority over the default marshaller.
@@ -191,33 +191,33 @@ Let me point out that using VowpalWabbitDefaultMarshaller is another option. The
 ```c#
 using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 {
-   // 1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02
-   using (var exampleBuilder = new VW.VowpalWabbitExampleBuilder(vw))
-   {
-      // important to dispose the namespace builder at the end, as data is only added to the example
-      // if there is any feature added to the namespace
-      using (var ns = exampleBuilder.AddNamespace('f'))
-      {
-         var namespaceHash = vw.HashSpace("f");
+    // 1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02
+    using (var exampleBuilder = new VW.VowpalWabbitExampleBuilder(vw))
+    {
+        // important to dispose the namespace builder at the end, as data is only added to the example
+        // if there is any feature added to the namespace
+        using (var ns = exampleBuilder.AddNamespace('f'))
+        {
+            var namespaceHash = vw.HashSpace("f");
 
-         var featureHash = vw.HashFeature("13", namespaceHash);
-         ns.AddFeature(featureHash, 8.5609287e-02f);
-     
-         featureHash = vw.HashFeature("24", namespaceHash);
-         ns.AddFeature(featureHash, 3.4781646e-02f);
-     
-         featureHash = vw.HashFeature("69", namespaceHash);
-         ns.AddFeature(featureHash, 4.6296168e-02f);
-      }
+            var featureHash = vw.HashFeature("13", namespaceHash);
+            ns.AddFeature(featureHash, 8.5609287e-02f);
 
-      exampleBuilder.ParseLabel("1");
-     
-      // hand over of memory management
-      using (var example = exampleBuilder.CreateExample())
-      {
-         vw.Learn(example);
-      }
-   }
+            featureHash = vw.HashFeature("24", namespaceHash);
+            ns.AddFeature(featureHash, 3.4781646e-02f);
+
+            featureHash = vw.HashFeature("69", namespaceHash);
+            ns.AddFeature(featureHash, 4.6296168e-02f);
+        }
+
+        exampleBuilder.ParseLabel("1");
+
+        // hand over of memory management
+        using (var example = exampleBuilder.CreateExample())
+        {
+            vw.Learn(example);
+        }
+    }
 }
 ```
 
@@ -230,11 +230,11 @@ supports affixes |
 ```c#
 using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
 {
-	vw.Learn("1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02");
-	// read more data ...
+    vw.Learn("1 |f 13:3.9656971e-02 24:3.4781646e-02 69:4.6296168e-02");
+    // read more data ...
 
-	var prediction = vw.Predict<VW.VowpalWabbitScalarPrediction>("|f 9:8.5609287e-02 14:2.9904654e-02 19:6.1031535e-02 20:2.1757640e-02");
-	System.Console.WriteLine("Prediction: " + prediction.Value);
+    var prediction = vw.Predict<VW.VowpalWabbitScalarPrediction>("|f 9:8.5609287e-02 14:2.9904654e-02 19:6.1031535e-02 20:2.1757640e-02");
+    System.Console.WriteLine("Prediction: " + prediction.Value);
 }
 ```
 
@@ -247,12 +247,12 @@ Consider the following excerpt from [TestSharedModel Unit Test](https://github.c
 var vwModel = new VowpalWabbitModel("-t -i m1.model");
 using (var pool = new VowpalWabbitThreadedPrediction<Row>(vwModel))
 {
-     using (var vw = pool.GetOrCreate())
-     {
-          vw.Value.Predict(example);
-     }
+    using (var vw = pool.GetOrCreate())
+    {
+        vw.Value.Predict(example);
+    }
 
-     pool.UpdateModel(new VowpalWabbitModel("-t -i m2.model"));
+    pool.UpdateModel(new VowpalWabbitModel("-t -i m2.model"));
 }
 ```
 
