@@ -213,7 +213,7 @@ using (var vw = new VW.VowpalWabbit("-f rcv1.model"))
       exampleBuilder.ParseLabel("1");
      
       // hand over of memory management
-      using (example = exampleBuilder.CreateExample())
+      using (var example = exampleBuilder.CreateExample())
       {
          vw.Learn(example);
       }
