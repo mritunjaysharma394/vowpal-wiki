@@ -18,19 +18,35 @@ The C# layer can ingest
 # Examples
 <table><tr><th>JSON</th><th>VW String</th></tr>
 <tr><td> 
-  <pre lang="json"> {"f1":25,"f2":true,"_aux":"some ignored info"} </pre> </td><td>
+  <pre lang="json"> 
+{
+ "f1":25,"f2":true,
+ "_aux":"some ignored info"
+} </pre> </td><td>
   <pre> | f1:25 f2</pre>
 </td></tr>
 <tr><td> 
-  <pre lang="json"> {"ns1":{"location":"New York"},"f2":[1,0.2,3]} </pre> </td><td>
+  <pre lang="json"> 
+{
+ "ns1":{"location":"New York"},
+ "f2":[1,0.2,3]
+} </pre> </td><td>
   <pre> |ns1 New_York | :1 :.2 :.3</pre>
 </td></tr>
 <tr><td> 
-  <pre lang="json"> {"ns1":{"location":"New York"},"ns2":{"f2":3.4},"_label":1} </pre> </td><td>
+  <pre lang="json">
+{
+ "ns1":{"location":"New York"},
+ "ns2":{"f2":3.4},"_label":1
+} </pre> </td><td>
   <pre>1 |ns1 New_York |ns2 f2:3.4</pre>
 </td></tr>
 <tr><td> 
-  <pre lang="json"> {"ns1":{"location":"New York", "f2":3.4},"_label":{"Label":2,"Weight":0.3}} </pre> </td><td>
+  <pre lang="json"> 
+{
+ "ns1":{"location":"New York", "f2":3.4},
+ "_label":{"Label":2,"Weight":0.3}
+} </pre> </td><td>
   <pre>2 0.3 |ns1 New_York f2:3.4</pre>
 </td></tr>
 </table>
