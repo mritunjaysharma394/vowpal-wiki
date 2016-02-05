@@ -74,7 +74,7 @@ The C# layer can ingest
   <pre>
 shared | UserAge:15
 | elections maine SourceTV
-2:3:.3 | Sourcewww Topic:4
+2:3:.3 | Sourcewww topic:4
 </pre>
 </td></tr>
 </table>
