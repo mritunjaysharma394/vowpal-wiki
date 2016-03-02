@@ -70,7 +70,7 @@ This feature is useful especially in the daemon mode, where you can decide in an
 You can check that vw is correctly parsing your input by pasting a few lines into the [VW validator](http://hunch.net/~vw/validate.html).
 
 ## LibSVM format
-[LibSVM](www.csie.ntu.edu.tw/~cjlin/libsvm/) uses a simpler format than VW, which can be easily converted to VW format just by adding a pipe symbol between the label and the features.
+[LibSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/) uses a simpler format than VW, which can be easily converted to VW format just by adding a pipe symbol between the label and the features.
 
     perl -pe 's/\s/ | /' data.libsvm | vw -f model
 
