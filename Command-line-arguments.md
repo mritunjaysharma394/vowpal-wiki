@@ -72,7 +72,7 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 
     `prediction tag (namespace^feature:hashindex:value:weight[@ssgrad] )*`
 
-`prediction` is VW's prediction on the example with tag `tag`. Then there's a list of feature information. `namespace` is the namespace where the feature belongs, `feature` is the name of the feature, `hashindex` is the position where it hashes, `value` is the value of the feature, `weight` is the current learned weight associated with that feature and finally `ssgrad` is the sum of squared gradients (plus 1) if adaptive updates are used.
+`prediction` is VW's prediction on the example with tag `tag`. Then there's a list of feature information. `namespace` is the namespace where the feature belongs, `feature` is the name of the feature, `hashindex` is the position where it hashes, `value` is the value of the feature, `weight` is the current learned weight associated with that feature and finally `ssgrad` is the sum of squared gradients (plus 1) if adaptive updates are used. 
 
 # **Example Manipulation options**
     -t [ --testonly ]        Ignore label information and just test
@@ -261,6 +261,9 @@ To average the gradient from _k_ examples and update the weights once every _k_ 
     --readable_model arg               Output human-readable final regressor
     --invert_hash arg                  Output human-readable final regressor
                                        with feature names
+    --audit_regressor arg              stores feature names and their regressor
+                                       values. Same dataset must be used for 
+                                       both regressor training and this mode.
     --save_per_pass                    Save model after every pass over data
     --input_feature_regularizer arg    Per feature regularization input file
     --output_feature_regularizer_binary arg
@@ -277,6 +280,8 @@ Use the `-f` option to write the weight vector to a file named after its argumen
 `--readable_model` is identical to `-f`, except that the model is output in a human readable format.
 
 `--invert_hash` is similar to `--readable_model`, but the model is output in a more human readable format with feature names followed by weights, instead of hash indexes and weights. Note that running vw with `--invert_hash` is **much slower** and needs much **more memory**. Feature names are not stored in the cache files (so if `-c` is on and the cache file exists and you want to use `--invert_hash`, either delete the cache or use `-k` to do it automatically). For multi-pass learning (where `-c` is necessary), it is recommended to first train the model without `--invert_hash` and then do another run with no learning (`-t`) which will just read the previously created binary model (`-i my.model`) and store it in human-readable format (`--invert_hash my.invert_hash`).
+
+`--audit_regressor` mode works like `--invert_hash` but designed to has much smaller RAM usage overhead. To use it you shall perform two steps. Firstly, train your model as usual and save your regressor with `-f`. Secondly, test your model against same dataset that was used for training with additional of `--audit_regressor result_file` to command line. Technically, it loads regressor and prints out feature details when it's encountered in dataset for a first time. Thus second step may be used on any dataset that contains same features. It also can't process features that has hash collisions - first one encountered will be printed out and the others ignored. If your model isn't too big you may prefer to use `--invert_hash` or `vw-varinfo` script for the same purpose.
 
 `--save_per_pass` saves the model after every pass over the data.  This is useful for early stopping.
 
