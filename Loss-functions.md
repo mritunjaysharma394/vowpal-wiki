@@ -14,7 +14,7 @@ To select a loss function in VW see the [[Command line arguments]] guide.  The L
 
 * If the problem is a **binary classification** (i.e. labels are -1 and +1) your choices should be Logistic or Hinge loss (although Squared loss may work as well). If you want VW to report the 0-1 loss instead of the logistic/hinge loss, add `--binary`.
 **Example:** spam vs non-spam, odds of click vs no-click.
-* For **binary classification** where you need to know the posterior probabilities, use `--loss-function=logistic --link=logistic`.
+* For **binary classification** where you need to know the posterior probabilities, use `--loss_function logistic --link logistic`.
 * If the problem is a **regression problem**, meaning the target label you're trying to predict is a real value -- you should be using Squared or Quantile loss.
 **Example:** revenue, height, weight.
 If you're trying to minimize the mean error, use squared-loss. See: http://en.wikipedia.org/wiki/Least_squares .
