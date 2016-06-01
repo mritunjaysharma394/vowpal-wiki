@@ -42,6 +42,7 @@ The first step is downloading a version of VW.  We'll use the <a href="https://g
 Now we compile:
 
     cd vowpal_wabbit
+    ./autogen.sh
     ./configure
     make
 
