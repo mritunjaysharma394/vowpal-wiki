@@ -32,7 +32,10 @@ The nuget includes:
 * IntelliSense documentation
 * zlib native dll 
 
-Note: I'm aware of symbolsource.org, but due to some PDB references to system headers such as undname.h, I was unable to create a "symbolsource.org" valid -symbols.nupkg. 
+# Debugging
+Debug symbols (PDB) are post-processed using [GitLink](https://github.com/GitTools/GitLink) and included with nugets. From GitLink: __When using GitLink, the user no longer has to specify symbol servers. The only requirement is to ensure the check the  Enable source server support  option in Visual Studio as shown below:__
+
+![](https://github.com/GitTools/GitLink/blob/develop/doc/images/visualstudio_enablesourceserversupport.png)
 
 # Examples
 Through out the examples the following dataset from [[Rcv1-example]] is used:
