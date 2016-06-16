@@ -4,10 +4,11 @@ Data can be fed using [Azure EventHubs](https://azure.microsoft.com/en-us/servic
 _Note:_ As of today the trainer expects contextual bandit-style data, as it performs evaluation. With minor modifications one should be able to train arbitrary models.
 
 # Configuration
-- At deployment time [cscfg](https://github.com/eisber/vowpal_wabbit/blob/master/cs/azure_service/ServiceConfiguration.Cloud.cscfg): 
-- At runtime time through the Azure portal. The trainer observes configuration changes and restarts as required. 
+At deployment time [cscfg](https://github.com/eisber/vowpal_wabbit/blob/master/cs/azure_service/ServiceConfiguration.Cloud.cscfg) or 
+at runtime time through the Azure portal. The trainer observes configuration changes and restarts as required. 
 
-- APPINSIGHTS_INSTRUMENTATIONKEY: An [Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) key used for central logging and performance monitoring.
+
+- **APPINSIGHTS_INSTRUMENTATIONKEY**: An [Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) key used for central logging and performance monitoring.
 - Diagnostics.ConnectionString: Azure storage connection string for startup logging.
 - StorageConnectionString: Azure storage connection string used to output models.
 - JoinedEventHubConnectionString: EventHubs connection string used for data ingestion.
