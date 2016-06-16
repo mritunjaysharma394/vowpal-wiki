@@ -1,5 +1,5 @@
 Vowpal Wabbit can be hosted on Azure using a cloud service to train models.
-Data can be fed using [Azure EventHubs](https://azure.microsoft.com/en-us/services/event-hubs/) and by creating [JSON] formatted examples.
+Data can be fed using [Azure EventHubs](https://azure.microsoft.com/en-us/services/event-hubs/) and by creating [JSON](JSON) formatted examples.
 
 _Note:_ As of today the trainer expects contextual bandit-style data, as it performs evaluation. With minor modifications one should be able to train arbitrary models.
 
