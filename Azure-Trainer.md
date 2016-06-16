@@ -15,7 +15,7 @@ at runtime time through the Azure portal. The trainer observes configuration cha
 - **EvalEventHubConnectionString**: EventHubs connection string used to output evaluation.
 - **AdminToken**: The authorization token required to invoke the trainers REST API.
 - **CheckpointIntervalOrCount**: The trainer checkpoints in regular intervals. If the configuration contains ':' it is treated as time span (see [format](https://msdn.microsoft.com/en-us/library/ee372286(v=vs.110).aspx)), otherwise a number representing the number of examples after which checkpointing shall be performed. Checkpoint data includes the model, a list of events since the last checkpoint (trackback) and the EventHubs position.
-- EnableExampleTracing: Traces each example in VW string format to AppInsights. 
+- **EnableExampleTracing**: Traces each example in VW string format to AppInsights. 
 
 # REST API
 Each request expects a HTTP authorization header: "Authorization: <Insert AdminToken here>".
