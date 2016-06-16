@@ -22,6 +22,6 @@ Each request expects a HTTP authorization header: "Authorization: <Insert AdminT
 - _<trainer url>/reset_ Resets the current model.
 
 # Links
-- [Provisioning](https://github.com/multiworldtesting/ds-provisioning/blob/master/templates/OnlineTrainerTemplate.json). The packageLink.uri needs to point to blob on Azure storage and contain a SAS token.
+- [Provisioning](https://github.com/multiworldtesting/ds-provisioning/blob/master/templates/OnlineTrainerTemplate.json) using [ARM](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/). The packageLink.uri needs to point to blob on Azure storage and contain a SAS token.
 - [Binaries](https://github.com/eisber/vowpal_wabbit/releases)
 - [Code](https://github.com/eisber/vowpal_wabbit/tree/master/cs/azure)
