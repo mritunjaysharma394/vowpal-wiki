@@ -1,6 +1,6 @@
 **Contextual Bandit algorithms in VW**
 
-The contextual bandit learning algorithms in VW consist of two broad classes. The first class consists of settings where the number of actions is fixed and known ahead of time, and the semantics of these actions stay fixed across examples. A more advanced setting allows there to be variable number of actions, with potentially changing semantics per example. In this latter setting, the actions are specified via features, different features associated with each action. We refer to this setting as the ADF setting for action dependent features.
+The contextual bandit learning algorithms in VW consist of two broad classes. The first class consists of settings where the maximum number of actions is known ahead of time, and the semantics of these actions stay fixed across examples. A more advanced setting allows potentially changing semantics per example. In this latter setting, the actions are specified via features, different features associated with each action. We refer to this setting as the ADF setting for action dependent features.
 
 **Fixed set of actions**
 
@@ -8,7 +8,7 @@ When the number of actions is known ahead of time, suppose we have a file train.
 
     ./vw -d train.dat --cb_explore 4 
 
-Here `--cb_explore` indicates that we are training a contextual bandit algorithm, and its argument is the (fixed) number of actions. Providing no further arguments uses defaults for the exploration strategy, which is epsilon-greedy (`epsilon = 0.05`). In general, we support a number of exploration algorithms defined below:
+Here `--cb_explore` indicates that we are training a contextual bandit algorithm, and its argument is the (fixed) maximum number of actions. Providing no further arguments uses defaults for the exploration strategy, which is epsilon-greedy (`epsilon = 0.05`). In general, we support a number of exploration algorithms defined below:
 
 1. **Explore-first:** This simplest scheme takes in a parameter `tau`. On the first `tau` examples, we take each of the `k` actions with probability `1/k`. This data is then used to learn a good predictor, which is used to pick actions for the remaining examples. 
 
