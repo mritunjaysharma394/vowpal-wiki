@@ -2,7 +2,7 @@
 
 The contextual bandit learning algorithms in VW consist of two broad classes. The first class consists of settings where the maximum number of actions is known ahead of time, and the semantics of these actions stay fixed across examples. A more advanced setting allows potentially changing semantics per example. In this latter setting, the actions are specified via features, different features associated with each action. We refer to this setting as the ADF setting for action dependent features.
 
-**Fixed set of actions**
+**Stationary set of actions with fixed semantics**
 
 When the number of actions is known ahead of time, suppose we have a file train.dat consisting of examples in the contextual bandit format discussed [here](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example). Then we train VW on this data by invoking:
 
