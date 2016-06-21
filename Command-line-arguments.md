@@ -188,6 +188,7 @@ VW removes duplicate interactions of same set of namespaces. For example in `-q 
                                      hinge
                                      logistic
                                      quantile
+                                     poisson
     --quantile_tau arg (=0.5)    Parameter \tau associated with Quantile loss
                                  Defaults to 0.5
     --minibatch arg (=1)         Minibatch size
