@@ -1,4 +1,4 @@
-All <a href="https://github.com/JohnLangford/vowpal_wabbit/tags">tagged versions</a> can be downloaded from github.  We try to have zero bugs, so a <a href="https://github.com/JohnLangford/vowpal_wabbit">checkout from the master branch</a> is almost always sane and often preferred.
+All <a href="https://github.com/JohnLangford/vowpal_wabbit/tags">tagged versions</a> can be downloaded from github.  We try to have zero bugs, so a <a href="https://github.com/JohnLangford/vowpal_wabbit">checkout from the master branch</a> is almost always sane and often preferred. Detailed instructions for installing on various operating systems can be found in the [README.md](https://github.com/JohnLangford/vowpal_wabbit)
 
 ## Other options
 
