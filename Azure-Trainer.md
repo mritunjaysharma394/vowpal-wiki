@@ -25,3 +25,6 @@ Each request expects a HTTP authorization header: "Authorization: <Insert AdminT
 - [Provisioning](https://github.com/multiworldtesting/ds-provisioning/blob/master/templates/OnlineTrainerTemplate.json) using [ARM](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/). The packageLink.uri needs to point to blob on Azure storage and contain a SAS token.
 - [Binaries](https://github.com/eisber/vowpal_wabbit/releases)
 - [Code](https://github.com/eisber/vowpal_wabbit/tree/master/cs/azure)
+
+# Debugging
+To run the debug version on Azure, connect using Remote Desktop and copy C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\redist\Debug_NonRedist\x64\Microsoft.VC120.DebugCRT\* to D:\Windows\System32
