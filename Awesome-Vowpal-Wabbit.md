@@ -1,5 +1,3 @@
-# Awesome Vowpal Wabbit
-
 This page contains a curated list of examples, research, videos, tutorials, and blogs about Vowpal Wabbit usecases.
 
 ## Companies
