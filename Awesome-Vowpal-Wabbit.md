@@ -11,6 +11,7 @@ This page contains a curated list of examples, research, videos, tutorials, and 
 - [Predicting CTR with Online Machine Learning](http://mlwave.com/predicting-click-through-rates-with-online-machine-learning/) by MLWave. Uses Criteo dataset.
 - [Go non-linear with Vowpal Wabbit](http://fastml.com/go-non-linear-with-vowpal-wabbit/) by FastML.
 - [Vowpal Wabbit tutorial for the Uninitiated](http://www.zinkov.com/posts/2013-08-13-vowpal-tutorial/) on Convex Optimized.
+- [Solving NLP problems with Vowpal Wabbit](https://github.com/hal3/vwnlp) by Hal Daumé III.
 - ...
 
 ## Blogs
@@ -30,6 +31,7 @@ This page contains a curated list of examples, research, videos, tutorials, and 
 
 - [Vowpal Wabbit Workshop](https://www.youtube.com/watch?v=hjfwDJBrZME)
 - [Technical Tricks of Vowpal Wabbit](http://www.slideshare.net/jakehofman/technical-tricks-of-vowpal-wabbit)
+- [Winning Kaggle 101](http://www.slideshare.net/TedXiao/winning-kaggle-101-dmitry-larkos-experiences) by [Dmitry Larko](https://www.kaggle.com/dmitrylarko).
 - ...
 
 ## Research
