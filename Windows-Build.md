@@ -1,7 +1,9 @@
 # Build requirements
 
-* Visual Studio 2013 or above. It builds using VS 2015, but some issues occurred with the debugger.
+* Visual Studio 2013 **AND**
+* Visual Studio 2015
 * Run the following from Windows Command prompt (cmd.exe) to restore nugets. Just restoring in Visual Studio isn't enough, as the build definition already depends on one of the nugets (ANTLR). 
+* **Don't** upgrade the solution to Visual Studio 2015. The C++ is not compatible yet.
 
 ```Batchfile
 cd vowpalwabbit
