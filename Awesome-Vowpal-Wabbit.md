@@ -36,7 +36,7 @@ This page contains a curated list of examples, research, videos, tutorials, and 
 - [Technical Tricks of Vowpal Wabbit](http://www.slideshare.net/jakehofman/technical-tricks-of-vowpal-wabbit)
 - [Winning Kaggle 101](http://www.slideshare.net/TedXiao/winning-kaggle-101-dmitry-larkos-experiences) by [Dmitry Larko](https://www.kaggle.com/dmitrylarko).
 - [Vowpal Wabbit: Fast Learning on Big Data](http://www.kdnuggets.com/2014/05/vowpal-wabbit-fast-learning-on-big-data.html) by Ran Bi.
-- [Vowpal Wabbit, a Machine Learning System](https://www.infoq.com/presentations/vowpal-wabbit). John Langford's talk during QCon. 
+- [Vowpal Wabbit, a Machine Learning System](https://www.infoq.com/presentations/vowpal-wabbit). John Langford's talk at QCon. 
 - ...
 
 ## Research
