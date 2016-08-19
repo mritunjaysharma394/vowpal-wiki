@@ -14,7 +14,7 @@ See example usage in [test 109](https://github.com/JohnLangford/vowpal_wabbit/bl
 It is important to use `--probabilities` when testing (this option is not stored in the model).
 When using `--probabilities` during training (or testing with gold costs available), a multi-class logistic loss is reported.
 
-## Multi-class csoaa_ldf
+## Multi-class `csoaa_ldf`
 For [cost-sensitive oaa with label-dependent features](http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html), 
 **use `--csoaa_ldf=mc --loss_function=logistic --probabilities -p probs.txt`**.
 See example usage in [test 110](https://github.com/JohnLangford/vowpal_wabbit/blob/41befcc1fb86c4aaf5e96f91c0cf4427218ea4fe/test/RunTests#L1362).
