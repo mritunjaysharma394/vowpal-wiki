@@ -11,8 +11,8 @@ To get probabilities for each of the 1..N classes, simply **use `--oaa N --loss_
 Logistic link function will be used automatically (you should not specify it with `--link`) and the numbers (probabilities) will be normalized so they sum up to 1.
 See example usage in [test 109](https://github.com/JohnLangford/vowpal_wabbit/blob/41befcc1fb86c4aaf5e96f91c0cf4427218ea4fe/test/RunTests#L1357).
 
-It is important to use `--probabilities` when testing (this option is not stored in the model).
-When using `--probabilities` during training (or testing with gold costs available), a multi-class logistic loss is reported.
+When using `--probabilities` during training (or testing with gold costs available), a multi-class logistic loss is reported in addition to the standard zero-one loss.
+The option `--probabilities` is stored in the model, so it does not need (actually cannot) be repeated when testing.
 
 ## Multi-class `csoaa_ldf`
 For [cost-sensitive oaa with label-dependent features](http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html), 
