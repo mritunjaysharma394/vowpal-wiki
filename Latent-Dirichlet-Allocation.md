@@ -8,6 +8,11 @@ This video tutorial is useful, but refers to the 5.0 version: http://videolectur
 
 This tutorial is similar, but with more up to date command-line arguments: https://github.com/JohnLangford/vowpal_wabbit/wiki/lda.pdf
 
+## Friendly wrapper utility to `vw --lda`
+
+The `utl` directory now has a python [utility called `vw-lda`](https://github.com/JohnLangford/vowpal_wabbit/blob/master/utl/vw-lda) which makes interacting with `vw` LDA mode much easier. `utl/vw-lda` does all the necessary pre-processing to convert documents to `vw --lda` format, runs `vw --lda` with good default parameters (which you may optionally override from the command-line) and finally post-processes the results to print all topics in human-readable format and in order of importance as its output. Credit: Chetan Ganjihal.
+
+
 ## Data formats
 
 ### Output Topics format
