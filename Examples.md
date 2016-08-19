@@ -8,6 +8,7 @@
     - [[One Against All (oaa) multi class example]]
     - [[Cost Sensitive One Against All (csoaa) multi class example]]
     - [[Error Correcting Tournament (ect) multi class example]]
+ - [[Predicting probabilities]] (for both binary and multi-class classification)
  - [[Weighted All Pairs (wap) multi class example]]
  - [[Truncated gradient descent example]]
  - [[Contextual Bandit Example]]
