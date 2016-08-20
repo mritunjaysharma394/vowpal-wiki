@@ -113,6 +113,6 @@ VW will never predict anything other than the provided "possible" labels.
 ## Credits
 * Thanks to Ciemo for the example and for asking the right Qs on the mailing list.
 * Thanks to Stephane for patiently answering Ciemo's Qs.
-* See also Hal's doc at:  [http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html](http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html)
+* See also Hal's doc at:  [https://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html](https://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html)
 
 
