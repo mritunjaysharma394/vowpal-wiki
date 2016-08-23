@@ -425,3 +425,15 @@ See http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html and http://groups.yahoo
 --ksvm         online kernel Support Vector Machine. See [documentation](https://github.com/JohnLangford/vowpal_wabbit/wiki/ksvm.pdf)
 --boosting N   online boosting with <N> weak learners. See [theoretic paper](http://arxiv.org/abs/1502.02651)
 </big></pre>
+
+# **Neural Network options**
+<big><pre>
+  --inpass                              Train or test sigmoidal feedforward 
+                                        network with input passthrough.
+  --multitask                           Share hidden layer across all reduced 
+                                        tasks.
+  --dropout                             Train or test sigmoidal feedforward 
+                                        network using dropout.
+  --meanfield                           Train or test sigmoidal feedforward 
+                                        network using mean field.
+</big></pre>
