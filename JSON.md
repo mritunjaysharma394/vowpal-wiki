@@ -1,5 +1,3 @@
-_Disclaimer: for now it's C# only_
-
 The following JSON format can be ingested into VW:
 
 * Top-level properties are considered features for the default namespace.
@@ -11,6 +9,8 @@ The following JSON format can be ingested into VW:
  * If the JSON value is an object, the first property needs to match one of the JSON properties of [SimpleLabel](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/cs/Labels/SimpleLabel.cs) or [ContextualBanditLabel](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/cs/Labels/ContextualBanditLabel.cs).  
 * Special text handling through "_text": properties named "_text" are processed using string splitting and not string escaping (see sample below).
 * Multiline examples as used by contextual bandits are specified by using the "_multi" property. Each entry itself is an example as described above and can optionally contain a label. The top-level properties are used for the optional shared example.
+
+The native C++ codebase can ingest JSON be passing _--json_
 
 The C# layer can ingest
 * JSON strings 
