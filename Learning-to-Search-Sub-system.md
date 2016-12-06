@@ -36,7 +36,7 @@ For more information, please refer to the following tutorial and papers
 ## Command-Line Usage 
 VW provides predefined structured prediction models for various applications, including sequential tagging, dependency parsing, and an entity-relation joint prediction task. 
 
-Please see [dependency parsing demoe](https://github.com/JohnLangford/vowpal_wabbit/tree/master/demo/dependencyparsing), [Entity-Relation extraction demo](https://github.com/JohnLangford/vowpal_wabbit/tree/master/demo/entityrelation), and [Test scripts](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/RunTests) for using the pre-defined structured prediction models.
+Please see [dependency parsing demo](https://github.com/JohnLangford/vowpal_wabbit/tree/master/demo/dependencyparsing), [Entity-Relation extraction demo](https://github.com/JohnLangford/vowpal_wabbit/tree/master/demo/entityrelation), and [Test scripts](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/RunTests) for using the pre-defined structured prediction models.
 
 ## Implementing Your Own Structured Prediction Model
 - For implementing your own model using the C++ library, please see this [tutorial](l2s_implement_your_own_model)
