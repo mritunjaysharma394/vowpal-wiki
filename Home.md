@@ -17,7 +17,9 @@ To build vw from source, in various environments, please follow the instructions
 <li>[[Goals]]</li>
 <li>[[Feature Hashing and Extraction]]</li>
 <li><a href="http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html">Multiclass Classification</a></li>
+<li><a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Learning%20to%20Search%20Sub-System">Learning to Search Sub-System</a></li>
 <li><a href="http://nbviewer.ipython.org/github/hal3/vowpal_wabbit/blob/master/python/Learning_to_Search.ipynb">Python interface for learning to search</a></li>
+
 
 </ul>
 
