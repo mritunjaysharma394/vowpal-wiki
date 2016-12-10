@@ -1,3 +1,5 @@
+Version 8.3 tutorial (at NIPS 2016) includes Contextual bandits, Logarithmic time classification, and the credit assignment compiler.
+
 Version 8.1 tutorial (at NIPS 2015) includes [[Learning to search results + active learning + C# library + decision service|2015_tutorial.pdf]]
 
 We did a new version 7.8 tutorial which includes:
