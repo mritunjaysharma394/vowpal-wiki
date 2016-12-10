@@ -94,4 +94,7 @@ IOW: vowpal_wabbit perfectly figured out our formula, without knowing it in adva
 * how do you expect the result to be affected?
 * run your modified script, run vw-varinfo on the newly generated train-set and verify your hypothesis.
 
+## Credit & History:
 
+`vw-varinfo` was written by Ariel Faigon, with help and guidance from John Langford.
+It was the main tool used for a [little weight-loss project](https://github.com/arielf/weight-loss) in its very early days.

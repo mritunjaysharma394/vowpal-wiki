@@ -4,7 +4,9 @@ The <a href="http://hunch.net/~vw">Vowpal Wabbit</a> (VW) project is a fast out-
 
 There are two ways to have a fast learning algorithm: (a) start with a slow algorithm and speed it up, or (b) build an intrinsically fast learning algorithm. This project is about approach (b), and it's reached a state where it may be useful to others as a platform for research and experimentation.
 
-There are several optimization algorithms available with the baseline being sparse gradient descent (GD) on a loss function (several are available), The code should be easily usable. Its only external dependence is on the <a href="http://www.boost.org/">boost library</a>, which is often installed by default. 
+There are several optimization algorithms available with the baseline being sparse gradient descent (GD) on a loss function (several are available), The code should be easily usable. Its only external dependence is on the <a href="http://www.boost.org/">boost library</a>, which is often installed by default.
+
+To build vw from source, in various environments, please follow the instructions in the <a href="https://github.com/JohnLangford/vowpal_wabbit/blob/master/README.md">README.md</a> file.
 
 <ul>
 <li>[[Download]]</li>
@@ -13,10 +15,11 @@ There are several optimization algorithms available with the baseline being spar
 <li>[[Algorithm details]] (e.g., [[input format]], [[loss functions]])</li>
 <li>[[Examples]]</li>
 <li>[[Goals]]</li>
-<li>[[Discussions]]</li>
 <li>[[Feature Hashing and Extraction]]</li>
 <li><a href="http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html">Multiclass Classification</a></li>
+<li><a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Learning%20to%20Search%20Sub-System">Learning to Search Sub-System</a></li>
 <li><a href="http://nbviewer.ipython.org/github/hal3/vowpal_wabbit/blob/master/python/Learning_to_Search.ipynb">Python interface for learning to search</a></li>
+
 
 </ul>
 
@@ -35,7 +38,9 @@ Many people have contributed to the project at this point.
 <h2>Research</h2>
 VW is also a vehicle for advanced research.  The <a href="http://hunch.net/?p=309">first public version</a> containing hashing, caching, and true online learning was released in 2007.  Since then, many different algorithms and results have influenced its design, including:
 
-1. <a href="http://www.cs.berkeley.edu/~alekh/">Alekh Agarwal</a>, <a href="http://olivier.chapelle.cc/">Olivier Chapelle</a>, <a href="http://www.cs.cmu.edu/~mdudik/">Miroslav Dudik</a>, <a href="http://hunch.net/~jl">John Langford</a>, <a href="http://arxiv.org/abs/1110.4198">A Reliable Effective Terascale Linear Learning System</a>, 2011.
+1. [Kai-Wei Chang](http://kwchang.net), [He He](http://www.umiacs.umd.edu/~hhe/), [Hal Daumé III](https://www.umiacs.umd.edu/~hal/), <a href="http://hunch.net/~jl">John Langford</a>, <a href="http://www.cs.cmu.edu/~sross1/"> Stephane Ross</a>, <a href="https://arxiv.org/abs/1406.1837">A Credit Assignment Compiler for Joint Prediction</a>, NIPS 2016.
+1. [Kai-Wei Chang](http://kwchang.net), [Akshay Krishnamurthy](https://people.cs.umass.edu/~akshay/), [Alekh Agarwal](http://alekhagarwal.net/), [Hal Daumé III](https://www.umiacs.umd.edu/~hal/), <a href="http://hunch.net/~jl">John Langford</a> <a href="https://arxiv.org/abs/1502.02206">Learning to Search Better Than Your Teacher</a>, ICML 2015. 
+1. [Alekh Agarwal](http://alekhagarwal.net/), <a href="http://olivier.chapelle.cc/">Olivier Chapelle</a>, <a href="http://www.cs.cmu.edu/~mdudik/">Miroslav Dudik</a>, <a href="http://hunch.net/~jl">John Langford</a>, <a href="http://arxiv.org/abs/1110.4198">A Reliable Effective Terascale Linear Learning System</a>, 2011. 
 2. <a href="http://www.cs.princeton.edu/~mdhoffma/">M. Hoffman</a>, <a href="http://www.cs.princeton.edu/~blei/">D. Blei</a>, <a href="http://www.di.ens.fr/~fbach/">F. Bach</a>, <a href="http://www.cs.princeton.edu/~blei/papers/HoffmanBleiBach2010b.pdf">Online Learning for Latent Dirichlet Allocation</a>, in Neural Information Processing Systems (NIPS) 2010.
 3. <a href="http://hunch.net/~beygel">Alina Beygelzimer</a>, <a href="http://cseweb.ucsd.edu/~djhsu/">Daniel Hsu</a>, <a href="http://hunch.net/~jl">John Langford</a>, and <a href="http://stat.rutgers.edu/home/tzhang/">Tong Zhang</a> <a href="http://arxiv.org/abs/1006.2588">Agnostic Active Learning Without Constraints</a> NIPS 2010.
 4. <a href="http://www.cs.berkeley.edu/~jduchi/">John Duchi</a>, <a href="http://ie.technion.ac.il/~ehazan/">Elad Hazan</a>, and <a href="http://www.magicbroom.info/About.html">Yoram Singer</a>, <a href="http://www.cs.berkeley.edu/~jduchi/projects/DuchiHaSi10.html">Adaptive Subgradient Methods for Online Learning and Stochastic Optimization</a>, JMLR 2011 & COLT 2010.

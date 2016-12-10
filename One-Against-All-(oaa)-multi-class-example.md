@@ -2,7 +2,7 @@
 OAA stands for "One Against All".
 
 ### Purpose:
-The option `--oaa <K>` where <K> is the number of distinct classes
+The option `--oaa <K>` where \<K\> is the number of distinct classes
 directs vw to perform K multi-class (as opposed to binary) classification.
 
 ### Note:

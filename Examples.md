@@ -8,6 +8,7 @@
     - [[One Against All (oaa) multi class example]]
     - [[Cost Sensitive One Against All (csoaa) multi class example]]
     - [[Error Correcting Tournament (ect) multi class example]]
+ - [[Predicting probabilities]] (for both binary and multi-class classification)
  - [[Weighted All Pairs (wap) multi class example]]
  - [[Truncated gradient descent example]]
  - [[Contextual Bandit Example]]
@@ -19,6 +20,7 @@
  - [[using vw varinfo]] - a vw wrapper to inspect your training-set & model
  - [[Using vw regr]] - a script for aiding regression applications
  - [vw-top-errors: online learning debugging for better models](https://github.com/arielf/vowpal_wabbit/wiki/vw-top-errors:-online-learning-debugging-for-better-models)
+ - [vw-lda - a friendly high-level wrapper for `vw` LDA](https://github.com/JohnLangford/vowpal_wabbit/blob/master/utl/vw-lda)
 
 ### Demos
 

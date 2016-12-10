@@ -20,7 +20,7 @@ There are a couple variation on the above format.  If you want to importance wei
 <p>
 A command for training is the following.
 <pre>
-zcat rcv1.train.vw.gz | vw --cache_file cache_train -f r_temp 
+vw rcv1.train.vw.gz --cache_file cache_train -f r_temp
 </pre>
 Here: 
 <ol>
@@ -30,7 +30,7 @@ Here:
 
 Next, you can test according to the following:
 <pre>
-zcat rcv1.test.vw.gz | vw -t --cache_file cache_test -i r_temp -p p_out
+vw -t --cache_file cache_test -i r_temp -p p_out rcv1.test.vw.gz
 </pre>
 Here the flags are:
 <ol>
