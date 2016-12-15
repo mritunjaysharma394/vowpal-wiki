@@ -28,6 +28,7 @@ This page contains a curated list of examples, research, videos, tutorials, and 
 - [Walmart Recruiting II: Sales in Stormy Weather](https://www.kaggle.com/c/walmart-recruiting-sales-in-stormy-weather). [Threecourse](https://www.kaggle.com/threecourse) used Vowpal Wabbit. [First Place Entry Description](https://www.kaggle.com/c/walmart-recruiting-sales-in-stormy-weather/forums/t/14452/first-place-entry). [Code](https://github.com/threecourse/kaggle-walmart-recruiting-sales-in-stormy-weather).
 - [Guocong Song](https://www.kaggle.com/songgc) won 3rd place in the [Criteo Ad Click Prediction Challenge](https://www.kaggle.com/c/criteo-display-ad-challenge). [Code](https://github.com/songgc/display-advertising-challenge).
 - 5th place and [3rd place](http://blog.kaggle.com/2014/08/05/3rd-place-interview-from-the-kdd-cup-2014/) in the [KDD-cup 2014: Predicting Excitement at DonorsChoose.org](https://www.kaggle.com/c/kdd-cup-2014-predicting-excitement-at-donors-choose) used VW on the text features.
+- 1st place in [Allstate Claims Severity](https://www.kaggle.com/c/allstate-claims-severity/) Competition used VW as part of ensemble. [Description](https://www.kaggle.com/c/allstate-claims-severity/forums/t/26416/1st-place-solution).
 - ...
 
 ## Videos & Presentations
