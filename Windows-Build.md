@@ -9,6 +9,10 @@ cd vowpalwabbit
 .nuget\NuGet.exe restore vw.sln
 ```
 
+## Optional
+
+* [Azure SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51657)
+* [WiX](https://wix.codeplex.com/releases/view/624906) to edit the installer 
 * To run the tests you need to install [Java Runtime](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
 * To avoid space/tab/.. reformatting, install [Editor Config VS Plugin](https://visualstudiogallery.msdn.microsoft.com/c8bccfe2-650c-4b42-bc5c-845e21f96328) 
 
