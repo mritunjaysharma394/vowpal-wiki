@@ -27,6 +27,8 @@ Create vw_azure.config in your local checkout folder (or any parent of it):
   evalEventHubConnectionString = <eventhub connection string>
 ```
 
+Run Visual Studio as Administrator (elevated) as the Azure hosted trainer creates and writes to performance counters.
+
 # Random tips
 
 * Select x64 platform (Configuration Manager \ Active solution platfrom)
