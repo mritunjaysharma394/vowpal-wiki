@@ -21,6 +21,12 @@ at runtime time through the Azure portal. The trainer observes configuration cha
 Each request expects a HTTP authorization header: "Authorization: <Insert AdminToken here>".
 - _<trainer url>/reset_ Resets the current model.
 
+One can inject an offline trained model (aka warmstart) using
+
+```bash
+ curl  -v --request PUT --data-binary @<filename>  "<trainer url>/reset" --header "Authorization: <Insert AdminToken here>"
+```
+
 # Links
 - [Provisioning](https://github.com/multiworldtesting/ds-provisioning/blob/master/templates/OnlineTrainerTemplate.json) using [ARM](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/). The packageLink.uri needs to point to blob on Azure storage and contain a SAS token.
 - [Binaries](https://github.com/eisber/vowpal_wabbit/releases)
