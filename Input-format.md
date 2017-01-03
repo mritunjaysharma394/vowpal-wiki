@@ -1,6 +1,6 @@
 # Input format
 
-VW supports 2 input formats: plain text (this page) and [JSON](../JSON).
+VW supports 2 input formats: plain text (this page) and [JSON](JSON).
 The raw (plain text) input data for VW should have one example per line.  Each example should be formatted as follows. 
 
     [Label] [Importance] [Base] [Tag]|Namespace Features |Namespace Features ... |Namespace Features
