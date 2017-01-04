@@ -43,6 +43,13 @@ After any `|`
 
 name-spaces are considered as feature name prefixes, they are prepended to all feature names in the name-space
 
+**Feature repetitions** repeating a feature in the same example will make `vw` consider it twice. IOW the following 3 examples are equivalent:
+
+     1 | a a b
+     1 | a:1 a:1 b
+     1 | a:2 b
+
+
 ## multi-class algorithm formats
 
 Some of the vw algorithms support multiple classes.  For these algorithms the input format is expanded to support multiple-classes per example (input line).
