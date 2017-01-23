@@ -8,7 +8,7 @@ Given a prediction \(p\) and a label \(y\), a loss function ![loss function](htt
 |Hinge|![hinge loss function](http://i.imgur.com/Q7SU0Bu.png "\ell(p,y)=\max(0,1-yp)")|0-1 approximation|Classification<br>_Is the digit a 7?_|
 |Classic|Squared loss without<br> [importance weight aware updates](http://arxiv.org/abs/1011.1576)|Expectation (mean)|Regression<br>_squared loss often performs better than classic._|
 
-To select a loss function in VW see the [[Command line arguments]] guide.  The Logistic and Hinge loss are for binary classification only, and thus all samples must have class "-1" or "1".
+To select a loss function in VW see the [[Command line arguments]] guide.  The Logistic and Hinge loss are for binary classification only, and thus all samples must have class "-1" or "1". More information on loss function semantics in these [slides](http://cilvr.cs.nyu.edu/diglib/lsml/lecture01-online-linear.pdf) (pdf) from an online learning course.
 
 ## Which loss function should I use?
 
