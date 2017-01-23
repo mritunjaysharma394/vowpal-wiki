@@ -10,6 +10,8 @@ Given a prediction \(p\) and a label \(y\), a loss function ![loss function](htt
 
 To select a loss function in VW see the [[Command line arguments]] guide.  The Logistic and Hinge loss are for binary classification only, and thus all samples must have class "-1" or "1". More information on loss function semantics in these [slides](http://cilvr.cs.nyu.edu/diglib/lsml/lecture01-online-linear.pdf) (pdf) from an online learning course.
 
+The Python wrapper overrides the default squared loss with logistic loss when using VWClassifier.
+
 ## Which loss function should I use?
 
 * If the problem is a **binary classification** (i.e. labels are -1 and +1) your choices should be Logistic or Hinge loss (although Squared loss may work as well). If you want VW to report the 0-1 loss instead of the logistic/hinge loss, add `--binary`.
