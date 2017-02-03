@@ -26,7 +26,7 @@ turn. The i-th prediction depends on previous predictions.  The function `PREDIC
 
 ### References
 For more information, please refer to the following tutorial and papers
-* Tutorial: [Learning to Search](hunch.net/~l2s)
+* Tutorial: [Learning to Search](http://hunch.net/~l2s/)
 * L2s System - [A Credit Assignment Compiler for Joint Prediction](http://arxiv.org/pdf/1406.1837v5.pdf)
 * L2S approach - [LOLS](http://www.jmlr.org/proceedings/papers/v37/changb15.pdf)
 * L2S appraoch - [AggreVate](http://arxiv.org/abs/1406.5979)
