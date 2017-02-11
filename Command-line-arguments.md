@@ -66,7 +66,7 @@ Parsing raw data is slow so there are options to create or load data in VW's nat
 
 `--sendto` is used with another VW using `--daemon` to send examples and get back predictions from the daemon VW.
 
-`--min_prediction` and `--max_prediction` control the range of the output prediction by clipping.  By default, it autoadjusts to the range of labels observed.  If you set this, there is no auto-adjusting.
+`--min_prediction` and `--max_prediction` control the range of the output prediction by clipping.  By default, it automatically adjusts to the range of labels observed.  If you set this, there is no auto-adjusting.
 
 The `-a` or `--audit` option is useful for debugging and for accessing the features and values for each example as well as the values in VW's weight vector. The format depends on the mode VW is running on. The format used for the non-LDA case is: 
 
