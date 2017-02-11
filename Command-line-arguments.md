@@ -66,7 +66,7 @@ Parsing raw data is slow so there are options to create or load data in VW's nat
 
 `--sendto` is used with another VW using `--daemon` to send examples and get back predictions from the daemon VW.
 
-`--min_prediction` and `--max_prediction` control the range of the output prediction by clipping.  By default, it autoadjusts to the range of labels observed.  If you set this, there is no autoadjusting.
+`--min_prediction` and `--max_prediction` control the range of the output prediction by clipping.  By default, it autoadjusts to the range of labels observed.  If you set this, there is no auto-adjusting.
 
 The `-a` or `--audit` option is useful for debugging and for accessing the features and values for each example as well as the values in VW's weight vector. The format depends on the mode VW is running on. The format used for the non-LDA case is: 
 
@@ -332,7 +332,7 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
     --minibatch arg (=1)               Minibatch size, for LDA
     --math-mode arg (=0)               Math mode: simd, accuracy, fast-approx
 
-The `--lda` option switches VW to LDA mode. The argument is the number of topics. `--lda_alpha` and `--lda_rho` specify prior hyperparameters. `--lda_D` specifies the number of documents. VW will still work the same if this number is incorrect, just the diagnostic information will be wrong. For details see [Online Learning for Latent Dirichlet Allocation](http://books.nips.cc/papers/files/nips23/NIPS2010_1291.pdf)
+The `--lda` option switches VW to LDA mode. The argument is the number of topics. `--lda_alpha` and `--lda_rho` specify prior hyperparameters. `--lda_D` specifies the number of documents. VW will still work the same if this number is incorrect, just the diagnostic information will be wrong. For details see [Online Learning for Latent Dirichlet Allocation](http://machinelearning.wustl.edu/mlpapers/paper_files/NIPS2010_1291.pdf) [pdf].
 
 # **Matrix Factorization options**
     --rank arg (=0)       rank for matrix factorization.
@@ -382,7 +382,7 @@ While care was taken to choose sensible defaults, the choices do matter.  For in
     --mellowness arg (=8)     active learning mellowness parameter c_0. 
                               Default 8
 
-Given a fully labeled dataset, experimenting with active learning can be done with `--simulation`. All active learning algorithms need a parameter that defines the trade off between label complexity and generalization performance. This is specified here with `--mellowness`. A value of 0 means that the algorithm will not ask for any label. A large value means that the algorithm will ask for all the labels. If instead of `--simulation`, `--active` is specified (together with `--daemon`) real active learning is implemented (examples are passed to VW via a TCP/IP port and VW responds with its prediction as well as how much it wants this example to be labeled if at all). If this is confusing, watch Daniel's explanation at the VW tutorial. The active learning algorithm is described in detail in [Agnostic Active Learning without Constraints](http://www.cs.columbia.edu/~djhsu/papers/iwal-cal.pdf) [pdf].
+Given a fully labeled dataset, experimenting with active learning can be done with `--simulation`. All active learning algorithms need a parameter that defines the trade off between label complexity and generalization performance. This is specified here with `--mellowness`. A value of 0 means that the algorithm will not ask for any label. A large value means that the algorithm will ask for all the labels. If instead of `--simulation`, `--active` is specified (together with `--daemon`) real active learning is implemented (examples are passed to VW via a TCP/IP port and VW responds with its prediction as well as how much it wants this example to be labeled if at all). If this is confusing, watch Daniel's explanation at the VW tutorial. The active learning algorithm is described in detail in [Agnostic Active Learning without Constraints](https://web.archive.org/web/20120525164352/http://books.nips.cc/papers/files/nips23/NIPS2010_0363.pdf) [pdf].
 
 # **Parallelization options**
     --span_server arg       Location of server for setting up spanning tree
