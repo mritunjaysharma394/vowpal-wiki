@@ -9,6 +9,7 @@ This page contains a curated list of examples, research, videos, tutorials, and 
 
 ## Tutorials
 
+- An official [list of tutorials](https://github.com/JohnLangford/vowpal_wabbit/wiki/Tutorial) from workshops introducing new features.
 - [Predicting CTR with Online Machine Learning](http://mlwave.com/predicting-click-through-rates-with-online-machine-learning/) by MLWave. Uses Criteo dataset.
 - [Go non-linear with Vowpal Wabbit](http://fastml.com/go-non-linear-with-vowpal-wabbit/) by FastML.
 - [Vowpal Wabbit tutorial for the Uninitiated](http://www.zinkov.com/posts/2013-08-13-vowpal-tutorial/) on Convex Optimized.
