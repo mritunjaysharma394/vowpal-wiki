@@ -18,6 +18,11 @@ This page contains a curated list of examples, research, videos, tutorials, and 
 - [Machine Learning meets ketosis: how to effectively lose weight](https://github.com/arielf/weight-loss) by Ariel Faigon.
 - ...
 
+## Tuning
+
+- [Enhancing performance of VW for text classification](http://stats.stackexchange.com/questions/156722/vowpal-wabbit-best-strategy-for-short-text-data-like-titles-kewords/178201) by Zachary Deane-Mayer.
+- [Tips for using VW for sentiment analysis](https://groups.yahoo.com/neo/groups/vowpal_wabbit/conversations/messages/5307) by MLWave.
+
 ## Blogs
 
 - [Lessons Learned from the Hunt for Prohibited Content on Kaggle](http://mlwave.com/lessons-from-avito-prohibited-content-kaggle/).
