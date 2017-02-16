@@ -6,7 +6,7 @@ Given a prediction \(p\) and a label \(y\), a loss function ![loss function](htt
 |Quantile| <img src="http://i.imgur.com/naPtxt9.png" alt="\ell(p,y)=\tau(y-p)\mathbb{I}(y \ge p) +(1-\tau)(p-y)\mathbb{I}(y \leq p)" height="25"> |Median|Regression<br>_What is a typical price for a house?_|
 |Logistic|![logistic loss function](http://i.imgur.com/E7WAZzw.png "\ell(p,y)=\log(1+\exp(-yp))")|Probability|Classification<br>_Probability of click on ad_|
 |Hinge|![hinge loss function](http://i.imgur.com/Q7SU0Bu.png "\ell(p,y)=\max(0,1-yp)")|0-1 approximation|Classification<br>_Is the digit a 7?_|
-|Poisson| |[Poisson distribution](https://github.com/JohnLangford/vowpal_wabbit/blob/master/python/examples/poisson_regression.ipynb)|Regression<br>_Number of call events to call center_|
+|Poisson| |[Log Mean](https://github.com/JohnLangford/vowpal_wabbit/blob/master/python/examples/poisson_regression.ipynb)|Regression<br>_Number of call events to call center_|
 |Classic|Squared loss without<br> [importance weight aware updates](http://arxiv.org/abs/1011.1576)|Expectation (mean)|Regression<br>_squared loss often performs better than classic._|
 
 To select a loss function in VW see the [[Command line arguments]] guide.  The Logistic and Hinge loss are for binary classification only, and thus all samples must have class "-1" or "1". More information on loss function semantics in these [slides](http://cilvr.cs.nyu.edu/diglib/lsml/lecture01-online-linear.pdf) (pdf) from an online learning course.
