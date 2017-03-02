@@ -37,7 +37,7 @@ In many applications, the set of actions is richer in that it changes over time 
     0:1.0:0.5 | a:1 b:1 c:1
     | a:0.5 b:2 c:1
 
-Each example now spans multiple lines, with one line per action. For each action, we have the label information `(a,c,p)`, if known, as before. The action field `a` is ignored now since actions are identified by line numbers, and typically set to 0. The semantics of cost and probability are same as before. _Each example is also allowed to specify the label information on precisely one action`. A newline signals end of a multiline example. Additionally, we can specify contextual features which are shared across all actions in a line at the beginning of an example, which always has a tag `shared`, as in the second multiline example above. Since the shared line is not associated with any action, it should never contain the label information. 
+Each example now spans multiple lines, with one line per action. For each action, we have the label information `(a,c,p)`, if known, as before. The action field `a` is ignored now since actions are identified by line numbers, and typically set to 0. The semantics of cost and probability are same as before. Each example is also allowed to specify the label information on precisely one action. A newline signals end of a multiline example. Additionally, we can specify contextual features which are shared across all actions in a line at the beginning of an example, which always has a tag `shared`, as in the second multiline example above. Since the shared line is not associated with any action, it should never contain the label information. 
 
 The ADF learning mode is enabled by invoking VW as follows on the above file train_adf.dat:
 
