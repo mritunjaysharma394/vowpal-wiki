@@ -259,7 +259,7 @@ To average the gradient from _k_ examples and update the weights once every _k_ 
                                        (arg is filename)
     --random_weights arg               make initial weights random
     --sparse_weights                   Use a sparse datastructure for weights
-    --initial_weight arg (=0)          Set all weights to initial value of 1
+    --initial_weight arg (=0)          Set all weights to initial value of arg
     --readable_model arg               Output human-readable final regressor
     --invert_hash arg                  Output human-readable final regressor
                                        with feature names
