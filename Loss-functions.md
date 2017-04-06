@@ -1,7 +1,7 @@
 Given a prediction \(p\) and a label \(y\), a loss function ![loss function](http://i.imgur.com/0Vt5OC3.png "\ell(p,y)") measures the discrepancy between the algorithm's prediction and the desired output. VW currently supports the following loss functions, with squared loss being the default:
 
 |Loss|Function|Minimizer|Example usage|
-|---|---|---|---|---|---|
+|----|--------|---------|-------------|
 |Squared|![squared loss function](http://i.imgur.com/LXWLynq.png "\ell(p,y)=\frac{1}{2}(p-y)^2")|Expectation (mean)|Regression<br>_Expected return on stock_|
 |Quantile| <img src="http://i.imgur.com/naPtxt9.png" alt="\ell(p,y)=\tau(y-p)\mathbb{I}(y \ge p) +(1-\tau)(p-y)\mathbb{I}(y \leq p)" height="25"> |Median|Regression<br>_What is a typical price for a house?_|
 |Logistic|![logistic loss function](http://i.imgur.com/E7WAZzw.png "\ell(p,y)=\log(1+\exp(-yp))")|Probability|Classification<br>_Probability of click on ad_|
