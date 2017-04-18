@@ -101,7 +101,9 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
     -C [ --constant ] arg    Set initial value of the constant feature to arg
                              (Useful for faster convergence on data-sets
                               where the label isn't centered around zero)
-    --ngram arg              Generate N grams
+    --ngram arg              Generate N grams. 
+                             To target a specific namespace write its name as a prefix to arg 
+                             (e.g. --ngram a2 --ngram c3).
     --skips arg              Generate skips in N grams. This in conjunction 
                              with the ngram tag can be used to generate 
                              generalized n-skip-k-gram.
