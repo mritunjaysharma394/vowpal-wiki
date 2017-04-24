@@ -321,7 +321,7 @@ By default VW starts with the zero vector as its hypothesis. The `--random_weigh
                             argument '+2a,-3b,+1' means 2-char prefixes
                             for namespace a, 3-char suffixes for b,
                             and 1 char prefixes for default namespace
-    --spelling arg          compute spelling features for a give namespace
+    --spelling arg          compute spelling features for a given namespace
                             (use '_' for default namespace)
 
 # **Latent Dirichlet Allocation options**
