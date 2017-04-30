@@ -25,7 +25,7 @@ Since version 7.10.2 VW uses 32bit [FNV hash](http://www.isthe.com/chongo/tech/c
 
 ## Filtering out unnecessary feature interactions
 
-In previous versions, VW generated permutations of features for self-interacting namespaces. This means that `-q ff` for `f| a b c` produced the following new features:   
+In previous versions, VW generated permutations of features for self-interacting namespaces. This means that `-q ff` for `|f a b c` produced the following new features:   
 ``a*a, a*b, a*c, b*a, b*b, b*c, c*a, c*b, c*c``  
 
 There is a group of generated features that won't improve your model. `b*a, c*a, c*b` will have the same weights after training as `a*b, a*c, b*c` and processing them is just a waste of time. Although they'll have different hashes it seems that they can't improve model's result by making it more robust to hash collisions. Removal of such features may significantly reduce time required for model training and slightly improve its prediction power.
@@ -42,7 +42,7 @@ Interactions affected: 1.
 ```
 In the example above, VW will continue to work with interactions `aaa` and `abb`.
 
-P.S.: It may be noticed that categorical features `a*a, b*b, c*c` will have the same weights as simple `a, b, c` unless they have weight values != 1.0. VW currently doesn't exclude such features as it was [shown](https://github.com/JohnLangford/vowpal_wabbit/issues/698) that this rule is dataset dependant.
+P.S.: It may be noticed that categorical features `a*a, b*b, c*c` will have the same weights as simple `a, b, c` unless they have weight values != 1.0. VW currently doesn't exclude such features as it was [shown](https://github.com/JohnLangford/vowpal_wabbit/issues/698) that this rule is dataset dependent.
 
 ## Filtering out unnecessary namespace interactions
 
