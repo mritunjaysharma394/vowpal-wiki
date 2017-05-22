@@ -7,7 +7,8 @@ the default is hashing / projecting feature names to the machine architecture un
 
 ### how is it implemented 
 for a consolidated model of the hashing code for feature string names, features with name spaces, and quadratic features over pairs of (name space, feature name) 
-see [this gist](https://gist.github.com/2903178) for details. Note that this code as written is a model for the 32-bit implementation of the hashing.
+see [this gist](https://gist.github.com/luoq/b4c374b5cbabe3ae76ffacdac22750af) for details.
+([the old gist](https://gist.github.com/cartazio/2903178) (32bit hashing) seems outdated as of cca4c51c7cefc4e738d50bc29372d166bfb982a1)
 
 
 ## But I want to know the model weights for my input features, what can I do?
