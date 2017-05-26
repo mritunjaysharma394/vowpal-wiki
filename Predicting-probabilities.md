@@ -6,7 +6,7 @@ To convert them to [0, +1], use `--link=logistic`. This uses the logistic functi
 (For completeness, to convert the predictions to [-1, +1], use `--link=glf1`. This uses formula 2/(1 + exp(-x)) - 1, i.e. generalized logistic function with limits of 1.)
 
 ## Multi-class `--oaa`
-By default in [oaa](One-Against-All-%28oaa%29-multi-class-example), VW predict the label of the most probable class.
+By default in [oaa](One-Against-All-%28oaa%29-multi-class-example), VW predicts the label of the most probable class.
 To get probabilities for each of the 1..N classes, simply **use `--oaa N --loss_function=logistic --probabilities -p probs.txt`**.
 Logistic link function will be used automatically (you should not specify it with `--link`) and the numbers (probabilities) will be normalized so they sum up to 1.
 See example usage in [test 109](https://github.com/JohnLangford/vowpal_wabbit/blob/41befcc1fb86c4aaf5e96f91c0cf4427218ea4fe/test/RunTests#L1357).
