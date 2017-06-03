@@ -2,6 +2,6 @@
 
 ### Example of using OjaNewton in VW:
 
-vw splice.vw --OjaNewton --sketch_size=10 --alpha_inverse=1.0
+vw  --OjaNewton --sketch_size=10 --alpha_inverse=1.0  train.vw
 
 Here **sketch_size** is the number of directions that we keep for the covariance matrix (default is 10) and **alpha_inverse** can be viewed as a learning rate (default is 1.0). 
