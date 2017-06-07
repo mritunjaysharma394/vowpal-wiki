@@ -3,7 +3,7 @@ The native C++ codebase can ingest JSON by passing _--json_
 The following JSON format can be ingested into VW:
 
 * Top-level properties are considered features for the default namespace.
-* Top-level properties of type object are considered namespaces.
+* Top-level properties of type object or array are considered namespaces.
 * Features are JSON strings, integer, float, boolean, arrays of integers and/or floats.
 * Top-level properties starting with _ are ignored, except if they match a special property (e.g. "_label", "_multi", "_text").
 * Labels can be passed using top-level "_label" property. This is also supported for multiline examples, but the label needs to be part of one of the multiline examples.
