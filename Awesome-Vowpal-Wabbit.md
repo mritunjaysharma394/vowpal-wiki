@@ -20,7 +20,7 @@ This page contains a curated list of examples, research, videos, tutorials, and 
 
 ## Tuning
 
-- [Enhancing performance of VW for text classification](http://stats.stackexchange.com/questions/156722/vowpal-wabbit-best-strategy-for-short-text-data-like-titles-kewords/178201) by Zachary Deane-Mayer.
+- [Enhancing performance of VW for text classification](https://stats.stackexchange.com/a/178201) by Zachary Deane-Mayer.
 - [Tips for using VW for sentiment analysis](https://groups.yahoo.com/neo/groups/vowpal_wabbit/conversations/messages/5307) by MLWave.
 
 ## Blogs
