@@ -52,3 +52,4 @@ The complete [Command line arguments](Command-line-arguments) page covers all po
 * [(Stackoverflow): Can't use full-name of name space in --keep](http://stackoverflow.com/questions/30055043/vowpal-wabbit-specifying-the-full-name-of-a-namespace-with-option-keep)
 * [(Stackoverflow): What hash function is used by vw?](http://stackoverflow.com/questions/32119754/vowpal-wabbit-what-hash-function-is-used-exactly)
 * [(Stackoverflow): How to use the `--keep` and `--ignore` options?](http://stackoverflow.com/questions/24662721/how-does-one-use-the-keep-and-ignore-features-of-vowpal-wabbit)
+* [Feature Hashing for Large Scale Multitask Learning](https://arxiv.org/abs/0902.2206) K. Weinberger, A. Dasgupta, J. Attenberg, J. Langford, A. Smola
