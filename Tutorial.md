@@ -142,7 +142,7 @@ Only 18 bits of the hash function will be used.  That's much more than necessary
 
     learning rate = 0.5
 
-The default learning rate is 0.5 which we found to be a good default with the current default update (`--normalized --invariant --adaptive`). If the data is noisy you'll need a larger data-set and/or multiple passes to predict well.  On these larger data-sets, our learning rate will by default decay towards 0 as we run through examples.  You can adjust the learning rate up or down with `-l rate`.  A higher learning rate will make the model converge faster but a too high learning rate may over-fit and end up be worse on average.
+The default learning rate is 0.5 which we found to be a good default with the current default update (`--normalized --invariant --adaptive`). If the data is noisy you'll need a larger data-set and/or multiple passes to predict well.  On these larger data-sets, our learning rate will by default decay towards 0 as we run through examples.  You can adjust the learning rate up or down with `-l rate`.  A higher learning rate will make the model converge faster but a too high learning rate may over-fit and end-up worse on average.
 
     initial_t = 0
 
