@@ -44,11 +44,9 @@ The first step is downloading a version of VW.  We'll use the <a href="https://g
 Now we compile:
 
     cd vowpal_wabbit
-    ./autogen.sh
-    ./configure
     make
 
-This should "just work", at least on Linux and OS-X, and plausibly on any POSIX platform.  If it fails, you most likely need to install the boost program options headers and library.
+This should "just work", at least on Linux and OS-X, and plausibly on any POSIX platform.  If it fails, you most likely need to install the boost program options headers and library. On some systems where libraries are installed in non standard locations, you may need to run `./autogen.sh && ./configure` before running `make`.
 
 Boost installation on Debian-based (Debian, Ubuntu, Mint etc.) Linux distributions:
 
