@@ -46,9 +46,13 @@ Now we compile:
     cd vowpal_wabbit
     make
 
-This should "just work", at least on Linux and OS-X, and plausibly on any POSIX platform.  If it fails, you most likely need to install the boost program options headers and library. On some systems where libraries are installed in non standard locations, you may need to run `./autogen.sh && ./configure` before running `make`.
+On some systems where libraries are installed in non standard locations, you may need to run `./autogen.sh && ./configure` before running `make`.
 
-Boost installation on Debian-based (Debian, Ubuntu, Mint etc.) Linux distributions:
+This should "just work", at least on Linux and OS-X, and plausibly on any POSIX platform.  If the `make` fails, you most likely need to install the boost program options headers and library.
+
+**Installing prerequisite libraries**
+
+prerequisite boost installation on Debian-based (Debian, Ubuntu, Mint etc.) Linux distributions:
 
     sudo apt-get install libboost-program-options-dev libboost-python-dev
 
