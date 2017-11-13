@@ -52,7 +52,7 @@ As shown above the simplest way to specify each training example is through a li
 
     Action:cost:probability | features
 
-When such examples are specified it is assume all actions could be taken in this context. However sometimes the actions that can be taken might be dependent on the context. In this case, one can specify examples by listing the available actions, e.g. as follows:
+When such examples are specified it is assumed all actions could be taken in this context. However sometimes the actions that can be taken might be dependent on the context. In this case, one can specify examples by listing the available actions, e.g. as follows:
 
     1 3:1:0.5 4 | a b e
 
@@ -62,7 +62,7 @@ Additionally one can specify the costs of all actions if they are known for prop
 
     1:2 2:1:0.3 3:0.5 4:0.1 | a b
 
-This line indicates an example with features a b, where action 1 has cost 2, action 2 has cost 1 and was chosen by the exploration policy, with probability 0.3, action 3 has cost 0.5, and action 4 has cost 0.1. Again the action where both a cost and a probability is specified is considered as the observed action. So it this case if we train on this example only the cost 1 for action 2 is assumed observed and used by the training algorithm. The other costs for the other actions are not used for training, but are used only for evaluating the cost of the predictions made by the predictor, instead of the cost estimates from the ips, dm or dr methods. This can also be used with examples where only a subset of actions can be chosen, e.g.:
+This line indicates an example with features a b, where action 1 has cost 2, action 2 has cost 1 and was chosen by the exploration policy, with probability 0.3, action 3 has cost 0.5, and action 4 has cost 0.1. Again the action where both a cost and a probability is specified is considered as the observed action. So in this case if we train on this example only the cost 1 for action 2 is assumed observed and used by the training algorithm. The other costs for the other actions are not used for training, but are used only for evaluating the cost of the predictions made by the predictor, instead of the cost estimates from the ips, dm or dr methods. This can also be used with examples where only a subset of actions can be chosen, e.g.:
 
     1:2 3:4:0.2 | a d
 
