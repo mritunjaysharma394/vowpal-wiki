@@ -41,7 +41,7 @@ The C# layer can ingest
  "ns1":{"location":"New York"},
  "ns2":{"f2":3.4},"_label":1
 } </pre> </td><td>
-  <pre>1 |ns1 New_York |ns2 f2:3.4</pre>
+  <pre>1 |ns1 locationNew_York |ns2 f2:3.4</pre>
 </td></tr>
 
 <tr><td> 
