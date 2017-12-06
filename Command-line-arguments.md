@@ -114,6 +114,11 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
                              interactions when crossing namespaces.
                              e.g: '-q ab -q ba' is a duplicate, and
                              '-q ::' may create many more duplicates
+    --classweight arg        Importance-weight multiplier for a target class,
+                             e.g. for binary classification you could use:
+                                 --classweight -1:0.25
+                             which will under-weight negative (-1) examples
+                             by a factor 0.25
 
 `-t` and `--testonly` makes VW run in testing mode. The labels are ignored so this is useful for assessing the generalization performance of the learned model on a test set. This has the same effect as passing a 0 importance weight on every example.
 
