@@ -1,3 +1,5 @@
+Version 8.5 tutorial (at NIPS 2017) includes [[Sparse model, baseline, optimized exploration|update.pdf]], [[Cost Sensitive Active Learning|cs_active.pdf]], [[Java interface | vw-jni-tutorial.pdf]], and [[ Decision Service JSON Ingestion| microsoft-ds-nips.pptx ]]
+
 Version 8.3 tutorial (at NIPS 2016) includes [[Contextual bandits|intro_CBs.pdf]], [[Logarithmic time classification|recalltree.pdf]], and [[Joint Prediction|l2s.pdf]].
 
 Version 8.1 tutorial (at NIPS 2015) includes [[Learning to search results + active learning + C# library + decision service|2015_tutorial.pdf]]
