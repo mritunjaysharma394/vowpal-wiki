@@ -20,6 +20,8 @@ Running VW with the `-h` or `--help` option produces a message which briefly exp
     --passes arg (=1)            Number of Training Passes
     -c [ --cache ]               Use a cache.  The default is <data>.cache
     --cache_file arg             The location(s) of cache_file.
+    -k [ --kill_cache ]          do not reuse existing cache: create a
+                                 new one always
     --compressed                 use gzip format whenever 
                                  possible. If a cache file 
                                  is being created, this 
