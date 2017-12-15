@@ -28,9 +28,9 @@ This is an attempt to capture (from John Langford) the principles of programming
 6. All learning reductions are confined to a single file with a single entry point. 
 7. Learning reductions transform an example from one problem type to another.  (A problem type is defined by (label, prediction, features).
 8. The execution of the machine is explicitly traceable:
-* Memory allocation is explicit (... except for portions of the code by some people who love objects)
-* Memory destruction is explicit.
-* Function pointer interfaces are explicit.
+    * Memory allocation is explicit (... except for portions of the code by some people who love objects)
+    * Memory destruction is explicit.
+    * Function pointer interfaces are explicit.
 9. All I/O of core objects is by reversible functions.
 10. All examples are handled by the same stack of reductions.  
 11. Examples are passed by function call.  
