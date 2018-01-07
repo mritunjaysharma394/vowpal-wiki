@@ -6,4 +6,4 @@ Below is a list of VW's main components.
 * [[Input format]]
 * [[Parser]]
 * [[Weight Vector]]
-* Holdout, bootstrap/bagging, mask [slides](zhen_slides_final.pdf), [video](http://talks.eharmony.com/video/75043179)
+* Holdout, bootstrap/bagging, mask [slides](https://github.com/JohnLangford/vowpal_wabbit/wiki/Zhen.pdf), [video](http://talks.eharmony.com/video/75043179)
