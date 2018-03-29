@@ -2,7 +2,7 @@
 
 ## Why Hash?
 
-###(sparse) Dimension Reduction and fast feature lookups.
+### (sparse) Dimension Reduction and fast feature lookups.
 the default is hashing / projecting feature names to the machine architecture unsigned word using a variant of the murmurhash v3 (32-bit only) algorithm which then is ANDed with (2^k)-1  (ie it is projected down to the first k lower order bits with the rest 0'd out). by default k=18 (ie 2^18 entries in the feature vector), with a max number of bits on 32-bit machines of k=29, and on a 64 bit machine, up to k=32). 
 
 ### how is it implemented 
