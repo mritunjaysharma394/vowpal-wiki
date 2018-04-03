@@ -5,7 +5,7 @@ This page contains a curated list of examples, research, videos, tutorials, and 
 - [Yahoo](https://www.yahoo.com/) used Vowpal Wabbit for [personalized spam filtering](http://www.cs.cornell.edu/~kilian/papers/ceas2009-paper-11.pdf).
 - [eHarmony](http://www.eharmony.com) uses Vowpal Wabbit for recommendation. [Code](https://github.com/eHarmony/vw-webservice). [Presentation](https://vimeopro.com/eharmony/talks/video/75043179) by Zhen.
 - [Microsoft](https://www.microsoft.com) implemented Vowpal Wabbit as part of [Azure ML](https://azure.microsoft.com/en-us/services/machine-learning/).
-- ...
+- [Nanigans](http://www.nanigans.com) uses Vowpal Wabbit for all of their ads portfolio optimization problems and train several thousand models per day. 
 
 ## Tutorials
 
