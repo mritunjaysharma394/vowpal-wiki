@@ -27,6 +27,7 @@ The [[version 6.1 tutorial|v6.1_tutorial.pdf]] and various pieces below covers s
 * [[Cluster parallel learning|Cluster_parallel.pdf]].
 * [[Active Learning|active.pdf]] (v5.0 presentation, but little changed)
 * [[Latent Dirichlet Allocation|lda.pdf]] (v5.0 presentation, little changed) See also [[Latent Dirichlet Allocation]]
+* <a href="http://www.philippeadjiman.com/blog/2018/04/03/deep-dive-into-logistic-regression-part-3/">Deep Dive Into Logistic Regression (with Vowpal Wabbit)</a> by Philippe Adjiman
 * <a href="http://zinkov.com/posts/2013-08-13-vowpal-tutorial/">Vowpal Wabbit tutorial for the Uninitiated</a> by Rob Zinkov
 
 ### Older stuff
