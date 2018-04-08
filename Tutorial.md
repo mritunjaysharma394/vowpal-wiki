@@ -1,3 +1,5 @@
+An <a href="http://www.philippeadjiman.com/blog/2018/04/03/deep-dive-into-logistic-regression-part-3/">high level introduction</a> of Vowpal Wabbit (input format, useful options and more) through the lens of logistic regression, by Philippe Adjiman.
+
 Version 8.5 tutorial (at NIPS 2017) includes [[Sparse model, baseline, optimized exploration|update.pdf]], [[Cost Sensitive Active Learning|cs_active.pdf]], [[Java interface | vw-jni-tutorial.pdf]], and [[ Decision Service JSON Ingestion| microsoft-ds-nips.pptx ]]
 
 Version 8.3 tutorial (at NIPS 2016) includes [[Contextual bandits|intro_CBs.pdf]], [[Logarithmic time classification|recalltree.pdf]], and [[Joint Prediction|l2s.pdf]].
@@ -27,7 +29,6 @@ The [[version 6.1 tutorial|v6.1_tutorial.pdf]] and various pieces below covers s
 * [[Cluster parallel learning|Cluster_parallel.pdf]].
 * [[Active Learning|active.pdf]] (v5.0 presentation, but little changed)
 * [[Latent Dirichlet Allocation|lda.pdf]] (v5.0 presentation, little changed) See also [[Latent Dirichlet Allocation]]
-* <a href="http://www.philippeadjiman.com/blog/2018/04/03/deep-dive-into-logistic-regression-part-3/">Deep Dive Into Logistic Regression (with Vowpal Wabbit)</a> by Philippe Adjiman
 * <a href="http://zinkov.com/posts/2013-08-13-vowpal-tutorial/">Vowpal Wabbit tutorial for the Uninitiated</a> by Rob Zinkov
 
 ### Older stuff
