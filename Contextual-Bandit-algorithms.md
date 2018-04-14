@@ -4,7 +4,7 @@ The contextual bandit learning algorithms in VW consist of two broad classes. Th
 
 **Stationary set of actions with fixed semantics**
 
-When the number of actions is known ahead of time, suppose we have a file train.dat consisting of examples in the contextual bandit format discussed [here](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example). Then we train VW on this data by invoking:
+When the number of actions is known ahead of time, suppose we have a file train.dat consisting of examples in the contextual bandit format discussed [here](https://github.com/JohnLangford/vowpal_wabbit/wiki/Logged-Contextual-Bandit-Example). Then we train VW on this data by invoking:
 
     ./vw -d train.dat --cb_explore 4 
 
