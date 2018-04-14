@@ -1,6 +1,6 @@
 **Contextual Bandit functionalities in VW**
 
-VW contains a contextual bandit module which allows you to optimize a predictor based on already collected contextual bandit data. In other words, the module does not implement exploration, it assumes it can only use the currently available data logged using an exploration policy. (Note: For full online contextual bandit see the use of --cb_explore and --cb_explore_adf options [here](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-algorithms))
+VW contains a contextual bandit module which allows you to optimize a predictor based on already collected contextual bandit data. In other words, the module does not implement exploration, it assumes it can only use the currently available data logged using an exploration policy. (Note: For full online contextual bandit see the use of --cb_explore and --cb_explore_adf options [here](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-algorithms).)
 
 The data is specified as a set of tuples (x,a,c,p) where x are the current features/context for the decision, a is the chosen action by the exploration policy for the context x, c is the observed cost for action a in context x, and p is the probability the exploration policy choose this action in context x.
 
