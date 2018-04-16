@@ -11,7 +11,7 @@
  - [[Predicting probabilities]] (for both binary and multi-class classification)
  - [[Weighted All Pairs (wap) multi class example]]
  - [[Truncated gradient descent example]]
- - [[Contextual Bandit Example]]
+ - [[Logged Contextual Bandit Example]]
  - [[daemon example]] - how to run vw in daemon mode and get predictions
 
 ### Utilities
