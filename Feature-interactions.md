@@ -57,3 +57,7 @@ WARNING: duplicate namespace interactions were found. Removed: 665942.
 You can use --leave_duplicate_interactions to disable this behaviour.
 ```
 This behaviour can be disabled with `--leave_duplicate_interactions` flag.
+
+## Training speed when building interactions using wildcards 
+
+Please note that at the moment the set of interactions is defined at a global level and not per-example. This means that if you instantiate interactions via a wildcard, e.g. `-q ::`, all possible namespaces are interacted modulo filtering out unnecessary duplicates. This can introduce an overhead in processing examples and reduce speed. For example, if you have a single namespace `a` in all examples, training with `-q aa` will in general perform faster than `-q ::`, compare this [issue](https://github.com/JohnLangford/vowpal_wabbit/issues/1527)
