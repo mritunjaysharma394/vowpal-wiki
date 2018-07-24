@@ -98,3 +98,9 @@ IOW: vowpal_wabbit perfectly figured out our formula, without knowing it in adva
 
 `vw-varinfo` was written by Ariel Faigon, with help and guidance from John Langford.
 It was the main tool used for a [little weight-loss project](https://github.com/arielf/weight-loss) in its very early days.
+
+## Known issues:
+
+`vw-varinfo` was written at about 2012, many options have been added to `vw` since. It is known not to work as-expected when some of the newer options are used, in particular, `--cb` and derivatives. Unfortunately, the code base is overly-complex and considered non-salvageable by its author.
+
+There's a much cleaner, simpler and newer version of `vw-varinfo` in [here, called vw-varinfo2](https://github.com/arielf/weight-loss/vw-varinfo2). This version is a rewrite in python, is more efficient and more general. It is almost completely agnostic to `vw` options, so it should be easier to maintain going forward, but it doesn't yet support multi-class.  If you want to enhance it, I (ariel) suggest that you start with this code-base.
