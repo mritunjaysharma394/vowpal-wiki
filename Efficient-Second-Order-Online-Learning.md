@@ -2,11 +2,11 @@
 
 ### Example of using OjaNewton in VW:
 ```
-vw  --OjaNewton --sketch_size=10 --alpha_inverse=1.0  -d train_set_file  -f trained_model_file
+vw  --OjaNewton --sketch_size=10 --alpha_inverse=1.0  -d train_set_file  -f model_file
 ```
 Here **sketch_size** is the number of directions that we keep for the covariance matrix (default is 10) and **alpha_inverse** can be viewed as a learning rate (default is 1.0).
 
 Then, to predict from the trained model and a new data set:
 ```
-vw -i trained_model_file -d data_set -p prediction_file
+vw -i model_file -d data_set -p predict_file
 ```
