@@ -80,4 +80,4 @@ Then we can train a predictor-model on training data and test it on this test da
     vw -d train.dat --cb 4 -f cb.model  
     vw -t -d test.dat -i cb.model   
 
-The first command trains a model and saves it in file cb.model using the usual `-f` flag. The second command specifies we are only testing using the usual `-t` flag and that we are loading the model cb.model using the usual -i flag. Note that it is not necessary to respecify the `--cb` flag, since this is saved in the model file.
+The first command trains a model and saves it in file cb.model using the usual `-f` flag. The second command specifies we are only testing using the usual `-t` flag and that we are loading the model cb.model using the usual -i flag. Note that it is not necessary to respecify the `--cb` flag, since this is saved in the model file. 
