@@ -12,6 +12,8 @@ Running VW with the `-h` or `--help` option produces a message which briefly exp
     --ring_size arg              size of example ring
     --examples arg               number of examples to parse
     --daemon                     read data from port 26542
+    --foreground                 in daemon mode, do not fork and run
+                                 vw process in the foreground
     --port arg                   port to listen on
     --num_children arg (=10)     number of children for 
                                  persistent daemon mode
