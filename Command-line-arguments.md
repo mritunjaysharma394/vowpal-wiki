@@ -124,7 +124,7 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
                              which will under-weight negative (-1) examples
                              by a factor 0.25
 
-`-t` and `--testonly` makes VW run in testing mode. The labels are ignored so this is useful for assessing the generalization performance of the learned model on a test set. This has the same effect as passing a 0 importance weight on every example. It also significantly reduce memory consumption.
+`-t` and `--testonly` makes VW run in testing mode. The labels are ignored so this is useful for assessing the generalization performance of the learned model on a test set. This has the same effect as passing a 0 importance weight on every example. It significantly reduces memory consumption.
 
 `-q` is a very powerful option. It takes as an argument a pair of two letters. Its effect is to create interactions between the features of two namespaces. Suppose each example has a namespace `user` and a namespace `document`, then specifying `-q ud` will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the `user` namespace and `y` is a feature from the `document` namespace. If a letter matches more than one namespace then all the matching namespaces are used. In our example if there is another namespace `url` then interactions between `url` and `document` will also be modeled. The letter `:` is a wildcard to interact with all namespaces. `-q a:` (or `-q :a`) will create an interaction feature for every pair of features `(x,y)` where `x` is a feature from the namespaces starting with `a` and `y` is a feature from the all namespaces. `-q ::` would interact any combination of pairs of features.  
 
