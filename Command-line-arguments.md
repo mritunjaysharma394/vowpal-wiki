@@ -79,7 +79,7 @@ The `-a` or `--audit` option is useful for debugging and for accessing the featu
 `prediction` is VW's prediction on the example with tag `tag`. Then there's a list of feature information. `namespace` is the namespace where the feature belongs, `feature` is the name of the feature, `hashindex` is the position where it hashes, `value` is the value of the feature, `weight` is the current learned weight associated with that feature and finally `ssgrad` is the sum of squared gradients (plus 1) if adaptive updates are used. 
 
 # **Example Manipulation options**
-    -t [ --testonly ]        Ignore label information and just test. 
+    -t [ --testonly ]        Ignore label information and just test
     -q [ --quadratic ] arg   Create and use quadratic features
     --cubic arg              Create and use cubic features
     --interactions arg       Create feature interactions of any level 
