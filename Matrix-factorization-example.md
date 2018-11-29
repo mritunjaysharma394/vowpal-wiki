@@ -50,6 +50,8 @@ Presumably you have a model to load. To do this, include a `-i` argument in the 
 
     echo '|u 42 |i 7' | ./gd_mf_weights -I /dev/stdin --vwparams '-q ui --rank 10 -i movielens.reg'
 
+Note that the `-q` and `-rank` arguments need to match those that the model was trained with.
+
 Five files will be written out:
 
     constant: a float for the global constant
