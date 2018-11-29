@@ -13,7 +13,7 @@ The ratings can be obtained as follows:
 The data consist of `(user, item, rating, date)` events, where ratings are given on an (integer) scale of 1 to 5. Using awk to reformat the data to a VW-friendly format, we can learn a model with a constant term (representing a global average), linear terms (representing per-user and per-item rating biases) and a rank-10 approximation to the interaction terms (representing user-item interactions) as follows:
 
     awk -F"\t" '{printf "%d |u %d |i %d\n", $3,$1,$2}' < ua.base | \
-      ../vowpalwabbit/vw /dev/stdin -b 18 -q ui --rank 10 --l2 0.001 \
+      ../build/vowpalwabbit/vw /dev/stdin -b 18 -q ui --rank 10 --l2 0.001 \
       --learning_rate 0.015 --passes 20 --decay_learning_rate 0.97 --power_t 0 \
       -f movielens.reg --cache_file movielens.cache
 
@@ -34,19 +34,21 @@ Note that the combination of `-b 18` and `--rank 10` results in a weight vector 
 Testing the model on held-out data results in an average loss of ~0.89 (RMSE of ~0.94):
 
     awk -F"\t" '{printf "%d |u %d |i %d\n", $3,$1,$2}' < ua.test | \
-      ../vowpalwabbit/vw /dev/stdin -i movielens.reg -t
+      ../build/vowpalwabbit/vw /dev/stdin -i movielens.reg -t
 
 Results may vary slightly due to random initialization of the weight vector in the training phase.
 
 # Readable model
 
-The `library/gd_mf_weights.cc` code dumps a readable version of the matrix factorization model to disk. Usage is similar to recommend.cc, where you provide a vw parameter string to load up a model and give examples as input, best explained by an example.
+The `library/gd_mf_weights.cc` code dumps a readable version of the matrix factorization model to disk. To build it, run `make library_example_build`. Usage is similar to recommend.cc, where you provide a vw parameter string to load up a model and give examples as input, best explained by an example.
 
 For example, extract weights for user 42 and item 7 under a (randomly initialized) rank 10 model:
 
     echo '|u 42 |i 7' | ./gd_mf_weights -I /dev/stdin --vwparams '-q ui --rank 10'
 
-Presumably you have a model to load, so the param string would include `-i model.reg`, etc., in the vwparams.
+Presumably you have a model to load. To do this, include a `-i` argument in the vwparams with the name of the model file. For instance, this will show the weights for the same user and item for the trained Movielens model from above:
+
+    echo '|u 42 |i 7' | ./gd_mf_weights -I /dev/stdin --vwparams '-q ui --rank 10 -i movielens.reg'
 
 Five files will be written out:
 
