@@ -1,4 +1,4 @@
-An <a href="http://www.philippeadjiman.com/blog/2018/04/03/deep-dive-into-logistic-regression-part-3/">high level introduction</a> of Vowpal Wabbit (input format, useful options and more) through the lens of logistic regression, by Philippe Adjiman.
+A <a href="http://www.philippeadjiman.com/blog/2018/04/03/deep-dive-into-logistic-regression-part-3/">high level introduction</a> of Vowpal Wabbit (input format, useful options and more) through the lens of logistic regression, by Philippe Adjiman.
 
 Version 8.5 tutorial (at NIPS 2017) includes [[Sparse model, baseline, optimized exploration|update.pdf]], [[Cost Sensitive Active Learning|cs_active.pdf]], [[Java interface | vw-jni-tutorial.pdf]], and [[ Decision Service JSON Ingestion| microsoft-ds-nips.pptx ]]
 
