@@ -1,4 +1,4 @@
-*** The latest version of the C# Binding can be found in https://github.com/eisber/vowpal_wabbit ***
+**The latest version of the C# Binding can be found in https://github.com/eisber/vowpal_wabbit**
 
 This is a tutorial for the Vowpal Wabbit C# binding. Here's a list of major features:
 
