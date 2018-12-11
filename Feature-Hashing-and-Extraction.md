@@ -2,11 +2,11 @@
 
 ## Why Hash?
 
-### (sparse) Dimension Reduction and fast feature lookups.
-the default is hashing / projecting feature names to the machine architecture unsigned word using a variant of the murmurhash v3 (32-bit only) algorithm which then is ANDed with (2^k)-1  (ie it is projected down to the first k lower order bits with the rest 0'd out). by default k=18 (ie 2^18 entries in the feature vector), with a max number of bits on 32-bit machines of k=29, and on a 64 bit machine, up to k=32). 
+### (sparse) Dimension Reduction and fast feature lookups
+The default is hashing / projecting feature names to the machine architecture unsigned word using a variant of the murmurhash v3 (32-bit only) algorithm which then is ANDed with (2^k)-1  (ie it is projected down to the first k lower order bits with the rest 0'd out). by default k=18 (ie 2^18 entries in the feature vector), with a max number of bits on 32-bit machines of k=29, and on a 64 bit machine, up to k=32). 
 
-### how is it implemented 
-for a consolidated model of the hashing code for feature string names, features with name spaces, and quadratic features over pairs of (name space, feature name) 
+### How is it implemented?
+For a consolidated model of the hashing code for feature string names, features with name spaces, and quadratic features over pairs of (name space, feature name) 
 see [this gist](https://gist.github.com/luoq/b4c374b5cbabe3ae76ffacdac22750af) for details.
 ([the old gist](https://gist.github.com/cartazio/2903178) (32bit hashing) seems outdated as of cca4c51c7cefc4e738d50bc29372d166bfb982a1)
 
@@ -14,9 +14,9 @@ see [this gist](https://gist.github.com/luoq/b4c374b5cbabe3ae76ffacdac22750af) f
 ## But I want to know the model weights for my input features, what can I do?
 Well, by default, Vowpal Wabbit does not hash integer feature names (ie the feature name is written as a positive base 10 number). So if you wish to be able to unambiguously relate vowpal model weights to your original feature data, we recommend the following:
 
-*  form your features (including any quadratic or other higher order ones) directly beforehand, so that vowpal just needs to work linearly over the features. Assign each feature a unique integer key. Also be sure to assign an integer for the constant feature. Store this feature <-> integer map for later usage. 
-* write your data to a file in the VW format (the integer representation thereof!)
-* run vw over  your data, and be sure to include both the `--noconstant` flag (so that vowpal does not include its own special constant feature), and also include the human readable flag `--readable_model filename.model` to get the output model weights in an easy to parse format.
+*  Form your features (including any quadratic or other higher order ones) directly beforehand, so that vowpal just needs to work linearly over the features. Assign each feature a unique integer key. Also be sure to assign an integer for the constant feature. Store this feature <-> integer map for later usage. 
+* Write your data to a file in the VW format (the integer representation thereof!)
+* Run vw over  your data, and be sure to include both the `--noconstant` flag (so that vowpal does not include its own special constant feature), and also include the human readable flag `--readable_model filename.model` to get the output model weights in an easy to parse format.
 
 A simpler way is now (July 9, 2012) supported. Use the utl/vw-varinfo script which in the source tree on your training-set file:
 
@@ -39,7 +39,7 @@ Yet another option is to use `--invert_hash` option. See [this page](Command-lin
 * VW has switched from jenkins hash to murmur hash (v2) in 2009.
 * VW has switched from murmur hash v2 to murmur hash v3 in August 2012
 
-hash function switching was driven by considering both better collision avoidance and faster run-time performance.
+Hash function switching was driven by considering both better collision avoidance and faster run-time performance.
 
 In the first case we improved both, in the second case collision avoidance was improved at the expense of a small (~3%) runtime degradation.
 
