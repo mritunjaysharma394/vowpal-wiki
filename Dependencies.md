@@ -1,3 +1,5 @@
+Before building VW from source the following dependencies must be satisfied.
+
 ## Ubuntu
 ```shell
 # Core
