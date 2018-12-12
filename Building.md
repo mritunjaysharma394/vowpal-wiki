@@ -37,7 +37,7 @@ If using vcpkg for dependencies the toolchain file needs to be supplied to cmake
 ```
 cmake .. -DCMAKE_TOOLCHAIN_FILE=<vcpkg root>/scripts/buildsystems/vcpkg.cmake
 ```
-[Next step: running tests on Linux]()
+[Next step: installing on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Installing#linux)
 
 ## Windows
 ### Using Visual Studio
@@ -55,4 +55,4 @@ msbuild /p:Configuration="Release" /p:Platform="x64" vw.sln
 ```
 ### Experimental: Using CMake on Windows
 
-[Next step: running tests on Windows]()
+[Next step: installing on Windows](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Installing#windows)
