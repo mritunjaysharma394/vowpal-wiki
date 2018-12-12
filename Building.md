@@ -1,3 +1,5 @@
+[Getting started](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Getting-started) **>** [Dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) **>** [**[Building]**](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building) **>** [Installing](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Installing) **>** [Tutorial](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Tutorial)
+
 ## Linux 
 On most systems you should be able to build with:
 ```
@@ -54,5 +56,24 @@ Available configurations are "Release" and "Debug". Available platforms are "x64
 msbuild /p:Configuration="Release" /p:Platform="x64" vw.sln
 ```
 ### Experimental: Using CMake on Windows
+#### CMake GUI
+1. Open CMake GUI
+2. Specify the following entries:
+    1. CMAKE_TOOLCHAIN_FILE=<vcpkg_root>/scripts/buildsystems/vcpkg.cmake
+    2. VCPKG_TARGET_TRIPLET=x64-windows
+3. Configure
+4. Choose Visual Studio 15 2017 Win64
+5. Generate
+6. Open Project
+
+#### Command line
+```cmd
+mkdir build
+cd build
+cmake .. -G "Visual Studio 15 2017 Win64" -DCMAKE_TOOLCHAIN_FILE=<vcpkg_root>\scripts\buildsystems\vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows
+.\vowpal_wabbit.sln
+```
+
+After the solution is open, building works the same as described in the [Visual Studio section](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#using-visual-studio).
 
 [Next step: installing on Windows](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Installing#windows)
