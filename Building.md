@@ -59,8 +59,8 @@ msbuild /p:Configuration="Release" /p:Platform="x64" vw.sln
 #### CMake GUI
 1. Open CMake GUI
 2. Specify the following entries:
-    1. CMAKE_TOOLCHAIN_FILE=<vcpkg_root>/scripts/buildsystems/vcpkg.cmake
-    2. VCPKG_TARGET_TRIPLET=x64-windows
+    1. `CMAKE_TOOLCHAIN_FILE=<vcpkg_root>/scripts/buildsystems/vcpkg.cmake`
+    2. `VCPKG_TARGET_TRIPLET=x64-windows`
 3. Configure
 4. Choose Visual Studio 15 2017 Win64
 5. Generate
