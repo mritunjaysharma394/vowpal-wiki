@@ -12,12 +12,20 @@ pip install six
 sudo apt-get install libboost-python-dev
 ```
 
-[Next step: building on Linux]()
+[Next step: building on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#linux)
+
+## MacOS
+```shell
+```
+
+The rest of the Linux instructions should apply to MacOS too.
+
+[Next step: building on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#linux)
 
 ## Windows
 On Windows dependencies are managed with either Nuget, open `vowpalwabbit/vw.sln` in Visual Studio 2017 and restore Nuget dependencies.
 
-[Next step: building on Windows]()
+[Next step: building on Windows](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#windows)
 
 #### Experimental: CMake build system on Windows
 Note: The CSharp projects are not yet converted to CMake for Windows. So the CMake generated solution is only for C++ projects for the time being. For this reason the existing solution can not yet be deprecated. 
