@@ -43,7 +43,7 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=<vcpkg root>/scripts/buildsystems/vcpkg.cmake
 
 ## Windows
 ### Using Visual Studio
-1. Open `vowpal_wabbit\vowpalwabbit\vw.sln` in Visual Studio 2017
+1. Open `vowpalwabbit\vw.sln` in Visual Studio 2017
 2. Do not retarget projects if prompted
 3. Set startup project as vw (or the test project)
 4. Select x64 platform (Configuration Manager>Active solution platform)
