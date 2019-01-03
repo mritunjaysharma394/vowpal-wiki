@@ -48,4 +48,4 @@ vcpkg install boost-math:x64-windows
 vcpkg install boost-thread:x64-windows
 ```
 
-[Next step: building on Windows with CMake]()
+[Next step: building on Windows with CMake](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#experimental-using-cmake-on-windows)
