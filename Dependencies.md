@@ -19,6 +19,8 @@ sudo apt-get install libboost-python-dev
 
 ## MacOS
 ```shell
+brew install cmake
+brew install boost --with-python
 ```
 
 The rest of the Linux instructions should apply to MacOS too.
