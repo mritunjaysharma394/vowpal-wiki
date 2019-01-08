@@ -35,6 +35,8 @@ The rest of the Linux instructions should apply to MacOS too.
 ## Windows
 On Windows dependencies are managed with either Nuget, open `vowpalwabbit/vw.sln` in Visual Studio 2017 and restore Nuget dependencies.
 
+Note: Visual Studio 2015 must be installed so that the v140 toolchain is present. Windows 8.1 SDK must be installed as well.
+
 [Next step: building on Windows](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#windows)
 
 #### Experimental: CMake build system on Windows
