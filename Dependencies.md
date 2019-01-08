@@ -11,8 +11,11 @@ sudo apt-get install libboost-dev libboost-program-options-dev libboost-system-d
 sudo apt-get install libboost-test-dev  
 pip install six
 
-# Optional: python bindings
+# Optional: Python bindings
 sudo apt-get install libboost-python-dev
+
+# Optional: Java
+sudo apt-get install openjdk-8-jdk
 ```
 
 [Next step: building on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#linux)
@@ -21,6 +24,8 @@ sudo apt-get install libboost-python-dev
 ```shell
 brew install cmake
 brew install boost --with-python
+
+# TODO Java dependency
 ```
 
 The rest of the Linux instructions should apply to MacOS too.
