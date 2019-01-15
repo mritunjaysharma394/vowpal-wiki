@@ -40,8 +40,9 @@
   - [Using vw regr](Using-vw-regr)
   - [Using vw varinfo](Using-vw-varinfo)
 - Bindings
-  - [C# Binding](C#-Binding)
+  - [C# Binding](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/C%23-Binding)
   - Python
+  - Java
 - [Implement Your Own Joint Prediction Model](Implement-Your-Own-Joint-Prediction-Model)
 - [Predicting probabilities](Predicting-probabilities)
 - [murmur2 vs murmur3](murmur2-vs-murmur3)
