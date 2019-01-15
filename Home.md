@@ -6,7 +6,7 @@ There are two ways to have a fast learning algorithm: (a) start with a slow algo
 
 There are several optimization algorithms available with the baseline being sparse gradient descent (GD) on a loss function (several are available), The code should be easily usable. Its only external dependence is on the <a href="http://www.boost.org/">boost library</a>, which is often installed by default.
 
-To build vw from source, in various environments, please follow the instructions in the <a href="https://github.com/JohnLangford/vowpal_wabbit/blob/master/README.md">README.md</a> file.
+To build vw from source, in various environments, please follow the instructions on the [getting started page](Getting-Started).
 
 <ul>
 <li>[[Download]]</li>
