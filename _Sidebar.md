@@ -6,7 +6,7 @@
   - [Tutorial](Tutorial)
   - [Download](Download)
 - Input
-  - [VW format](VW-format)
+  - [VW format](Input-format)
   - [JSON format](JSON)
   - [Namespaces](Namespaces)
   - [Parser](Parser)
