@@ -1,7 +1,8 @@
 [**[Getting started]**](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Getting-started) **>** [Dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) **>** [Building](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building) **>** [Installing](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Installing) **>** [Tutorial](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Tutorial)
 
 First step is to get VW by either:
-- Installing with a package manager
+- [Building from source](Dependencies)
+- Or, installing with a package manager
   - apt-get
     - `sudo apt-get install vowpal-wabbit`
   - Homebrew
@@ -10,7 +11,7 @@ First step is to get VW by either:
   - [Pypi](https://pypi.org/project/vowpalwabbit/)
     - `pip install vowpalwabbit`
     - Currently version 8.5
-  - Some binaries are available [here](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Download) but they are not actively maintained.
-- Or, [build from source](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies)
+  - Some binaries are available [here](Download) but they are not actively maintained.
 
-Then, [follow the tutorial](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Tutorial).
+
+Then, [follow the tutorial](Tutorial).
