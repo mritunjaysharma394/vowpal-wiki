@@ -15,7 +15,9 @@ pip install six
 sudo apt-get install libboost-python-dev
 
 # Optional: Java
-sudo apt-get install openjdk-8-jdk
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt install openjdk-11-jdk
 ```
 
 [Next step: building on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#linux)
