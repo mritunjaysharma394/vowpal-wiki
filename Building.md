@@ -29,7 +29,7 @@ The CMake definition supports the following options that can be set when invokin
 | PY_VERSION | Python version to build Python bindings for | x.x | 2.7 |
 | BUILD_DOCS | Add documentation targets | ON, OFF | OFF |
 
-Options can be specified at configuration time on the command line:
+Options can be specified at configuration time on the command line, for example:
 ```
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF -DVW_INSTALL=OFF
 ``` 
