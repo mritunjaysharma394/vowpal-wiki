@@ -1,5 +1,3 @@
-# Input format
-
 VW supports 2 input formats: plain text (this page) and [JSON](JSON).
 The raw (plain text) input data for VW should have one example per line.  Each example should be formatted as follows. Fields are space-delimited.
 
