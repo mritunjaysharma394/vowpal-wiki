@@ -1,8 +1,6 @@
-**Contextual Bandit algorithms in VW**
-
 The contextual bandit learning algorithms in VW consist of two broad classes. The first class consists of settings where the maximum number of actions is known ahead of time, and the semantics of these actions stay fixed across examples. A more advanced setting allows potentially changing semantics per example. In this latter setting, the actions are specified via features, different features associated with each action. We refer to this setting as the ADF setting for action dependent features.
 
-**Stationary set of actions with fixed semantics**
+### Stationary set of actions with fixed semantics
 
 When the number of actions is known ahead of time, suppose we have a file train.dat consisting of examples in the contextual bandit format discussed [here](https://github.com/JohnLangford/vowpal_wabbit/wiki/Logged-Contextual-Bandit-Example). Then we train VW on this data by invoking:
 
@@ -26,7 +24,7 @@ Here `--cb_explore` indicates that we are training a contextual bandit algorithm
 
         Usage: ./vw -d train.dat --cb_explore 4 --cover 3
 
-**Changing action set or featurized actions**
+### Changing action set or featurized actions
 
 In many applications, the set of actions is richer in that it changes over time or we have rich information regarding each action. In either of these cases, it is a good idea to create features for every `(context, action)` pair rather than features associated only with context and shared across all actions. We call this setting ADF, and it builds on the `csoaa_ldf` learner that supports cost-sensitive classification with label-dependent features. An example dataset for this setting might look like:
 
@@ -62,3 +60,28 @@ Note that unlike `--cb_explore`, we do not specify the number of actions in `--c
         Usage: ./vw -d train.dat --cb_explore_adf --softmax --lambda 10
 
 _The online cover algorithm is not currently supported in the ADF mode._
+
+### Conditional Contextual Bandit
+
+#### Input format
+CCB format is a multi line example format with 3 different example/line types. Lines are identified by explicit types as part of the label. This is different to the previous implicit action example type.
+```
+ccb shared | ...
+ccb action | ...
+ccb decision [<action>:<probability>:<cost>[,<action>:<probability,<action>:<probability>,...] [action_ids_to_include,...] | ...
+
+```
+- Both additional sections in the `decision` label are optional
+- If `action_ids_to_include` is excluded then all actions are implicitly included
+- Action ids are zero indexed
+- The list of action probability pairs in the first section is optional
+  - If included, the entire collection of probabilities must sum to 1.0
+
+For example:
+```
+ccb shared | s_1 s_2
+ccb action | a:1 b:1 c:1
+ccb action | a:0.5 b:2 c:1
+ccb decision | d:4
+ccb decision 1:0.8:0.8,0:0.2 1,2 | d:7
+```
