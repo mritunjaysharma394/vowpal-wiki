@@ -11,7 +11,9 @@ make
 
 Note: to enable parallel builds pass `-j <parallel_jobs>` to make
 
-### CMake options
+### CMake Configuration
+CMake allows for extensive configuration of the build definition. The following sections explain some of the most common configuration options available.
+#### Options
 The CMake definition supports the following options that can be set when invoking CMake:
 
 | Option  | Description | Values | Default |
@@ -33,14 +35,21 @@ Options can be specified at configuration time on the command line, for example:
 ```
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF -DVW_INSTALL=OFF
 ``` 
+#### C++ Optimization
 
-### Using Vcpkg with Cmake
+The default build type is debug. To perform a release build this should be specified at configure time.
+
+```
+cmake .. -DCMAKE_BUILD_TYPE=Release
+```
+
+#### Using Vcpkg with Cmake
 If using vcpkg for dependencies the toolchain file needs to be supplied to cmake at configuration time:
 ```
 cmake .. -DCMAKE_TOOLCHAIN_FILE=<vcpkg root>/scripts/buildsystems/vcpkg.cmake
 ```
 
-### Using Clang
+#### Using Clang
 
 `clang` can be used instead of `gcc` by specifying the compiler prior to configuring.
 
@@ -51,7 +60,7 @@ export CXX=clang++
 cmake ..
 ```
 
-### Compiling a Static Executable
+#### Compiling a Static Executable
 
 A statically linked `vw` executable that is not sensitive to boost
 version upgrades and can be safely copied between different Linux
