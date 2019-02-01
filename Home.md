@@ -8,17 +8,16 @@ There are several optimization algorithms available with the baseline being spar
 
 To build vw from source, in various environments, please follow the instructions on the [getting started page](Getting-Started).
 
-<ul>
-<li>[[Download]]</li>
-<li>[[Tutorial]]</li>
-<li>[[Command line arguments]]</li>
-<li>[[Algorithm details]] (e.g., [[input format]], [[loss functions]])</li>
-<li>[[Examples]]</li>
-<li><a href="Goals-%26-Principles">Goals & Principles</a></li>
-<li>[[Feature Hashing and Extraction]]</li>
-<li><a href="http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html">Multiclass Classification</a></li>
-<li><a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Learning%20to%20Search%20Sub-System">Learning to Search Sub-System</a></li>
-<li><a href="https://github.com/JohnLangford/vowpal_wabbit/blob/master/python/examples/Learning_to_Search.ipynb">Python interface for learning to search</a></li>
+- [[Download]]
+- [[Tutorial]]
+- [[Command line arguments]]
+- [[Algorithm details]] (e.g., [[input format]], [[loss functions]])
+- [[Examples]]
+- <a href="Goals-%26-Principles">Goals & Principles
+- [[Feature Hashing and Extraction]]
+- <a href="http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html">Multiclass Classification</a>
+- <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Learning%20to%20Search%20Sub-System">Learning to Search Sub-System</a>
+- <a href="https://github.com/JohnLangford/vowpal_wabbit/blob/master/python/examples/Learning_to_Search.ipynb">Python interface for learning to search</a>
 
 
 </ul>
