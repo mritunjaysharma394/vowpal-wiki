@@ -23,11 +23,21 @@ sudo apt install openjdk-11-jdk
 [Next step: building on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#linux)
 
 ## MacOS
+#### HomeBrew
 ```shell
 brew install cmake
 brew install boost --with-python
 
 # TODO Java dependency
+```
+
+#### MacPorts
+```
+## Build Boost for Mac OS X 10.8 and below
+$ port install boost +no_single -no_static +openmpi +python27 configure.cxx_stdlib=libc++ configure.cxx=clang++
+
+## Build Boost for Mac OS X 10.9 and above
+$ port install boost +no_single -no_static +openmpi +python27
 ```
 
 The rest of the Linux instructions should apply to MacOS too.
