@@ -1,6 +1,4 @@
-## Code Documentation
-To browse the code more easily, do
-
+To browse the code more easily, do:
 ```
 mkdir build
 cd build
