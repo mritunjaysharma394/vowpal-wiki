@@ -20,6 +20,7 @@
 - [Learning algorithm](Learning-algorithm)
 - [Learning to Search subsystem](Learning-to-Search-Sub-System)
 - [Loss functions](Loss-functions)
+- [Gotchas](Gotchas)
 - Reductions
   - [Contextual Bandit algorithms](Contextual-Bandit-algorithms)
   - [Efficient Second Order Online Learning](Efficient-Second-Order-Online-Learning)
