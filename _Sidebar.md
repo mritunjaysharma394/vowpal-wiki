@@ -3,6 +3,7 @@
   - [Getting started](Getting-started)
   - [Dependencies](Dependencies)
   - [Building](Building)
+  - [Installing](Installing)
   - [Tutorial](Tutorial)
   - [Download](Download)
 - Input
