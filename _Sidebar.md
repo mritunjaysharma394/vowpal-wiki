@@ -14,6 +14,7 @@
   - [Feature hashing and extraction](Feature-Hashing-and-Extraction)
   - [Feature interactions](Feature-interactions)
 - [Command line arguments](Command-Line-Arguments)
+- [Doxygen Documentation](Doxygen-Documentation)
 - [Goals & principles](Goals-&-Principles)
 - [Algorithm details](Algorithm-Details)
 - [Awesome Vowpal Wabbit](Awesome-Vowpal-Wabbit)
