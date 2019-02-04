@@ -7,8 +7,6 @@ make
 ```
 which calls cmake under the hood and creates a binary in the /build directory.
 
-Note: to enable parallel builds pass `-j <parallel_jobs>` to make
-
 ### CMake Configuration
 CMake allows for extensive configuration of the build definition. The following sections explain some of the most common configuration options available.
 #### Options
