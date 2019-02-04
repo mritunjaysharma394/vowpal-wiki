@@ -3,11 +3,9 @@
 ## Linux 
 On most systems you should be able to build with:
 ```
-mkdir build
-cd build
-cmake ..
 make
 ```
+which calls cmake under the hood and creates a binary in the /build directory.
 
 Note: to enable parallel builds pass `-j <parallel_jobs>` to make
 
