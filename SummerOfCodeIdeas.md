@@ -37,7 +37,7 @@ This page should give you a great starting point to submit a project. They are n
 
 **Mentors:** Jacob
 
-## RaspberryPy port of VW
+## Raspberry Pi port of VW
 **Description:** Offer binaries/tools/docs/?? to make it amazing to work with VW on rpy.
 
 **Deliverables:** Rasbian packages and instructions.
@@ -56,7 +56,7 @@ This page should give you a great starting point to submit a project. They are n
 
 **Deliverables:** Notebooks for training, learning, offline eval and ??
 
-**Mentors:** Jacob
+**Mentors:** Jacob / Alexey
 
 ## GPU backend for base learner / reductions
 **Description:** GPUs are cool and fast. We should explore what would it take to have VW exploit them.
