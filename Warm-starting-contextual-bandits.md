@@ -17,11 +17,11 @@ Suppose we have text_highnoise_m.vw, a dataset of 10-class multiclass examples i
 
 and get the following output:
 
-Num weight bits = 18
-learning rate = 0.5
-initial_t = 0
-power_t = 0.5
-using no cache
+    Num weight bits = 18
+    learning rate = 0.5
+    initial_t = 0
+    power_t = 0.5
+    using no cache
 Reading datafile = text_highnoise_m.vw
 num sources = 1
 average  since         example        example  current  current  current
