@@ -22,33 +22,33 @@ and get the following output:
     initial_t = 0
     power_t = 0.5
     using no cache
-Reading datafile = text_highnoise_m.vw
-num sources = 1
-average  since         example        example  current  current  current
-loss     last          counter         weight    label  predict features
-0.000000 0.000000           11            1.0        4        4      101
-0.000000 0.000000           12            2.0        6        6      101
-0.000000 0.000000           14            4.0        6        6      101
-0.000000 0.000000           18            8.0        8        8      101
-0.062500 0.125000           26           16.0        8        8      101
-0.093750 0.125000           42           32.0       10       10      101
-0.078125 0.062500           74           64.0        9        3      101
-0.078125 0.078125          138          128.0        5        5      101
-0.093750 0.109375          266          256.0        9        3      101
-0.093750 0.093750          522          512.0        6        6      101
-0.090820 0.087891         1034         1024.0        5        5      101
-0.100098 0.109375         2058         2048.0        2        2      101
-0.094727 0.089355         4106         4096.0        2        2      101
+    Reading datafile = text_highnoise_m.vw
+    num sources = 1
+    average  since         example        example  current  current  current
+    loss     last          counter         weight    label  predict features
+    0.000000 0.000000           11            1.0        4        4      101
+    0.000000 0.000000           12            2.0        6        6      101
+    0.000000 0.000000           14            4.0        6        6      101
+    0.000000 0.000000           18            8.0        8        8      101
+    0.062500 0.125000           26           16.0        8        8      101
+    0.093750 0.125000           42           32.0       10       10      101
+    0.078125 0.062500           74           64.0        9        3      101
+    0.078125 0.078125          138          128.0        5        5      101
+    0.093750 0.109375          266          256.0        9        3      101
+    0.093750 0.093750          522          512.0        6        6      101
+    0.090820 0.087891         1034         1024.0        5        5      101
+    0.100098 0.109375         2058         2048.0        2        2      101
+    0.094727 0.089355         4106         4096.0        2        2      101
 
-finished run
-number of examples = 10000
-weighted example sum = 5000.000000
-weighted label sum = 0.000000
-average loss = 0.096400
-total feature number = 1010000
-average variance estimate = inf
-theoretical average variance = inf
-last lambda chosen = 0.500000 among lambdas ranging from 0.500000 to 0.500000
+    finished run
+    number of examples = 10000
+    weighted example sum = 5000.000000
+    weighted label sum = 0.000000
+    average loss = 0.096400
+    total feature number = 1010000
+    average variance estimate = inf
+    theoretical average variance = inf
+    last lambda chosen = 0.500000 among lambdas ranging from 0.500000 to 0.500000
 
 Note that the VW output has the same doubling schedule; however, we only count the example weight, the average loss, and the loss since last checkpoint in the interaction stage. (The "example counter" starts from 30 though - this is because we process the first 30 warm start examples.)
 
