@@ -1,4 +1,4 @@
-VW has --warm_cb option which simulates warm-starting contextual bandits learning. In this setting, the learner is given a set of warm-start supervised learning examples to help with contextual bandit learning. With the help of these additional warm-start examples, the learner is able to achieve a smaller cost in the interaction stage.
+VW has --warm_cb option which simulates [warm-starting contextual bandits learning](https://arxiv.org/pdf/1901.00301.pdf). In this setting, the learner is given a set of warm-start supervised learning examples to help with contextual bandit learning. With the help of these additional warm-start examples, the learner is able to achieve a smaller cost in the interaction stage.
 
 The learning process consists of two stages:
 
@@ -125,3 +125,9 @@ Another extreme is to run contextual bandit learning without using the interacti
     average variance estimate = 1.000000
     theoretical average variance = inf
     last lambda chosen = 0.000000 among lambdas ranging from 0.000000 to 0.000000
+
+### Label corruption on the warm-starting examples
+
+
+
+### Using a larger set of weighted combination values
