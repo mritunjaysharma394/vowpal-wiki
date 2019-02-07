@@ -13,7 +13,7 @@ VW takes into input option --warm_start x --interaction y, where x specifies the
 
 Suppose we have text_highnoise_m.vw, a dataset of 10-class multiclass examples in VW format. We can run:
 
-./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.0 --warm_start 10 --interaction 5000 --warm_start_update --interaction_update -d text_highnoise_m.vw
+  ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.0 --warm_start 10 --interaction 5000 --warm_start_update --interaction_update -d text_highnoise_m.vw
 
 and get the following output:
 
