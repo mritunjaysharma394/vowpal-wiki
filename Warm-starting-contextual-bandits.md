@@ -13,10 +13,7 @@ VW takes into input option --warm_start x --interaction y, where x specifies the
 
 Suppose we have text_highnoise_m.vw, a dataset of 10-class multiclass examples in VW format. We can run:
 
-    ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.0 --warm_start 10 --interaction 5000 --warm_start_update --interaction_update -d text_highnoise_m.vw
-
-and get the following output:
-
+    ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 5000 --warm_start_update --interaction_update -d text_highnoise_m.vw
     Num weight bits = 18
     learning rate = 0.5
     initial_t = 0
@@ -33,29 +30,29 @@ and get the following output:
     0.062500 0.125000           26           16.0        8        8      101
     0.093750 0.125000           42           32.0       10       10      101
     0.078125 0.062500           74           64.0        9        3      101
-    0.078125 0.078125          138          128.0        5        5      101
-    0.093750 0.109375          266          256.0        9        3      101
-    0.093750 0.093750          522          512.0        6        6      101
-    0.090820 0.087891         1034         1024.0        5        5      101
-    0.100098 0.109375         2058         2048.0        2        2      101
-    0.094727 0.089355         4106         4096.0        2        2      101
+    0.109375 0.140625          138          128.0        5        5      101
+    0.128906 0.148438          266          256.0        9        3      101
+    0.132812 0.136719          522          512.0        6        6      101
+    0.121094 0.109375         1034         1024.0        5        5      101
+    0.083496 0.045898         2058         2048.0        2        2      101
+    0.064941 0.046387         4106         4096.0        2        2      101
 
     finished run
     number of examples = 10000
     weighted example sum = 5000.000000
     weighted label sum = 0.000000
-    average loss = 0.096400
+    average loss = 0.060800
     total feature number = 1010000
-    average variance estimate = inf
-    theoretical average variance = inf
+    average variance estimate = 1.484971
+    theoretical average variance = 200.000000
     last lambda chosen = 0.500000 among lambdas ranging from 0.500000 to 0.500000
 
 Note that the VW output has the same doubling schedule; however, we only count the example weight, the average loss, and the loss since last checkpoint in the interaction stage. (The "example counter" starts from 10 though - this is because we processed the first 10 warm start examples before the interaction stage.)
 
 We can also run the above command without the "--warm_start_update" option, which essentially skips the warm start examples and perform contextual bandit learning directly:
 
-    ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 30 --interaction 5000 --interaction_update -d text_highnoise_m.vw
-
+    ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 5000 --interaction_update -d text_highnoise_m.vw
+    
     Num weight bits = 18
     learning rate = 0.5
     initial_t = 0
@@ -65,27 +62,27 @@ We can also run the above command without the "--warm_start_update" option, whic
     num sources = 1
     average  since         example        example  current  current  current
     loss     last          counter         weight    label  predict features
-    1.000000 1.000000           31            1.0        8        5      101
-    1.000000 1.000000           32            2.0        1        9      101
-    1.000000 1.000000           34            4.0        6        7      101
-    1.000000 1.000000           38            8.0        9        3      101
-    1.000000 1.000000           46           16.0        4        5      101
-    0.937500 0.875000           62           32.0        4        4      101
-    0.906250 0.875000           94           64.0        6        9      101
-    0.789062 0.671875          158          128.0        9        9      101
-    0.593750 0.398438          286          256.0       10       10      101
-    0.427734 0.261719          542          512.0        2        2      101
-    0.283203 0.138672         1054         1024.0       10       10      101
-    0.181152 0.079102         2078         2048.0        5        5      101
-    0.114014 0.046875         4126         4096.0        5        5      101
+    1.000000 1.000000           11            1.0        4        5      101
+    1.000000 1.000000           12            2.0        6        9      101
+    1.000000 1.000000           14            4.0        6        7      101
+    1.000000 1.000000           18            8.0        8        6      101
+    0.875000 0.750000           26           16.0        8        1      101
+    0.937500 1.000000           42           32.0       10        1      101
+    0.875000 0.812500           74           64.0        9        6      101
+    0.750000 0.625000          138          128.0        5        5      101
+    0.613281 0.476562          266          256.0        9        9      101
+    0.443359 0.273438          522          512.0        6        6      101
+    0.322266 0.201172         1034         1024.0        5        5      101
+    0.197266 0.072266         2058         2048.0        2        2      101
+    0.121826 0.046387         4106         4096.0        2        2      101
 
     finished run
     number of examples = 10000
     weighted example sum = 5000.000000
     weighted label sum = 0.000000
-    average loss = 0.101000
+    average loss = 0.107400
     total feature number = 1010000
-    average variance estimate = 8.695751
+    average variance estimate = 9.571352
     theoretical average variance = 200.000000
     last lambda chosen = 1.000000 among lambdas ranging from 1.000000 to 1.000000
 
@@ -172,7 +169,7 @@ For example, we can add type 2 corruption with probability 0.5 on the first 10 s
 
 ### Using a larger set of weighted combination values
 
-It is often a good idea to use a large set of weighted combination values and perform selection on top of them, to find out the right balance between warm-start examples and the bandit examples in the interaction stage. This can be specified with the --lambda_scheme parameter and --choices_lambda_parameter, as shown in the example below.
+By default, the warm-start contextual bandit learner place equal weights on every warm-start examples and every interaction examples. It is often a good idea to use a large set of weighted combination values and perform selection on top of them, to find out the right balance between warm-start examples and the bandit examples in the interaction stage. This can be specified with the --lambda_scheme parameter and --choices_lambda_parameter, as shown in the example below.
 
     ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 5000 --warm_start_update --interaction_update --corrupt_type_warm_start 2 --corrupt_prob_warm_start 0.5 --lambda_scheme 2 --choices_lambda 2 -d text_highnoise_m.vw 
     Num weight bits = 18
@@ -207,3 +204,46 @@ It is often a good idea to use a large set of weighted combination values and pe
     average variance estimate = 13.621336
     theoretical average variance = 200.000000
     last lambda chosen = 1.000000 among lambdas ranging from 0.000000 to 1.000000
+
+### Allowing cost-sensitive examples as input
+
+Warm-cb also supports the input examples being of cost-sensitive form, i.e. each example's label part is a cost vector. To accept this input format, VW needs to take an additional option --warm_cb_cs. 
+
+
+### Contextual bandit simulation baseline
+
+We also include a baseline approach, named Sim-Bandit in the [warm contextual bandits paper](https://arxiv.org/pdf/1901.00301.pdf). In the warm-start stage, it performs simulation of contextual bandit learning and produces a model; then, in the interaction stage, it continues contextual bandit learning, with the model initialized as the one at the end of the warm-start stage. This under-utilizes the warm-start examples, as the algorithm only uses part of the label for every warm-start example.
+
+  ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 5000 --warm_start_update --interaction_update -d text_highnoise_m.vw --sim_bandit
+  Num weight bits = 18
+  learning rate = 0.5
+  initial_t = 0
+  power_t = 0.5
+  using no cache
+  Reading datafile = text_highnoise_m.vw
+  num sources = 1
+  average  since         example        example  current  current  current
+  loss     last          counter         weight    label  predict features
+  1.000000 1.000000           11            1.0        4        9      101
+  1.000000 1.000000           12            2.0        6        3      101
+  1.000000 1.000000           14            4.0        6        8      101
+  0.875000 0.750000           18            8.0        8       10      101
+  0.812500 0.750000           26           16.0        8        8      101
+  0.812500 0.812500           42           32.0       10        3      101
+  0.734375 0.656250           74           64.0        9        1      101
+  0.648438 0.562500          138          128.0        5        5      101
+  0.535156 0.421875          266          256.0        9        9      101
+  0.384766 0.234375          522          512.0        6        6      101
+  0.257812 0.130859         1034         1024.0        5        5      101
+  0.149902 0.041992         2058         2048.0        2        2      101
+  0.098145 0.046387         4106         4096.0        2        2      101
+
+  finished run
+  number of examples = 10000
+  weighted example sum = 5000.000000
+  weighted label sum = 0.000000
+  average loss = 0.088000
+  total feature number = 1010000
+  average variance estimate = 7.811282
+  theoretical average variance = 200.000000
+  last lambda chosen = 0.500000 among lambdas ranging from 0.500000 to 0.500000
