@@ -9,7 +9,7 @@ The performance of the learner is measured by its cost incurred in the interacti
 
 VW takes into input option --warm_start x --interaction y, where x specifies the number of warm start examples, and y is the length of the interaction stage. 
 
-### A simple example
+# 1. A simple example
 
 Suppose we have text_highnoise_m.vw, a dataset of 10-class multiclass examples in VW format. We can run:
 
