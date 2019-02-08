@@ -9,7 +9,7 @@ The performance of the learner is measured by its cost incurred in the interacti
 
 VW takes into input option --warm_start x --interaction y, where x specifies the number of warm start examples, and y is the length of the interaction stage. 
 
-# 1. A simple example
+# 1 A simple example
 
 Suppose we have text_highnoise_m.vw, a dataset of 10-class multiclass examples in VW format. We can run:
 
@@ -49,6 +49,8 @@ Suppose we have text_highnoise_m.vw, a dataset of 10-class multiclass examples i
 
 Note that the VW output has the same doubling schedule; however, we only count the example weight, the average loss, and the loss since last checkpoint in the interaction stage. (The "example counter" starts from 10 though - this is because we processed the first 10 warm start examples before the interaction stage.)
 
+# 2 Baseline 1: using only interaction examples (Bandit-Only)
+
 We can also run the above command without the "--warm_start_update" option, which essentially skips the warm start examples and perform contextual bandit learning directly:
 
     ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 5000 --interaction_update -d text_highnoise_m.vw
@@ -86,7 +88,9 @@ We can also run the above command without the "--warm_start_update" option, whic
     theoretical average variance = 200.000000
     last lambda chosen = 1.000000 among lambdas ranging from 1.000000 to 1.000000
 
-Another extreme is to run contextual bandit learning without using the interaction data; in this case, we can simply turn off exploration to minimize the exploration overhead.
+#3 Baseline 2: using only warm-start examples (Sup-Only)
+
+Another extreme is to run contextual bandit learning by training a model purely based on the warm start examples and, ignore the data collected in the interaction stage. In this case, we turn off exploration to minimize the exploration overhead.
 
     ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.0 --warm_start 10 --interaction 5000 --warm_start_update -d text_highnoise_m.vw
 
@@ -123,7 +127,7 @@ Another extreme is to run contextual bandit learning without using the interacti
     theoretical average variance = inf
     last lambda chosen = 0.000000 among lambdas ranging from 0.000000 to 0.000000
 
-### Label corruption on the warm-starting examples
+#4 Label corruption on the warm-starting examples
 
 Sometimes, we would like to simulate the setting where the label distribution of the warm-start examples does not perfectly match those of the examples in the interaction stage. VW supports this by allowing to specify one of three modes of corruption, and the corruption probability (specified in --corrupt_type_warm_start and --corrupt_prob_warm_start). The three modes or corruptions are:
 1. replace a label with one chosen uniformly-at-random; 
@@ -167,7 +171,7 @@ For example, we can add type 2 corruption with probability 0.5 on the first 10 s
     theoretical average variance = 200.000000
     last lambda chosen = 0.500000 among lambdas ranging from 0.500000 to 0.500000
 
-### Using a larger set of weighted combination values
+#5 Using a larger set of weighted combination values
 
 By default, the warm-start contextual bandit learner place equal weights on every warm-start examples and every interaction examples. It is often a good idea to use a large set of weighted combination values and perform selection on top of them, to find out the right balance between warm-start examples and the bandit examples in the interaction stage. This can be specified with the --lambda_scheme parameter and --choices_lambda_parameter, as shown in the example below.
 
@@ -205,7 +209,7 @@ By default, the warm-start contextual bandit learner place equal weights on ever
     theoretical average variance = 200.000000
     last lambda chosen = 1.000000 among lambdas ranging from 0.000000 to 1.000000
 
-### Allowing cost-sensitive examples as input
+#6 Allowing cost-sensitive examples as input
 
 Warm-cb also supports the input examples being of cost-sensitive form, i.e. each example's label part is a cost vector. To accept this input format, VW needs to take an additional option --warm_cb_cs. Here we have a dataset text_highnoise.vw, which is identical to text_highnoise_m.vw, except that each example's label is in the cost vector format. We get exactly the same result as running using text_highnoise_m.vw as input without --warm_cb_cs option:
 
@@ -244,7 +248,7 @@ Warm-cb also supports the input examples being of cost-sensitive form, i.e. each
     last lambda chosen = 0.500000 among lambdas ranging from 0.500000 to 0.500000
 
 
-### Contextual bandit simulation baseline
+#6 Baseline 3: Contextual bandit simulation (Sim-Bandit)
 
 We also include a baseline approach, named Sim-Bandit in the [warm contextual bandits paper](https://arxiv.org/pdf/1901.00301.pdf). In the warm-start stage, it performs simulation of contextual bandit learning and produces a model; then, in the interaction stage, it continues contextual bandit learning, with the model initialized as the one at the end of the warm-start stage. This under-utilizes the warm-start examples, as the algorithm only uses part of the label for every warm-start example.
 
