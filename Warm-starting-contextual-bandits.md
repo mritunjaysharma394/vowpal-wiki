@@ -207,7 +207,41 @@ By default, the warm-start contextual bandit learner place equal weights on ever
 
 ### Allowing cost-sensitive examples as input
 
-Warm-cb also supports the input examples being of cost-sensitive form, i.e. each example's label part is a cost vector. To accept this input format, VW needs to take an additional option --warm_cb_cs. 
+Warm-cb also supports the input examples being of cost-sensitive form, i.e. each example's label part is a cost vector. To accept this input format, VW needs to take an additional option --warm_cb_cs. Here we have a dataset text_highnoise.vw, which is identical to text_highnoise_m.vw, except that each example's label is in the cost vector format. We get exactly the same result as running using text_highnoise_m.vw as input without --warm_cb_cs option:
+
+    ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 5000 --warm_start_update --interaction_update -d text_highnoise.vw --warm_cb_cs
+    Num weight bits = 18
+    learning rate = 0.5
+    initial_t = 0
+    power_t = 0.5
+    using no cache
+    Reading datafile = text_highnoise.vw
+    num sources = 1
+    average  since         example        example  current  current  current
+    loss     last          counter         weight    label  predict features
+    0.000000 0.000000           11            1.0    known        4      101
+    0.000000 0.000000           12            2.0    known        6      101
+    0.000000 0.000000           14            4.0    known        6      101
+    0.000000 0.000000           18            8.0    known        8      101
+    0.062500 0.125000           26           16.0    known        8      101
+    0.093750 0.125000           42           32.0    known       10      101
+    0.078125 0.062500           74           64.0    known        3      101
+    0.109375 0.140625          138          128.0    known        5      101
+    0.128906 0.148438          266          256.0    known        3      101
+    0.132812 0.136719          522          512.0    known        6      101
+    0.121094 0.109375         1034         1024.0    known        5      101
+    0.083496 0.045898         2058         2048.0    known        2      101
+    0.064941 0.046387         4106         4096.0    known        2      101
+
+    finished run
+    number of examples = 10000
+    weighted example sum = 5000.000000
+    weighted label sum = 0.000000
+    average loss = 0.060800
+    total feature number = 1010000
+    average variance estimate = 1.484971
+    theoretical average variance = 200.000000
+    last lambda chosen = 0.500000 among lambdas ranging from 0.500000 to 0.500000
 
 
 ### Contextual bandit simulation baseline
