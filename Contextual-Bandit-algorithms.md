@@ -76,6 +76,7 @@ ccb decision [<chosen_action>:<probability>:<cost>[,<action>:<probability,...] [
 - The list of action probability pairs in the first section is optional
   - If included, the entire collection of probabilities must sum to 1.0
 - Test labels omit the cost section
+
 For example:
 ```
 ccb shared | s_1 s_2
