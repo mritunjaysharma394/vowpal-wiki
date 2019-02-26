@@ -15,12 +15,12 @@
  - [[daemon example]] - how to run vw in daemon mode and get predictions
 
 ### Utilities
- - [[active_interactor.py]] - an interactive way to interface with vw's active learning
- - [[vw-hypersearch]] - a vw wrapper to search for "optimal" (argmin) parameters
- - [[vw-varinfo]] - a vw wrapper to inspect your training-set & model
- - [[vw-regr]] - a script for aiding regression applications
+ - [active_interactor.py](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Using-active_interactor.py) - an interactive way to interface with vw's active learning
+ - [vw-hypersearch](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Using-vw-hypersearch) - a vw wrapper to search for "optimal" (argmin) parameters
+ - [vw-varinfo](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/using-vw-varinfo) - a vw wrapper to inspect your training-set & model
+ - [vw-regr](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Using-vw-regr) - a script for aiding regression applications
  - [vw-top-errors: online learning debugging for better models](https://github.com/arielf/vowpal_wabbit/wiki/vw-top-errors:-online-learning-debugging-for-better-models)
- - [vw-lda - a friendly high-level wrapper for `vw` LDA](https://github.com/JohnLangford/vowpal_wabbit/blob/master/utl/vw-lda)
+ - [vw-lda](https://github.com/JohnLangford/vowpal_wabbit/blob/master/utl/vw-lda) - a friendly high-level wrapper for `vw` LDA
 
 ### Demos
 
