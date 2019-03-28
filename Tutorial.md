@@ -170,7 +170,7 @@ The advantage of using unique integer-based feature-names is that they are guara
 
 The above only scratches the surface of VW.  You can learn with other loss functions, with other optimizers, with other representations, with clusters of 1000s of machines, and even do ridiculously fast active learning.  Your primary resources for understanding these are:
 
-1. See the more tutorials section below
+1. The <a href="https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Tutorial#more-tutorials">more tutorials</a> section below
 2. The [[examples]]
 3. The <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments">command line specification</a>
 4. The <a href="https://groups.yahoo.com/neo/groups/vowpal_wabbit/info">mailing list</a>
