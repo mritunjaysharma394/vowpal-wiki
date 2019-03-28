@@ -71,6 +71,17 @@ cmake .. -DSTATIC_LINK_VW=ON
 make vw-bin -j
 ```
 
+#### Running Test Suite
+The following command will build all dependencies and then run the test suite:
+```
+make test_with_output -j
+```
+Everything should pass. If you see:
+```
+minor (<0.001) precision differences ignored
+```
+That's ok. Floating point arithmetic does not round exactly the same way on all platforms.
+
 [Next step: installing on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Installing#linux)
 
 ## Windows
