@@ -57,7 +57,7 @@ The following tutorials generally cover features added in each release, but may 
 - [[Version 5.0 tutorial|main.pdf]]
 - The [[importance weight invariant|iw.pdf]] update rule. (covered in 6.1 intro)
 
-### A Step by step introduction
+## A Step by step introduction
 
 The first step is downloading a version of VW.  We'll use the <a href="https://github.com/JohnLangford/vowpal_wabbit">github master</a>, which should generally work as squashing bugs is first priority.  A alternate choice is to use an <a href="https://github.com/JohnLangford/vowpal_wabbit/archives/master">existing version</a>.  The examples below are command-line, inside a terminal, prompts are dropped for clarity.
 
