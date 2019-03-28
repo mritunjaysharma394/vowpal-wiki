@@ -1,4 +1,4 @@
-<h3>Vowpal Wabbit</h3>
+<p align="center"><img src="https://raw.githubusercontent.com/VowpalWabbit/vowpal_wabbit/master/logo_assets/vowpal-wabbits-github-logo%403x.png" height="auto" width="60%" alt="Vowpal Wabbit"></p>
 
 The <a href="http://hunch.net/~vw">Vowpal Wabbit</a> (VW) project is a fast out-of-core learning system sponsored by <a href="http://research.microsoft.com/en-us/">Microsoft Research</a> and (previously) <a href="https://research.yahoo.com/node/">Yahoo! Research</a>. Support is available through the <a href="https://groups.yahoo.com/neo/groups/vowpal_wabbit/info">mailing list</a>.
 
@@ -8,7 +8,7 @@ There are several optimization algorithms available with the baseline being spar
 
 To build vw from source, in various environments, please follow the instructions on the [getting started page](Getting-Started).
 
-- [[Download]]
+- ~~[[Download]]~~, outdated see [[Getting Started]]
 - [[Tutorial]]
 - [[Command line arguments]]
 - [[Algorithm details]] (e.g., [[input format]], [[loss functions]])
