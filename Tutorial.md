@@ -59,72 +59,7 @@ The following tutorials generally cover features added in each release, but may 
 
 ## A Step by step introduction
 
-The first step is downloading a version of VW.  We'll use the <a href="https://github.com/JohnLangford/vowpal_wabbit">github master</a>, which should generally work as squashing bugs is first priority.  A alternate choice is to use an <a href="https://github.com/JohnLangford/vowpal_wabbit/archives/master">existing version</a>.  The examples below are command-line, inside a terminal, prompts are dropped for clarity.
-
-    git clone git://github.com/JohnLangford/vowpal_wabbit.git
-
-Now we compile:
-
-    cd vowpal_wabbit
-    make
-
-On some systems where libraries are installed in non standard locations, you may need to run `./autogen.sh && ./configure` before running `make`.
-
-This should "just work", at least on Linux and OS-X, and plausibly on any POSIX platform.  If the `make` fails, you most likely need to install the boost program options headers and library.
-
-**Installing prerequisite libraries**
-
-prerequisite boost installation on Debian-based (Debian, Ubuntu, Mint etc.) Linux distributions:
-
-    sudo apt-get install libboost-program-options-dev libboost-python-dev
-
-On Ubuntu 13.10 also install:
-
-    sudo apt-get install zlib1g-dev
-
-On Ubuntu 12.04, the default Boost version is too old (1.46), so install a newer one either from source (see below) or with
-
-    sudo apt-get install libboost1.48-all-dev
-
-Boost installation on Mac OS-X is a little bit more involved and depends on your preferred tool chain:
-
-One way is to start from source:
-  1. Download the boost source from [[http://sourceforge.net/projects/boost/files/boost/]]
-  2. Execute the shell script with `sudo ./bootstrap.sh`
-  3. Next run the command `sudo ./bjam --layout=tagged install`
-
-or if you use `brew`, just make sure you have `libboost-program-options` installed
-
-Note:
-  1. For the recent python bindings you will need to pre-install `libboost-python`, followed by `make python`
-
-Once boost is in place, the command:
-
-    make vw
-
-Should create `vowpalwabbit/vw` - the vw executable
-
-There's also a library usage example which you can build with:
-
-    make library_example
-
-Now we can test the newly built vw executable and examples:
-
-    make test
-
-Everything should pass.  If you see: 
-
-    minor (<0.001) precision differences ignored
-
-That's ok. Floating point arithmetic does not round exactly the same way on all platforms.
-
-You can install the vw executable into system path (`/usr/local/bin/vw`) using
-
-    sudo make install
-
-You may need to add the directory where the `vw` executable resides to `PATH` (in your `~/.bashrc`), so you can execute `vw` from any directory and from any shell:
-
-    export PATH=/usr/local/bin:$PATH
+The first step is downloading a version of VW, see [[Getting Started]]. This tutorial runs through using VW in command line mode.
 
 ### A first data-set
 
