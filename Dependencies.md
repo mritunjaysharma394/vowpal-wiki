@@ -1,5 +1,7 @@
 [Getting started](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Getting-started) **>** [**[Dependencies]**](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) **>** [Building](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building) **>** [Installing](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Installing) **>** [Tutorial](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Tutorial)
 
+<hr>
+
 Before building VW from source the following dependencies must be satisfied.
 
 ## Ubuntu
