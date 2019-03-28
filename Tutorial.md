@@ -25,9 +25,9 @@ The 3rd example is straightforward, except there is an additional number: `0.5` 
 
 Next, we learn:
 
-    vw house_dataset
+    $ vw house_dataset
 
-### VWs diagnostic information
+### VW's diagnostic information
 
 There is a burble of diagnostic information which you can turn off with `--quiet`.  However, it's worthwhile to first understand it.
 
