@@ -57,7 +57,7 @@ The following tutorials generally cover features added in each release, but may 
 - [[Version 5.0 tutorial|main.pdf]]
 - The [[importance weight invariant|iw.pdf]] update rule. (covered in 6.1 intro)
 
-## A Step by step introduction
+## A Step by Step Introduction
 
 The first step is downloading a version of VW, see [[Getting Started]]. This tutorial runs through using VW in command line mode.
 
