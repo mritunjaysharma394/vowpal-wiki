@@ -2,7 +2,7 @@
 
 <hr>
 
-### Linux
+## Linux
 ```
 cd build
 sudo make install
@@ -10,7 +10,7 @@ sudo make install
 
 [Next step: tutorial](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Tutorial)
 
-### Windows
+## Windows
 1. Find directory that `vw.exe` was placed in
     1. If "Debug" and "x64" were used it will be in: `<repo_root>\vowpalwabbit\out\target\Debug\x64\`
     2. If CMake was used it will be in the build directory: `<repo_root>\build\vowpalwabbit\`
