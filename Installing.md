@@ -8,6 +8,10 @@ cd build
 sudo make install
 ```
 
+You may need to add the directory where the vw executable resides to PATH (in your ~/.bashrc), so you can execute vw from any directory and from any shell:
+```
+export PATH=/usr/local/bin:$PATH
+```
 [Next step: tutorial](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Tutorial)
 
 ## Windows
