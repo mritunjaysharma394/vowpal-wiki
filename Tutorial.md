@@ -5,7 +5,7 @@
 #### General
 - [High level introduction of Vowpal Wabbit (input format, useful options and more) through the lens of logistic regression, by Philippe Adjiman.](http://www.philippeadjiman.com/blog/2018/04/03/deep-dive-into-logistic-regression-part-3/)
 
-The following tutorials generally cover features added in each release, but may be slightly outdate due to their age.
+The following tutorials generally cover features added in each release, but may be slightly outdated due to their age.
 
 #### Version 8.5 Tutorials - NIPS 2017
 - [[Sparse model, baseline, optimized exploration|update.pdf]]
