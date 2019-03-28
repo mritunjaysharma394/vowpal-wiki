@@ -1,7 +1,9 @@
 [Getting started](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Getting-started) **>** [Dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) **>** [Building](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building) **>** [Installing](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Installing) **>** [**[Tutorial]**](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Tutorial)
 
 <hr>
-_For more tutorials [see below](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Tutorial/_edit#more-tutorials)_
+
+<i>For more tutorials,
+<a href="https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Tutorial#more-tutorials">see below</a></i>
 
 ## A Step by Step Introduction
 
