@@ -8,7 +8,7 @@ This is a tutorial for the Vowpal Wabbit C# binding. Here's a list of major feat
 
 The binding exposes three different options to interact with native Vowpal Wabbit, each having pros and cons:
 
-1. User defined data types: use [VW.VowpalWabbit\<TUserType\>](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/cs/VowpalWabbit.cs)
+1. User defined data types: use [VW.VowpalWabbit\<TUserType\>](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/cs/cs/VowpalWabbit.cs)
 2. Generic data structures (e.g. records consisting of key/value/type tuples): use [VW.VowpalWabbit\<TUserType\>](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/cs/serializer/VowpalWabbitSerializerFactory.cs)
 3. String based examples: use [VW.VowpalWabbit](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/vw_clr/vowpalwabbit.h)
 
