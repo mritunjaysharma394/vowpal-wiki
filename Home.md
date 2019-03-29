@@ -8,7 +8,7 @@ There are several optimization algorithms available with the baseline being spar
 
 To build vw from source, in various environments, please follow the instructions on the [getting started page](Getting-Started).
 
-- ~~[[Download]]~~, outdated see [[Getting Started]]
+- [[Getting Started]]
 - [[Tutorial]]
 - [[Command line arguments]]
 - [[Algorithm details]] (e.g., [[input format]], [[loss functions]])
