@@ -5,7 +5,6 @@
   - [Building](Building)
   - [Installing](Installing)
   - [Tutorial](Tutorial)
-  - [Download](Download)
 - Input
   - [VW format](Input-format)
   - [JSON format](JSON)
