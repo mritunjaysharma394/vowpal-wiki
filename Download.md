@@ -1,3 +1,5 @@
+__This page is out of date, we are currently working on improving the distribution strategy for vw. Stay tuned.__
+
 All <a href="https://github.com/JohnLangford/vowpal_wabbit/tags">tagged versions</a> can be downloaded from github.  We try to have zero bugs, so a <a href="https://github.com/JohnLangford/vowpal_wabbit">checkout from the master branch</a> is almost always sane and often preferred. Detailed instructions for installing on various operating systems can be found in the [README](https://github.com/JohnLangford/vowpal_wabbit/blob/master/README.md).
 
 ## Other options
