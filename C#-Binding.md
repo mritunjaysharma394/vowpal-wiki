@@ -9,8 +9,8 @@ This is a tutorial for the Vowpal Wabbit C# binding. Here's a list of major feat
 The binding exposes three different options to interact with native Vowpal Wabbit, each having pros and cons:
 
 1. User defined data types: use [VW.VowpalWabbit\<TUserType\>](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/cs/cs/VowpalWabbit.cs)
-2. Generic data structures (e.g. records consisting of key/value/type tuples): use [VW.VowpalWabbit\<TUserType\>](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/cs/cs/serializer/VowpalWabbitSerializerFactory.cs)
-3. String based examples: use [VW.VowpalWabbit](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/vw_clr/vowpalwabbit.h)
+2. Generic data structures (e.g. records consisting of key/value/type tuples): use [VW.VowpalWabbit\<TUserType\>](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/cs/cs/Serializer/VowpalWabbitSerializerFactory.cs)
+3. String based examples: use [VW.VowpalWabbit](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/cs/cli/vowpalwabbit.h)
 
 # Usage
 
@@ -177,7 +177,7 @@ using (var vw = new VowpalWabbit<MyContext>(new VowpalWabbitSettings(customFeatu
 }
 ```
 
-In the above example features of type CustomClass will be marshalled using CustomFeaturizer. The serializer infrastructure looks for methods of the form __public void MarshalFeature(VowpalWabbitMarshalContext context, Namespace ns, Feature feature, CustomClass value)__ among others. A good reference is [VowpalWabbitDefaultMarshaller](https://github.com/eisber/vowpal_wabbit/blob/master/cs/Serializer/VowpalWabbitDefaultMarshaller.cs) which is internally added to the same featurizer list. Custom featurizers are given priority over the default marshaller.
+In the above example features of type CustomClass will be marshalled using CustomFeaturizer. The serializer infrastructure looks for methods of the form __public void MarshalFeature(VowpalWabbitMarshalContext context, Namespace ns, Feature feature, CustomClass value)__ among others. A good reference is [VowpalWabbitDefaultMarshaller](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/cs/cs/Serializer/VowpalWabbitDefaultMarshaller.cs) which is internally added to the same featurizer list. Custom featurizers are given priority over the default marshaller.
 Serializing data to string format (see VowpalWabbitMarshalContext.AppendStringExample) is optional when working through the native interface only, but considered good practice to ease debugging.
 
 ## Generic data structures
