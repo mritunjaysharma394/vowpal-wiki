@@ -84,7 +84,7 @@ We can also run the above command without the "--warm_start_update" option, whic
 
 # 3 Baseline 2: using only warm-start examples (Sup-Only)
 
-Another extreme is to run contextual bandit learning by training a model purely based on the warm start examples and, ignore the data collected in the interaction stage. In this case, we turn off exploration to minimize the exploration overhead.
+Another extreme is to train a model purely based on the warm start examples, and use the model in the interaction stage, with the data collected in the interaction stage ignored. In this case, we can turn off exploration to minimize the exploration cost overhead.
 
     ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.0 --warm_start 10 --interaction 1000 --warm_start_update -d text_highnois
     e_m.vw
