@@ -86,7 +86,8 @@ We can also run the above command without the "--warm_start_update" option, whic
 
 Another extreme is to run contextual bandit learning by training a model purely based on the warm start examples and, ignore the data collected in the interaction stage. In this case, we turn off exploration to minimize the exploration overhead.
 
-    ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 1000 --warm_start_update -d text_highnoise_m.vw
+    ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.0 --warm_start 10 --interaction 1000 --warm_start_update -d text_highnois
+    e_m.vw
     Num weight bits = 18
     learning rate = 0.5
     initial_t = 0
@@ -103,18 +104,18 @@ Another extreme is to run contextual bandit learning by training a model purely 
     0.062500 0.125000           26           16.0        8        8      101
     0.093750 0.125000           42           32.0       10       10      101
     0.109375 0.125000           74           64.0        9        3      101
-    0.148438 0.187500          138          128.0        5        5      101
-    0.156250 0.164062          266          256.0        9        3      101
-    0.150391 0.144531          522          512.0        6        6      101
+    0.117188 0.125000          138          128.0        5        5      101
+    0.121094 0.125000          266          256.0        9        3      101
+    0.111328 0.101562          522          512.0        6        6      101
 
     finished run
     number of examples = 10000
     weighted example sum = 1000.000000
     weighted label sum = 0.000000
-    average loss = 0.148000
+    average loss = 0.108000
     total feature number = 1010000
-    average variance estimate = 1.047119
-    theoretical average variance = 200.000000
+    average variance estimate = 1.000000
+    theoretical average variance = inf
     last lambda chosen = 0.000000 among lambdas ranging from 0.000000 to 0.000000
 
 # 4 Label corruption on the warm-starting examples
