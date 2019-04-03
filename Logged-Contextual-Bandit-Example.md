@@ -6,7 +6,7 @@ The data is specified as a set of tuples (x,a,c,p) where x are the current featu
 
 Based on this data, the module tries to optimize a policy that chooses actions with minimum cost for the observed contexts. The module implements approaches described in the paper:
 
-"Doubly Robust Policy Evaluation and Learning", by Miroslav Dudik, John Langford and Lihong Li. In ICML 2011.
+["Doubly Robust Policy Evaluation and Learning"](https://arxiv.org/pdf/1103.4601.pdf), by Miroslav Dudik, John Langford and Lihong Li. In ICML 2011.
 
 **Simple Example**
 
