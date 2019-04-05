@@ -13,7 +13,5 @@ First step is to get VW by either:
   - [Pypi](https://pypi.org/project/vowpalwabbit/)
     - `pip install vowpalwabbit`
     - Currently version 8.5
-  - Some binaries are available [here](Download) but they are not actively maintained.
-
 
 Then, [follow the tutorial](Tutorial).
