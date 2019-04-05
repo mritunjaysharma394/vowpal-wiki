@@ -7,7 +7,7 @@ Before building VW from source the following dependencies must be satisfied.
 ## Ubuntu
 ```shell
 # Core
-sudo apt-get install libboost-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev libboost-math-dev libboost-test-dev zlib1g-dev cmake
+sudo apt-get install libboost-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev libboost-math-dev libboost-test-dev zlib1g-dev cmake rapidjson-dev
 
 # Optional: test
 pip install six
