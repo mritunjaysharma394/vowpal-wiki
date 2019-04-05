@@ -28,6 +28,7 @@ sudo apt install openjdk-11-jdk
 ```shell
 brew install cmake
 brew install boost
+brew install rapidjson
 
 #If you want to statically link VW
 brew install zlib
