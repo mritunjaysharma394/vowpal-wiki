@@ -19,10 +19,12 @@ To build vw from source, in various environments, please follow the instructions
 - <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Learning%20to%20Search%20Sub-System">Learning to Search Sub-System</a>
 - <a href="https://github.com/JohnLangford/vowpal_wabbit/blob/master/python/examples/Learning_to_Search.ipynb">Python interface for learning to search</a>
 
+## Getting Help
+- Connect with the community on [Gitter](https://gitter.im/VowpalWabbit/)
+- Ask a question on [StackOverflow with the `vowpalwabbit` tag](https://stackoverflow.com/questions/tagged/vowpalwabbit)
+- Open an [issue](https://github.com/VowpalWabbit/vowpal_wabbit/issues)
 
-</ul>
-
-<h2>Features</h2>
+## Features
 There are several features that (in combination) can be powerful.
 <ol>
 <li><strong>Input Format</strong>.  The <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Input-format">input format</a> for the learning algorithm is substantially more flexible than might be expected.  Examples can have features consisting of free form text, which is interpreted in a bag-of-words way.  There can even be multiple sets of free form text in different namespaces.</li>
@@ -34,7 +36,7 @@ There are several features that (in combination) can be powerful.
 Many people have contributed to the project at this point.
 <a href="http://hunch.net/~jl">John Langford</a>, <a href="http://www.cs.berkeley.edu/~alekh/">Alekh Agarwal</a>, <a href="http://www.cs.cmu.edu/~mdudik/">Miroslav Dudik</a>, <a href="http://cseweb.ucsd.edu/~djhsu/">Daniel Hsu</a>, <a href="http://www.cs.cornell.edu/~nk/">Nikos Karampatziakis</a>, <a href="http://research.yahoo.com/Olivier_Chapelle">Olivier Chapelle</a>, <a href="http://www.machinedlearnings.com/">Paul Mineiro</a>, <a href=http://www.cs.princeton.edu/~mdhoffma>Matt Hoffman</a>, <a href="http://jakehofman.com">Jake Hofman</a>, <a href="http://labs.yahoo.com/Sudarshan_Lamkhede">Sudarshan Lamkhede</a>, Shubham Chopra, Ariel Faigon, <a href="http://www.research.rutgers.edu/~lihong/">Lihong Li</a>, Gordon Rios, and <a href="http://paul.rutgers.edu/~strehl/">Alex Strehl</a> have all worked on VW.  Many others have contributed via feature requests, bug reports, or bug patches.
 
-<h2>Research</h2>
+## Research
 VW is also a vehicle for advanced research.  The <a href="http://hunch.net/?p=309">first public version</a> containing hashing, caching, and true online learning was released in 2007.  Since then, many different algorithms and results have influenced its design, including:
 
 1. [Kai-Wei Chang](http://kwchang.net), [He He](http://www.umiacs.umd.edu/~hhe/), [Hal Daumé III](https://www.umiacs.umd.edu/~hal/), <a href="http://hunch.net/~jl">John Langford</a>, <a href="http://www.cs.cmu.edu/~sross1/"> Stephane Ross</a>, <a href="https://arxiv.org/abs/1406.1837">A Credit Assignment Compiler for Joint Prediction</a>, NIPS 2016.
