@@ -21,6 +21,8 @@ sudo apt-get update
 sudo apt install openjdk-11-jdk
 ```
 
+**Note:** If using *WSL* and you cloned the repo in Windows you will need to run `git submodule update --init --recursive` before running cmake. Otherwise the submodule will be downloaded with git in bash and the line endings will break git commands from Windows. Otherwise, submodules are automatically downloaded by cmake.
+
 [Next step: building on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#linux)
 
 ## MacOS
@@ -43,12 +45,12 @@ brew install boost-python3
 ```
 
 #### MacPorts
-```
-## Build Boost for Mac OS X 10.8 and below
-$ port install boost +no_single -no_static +openmpi +python27 configure.cxx_stdlib=libc++ configure.cxx=clang++
+```bash
+# Build Boost for Mac OS X 10.8 and below
+port install boost +no_single -no_static +openmpi +python27 configure.cxx_stdlib=libc++ configure.cxx=clang++
 
-## Build Boost for Mac OS X 10.9 and above
-$ port install boost +no_single -no_static +openmpi +python27
+# Build Boost for Mac OS X 10.9 and above
+port install boost +no_single -no_static +openmpi +python27
 ```
 
 The rest of the Linux instructions should apply to MacOS too.
@@ -56,6 +58,10 @@ The rest of the Linux instructions should apply to MacOS too.
 [Next step: building on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#linux)
 
 ## Windows
+Download submodules:
+```
+git submodule update --init --recursive
+```
 On Windows dependencies are managed with either Nuget, open `vowpalwabbit/vw.sln` in Visual Studio 2017 and restore Nuget dependencies.
 
 Note: Visual Studio 2015 must be installed so that the v140 toolchain is present. Windows 8.1 SDK must be installed as well.
