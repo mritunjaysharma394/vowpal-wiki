@@ -19,6 +19,7 @@ sudo apt-get install libboost-python-dev
 sudo add-apt-repository ppa:openjdk-r/ppa
 sudo apt-get update
 sudo apt install openjdk-11-jdk
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
 ```
 
 **Note:** If using *WSL* and you cloned the repo in Windows you will need to run `git submodule update --init --recursive` before running cmake. Otherwise the submodule will be downloaded with git in bash and the line endings will break git commands from Windows. Otherwise, submodules are automatically downloaded by cmake.
