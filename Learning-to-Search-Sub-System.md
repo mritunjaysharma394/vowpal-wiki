@@ -40,4 +40,4 @@ Please see [dependency parsing demo](https://github.com/JohnLangford/vowpal_wabb
 
 ## Implementing Your Own Structured Prediction Model
 - For implementing your own model using the C++ library, please see this [tutorial](https://github.com/JohnLangford/vowpal_wabbit/wiki/Implement-Your-Own-Joint-Prediction-Model)
-- For python implementation, please see this [ipyhon notebook](https://github.com/JohnLangford/vowpal_wabbit/blob/master/python/examples/Learning_to_Search.ipynb)
+- For python implementation, please see this [ipython notebook](https://github.com/JohnLangford/vowpal_wabbit/blob/master/python/examples/Learning_to_Search.ipynb)
