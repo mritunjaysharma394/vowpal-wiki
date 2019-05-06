@@ -14,7 +14,7 @@
   - [Feature interactions](Feature-interactions)
 - [Command line arguments](Command-Line-Arguments)
 - [Doxygen Documentation](Doxygen-Documentation)
-- [Goals & principles](Goals-&-Principles)
+- [Coding Guidelines](Coding-guidelines)
 - [Algorithm details](Algorithm-Details)
 - [Awesome Vowpal Wabbit](Awesome-Vowpal-Wabbit)
 - [Learning algorithm](Learning-algorithm)
