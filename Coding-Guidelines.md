@@ -4,7 +4,7 @@ The idea of these guidelines is to form a general consensus about the method use
 
 # Guidelines
 
-1. All memory is initialized to 0 (unless it has a constructor).#
+1. All memory is initialized to 0 (unless it has a constructor).
 2. Memory allocation is avoided by reusing allocated memory where possible. 
 3. Floats are preferred over doubles.   Doubles are only used for accumulators.
 4. Templates are used to eliminate duplicate code and in some places to remove branches from inner loops.
