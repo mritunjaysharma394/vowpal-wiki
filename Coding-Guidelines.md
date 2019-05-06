@@ -35,3 +35,4 @@ This is an attempt to capture (from John Langford) the principles of programming
 10. All examples are handled by the same stack of reductions.  
 11. Examples are passed by function call.  
 12. It’s not working until there are no warnings and valgrind says it’s clean.
+
