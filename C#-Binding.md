@@ -1,10 +1,10 @@
 This is a tutorial for the Vowpal Wabbit C# binding. Here's a list of major features:
 
-* Very efficient serialization from managed to native space using runtime compilation.
-* Declarative specification of example data structure.
-* Thread-safety through object pooling and shared models.
-* Example level caching (prediction only).
-* Improved memory management.
+* Very efficient serialization from managed to native space using runtime compilation
+* Declarative specification of example data structure
+* Thread-safety through object pooling and shared models
+* Example level caching (prediction only)
+* Improved memory management
 
 The binding exposes three different options to interact with native Vowpal Wabbit, each having pros and cons:
 
