@@ -68,9 +68,9 @@ CCB format is a multi line example format with 3 different example/line types. L
 ```
 ccb shared | ...
 ccb action | ...
-ccb decision [<chosen_action>:<cost>:<probability>[,<action>:<probability,...] [action_ids_to_include,...] | ...
+ccb slot [<chosen_action>:<cost>:<probability>[,<action>:<probability,...] [action_ids_to_include,...] | ...
 ```
-- Both additional sections in the `decision` label are optional
+- Both additional sections in the `slot` label are optional
 - If `action_ids_to_include` is excluded then all actions are implicitly included
 - Action ids are zero indexed
 - The list of action probability pairs in the first section is optional
@@ -82,6 +82,6 @@ For example:
 ccb shared | s_1 s_2
 ccb action | a:1 b:1 c:1
 ccb action | a:0.5 b:2 c:1
-ccb decision | d:4
-ccb decision 1:0.8:0.8,0:0.2 1,2 | d:7
+ccb slot | d:4
+ccb slot 1:0.8:0.8,0:0.2 1,2 | d:7
 ```
