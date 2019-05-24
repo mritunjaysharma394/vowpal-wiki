@@ -13,7 +13,7 @@ To build vw from source, in various environments, please follow the instructions
 - [[Command line arguments]]
 - [[Algorithm details]] (e.g., [[input format]], [[loss functions]])
 - [[Examples]]
-- <a href="Goals-%26-Principles">Goals & Principles
+- [[Coding Guidelines]]
 - [[Feature Hashing and Extraction]]
 - <a href="http://www.umiacs.umd.edu/~hal/tmp/multiclassVW.html">Multiclass Classification</a>
 - <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Learning%20to%20Search%20Sub-System">Learning to Search Sub-System</a>
