@@ -44,7 +44,7 @@
   - [Using vw varinfo](Using-vw-varinfo)
 - Bindings
   - [C# Binding](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/C%23-Binding)
-  - Python
+  - [[Python]]
   - Java
 - [Implement your own joint prediction model](Implement-Your-Own-Joint-Prediction-Model)
 - [Predicting probabilities](Predicting-probabilities)
