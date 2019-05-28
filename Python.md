@@ -1,5 +1,6 @@
 ## Installing
 ### Windows
+If `pip install vowpalwabbit` does not work the most likely reason is because of missing dependencies. In that case use the following instructions to build the package.
 1. [Install vcpkg ](https://github.com/Microsoft/vcpkg)
 2. [Install dependencies with vcpkg](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies#experimental-cmake-build-system-on-windows)
     ```bash
