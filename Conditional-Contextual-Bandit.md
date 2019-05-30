@@ -1,7 +1,5 @@
 ## _Work in progress_
 
-# Conditional Contextual Bandit
-
 Conditional Contextual Bandit (CCB) is an extension over contextual bandits, where there are multiple slots in which an action can be chosen. There is a shared context, as well as features for each action and slot. The CCB reduction (`ccb_explore_adf`) calls into `cb_sample` (see [Sampling](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Conditional-Contextual-Bandit#sampling)) and then `cb_explore_adf`, and so it essentially reduces into sequential cb operations. In order to learn relationships between the slots for each action that is taken its features are inserted into a special history namespace for subsequent slots. Additionally, there is an automatic quartic interaction between shared, action, slot and history features.
 
 ## Sampling
