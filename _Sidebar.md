@@ -26,6 +26,7 @@
   - [Warm starting contextual bandits](Warm-starting-contextual-bandits)
   - [Efficient Second Order Online Learning](Efficient-Second-Order-Online-Learning)
   - [Latent Dirichlet Allocation](Latent-Dirichlet-Allocation)
+  - [VW Reductions Workflows](VW-Reductions-Workflows)
 - [Examples](Examples)
   - [Logged Contextual Bandit example](Logged-Contextual-Bandit-Example)
   - [One Against All (oaa) multi class example](One-Against-All-(oaa)-multi-class-example)
