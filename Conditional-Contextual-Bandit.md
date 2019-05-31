@@ -4,7 +4,7 @@ Conditional Contextual Bandit (CCB) is an extension over contextual bandits, whe
 
 ## Sampling
 ## Input Format
-#### Input format
+### VW text format
 CCB format is a multi line example format with 3 different example/line types. Lines are identified by explicit types as part of the label. This is different to the previous implicit action example type.
 ```
 ccb shared | ...
@@ -26,3 +26,6 @@ ccb action | a:0.5 b:2 c:1
 ccb slot | d:4
 ccb slot 1:0.8:0.8,0:0.2 1,2 | d:7
 ```
+### JSON format
+
+### DSJSON format
