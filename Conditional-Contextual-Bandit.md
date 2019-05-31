@@ -29,3 +29,12 @@ ccb slot 1:0.8:0.8,0:0.2 1,2 | d:7
 ### JSON format
 
 ### DSJSON format
+
+## Label type
+
+## Prediction type
+
+## Example
+```C++
+example
+```
