@@ -14,3 +14,5 @@ The following reductions do not perform any validity checks
 * warm_cb
 
 Additionally, Search can bypass the csldf reduction if the cs_active option was provided.
+
+`Search -> explore_eval` and `Search -> cbifyldf` workflows are technically allowed, but are meaningless.
