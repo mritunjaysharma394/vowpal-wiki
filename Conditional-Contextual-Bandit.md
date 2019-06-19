@@ -57,4 +57,11 @@ The label type of CCB is `CCB::label`. It contains the example type as one of `s
     v_array<uint32_t> explicit_included_actions;
 };
 ```
+
 ## Prediction type
+The prediction type for CCB is `CCB::decision_scores_t`, defined as follows:
+```C++
+typedef v_array<ACTION_SCORE::action_scores> decision_scores_t;
+```
+
+This prediction contains an array of action scores for every slot. Therefore, the chosen actions are the items in index 0 of every array. The rest of the contents of each of these arrays are the results of each CB call. The probability values can be used to determine if the top action is an explore or exploit action by observing if it is the largest and unique probability or a smaller and duplicated probability.
