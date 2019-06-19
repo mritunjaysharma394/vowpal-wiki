@@ -21,7 +21,7 @@ ccb slot [<chosen_action>:<cost>:<probability>[,<action>:<probability,...] [acti
   - If included, the entire collection of probabilities must sum to 1.0
 - Test labels omit the entire `chosen_action:cost:probability`section
 
-For example:
+#### Example
 ```
 ccb shared | s_1 s_2
 ccb action | a:1 b:1 c:1
@@ -30,9 +30,42 @@ ccb slot | d:4
 ccb slot 1:0.8:0.8,0:0.2 1,2 | d:7
 ```
 ### JSON format
+The JSON format is identical to the CB format, with the addition of `_slots` field. The `_slots` field contains all of the slot information similar to `_multi` for actions. It is an array of objects, where each object is one slot. `_a` can be supplied to specify the explicit included actions but this is not included in the reduction yet.
 
+#### Example
+```json
+{
+    "shared_feature": "feature",
+    "_multi": [
+        {
+            "feature1": 3.0,
+            "feature2": "name1"
+        },
+        {
+            "feature1": 2.0,
+            "feature2": "name2"
+        },
+        {
+            "feature1": 3.0,
+            "feature2": "name3"
+        }
+    ],
+    "_slots": [
+        {
+            "size": "small",
+            "_a": [
+                0,
+                2
+            ]
+        },
+        {
+            "size": "large"
+        }
+    ]
+}
+```
 ### DSJSON format
-
+The DSJSON format for CCB is also similar to CB. The context field, `c`, is the same as for CB, where it is a valid object in VW JSON format. Therefore the slots are defined in the context field.
 ## Label type
 The label type of CCB is `CCB::label`. It contains the example type as one of `shared, action, slot`. An outcome if it was supplied (for labelled examples) and the currently `unused explicitly_included_actions`. The outcome is the cost associated with this example and all action probability pairs for this slot. You can see that this information directly corresponds to the information encoded in the text format section.
 
