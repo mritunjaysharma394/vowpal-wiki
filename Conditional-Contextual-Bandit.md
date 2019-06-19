@@ -98,7 +98,7 @@ The JSON format is identical to the CB format, with the addition of `_slots` fie
 }
 ```
 ### DSJSON format
-The DSJSON format for CCB is also similar to CB. The context field, `c`, is the same as for CB, where it is a valid object in VW JSON format. Therefore the slots are defined in the context field.
+The DSJSON format for CCB is also similar to CB. The context field, `c`, is the same as for CB, where it is a valid object in VW JSON format. Therefore the slots are defined in the context field. The `_outcomes` field contains an object per slot. This specifies the cost associated with this slot, the outcomes reported for this slot as well as either an array or single value for both actions and probabilities.
 #### Example
 ```json
 {
