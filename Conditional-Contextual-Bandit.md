@@ -66,29 +66,71 @@ The JSON format is identical to the CB format, with the addition of `_slots` fie
 ```
 ### DSJSON format
 The DSJSON format for CCB is also similar to CB. The context field, `c`, is the same as for CB, where it is a valid object in VW JSON format. Therefore the slots are defined in the context field.
-## Label type
-The label type of CCB is `CCB::label`. It contains the example type as one of `shared, action, slot`. An outcome if it was supplied (for labelled examples) and the currently `unused explicitly_included_actions`. The outcome is the cost associated with this example and all action probability pairs for this slot. You can see that this information directly corresponds to the information encoded in the text format section.
-
-```C++
-  struct conditional_contexual_bandit_outcome
-  {
-    float cost;
-    ACTION_SCORE::action_scores probabilities;
-  };
-
-  enum example_type : uint8_t
-  {
-    unset = 0,
-    shared = 1,
-    action = 2,
-    slot = 3
-  };
-
-  struct label {
-    example_type type;
-    conditional_contexual_bandit_outcome* outcome;
-    v_array<uint32_t> explicit_included_actions;
-};
+#### Example
+```json
+{
+    "Timestamp": "timestamp_utc",
+    "Version": "1",
+    "c": {
+        "shared_feature": "feature",
+        "_multi": [
+            {
+                "feature1": 3.0,
+                "feature2": "name1"
+            },
+            {
+                "feature1": 2.0,
+                "feature2": "name2"
+            },
+            {
+                "feature1": 3.0,
+                "feature2": "name3"
+            }
+        ],
+        "_slots": [
+            {
+                "size": "small",
+                "_a": [
+                    0,
+                    2
+                ]
+            },
+            {
+                "size": "large"
+            }
+        ]
+    },
+    "_outcomes": [
+        {
+            "_id": "id1",
+            "_label_cost": 0,
+            "_a": [
+                2,
+                0,
+                1
+            ],
+            "_p": [
+                0.67,
+                0.165,
+                0.165
+            ],
+            "_o": []
+        },
+        {
+            "_id": "id2",
+            "_label_cost": 0,
+            "_a": 1,
+            "_p": 0.34,
+            "_o": [
+                -1.0,
+                0.0
+            ]
+        }
+    ],
+    "VWState": {
+        "m": "vm_state"
+    }
+}
 ```
 
 ## Prediction type
