@@ -5,12 +5,13 @@ The following JSON format can be ingested into VW:
 * Top-level properties are considered features for the default namespace.
 * Top-level properties of type object or array are considered namespaces.
 * Features are JSON strings, integer, float, boolean, arrays of integers and/or floats.
-* Top-level properties starting with _ are ignored, except if they match a special property (e.g. "_label", "_multi", "_text").
+* Top-level properties starting with _ are ignored, except if they match a special property (e.g. "_label", "_multi", "_text", "_tag").
 * Labels can be passed using top-level "_label" property. This is also supported for multiline examples, but the label needs to be part of one of the multiline examples.
  * If the JSON value is either a string, integer or float is converted to a string and passed directly to VW label parser.
  * If the JSON value is an object, the first property needs to match one of the JSON properties of [SimpleLabel](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/cli/vw_label.h#L169) or [ContextualBanditLabel](https://github.com/JohnLangford/vowpal_wabbit/blob/master/cs/cli/vw_label.h#L37).  
+* Tags can be applied by using the "_tag" property.
 * Special text handling through "_text": properties named "_text" are processed using string splitting and not string escaping (see sample below).
-* Multiline examples as used by contextual bandits are specified by using the "_multi" property. Each entry itself is an example as described above and can optionally contain a label. The top-level properties are used for the optional shared example.
+* Multi-line examples as used by contextual bandits are specified by using the "_multi" property. Each entry itself is an example as described above and can optionally contain a label and/or tag. The top-level properties are used for the optional shared example.
 
 The C# layer can ingest
 * JSON strings 
