@@ -31,6 +31,14 @@ The C# layer can ingest
 <tr><td> 
   <pre lang="json"> 
 {
+ "f1":25,"f2":true,
+ "_tag":"mytag"
+} </pre> </td><td>
+  <pre> mytag| f1:25 f2</pre>
+</td></tr>
+<tr><td> 
+  <pre lang="json"> 
+{
  "ns1":{"location":"New York"},
  "f2":[1,0.2,3]
 } </pre> </td><td>
