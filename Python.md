@@ -14,6 +14,6 @@ If `pip install vowpalwabbit` does not work the most likely reason is because of
     vcpkg install boost-math:x64-windows
     vcpkg install boost-thread:x64-windows
     ```
-3. ` cd <repo_root>/python`
+3. ` cd <repo_root>`
 4. `python setup.py --vcpkg-root C:\path\to\vcpkg install`
     - Where `C:\path\to\vcpkg` is the root directory of where you cloned vcpkg
