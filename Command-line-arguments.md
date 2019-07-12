@@ -154,7 +154,7 @@ will ignore features of namespaces starting with `q` and the default namespace, 
 
 Unlike `--ngram` where the order of the features matters, `--sort_features` destroys the order in which features are presented and writes them in cache in a way that minimizes the cache size. `--sort_features` and `--ngram` are mutually exclusive
 
-`--permutations` defines how VW interacts features of the same namespace. For example, in case `-q aa`. If namespace `a` contains 3 features than by default VW generates only simple combinations of them: `aa:{(1,2),(1,3),(2,3)}`. With `--permutations` specified it will generate permutations of interacting features `aa:{(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)}`. It's recommended to not use `--permutations` without a good reason as it may cause generation of a lot more features than usual. 
+`--permutations` defines how VW interacts features of the same namespace. For example, in case `-q aa`. If namespace `a` contains 3 features than by default VW generates only simple combinations of them: `aa:{(1,1),(1,2),(1,3),(2,2),(2,3),(3,3)}`. With `--permutations` specified it will generate permutations of interacting features `aa:{(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)}`. It's recommended to not use `--permutations` without a good reason as it may cause generation of a lot more features than usual. 
 
 By default VW hashes string features and does not hash integer features. `--hash all` hashes all feature identifiers. This is useful if your features are integers and you want to use parallelization as it will spread the features almost equally among the threads or cluster nodes, having a load balancing effect.
 
