@@ -23,6 +23,7 @@
 - [Coding Guidelines](Coding-guidelines)
 - Reductions
   - [Contextual Bandit algorithms](Contextual-Bandit-algorithms)
+  - [Conditional Contextual Bandit](Conditional-Contextual-Bandit)
   - [Warm starting contextual bandits](Warm-starting-contextual-bandits)
   - [Efficient Second Order Online Learning](Efficient-Second-Order-Online-Learning)
   - [Latent Dirichlet Allocation](Latent-Dirichlet-Allocation)
