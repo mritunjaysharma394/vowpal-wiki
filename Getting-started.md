@@ -12,6 +12,8 @@ First step is to get VW by either:
     - Currently version 8.6.1
   - [Pypi](https://pypi.org/project/vowpalwabbit/)
     - `pip install vowpalwabbit`
-    - Currently version 8.5
+  - [Nuget Package](https://www.nuget.org/packages/VowpalWabbit/)
+
+
 
 Then, [follow the tutorial](Tutorial).
