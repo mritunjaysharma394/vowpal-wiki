@@ -11,7 +11,6 @@ First step is to get VW by either:
     - `brew install vowpal-wabbit`
     - Currently version 8.6.1
   - [Pypi](https://pypi.org/project/vowpalwabbit/)
-    - `pip install vowpalwabbit`
   - [Nuget Package](https://www.nuget.org/packages/VowpalWabbit/)
 
 
