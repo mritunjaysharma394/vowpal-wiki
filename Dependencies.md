@@ -5,6 +5,12 @@
 Before building VW from source the following dependencies must be satisfied.
 
 ## Ubuntu
+Ensure you have the source:
+```
+git clone https://github.com/VowpalWabbit/vowpal_wabbit.git
+cd vowpal_wabbit
+```
+Get dependencies:
 ```shell
 # Core
 sudo apt-get install libboost-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev libboost-math-dev libboost-test-dev zlib1g-dev cmake rapidjson-dev
@@ -27,6 +33,11 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
 [Next step: building on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#linux)
 
 ## MacOS
+Ensure you have the source:
+```
+git clone https://github.com/VowpalWabbit/vowpal_wabbit.git
+cd vowpal_wabbit
+```
 #### HomeBrew
 ```shell
 brew install cmake
@@ -59,6 +70,11 @@ The rest of the Linux instructions should apply to MacOS too.
 [Next step: building on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#linux)
 
 ## Windows
+Ensure you have the source:
+```
+git clone https://github.com/VowpalWabbit/vowpal_wabbit.git
+cd vowpal_wabbit
+```
 Download submodules:
 ```
 git submodule update --init --recursive
