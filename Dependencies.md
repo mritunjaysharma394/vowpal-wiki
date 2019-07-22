@@ -42,7 +42,6 @@ cd vowpal_wabbit
 ```shell
 brew install cmake
 brew install boost
-brew install rapidjson
 
 #If you want to statically link VW
 brew install zlib
