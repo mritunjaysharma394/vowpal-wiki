@@ -51,8 +51,6 @@ brew install boost-python
 
 #If you want to build with python 3 support
 brew install boost-python3
-
-# TODO Java dependency
 ```
 
 #### MacPorts
