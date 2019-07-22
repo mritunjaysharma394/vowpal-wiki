@@ -13,17 +13,17 @@ cd vowpal_wabbit
 Get dependencies:
 ```shell
 # Core
-sudo apt-get install libboost-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev libboost-math-dev libboost-test-dev zlib1g-dev cmake rapidjson-dev
+sudo apt install libboost-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev libboost-math-dev libboost-test-dev zlib1g-dev cmake
 
 # Optional: test
 pip install six
 
 # Optional: Python bindings
-sudo apt-get install libboost-python-dev
+sudo apt install libboost-python-dev
 
 # Optional: Java
 sudo add-apt-repository ppa:openjdk-r/ppa
-sudo apt-get update
+sudo apt update
 sudo apt install openjdk-11-jdk
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
 ```
