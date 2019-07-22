@@ -43,13 +43,13 @@ cd vowpal_wabbit
 brew install cmake
 brew install boost
 
-#If you want to statically link VW
+# If you want to statically link VW
 brew install zlib
 
-#If you want to build with python 2 support
+# If you want to build with python 2 support
 brew install boost-python
 
-#If you want to build with python 3 support
+# If you want to build with python 3 support
 brew install boost-python3
 ```
 
