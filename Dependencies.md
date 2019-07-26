@@ -21,11 +21,8 @@ pip install six
 # Optional: Python bindings
 sudo apt install libboost-python-dev
 
-# Optional: Java
-sudo add-apt-repository ppa:openjdk-r/ppa
-sudo apt update
-sudo apt install openjdk-11-jdk
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
+# Optional: Java, Ubuntu 16.04 or newer
+sudo apt install default-jdk
 ```
 
 **Note:** If using *WSL* and you cloned the repo in Windows you will need to run `git submodule update --init --recursive` before running cmake. Otherwise the submodule will be downloaded with git in bash and the line endings will break git commands from Windows. Otherwise, submodules are automatically downloaded by cmake.
