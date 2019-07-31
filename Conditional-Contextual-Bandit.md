@@ -62,8 +62,10 @@ ccb slot [<chosen_action>:<cost>:<probability>[,<action>:<probability,...] [acti
 ccb shared | s_1 s_2
 ccb action | a:1 b:1 c:1
 ccb action | a:0.5 b:2 c:1
-ccb slot | d:4
-ccb slot 1:0.8:0.8,0:0.2 0,1 | d:7
+ccb action | a:0.5 
+ccb action | c:1
+ccb slot  | d:4
+ccb slot 1:0.8:0.8,0:0.2 0,1,3 | d:7
 ```
 ### JSON format
 The JSON format is identical to the CB format, with the addition of `_slots` field. The `_slots` field contains all of the slot information similar to `_multi` for actions. It is an array of objects, where each object is one slot. `_a` can be supplied to specify the explicit included actions but this is not included in the reduction yet.
