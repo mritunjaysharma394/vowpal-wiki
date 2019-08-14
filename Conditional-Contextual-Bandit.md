@@ -5,6 +5,13 @@ CCB provides several improvements:
 - Diversity in predictions
 - Richer learning around slot dependent situations
 
+## Usage
+```
+vw --ccb_explore_adf -d <data_file> -p pred.out
+```
+
+To use CCB, invoke VW with `--ccb_explore_adf`. All of the normal parameters are valid such as data file and prediction output file. The data file should be in the input format described below.
+
 ## Sampling
 Since there are several calls to CB, in order for exploration to work each CB result must be sampled between each call. This is done automatically by the `cb_sample` reduction by potentially swapping the top action based on the pdf produced by the underlying `cb_explore_adf` call. Since exploration is done for every slot it is recommended to divide your epsilon by the number of slots in order to maintain a similar exploration amount.(`epsilon/num_slots`)
 
