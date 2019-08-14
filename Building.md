@@ -16,7 +16,7 @@ The CMake definition supports the following options that can be set when invokin
 
 | Option  | Description | Values | Default |
 | ------- | ----------- |------- |-------- |
-| CMAKE_BUILD_TYPE | Controls base flags for building. Release includes optimization, Debug is unoptimized  | Debug, Release  | Debug |
+| CMAKE_BUILD_TYPE | Controls base flags for building. Release includes optimization, Debug is unoptimized  | Debug, Release  | Release |
 | PROFILE | Turn on flags required for profiling | ON, OFF | OFF |
 | VALGRIND_PROFILE | Turn on flags required for profiling with valgrind in gcc | ON, OFF | OFF |
 | GCOV | Turn on flags required for code coverage in gcc | ON, OFF | OFF |
