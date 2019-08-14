@@ -13,7 +13,7 @@ cd vowpal_wabbit
 Get dependencies:
 ```shell
 # Core
-sudo apt install libboost-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev libboost-math-dev libboost-test-dev zlib1g-dev cmake
+sudo apt install libboost-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev libboost-math-dev libboost-test-dev zlib1g-dev cmake g++
 
 # Optional: test
 pip install six
