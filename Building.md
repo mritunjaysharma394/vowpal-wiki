@@ -68,13 +68,13 @@ versions (e.g. even from Ubuntu to Red-Hat) can be built with:
 mkdir build
 cd build
 cmake .. -DSTATIC_LINK_VW=ON
-make vw-bin -j
+make vw-bin -j<num_procs_to_use>
 ```
 
 #### Running Test Suite
 The following command will build all dependencies and then run the test suite:
 ```
-make test_with_output -j
+make test_with_output -j<num_procs_to_use>
 ```
 Everything should pass. If you see:
 ```
