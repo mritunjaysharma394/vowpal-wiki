@@ -32,7 +32,7 @@ sudo apt install default-jdk
 ## MacOS
 Ensure you have the source:
 ```
-git clone https://github.com/VowpalWabbit/vowpal_wabbit.git
+git clone --recursive https://github.com/VowpalWabbit/vowpal_wabbit.git
 cd vowpal_wabbit
 ```
 #### HomeBrew
@@ -66,13 +66,10 @@ The rest of the Linux instructions should apply to MacOS too.
 ## Windows
 Ensure you have the source:
 ```
-git clone https://github.com/VowpalWabbit/vowpal_wabbit.git
+git clone --recursive https://github.com/VowpalWabbit/vowpal_wabbit.git
 cd vowpal_wabbit
 ```
-Download submodules:
-```
-git submodule update --init --recursive
-```
+
 On Windows dependencies are managed with either Nuget, open `vowpalwabbit/vw.sln` in Visual Studio 2017 and restore Nuget dependencies.
 
 Note: VC++ v14.00  toolset must be installed. It can be done either as Visual Studio 2017 feature or as part of Visual Studio 2015. Windows 8.1 SDK must be installed as well.
