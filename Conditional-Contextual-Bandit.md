@@ -7,7 +7,7 @@ CCB provides several improvements:
 
 ## Usage
 ```
-vw --ccb_explore_adf -d <data_file> -p pred.out
+vw --ccb_explore_adf -d <data_file>
 ```
 
 To use CCB, invoke VW with `--ccb_explore_adf`. All of the normal parameters are valid such as data file and prediction output file. The data file should be in the input format described below.
