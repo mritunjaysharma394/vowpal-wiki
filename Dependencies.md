@@ -7,7 +7,7 @@ Before building VW from source the following dependencies must be satisfied.
 ## Ubuntu
 Ensure you have the source:
 ```
-git clone https://github.com/VowpalWabbit/vowpal_wabbit.git
+git clone --recursive https://github.com/VowpalWabbit/vowpal_wabbit.git
 cd vowpal_wabbit
 ```
 Get dependencies:
