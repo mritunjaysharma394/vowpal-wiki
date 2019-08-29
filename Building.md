@@ -3,6 +3,8 @@
 <hr>
 
 ## Linux 
+Make sure you have the [dependencies installed](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies).
+
 On most systems you should be able to build with:
 ```
 make
@@ -85,6 +87,7 @@ That's ok. Floating point arithmetic does not round exactly the same way on all 
 [Next step: installing on Linux](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Installing#linux)
 
 ## Windows
+Make sure you have the [dependencies installed](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies).
 ### Using Visual Studio
 1. Open `vowpalwabbit\vw.sln` in Visual Studio 2017
 2. Do not retarget projects if prompted
