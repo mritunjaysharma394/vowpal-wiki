@@ -7,6 +7,7 @@ First step is to get VW by either:
 - Or, installing with a package manager
   - apt-get
     - `sudo apt-get install vowpal-wabbit`
+    - This will most likely be an old version
   - Homebrew
     - `brew install vowpal-wabbit`
   - [Pypi](https://pypi.org/project/vowpalwabbit/)
