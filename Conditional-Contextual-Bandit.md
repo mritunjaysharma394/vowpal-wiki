@@ -80,29 +80,37 @@ The JSON format is identical to the CB format, with the addition of `_slots` fie
 #### Example
 ```json
 {
-    "shared_feature": "feature",
+    GUser": {
+      "shared_feature": "feature"
+    },
     "_multi": [
-        {
-            "feature1": 3.0,
-            "feature2": "name1"
-        },
-        {
-            "feature1": 2.0,
-            "feature2": "name2"
-        },
-        {
-            "feature1": 3.0,
-            "feature2": "name3"
+      {
+        "TAction": {
+          "feature1": 3.0,
+          "feature2": "name1"
         }
+      },
+      {
+        "TAction": {
+          "feature1": 3.0,
+          "feature2": "name1"
+        }
+      },
+      {
+        "TAction": {
+          "feature1": 3.0,
+          "feature2": "name1"
+        }
+      }
     ],
     "_slots": [
-        {
-            "size": "small",
-            "_a": [0, 2]
-        },
-        {
-            "size": "large"
-        }
+      {
+        "size": "small",
+        "_a": [0, 2]
+      },
+      {
+        "size": "large"
+      }
     ]
 }
 ```
