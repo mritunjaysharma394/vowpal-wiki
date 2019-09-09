@@ -162,7 +162,7 @@ The DSJSON format for CCB is also similar to CB. The context field, `c`, is the 
       "_id": "042661c4-d433-4b05-83d6-d51a2d1c68be",
       "_label_cost": 0,
       "_a": [1, 0],
-      "_p":[0.1, 0.9],
+      "_p": [0.1, 0.9],
       "_o": [-1.0, 0.0]
     }
   ],
