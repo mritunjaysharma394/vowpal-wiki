@@ -98,10 +98,7 @@ The JSON format is identical to the CB format, with the addition of `_slots` fie
     "_slots": [
         {
             "size": "small",
-            "_a": [
-                0,
-                2
-            ]
+            "_a": [0, 2]
         },
         {
             "size": "large"
