@@ -80,7 +80,7 @@ The JSON format is identical to the CB format, with the addition of `_slots` fie
 #### Example
 ```json
 {
-    GUser": {
+    "GUser": {
       "shared_feature": "feature"
     },
     "_multi": [
