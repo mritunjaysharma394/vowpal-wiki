@@ -114,66 +114,60 @@ The DSJSON format for CCB is also similar to CB. The context field, `c`, is the 
 #### Example
 ```json
 {
-    "Timestamp": "timestamp_utc",
-    "Version": "1",
-    "c": {
-        "shared_feature": "feature",
-        "_multi": [
-            {
-                "feature1": 3.0,
-                "feature2": "name1"
-            },
-            {
-                "feature1": 2.0,
-                "feature2": "name2"
-            },
-            {
-                "feature1": 3.0,
-                "feature2": "name3"
-            }
-        ],
-        "_slots": [
-            {
-                "size": "small",
-                "_a": [
-                    0,
-                    2
-                ]
-            },
-            {
-                "size": "large"
-            }
-        ]
+  "Timestamp": "2019-08-27T12:45:53.6300000Z",
+  "Version": "1",
+  "c": {
+    "GUser": {
+      "shared_feature": "feature"
     },
-    "_outcomes": [
-        {
-            "_id": "id1",
-            "_label_cost": 0,
-            "_a": [
-                2,
-                0,
-                1
-            ],
-            "_p": [
-                0.67,
-                0.165,
-                0.165
-            ],
-            "_o": []
-        },
-        {
-            "_id": "id2",
-            "_label_cost": 0,
-            "_a": 1,
-            "_p": 0.34,
-            "_o": [
-                -1.0,
-                0.0
-            ]
+    "_multi": [
+      {
+        "TAction": {
+          "feature1": 3.0,
+          "feature2": "name1"
         }
+      },
+      {
+        "TAction": {
+          "feature1": 3.0,
+          "feature2": "name1"
+        }
+      },
+      {
+        "TAction": {
+          "feature1": 3.0,
+          "feature2": "name1"
+        }
+      }
     ],
-    "VWState": {
-        "m": "vm_state"
+    "_slots": [
+      {
+        "size": "small",
+        "_a": [0, 2]
+      },
+      {
+        "size": "large"
+      }
+    ]
+  },
+  "_outcomes": [
+    {
+      "_id": "62ddd79e-4d75-4c64-94f1-a5e13a75c2e4",
+      "_label_cost": 0,
+      "_a": [2, 0],
+      "_p": [0.9, 0.1],
+      "_o": []
+    },
+    {
+      "_id": "042661c4-d433-4b05-83d6-d51a2d1c68be",
+      "_label_cost": 0,
+      "_a": [1, 0],
+      "_p":[0.1, 0.9],
+      "_o": [-1.0, 0.0]
     }
+  ],
+  "VWState": {
+    "m": "da63c529-018b-44b1-ad0f-c2b13056832c/195fc8ed-224f-471a-90c4-d3e60b336f8f"
+  }
 }
 ```
