@@ -16,7 +16,7 @@ To use CCB, invoke VW with `--ccb_explore_adf`. All of the normal parameters are
 Since there are several calls to CB, in order for exploration to work each CB result must be sampled between each call. This is done automatically by the `cb_sample` reduction by potentially swapping the top action based on the pdf produced by the underlying `cb_explore_adf` call. Since exploration is done for every slot it is recommended to divide your epsilon by the number of slots in order to maintain a similar exploration amount.(`epsilon/num_slots`)
 
 ## Label Type
-The label type of CCB is CCB::label. It contains the example type as one of shared, action, slot. An outcome if it was supplied (for labelled examples) and the currently unused explicitly_included_actions. The outcome is the cost associated with this example and all action probability pairs for this slot. You can see that this information directly corresponds to the information encoded in the text format section.
+The label type of CCB is `CCB::label`. It contains the example type as one of shared, action, slot. An outcome if it was supplied (for labelled examples) and `explicit_included_actions`. The outcome is the cost associated with this example and all action probability pairs for this slot. You can see that this information directly corresponds to the information encoded in the text format section.
 
 ```C++
 struct conditional_contexual_bandit_outcome
