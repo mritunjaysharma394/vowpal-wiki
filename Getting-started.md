@@ -2,17 +2,7 @@
 
 <hr>
 
-First step is to get VW by either:
-- [Building from source](Dependencies)
-- Or, installing with a package manager
-  - apt-get
-    - `sudo apt-get install vowpal-wabbit`
-    - This will most likely be an old version
-  - Homebrew
-    - `brew install vowpal-wabbit`
-  - [Pypi](https://pypi.org/project/vowpalwabbit/)
-  - [Nuget Package](https://www.nuget.org/packages/VowpalWabbit/)
+- To install a VW package go to the [getting started page on VowpalWabbit.org](https://vowpalwabbit.org/start.html)
+- To build from source, go to [[dependencies]]
 
-
-
-Then, [follow the tutorial](Tutorial).
+Then, [follow a tutorial](Tutorial).
