@@ -20,6 +20,7 @@ The idea of these guidelines is to form a general consensus about the method use
 10. All examples are handled by the same stack of reductions.  
 11. Examples are passed by function call.  
 12. It’s not working until there are no warnings and Valgrind says it’s clean.
+13. Prefer to use fixed size types where possible. Example: `uint32_t`
 
 ## Exception Policy
 1. If an error state can be handled locally, that should always be what we do.  
@@ -28,6 +29,9 @@ The idea of these guidelines is to form a general consensus about the method use
 4. We avoid new exceptions in the example handling path and have a goal of removing any others that exist. 
 5. Where error states are unavoidable (i.e. situations like arguments-don’t-make-sense) we’ll accept off-critical-path exceptions.  A proposal for refactoring around return codes is welcome, but that will need to be driven by Rajan and is subject to priorities.  At the library interface level, I believe this can be handled by having an explicit catch in the library interface for the setup calls.
 
+# Style
+1. There is a [`.clang-format file`](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/.clang-format), which outlines the general style
+2. Class member variables should be prefixed with `_`. Example: `uint32_t _number_of_actions;`
 # Improvements
 
 This is a list of improvements that we want to make to the code.  Any help implementing them is of course welcome.  
