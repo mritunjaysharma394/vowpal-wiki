@@ -32,6 +32,10 @@ The idea of these guidelines is to form a general consensus about the method use
 # Style
 1. There is a [`.clang-format file`](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/.clang-format), which outlines the general style
 2. Class member variables should be prefixed with `_`. Example: `uint32_t _number_of_actions;`
+3. All types should be nested in the `VW` namespace
+    - This is a work in progress
+    - Ultimately this namespace will become `vw`. `VW` -> `vw`
+
 # Improvements
 
 This is a list of improvements that we want to make to the code.  Any help implementing them is of course welcome.  
