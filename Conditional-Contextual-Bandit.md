@@ -75,7 +75,7 @@ ccb slot  | d:4
 ccb slot 1:0.8:0.8,0:0.2 0,1,3 | d:7
 ```
 ### JSON format
-The JSON format is identical to the CB format, with the addition of `_slots` field. The `_slots` field contains all of the slot information similar to `_multi` for actions. It is an array of objects, where each object is one slot. `_a` can be supplied to specify the explicit included actions.
+The JSON format is identical to the CB format, with the addition of `_slots` field. The `_slots` field contains all of the slot information similar to `_multi` for actions. It is an array of objects, where each object is one slot. `_inc` can be supplied to specify the explicit included actions.
 
 #### Example
 ```json
