@@ -1,4 +1,4 @@
-Running VW with the `-h` or `--help` option produces a message which briefly explains each argument. If you want to know all parameters of a given reduction (e.g. `--ksvm` or `--nn`), you must add the reduction parameter to the help command (e.g. `vw -h --ksvm` or `vw -h --nn 1`). Below arguments are grouped according to their function and each argument is explained in more detail.
+Running VW with the `-h` or `--help` option produces a message which briefly explains each argument. Below arguments are grouped according to their function and each argument is explained in more detail.
 
 # **VW options**
     -h [ --help ]                Look here: http://hunch.net/~vw/ and
