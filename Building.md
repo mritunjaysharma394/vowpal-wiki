@@ -70,13 +70,13 @@ versions (e.g. even from Ubuntu to Red-Hat) can be built with:
 mkdir build
 cd build
 cmake .. -DSTATIC_LINK_VW=ON
-make vw-bin -j<num_procs_to_use>
+make vw-bin -j `nproc`
 ```
 
 #### Running Test Suite
 The following command will build all dependencies and then run the test suite:
 ```
-make test_with_output -j<num_procs_to_use>
+make test_with_output -j `nproc`
 ```
 Everything should pass. If you see:
 ```
