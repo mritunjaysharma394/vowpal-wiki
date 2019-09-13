@@ -72,11 +72,7 @@ Parsing raw data is slow so there are options to create or load data in VW's nat
 
 `--min_prediction` and `--max_prediction` control the range of the output prediction by clipping.  By default, it automatically adjusts to the range of labels observed.  If you set this, there is no auto-adjusting.
 
-The `-a` or `--audit` option is useful for debugging and for accessing the features and values for each example as well as the values in VW's weight vector. The format depends on the mode VW is running on. The format used for the non-LDA case is: 
-
-    `prediction tag (namespace^feature:hashindex:value:weight[@ssgrad] )*`
-
-`prediction` is VW's prediction on the example with tag `tag`. Then there's a list of feature information. `namespace` is the namespace where the feature belongs, `feature` is the name of the feature, `hashindex` is the position where it hashes, `value` is the value of the feature, `weight` is the current learned weight associated with that feature and finally `ssgrad` is the sum of squared gradients (plus 1) if adaptive updates are used. 
+The `-a` or `--audit` option is useful for debugging and for accessing the features and values for each example as well as the values in VW's weight vector. See [[Audit]] wiki page for more details.
 
 # **Example Manipulation options**
     -t [ --testonly ]        Ignore label information and just test
