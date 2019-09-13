@@ -8,6 +8,7 @@ There are several optimization algorithms available with the baseline being spar
 
 To build vw from source, in various environments, please follow the instructions on the [getting started page](Getting-Started).
 
+- [Project site](https://vowpalwabbit.org)
 - [[Getting Started]]
 - [[Tutorial]]
 - [[Command line arguments]]
