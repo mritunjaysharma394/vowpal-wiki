@@ -13,6 +13,7 @@
   - [Feature hashing and extraction](Feature-Hashing-and-Extraction)
   - [Feature interactions](Feature-interactions)
 - [Command line arguments](Command-Line-Arguments)
+- [[Audit]]
 - [Doxygen Documentation](Doxygen-Documentation)
 - [Algorithm details](Algorithm-Details)
 - [Awesome Vowpal Wabbit](Awesome-Vowpal-Wabbit)
