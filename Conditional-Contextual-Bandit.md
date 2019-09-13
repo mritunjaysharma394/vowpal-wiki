@@ -106,7 +106,7 @@ The JSON format is identical to the CB format, with the addition of `_slots` fie
     "_slots": [
       {
         "size": "small",
-        "_a": [0, 2]
+        "_inc": [0, 2]
       },
       {
         "size": "large"
@@ -148,7 +148,7 @@ The DSJSON format for CCB is also similar to CB. The context field, `c`, is the 
     "_slots": [
       {
         "size": "small",
-        "_a": [0, 2]
+        "_inc": [0, 2]
       },
       {
         "size": "large"
