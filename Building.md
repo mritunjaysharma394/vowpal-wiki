@@ -108,7 +108,7 @@ msbuild /p:Configuration="Release" /p:Platform="x64" vw.sln
     1. `CMAKE_TOOLCHAIN_FILE=<vcpkg_root>/scripts/buildsystems/vcpkg.cmake`
     2. `VCPKG_TARGET_TRIPLET=x64-windows`
 3. Configure
-4. Choose Visual Studio 15 2017 Win64
+4. Choose generator (for example, Visual Studio 15 2017 Win64)
 5. Generate
 6. Open Project
 
@@ -116,7 +116,7 @@ msbuild /p:Configuration="Release" /p:Platform="x64" vw.sln
 ```cmd
 mkdir build
 cd build
-cmake .. -G "Visual Studio 15 2017 Win64" -DCMAKE_TOOLCHAIN_FILE=<vcpkg_root>\scripts\buildsystems\vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows
+cmake .. -DCMAKE_TOOLCHAIN_FILE=<vcpkg_root>\scripts\buildsystems\vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows
 .\vowpal_wabbit.sln
 ```
 
