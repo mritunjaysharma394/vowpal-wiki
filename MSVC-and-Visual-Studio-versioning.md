@@ -1,0 +1,3 @@
+To determine what VS version supports what standard of C++ and then mapping that to the relevant value of `_MSC_VER` macro see these two locations.
+- [Visual Studio version language conformance](https://docs.microsoft.com/en-us/cpp/overview/visual-cpp-language-conformance?view=vs-2019#note_A)
+- [Visual Studio to MSVC version and `_MSC_VER` macro](https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B)
