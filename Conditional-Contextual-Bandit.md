@@ -49,6 +49,7 @@ typedef v_array<ACTION_SCORE::action_scores> decision_scores_t;
 This prediction contains an array of action scores for every slot. Therefore, the chosen actions are the items in index 0 of every array. The rest of the contents of each of these arrays are the results of each CB call. The probability values can be used to determine if the top action is an explore or exploit action by observing if it is the largest and unique probability or a smaller and duplicated probability.
 
 ## Input Format
+- For all input formats at least one feature must be provided per component (shared, action, slot)
 ### VW text format
 CCB format is a multi line example format with 3 different example/line types. Lines are identified by explicit types as part of the label. This is different to the previous implicit action example type.
 ```
