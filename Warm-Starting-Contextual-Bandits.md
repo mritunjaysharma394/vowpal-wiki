@@ -1,13 +1,14 @@
-VW has a --warm_cb option that simulates [warm-starting contextual bandits learning](https://arxiv.org/pdf/1901.00301.pdf). In this setting, the learner is given a set of warm-start supervised learning examples to help with contextual bandit learning. With the help of these additional warm-start examples, the learner is able to achieve a smaller cost in the interaction stage.
+VW has a `--warm_cb` reduction that simulates [warm-starting contextual bandits learning](https://arxiv.org/pdf/1901.00301.pdf). In this setting, the learner is given a set of warm-start supervised learning examples to help with contextual bandit learning. With the help of these additional warm-start examples, the learner is able to achieve a smaller cost in the interaction stage.
 
 The learning process consists of two stages:
-
-1. Warm-start. The learner receives warm-start examples and updates its model accordingly.
-2. Interaction. The learner starts with the warm-started model, perform online contextual bandit learning, alternating between prediction and update. 
+1. Warm-start: The learner receives warm-start examples and updates its model accordingly.
+2. Interaction: The learner starts with the warm-started model, perform online contextual bandit learning, alternating between prediction and update. 
 
 The performance of the learner is measured by its cost incurred in the interaction stage.
 
-VW takes into input option --warm_start x --interaction y, where x specifies the number of warm start examples, and y is the length of the interaction stage. 
+Warm CB has several options, of particular interest are:
+- `--warm_start x` where `x` specifies the number of warm start examples
+- `--interaction y` where `y` is the length of the interaction stage
 
 ## Input Format
 Warm CB by default uses examples with multiclass labels. It can also be used with cost sensitive examples, [see the section on that.](#allowing-cost-sensitive-examples-as-input)
@@ -15,7 +16,7 @@ Warm CB by default uses examples with multiclass labels. It can also be used wit
 # A Simple Example
 Suppose we have [text_highnoise_m.vw](https://raw.githubusercontent.com/zcc1307/vw_datasets/master/datasets/text_highnoise_m.vw), a dataset of 10-class multiclass examples in VW format.
 
- We can run:
+We can run:
 
     ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 1000 --warm_start_update --interaction_update -d text_highnoise_m.vw
     Num weight bits = 18
@@ -53,7 +54,7 @@ Note that the VW output has the same doubling schedule; however, we only count t
 
 # Baseline 1: using only interaction examples (Bandit-Only)
 
-We can also run the above command without the "--warm_start_update" option, which essentially skips the warm start examples and perform contextual bandit learning directly:
+We can also run the above command without the `--warm_start_update` option, which essentially skips the warm start examples and perform contextual bandit learning directly:
 
     ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 1000 --interaction_update -d text_highnoise_m.vw
     Num weight bits = 18
@@ -124,10 +125,10 @@ Another extreme is to train a model purely based on the warm start examples, and
 
 # Label corruption on the warm-starting examples
 
-Sometimes, we would like to simulate the setting where the label distribution of the warm-start examples does not perfectly match those of the examples in the interaction stage. VW supports this by allowing to specify one of three modes of corruption, and the corruption probability (specified in --corrupt_type_warm_start and --corrupt_prob_warm_start). The three modes or corruptions are:
-1. replace a label with one chosen uniformly-at-random; 
-2. replace label i with its next label ((i+1) mod K, where K is the total number of classes) 
-3. replace a label with a "overwriting" label l. 
+Sometimes, we would like to simulate the setting where the label distribution of the warm-start examples does not perfectly match those of the examples in the interaction stage. VW supports this by allowing to specify one of three modes of corruption, and the corruption probability (specified in `--corrupt_type_warm_start` and`--corrupt_prob_warm_start`). The three modes or corruptions are:
+1. Replace a label with one chosen uniformly-at-random;
+2. Replace label i with its next label ((i+1) mod K, where K is the total number of classes)
+3. Replace a label with a "overwriting" label l.
 
 For example, we can add type 2 corruption with probability 0.5 on the first 10 supervised learning examples:
 
@@ -164,7 +165,7 @@ For example, we can add type 2 corruption with probability 0.5 on the first 10 s
 
 # Using a larger set of weighted combination values
 
-By default, the warm-start contextual bandit learner place equal weights on every warm-start examples and every interaction examples. It is often a good idea to use a large set of weighted combination values and perform selection on top of them, to find out the right balance between warm-start examples and the bandit examples in the interaction stage. This can be specified with the --lambda_scheme parameter and --choices_lambda_parameter, as shown in the example below.
+By default, the warm-start contextual bandit learner place equal weights on every warm-start examples and every interaction examples. It is often a good idea to use a large set of weighted combination values and perform selection on top of them, to find out the right balance between warm-start examples and the bandit examples in the interaction stage. This can be specified with the `--lambda_scheme` parameter and `--choices_lambda` parameter, as shown in the example below.
 
     ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 1000 --warm_start_update --interaction_update --corrupt_type_warm_start 2 --corrupt_prob_warm_start 0.5 --lambda_scheme 2 --choices_lambda 2 -d text_hig
     hnoise_m.vw
@@ -200,7 +201,7 @@ By default, the warm-start contextual bandit learner place equal weights on ever
 
 # Allowing cost-sensitive examples as input
 
-Warm-cb also supports the input examples being of cost-sensitive form, i.e. each example's label part is a cost vector. To accept this input format, VW needs to take an additional option --warm_cb_cs. Here we have a dataset [text_highnoise.vw](https://raw.githubusercontent.com/zcc1307/vw_datasets/master/datasets/text_highnoise.vw), which is identical to text_highnoise_m.vw, except that each example's label is in the cost vector format. We get exactly the same result as running using text_highnoise_m.vw as input without --warm_cb_cs option:
+Warm CB also supports the input examples being of cost-sensitive form, i.e. each example's label part is a cost vector. To accept this input format, VW needs to take an additional option `--warm_cb_cs`. Here we have a dataset [text_highnoise.vw](https://raw.githubusercontent.com/zcc1307/vw_datasets/master/datasets/text_highnoise.vw), which is identical to text_highnoise_m.vw, except that each example's label is in the cost vector format. We get exactly the same result as running using text_highnoise_m.vw as input without `--warm_cb_cs` option:
 
     ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 1000 --warm_start_update --interaction_update --warm_cb_cs -d text_highnoise.vw
     Num weight bits = 18
