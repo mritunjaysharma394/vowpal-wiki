@@ -9,15 +9,11 @@ The performance of the learner is measured by its cost incurred in the interacti
 
 VW takes into input option --warm_start x --interaction y, where x specifies the number of warm start examples, and y is the length of the interaction stage. 
 
-# Input
+## Input Format
+Warm CB by default uses examples with multiclass labels. It can also be used with cost sensitive examples, [see the section on that.](#allowing-cost-sensitive-examples-as-input)
+
+# A Simple Example
 Suppose we have [text_highnoise_m.vw](https://raw.githubusercontent.com/zcc1307/vw_datasets/master/datasets/text_highnoise_m.vw), a dataset of 10-class multiclass examples in VW format.
-
---warm_cb = multiclass
---warm_cb_cs = cost sensitive
-
-This dataset is in multiclass label format. Warm cb expects examples to use
-
-# A simple example
 
  We can run:
 
