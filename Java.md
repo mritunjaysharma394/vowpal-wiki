@@ -3,10 +3,12 @@
 # Usage
 Look [here](https://github.com/VowpalWabbit/vowpal_wabbit/tree/master/java)
 
-## Build & Release
+## Build
 
 CI build pipeline can be found [here](https://dev.azure.com/vowpalwabbit/Vowpal%20Wabbit/_build?definitionId=33&_a=summary). 
 
-It's a dry-run of the same publish [pipeline](https://dev.azure.com/vowpalwabbit/Vowpal%20Wabbit/_build?definitionId=27) w/o credentials set. Run this manually to trigger a Maven/Sonatype release of the jar file.
+## Performing a release
 
-Once the jar is published to sonatype it needs another approval step. Visit [Sonatype](https://oss.sonatype.org/#stagingRepositories) and "close & release" the staged jar.
+1. Make sure the sub-version is set correctly and does **not** include -SNAPSHOT (e.g. .0) in the [pom.xml.in](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/java/pom.xml.in#L7)
+2. Manually run the build [pipeline](https://dev.azure.com/vowpalwabbit/Vowpal%20Wabbit/_build?definitionId=27).
+3. Visit [Sonatype](https://oss.sonatype.org/#stagingRepositories) and "close & release" the staged jar.
