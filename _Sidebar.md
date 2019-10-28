@@ -48,7 +48,7 @@
 - Bindings
   - [C# Binding](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/C%23-Binding)
   - [[Python]]
-  - Java
+  - [[Java]]
 - [Implement your own joint prediction model](Implement-Your-Own-Joint-Prediction-Model)
 - [Predicting probabilities](Predicting-probabilities)
 - [murmur2 vs murmur3](murmur2-vs-murmur3)
