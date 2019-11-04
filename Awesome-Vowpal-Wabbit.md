@@ -16,6 +16,7 @@ This page contains a curated list of examples, research, videos, tutorials, and 
 - [Vowpal Wabbit tutorial for the Uninitiated](http://www.zinkov.com/posts/2013-08-13-vowpal-tutorial/) on Convex Optimized.
 - [Solving NLP problems with Vowpal Wabbit](https://github.com/hal3/vwnlp) by Hal Daumé III.
 - [Machine Learning meets ketosis: how to effectively lose weight](https://github.com/arielf/weight-loss) by Ariel Faigon.
+- [Vowpal Wabbit tutorial: blazingly fast learning](https://www.kaggle.com/kashnitsky/vowpal-wabbit-tutorial-blazingly-fast-learning) - tutorial in a form of a Kaggle Kernel by Yury Kashnitsky
 - ...
 
 ## Tuning
