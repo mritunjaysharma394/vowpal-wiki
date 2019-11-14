@@ -9,3 +9,9 @@ If `pip install vowpalwabbit` does not work the most likely reason is because of
 3. ` cd <repo_root>`
 4. `python setup.py --vcpkg-root C:\path\to\vcpkg install`
     - Where `C:\path\to\vcpkg` is the root directory of where you cloned vcpkg
+
+### OSX
+1. Clone the vowpal wabbit repository
+2. [Install dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies#macos)
+3. `cd <repo_root>`
+4. `python setup.py install`
