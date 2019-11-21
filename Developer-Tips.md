@@ -1,4 +1,8 @@
-Clang Tidy can be used by configuring the CMake project and adding the following argument:
+Clang Tidy can be run by:
 ```
-"-DCMAKE_CXX_CLANG_TIDY=clang-tidy -checks=-*,readability-*"
+mkdir build
+cd build
+cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=On
+cd ..
+clang-tidy -p build --checks=* vowpalwabbit/*.cc vowpalwabbit/*.h
 ```
