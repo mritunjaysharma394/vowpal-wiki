@@ -3,14 +3,14 @@
 <hr>
 
 ## Tutorials on [VowpalWabbit.org](https://vowpalwabbit.org)
-- [Getting started](https://vowpalwabbit.org/guides/getting_started.html)
+- [Getting started](https://vowpalwabbit.org/tutorials/getting_started.html)
     - Introduction to VW concepts
     - Uses command line interface
-- [Contextual Bandits](https://vowpalwabbit.org/guides/contextual_bandits.html)
+- [Contextual Bandits](https://vowpalwabbit.org/tutorials/contextual_bandits.html)
     - Introduction to contextual bandit algorithms
     - Uses Python
-- [Simulating a news personalization scenario using Contextual Bandits](https://vowpalwabbit.org/guides/cb_simulation.html)
-    - Setup a simulation scenario using a contextual bandit algoritm
+- [Simulating a news personalization scenario using Contextual Bandits](https://vowpalwabbit.org/tutorials/cb_simulation.html)
+    - Setup a simulation scenario using a contextual bandit algorithm
     - Uses Python
 
 ## More Tutorials
