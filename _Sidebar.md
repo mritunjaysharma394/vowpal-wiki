@@ -54,3 +54,4 @@
 - [murmur2 vs murmur3](murmur2-vs-murmur3)
 - [Weight vector](Weight-vector)
 - [Zhen's Presentation Slides on enhancements to vw](Zhen's-Presentation-Slides-on-enhancements-to-vw)
+- [Maintainer Info](Maintainer-Info)
