@@ -239,33 +239,33 @@ Warm CB also supports the input examples being of cost-sensitive form, i.e. each
 
 We also include a baseline approach, named Sim-Bandit in the [warm contextual bandits paper](https://arxiv.org/pdf/1901.00301.pdf). In the warm-start stage, it performs simulation of contextual bandit learning and produces a model; then, in the interaction stage, it continues contextual bandit learning, with the model initialized as the one at the end of the warm-start stage. This under-utilizes the warm-start examples, as the algorithm only uses part of the label for every warm-start example.
 
-    ./vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 1000 --warm_start_update --interaction_update --warm_cb_cs -d text_highnoise.vw
-    Num weight bits = 18
-    learning rate = 0.5
-    initial_t = 0
-    power_t = 0.5
-    using no cache
-    Reading datafile = text_highnoise.vw
-    num sources = 1
-    average  since         example        example  current  current  current
-    loss     last          counter         weight    label  predict features
-    0.000000 0.000000           11            1.0    known        4      101
-    0.000000 0.000000           12            2.0    known        6      101
-    0.000000 0.000000           14            4.0    known        6      101
-    0.125000 0.250000           18            8.0    known        5      101
-    0.125000 0.125000           26           16.0    known        8      101
-    0.125000 0.125000           42           32.0    known       10      101
-    0.093750 0.062500           74           64.0    known        6      101
-    0.117188 0.140625          138          128.0    known        5      101
-    0.132812 0.148438          266          256.0    known        3      101
-    0.134766 0.136719          522          512.0    known        6      101
+./build/vowpalwabbit/vw --warm_cb 10 --cb_explore_adf --cb_type mtr --epsilon 0.05 --warm_start 10 --interaction 1000 --warm_start_update --interaction_update -d text_highnoise_m.vw --sim_bandit
+Num weight bits = 18
+learning rate = 0.5
+initial_t = 0
+power_t = 0.5
+using no cache
+Reading datafile = text_highnoise_m.vw
+num sources = 1
+average  since         example        example  current  current  current
+loss     last          counter         weight    label  predict features
+1.000000 1.000000           11            1.0        4        9      101
+1.000000 1.000000           12            2.0        6        3      101
+0.750000 0.500000           14            4.0        6        6      101
+0.750000 0.750000           18            8.0        8       10      101
+0.750000 0.750000           26           16.0        8        1      101
+0.781250 0.812500           42           32.0       10        4      101
+0.765625 0.750000           74           64.0        9       10      101
+0.664062 0.562500          138          128.0        5        9      101
+0.457031 0.250000          266          256.0        9        9      101
+0.267578 0.078125          522          512.0        6        6      101
 
-    finished run
-    number of examples = 10000
-    weighted example sum = 1000.000000
-    weighted label sum = 0.000000
-    average loss = 0.132000
-    total feature number = 1010000
-    average variance estimate = 10.795802
-    theoretical average variance = 200.000000
-    last lambda chosen = 0.500000 among lambdas ranging from 0.500000 to 0.500000
+finished run
+number of examples = 10000
+weighted example sum = 1000.000000
+weighted label sum = 0.000000
+average loss = 0.158000
+total feature number = 1010000
+average variance estimate = 21.936954
+theoretical average variance = 200.000000
+last lambda chosen = 0.500000 among lambdas ranging from 0.500000 to 0.500000
