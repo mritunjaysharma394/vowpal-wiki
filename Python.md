@@ -20,6 +20,8 @@ The commands listed below will be using apt, replace this for the package manage
 2. If you need to build VowpalWabbit from source on Windows, use the following instructions
     1. [Install vcpkg ](https://github.com/Microsoft/vcpkg)
     2. [Install dependencies with vcpkg](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies#experimental-cmake-build-system-on-windows)
+        - Python 3.6 is built against [commit aa095559](https://github.com/microsoft/vcpkg/tree/aa095559917a495b160986e9ad50556431509ace)
+        - Python 3.7 is built against [commit 8c3e093](https://github.com/microsoft/vcpkg/tree/8c3e093d0509fb0c7cc325692834fc1583a05390)
     ```bat
     vcpkg --triplet x64-windows install zlib boost-system boost-program-options boost-test boost-align boost-foreach boost-python boost-math boost-thread python3
     ```
