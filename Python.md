@@ -1,4 +1,4 @@
-## Installing
+# Installing
 ### Windows
 Windows has wheels deployed to pypi for Python 3.6 (64-bit) and Python 3.7 (64-bit).
 Simply run `pip install vowpalwabbit`
@@ -36,3 +36,55 @@ There are several known issues regarding the VowpalWabbit installation for OSX.
 2. CMake can't find Boost
     - Ensure the [required Boost libraries](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies#macos) are installed
     - If your Boost version is 1.70 or earlier, install using the command `python setup.py --enable-boost-cmake install`
+
+
+# Debugging Python/C++
+
+The Python bindings can be debugged in a mixed mode fashion by connecting two debuggers. This lets you set breakpoints in both languages.
+
+## Requirements
+- VSCode
+- [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+- [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+
+## Steps
+1. Edit `launch.json` to add the [required targets](#launchjson)
+2. Ensure VW bindings are installed as debug
+    2. Right now this means editing line 88 of `setup.py` and setting `config` to `'debug'`
+    3. Then run `setup.py install -f` under the repo root to install the bindings
+3. Open the Python file to debug and run ``"Launch current Python file"`` debugger target
+4. While the Python debugger is attached and broken at some breakpoint run ``"Attach GDB to Python"`` debugger target and select the Python process
+    - If you get an error message like (I think this only happens in WSL):
+        ```sh
+        Error getting authority: Error initializing authority: Could not connect: No such file or directory
+        [1] + Done(127)                  /usr/bin/pkexec "/usr/bin/gdb" --interpreter=mi --tty=${DbgTerm} 0<"/tmp/Microsoft-MIEngine-In-zxx2mqu5.eh4" 1>"/tmp/Microsoft-MIEngine-Out-3ynea04r.784"
+        ```
+    - Then run the following:     `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope`
+
+**Note:** you cannot step over the language boundary. To move between you need to set breakpoints on either side and use `"continue"`.
+## Resources
+### launch.json
+```json
+{
+  "name": "Launch current Python file",
+  "type": "python",
+  "request": "launch",
+  "pythonPath": "/usr/bin/python",
+  "program": "${file}",
+  "cwd": "${workspaceFolder}",
+  "console": "integratedTerminal"
+},
+{
+  "name": "Attach GDB to Python",
+  "type": "cppdbg",
+  "request": "attach",
+  "program": "/usr/bin/python",
+  "processId": "${command:pickProcess}",
+  "MIMode": "gdb"
+}
+```
+
+### Links
+- [Original instructions](https://gist.github.com/asroy/ca018117e5dbbf53569b696a8c89204f)
+- [Issue describing issue of using external terminal with WSL](https://github.com/Microsoft/vscode-python/issues/2732)
+- [Issue describing elevation issue on WSL](https://github.com/microsoft/vscode-remote-release/issues/99 )
