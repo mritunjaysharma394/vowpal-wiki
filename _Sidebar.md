@@ -21,7 +21,6 @@
 - [Learning to Search subsystem](Learning-to-Search-Sub-System)
 - [Loss functions](Loss-functions)
 - [Gotchas](Gotchas)
-- [Coding Guidelines](Coding-guidelines)
 - Reductions
   - [Contextual Bandit algorithms](Contextual-Bandit-algorithms)
   - [Conditional Contextual Bandit](Conditional-Contextual-Bandit)
@@ -29,6 +28,10 @@
   - [Efficient Second Order Online Learning](Efficient-Second-Order-Online-Learning)
   - [Latent Dirichlet Allocation](Latent-Dirichlet-Allocation)
   - [VW Reductions Workflows](VW-Reductions-Workflows)
+- Bindings
+  - [C# Binding](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/C%23-Binding)
+  - [[Python]]
+  - [[Java]]
 - [Examples](Examples)
   - [Logged Contextual Bandit example](Logged-Contextual-Bandit-Example)
   - [One Against All (oaa) multi class example](One-Against-All-(oaa)-multi-class-example)
@@ -45,13 +48,10 @@
   - [Using vw hypersearch](Using-vw-hypersearch)
   - [Using vw regr](Using-vw-regr)
   - [Using vw varinfo](Using-vw-varinfo)
-- Bindings
-  - [C# Binding](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/C%23-Binding)
-  - [[Python]]
-  - [[Java]]
 - [Implement your own joint prediction model](Implement-Your-Own-Joint-Prediction-Model)
 - [Predicting probabilities](Predicting-probabilities)
 - [murmur2 vs murmur3](murmur2-vs-murmur3)
 - [Weight vector](Weight-vector)
 - [Zhen's Presentation Slides on enhancements to vw](Zhen's-Presentation-Slides-on-enhancements-to-vw)
 - [Maintainer Info](Maintainer-Info)
+- [Coding Guidelines](Coding-guidelines)
