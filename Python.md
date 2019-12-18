@@ -72,7 +72,8 @@ The Python bindings can be debugged in a mixed mode fashion by connecting two de
   "pythonPath": "/usr/bin/python",
   "program": "${file}",
   "cwd": "${workspaceFolder}",
-  "console": "integratedTerminal"
+  "console": "integratedTerminal",
+  "justMyCode": false
 },
 {
   "name": "Attach GDB to Python",
