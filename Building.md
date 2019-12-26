@@ -37,7 +37,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF -DVW_INSTALL=OFF
 ``` 
 #### C++ Optimization
 
-The default build type is release. To perform a release build this should be specified at configure time.
+The default build type is release. To perform a debug build this should be specified at configure time.
 
 ```
 cmake .. -DCMAKE_BUILD_TYPE=Debug
