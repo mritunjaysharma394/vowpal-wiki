@@ -28,7 +28,7 @@ pip3 install yapf mypy pylint --user
     - By default uses PEP8 style
     - Any other formatter can be used
 - `mypy` - Static type checking
-    - Usage: `python3 -m mypy vowpalwabbit/pyvw.py --ignore-missing-imports`
+    - Usage: `python3 -m mypy vowpalwabbit/*.py --ignore-missing-imports`
         - `--ignore-missing-imports` is required as the native extension, `pylibvw, does not have type stubs.
     - `mypy` supports mixed dynamic and static typed Python, so the code can be annotated one function at a time
 - `pylint` - Python code linting
