@@ -81,7 +81,14 @@ The Python bindings can be debugged in a mixed mode fashion by connecting two de
   "request": "attach",
   "program": "/usr/bin/python",
   "processId": "${command:pickProcess}",
-  "MIMode": "gdb"
+  "MIMode": "gdb",
+  "setupCommands": [
+       {
+           "description": "Enable pretty-printing for gdb",
+           "text": "-enable-pretty-printing",
+           "ignoreFailures": true
+       }
+  ]
 }
 ```
 
