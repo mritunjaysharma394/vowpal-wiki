@@ -10,6 +10,7 @@ cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=On
 cd ..
 clang-tidy -p build --checks=* <file_here>
 ```
+Note: `--checks=*` produces way to many irrelevant warnings, see below for a recommended list.
 
 This command line works pretty well:
 ```
