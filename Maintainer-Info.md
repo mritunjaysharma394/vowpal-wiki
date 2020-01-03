@@ -60,4 +60,30 @@ pip3 install yapf mypy pylint --user
         - `--ignore-missing-imports` is required as the native extension, `pylibvw, does not have type stubs.
     - `mypy` supports mixed dynamic and static typed Python, so the code can be annotated one function at a time
 - `pylint` - Python code linting
-    - Usage: `python3 -m pylint vowpalwabbit/*.py`
+    - Usage: `python3 -m pylint vowpalwabbit/*.py
+
+## Obtaining new CMake version 
+### Ubuntu
+Instructions from: https://apt.kitware.com/
+```sh
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates gnupg software-properties-common wget
+wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
+
+# 16.04
+sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ xenial main'
+
+# 18.04
+sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
+
+sudo apt-get update
+
+# Optional, ensure keyring stays up to date as it is rotated.
+sudo apt-get install kitware-archive-keyring
+sudo apt-key --keyring /etc/apt/trusted.gpg del C1F34CDD40CD72DA
+
+sudo apt-get install cmake
+```
+
+### Windows
+Download and install from: https://cmake.org/download/
