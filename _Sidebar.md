@@ -23,6 +23,7 @@
 - [Gotchas](Gotchas)
 - Reductions
   - [Contextual Bandit algorithms](Contextual-Bandit-algorithms)
+      - [CB Distributionally Robust Optimization](Contextual-Bandit-Distributionally-Robust-Optimization-(cb_dro))
   - [Conditional Contextual Bandit](Conditional-Contextual-Bandit)
   - [Warm starting contextual bandits](Warm-starting-contextual-bandits)
   - [Efficient Second Order Online Learning](Efficient-Second-Order-Online-Learning)
