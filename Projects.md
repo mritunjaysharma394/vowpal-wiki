@@ -1,5 +1,3 @@
-# RL OS Projects
-
 1. [VW support for FlatBuff and/or Protobuf](#1-vw-support-for-flatbuff-andor-protobuf)
 2. [Parallelized parsing](#2-parallelized-parsing)
 3. [VW server mode revamp](#3-vw-server-mode-revamp)
