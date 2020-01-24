@@ -1,3 +1,5 @@
+# RL OS Projects
+
 1. [VW support for FlatBuff and/or Protobuf](#1-vw-support-for-flatbuff-andor-protobuf)
 2. [Parallelized parsing](#2-parallelized-parsing)
 3. [VW server mode revamp](#3-vw-server-mode-revamp)
@@ -6,7 +8,7 @@
 6. [End-to-load local loop for reinforcement learning](#6-end-to-load-local-loop-for-reinforcement-learning)
 7. [TensorWatch and TensorBoard integration](#7-tensorwatch-and-tensorboard-integration)
 8. [ONNX operator set and model format for VW models](#8-onnx-operator-set-and-model-format-for-vw-models)
-9. [Enable implentation of a VW reduction in Python](#9-enable-implentation-of-a-vw-reduction-in-python)
+9. [Enable implementation of a VW reduction in Python](#9-enable-implementation-of-a-vw-reduction-in-python)
 10. [Allow Python implementations of RLClientLib extensibility points](#10-allow-python-implementations-of-rlclientlib-extensibility-points)
 11. [Contextual bandit benchmark and competition](#11-contextual-bandit-benchmark-and-competition)
 12. [Library of contextual bandit estimators](#12-library-of-contextual-bandit-estimators)
@@ -54,7 +56,7 @@ Modern machines often utilize many threads to achieve performance. VW currently 
 - [Code pointer for text example parsing](https://github.com/VowpalWabbit/vowpal_wabbit/blob/master/vowpalwabbit/parse_example.cc)
 
 ## 3. VW server mode revamp
-VW currently has daemon mode, which allows clients to send examples, train and model and receive predictions. This uses raw sockets and a custom binary protocal We want to provide a modern version of VW's server mode utilizing a modern RPC technology.
+VW currently has daemon mode, which allows clients to send examples, train and model and receive predictions. This uses raw sockets and a custom binary protocol We want to provide a modern version of VW's server mode utilizing a modern RPC technology.
 
 ### Goals
 - Single model serving using GRPC with the following endpoints:
@@ -87,7 +89,7 @@ Build visualizations to help understand the behavior of Contextual Bandit polici
 - TBD
 
 ## 5. Improve VW's Python experience 
-VW's Python integration can be improved is several areas to make it easier for users. Supporting Pandas as a first class concept will make utilzing VW in experimentation workflows much more streamlined. Implementing IPython html representations for some common types will improve usability of these components.
+VW's Python integration can be improved is several areas to make it easier for users. Supporting Pandas as a first class concept will make utilizing VW in experimentation workflows much more streamlined. Implementing IPython HTML representations for some common types will improve usability of these components.
 
 ### Goals
 - Implement _repr_html_ for examples, model and labels
@@ -120,7 +122,7 @@ TensorBoard and TensorWatch are great tools for debugging and monitoring trainin
 ### Goals
 - Integrate VW training with TensorWatch all within a notebook
 - Extend VW to output TensorBoard logs
-- Extend RLClientLib to support tensorboard and TensorWatch
+- Extend RLClientLib to support TensorBoard and TensorWatch
 ### Stretch Goals
 - Add lazy logging mode to VW and RLClientLib
 
@@ -145,8 +147,8 @@ VW has its own runtime for running inference off of its own model files. However
 ### Links
 - [ONNX Runtime GitHub repo](https://github.com/Microsoft/onnxruntime)
 
-## 9. Enable implentation of a VW reduction in Python
-All reductions in VW are implemented in C++. However, to allow for rapid prototyping and taking advantage of the Python ecosytem, using Python to do this makes sense.
+## 9. Enable implementation of a VW reduction in Python
+All reductions in VW are implemented in C++. However, to allow for rapid prototyping and taking advantage of the Python ecosystem, using Python to do this makes sense.
 
 ### Goals
 - Create interface that allows Python code to implement a base learner in VW
@@ -175,7 +177,7 @@ There exists many different contextual bandit algorithms. In order to compare th
 ### Goals
 - Design CB experiments - start off with CB bakeoff paper
 - Create infrastructure to obtain datasets
-- Upload predictions to evaluate perforamnce of algorithm
+- Upload predictions to evaluate performance of algorithm
 - Visualization, display results and compare to others
 ### Stretch Goals
 - Abstract what it means to be a CB algo to provide a more structured evaluation workflow
