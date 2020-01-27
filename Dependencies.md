@@ -71,7 +71,7 @@ cd vowpal_wabbit
 ```
 - Either Visual Studio 2017 or 2019 can be used, VS2019 is recommended
 - Visual Studio 2017 (v141) toolset must be installed if using VS 2019
-- `10.0.16299.0` Windows 10 SDK must be installed as well.
+- `10.0.16299.0` Windows 10 SDK must be installed
 - Nuget is used for other dependencies. Open `vowpalwabbit/vw.sln` in Visual Studio and restore Nuget dependencies
 
 [Next step: building on Windows](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#windows)
