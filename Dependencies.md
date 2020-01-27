@@ -70,9 +70,9 @@ git clone --recursive https://github.com/VowpalWabbit/vowpal_wabbit.git
 cd vowpal_wabbit
 ```
 
-On Windows dependencies are managed with either Nuget, open `vowpalwabbit/vw.sln` in Visual Studio 2017 and restore Nuget dependencies.
+On Windows dependencies are managed with either Nuget, open `vowpalwabbit/vw.sln` in Visual Studio and restore Nuget dependencies.
 
-Note: VC++ v14.00  toolset must be installed. It can be done either as Visual Studio 2017 feature or as part of Visual Studio 2015. Windows 8.1 SDK must be installed as well.
+Either Visual Studio 2017 or 2019 can be used, VS2019 is recommended. Visual Studio 2017 (v141) toolset must be installed if using VS 2019. `10.0.16299.0` Windows 10 SDK must be installed as well.
 
 [Next step: building on Windows](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#windows)
 
@@ -81,15 +81,7 @@ Note: The CSharp projects are not yet converted to CMake for Windows. So the CMa
 
 When using CMake for Windows, dependencies are easily managed through [Vcpkg](https://github.com/Microsoft/vcpkg). Install the following dependencies with Vcpkg:
 ```cmd
-vcpkg install zlib:x64-windows
-vcpkg install boost-system:x64-windows
-vcpkg install boost-program-options:x64-windows
-vcpkg install boost-test:x64-windows
-vcpkg install boost-align:x64-windows
-vcpkg install boost-foreach:x64-windows
-vcpkg install boost-python:x64-windows
-vcpkg install boost-math:x64-windows
-vcpkg install boost-thread:x64-windows
+vcpkg --triplet x64-windows install zlib boost-system boost-program-options boost-test boost-align boost-foreach boost-python boost-math boost-thread python3
 ```
 
 [Next step: building on Windows with CMake](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Building#experimental-using-cmake-on-windows)
