@@ -81,3 +81,5 @@ You can check that vw is correctly parsing your input by pasting a few lines int
     perl -pe 's/\s/ | /' data.libsvm | vw -f model
 
 For other formats (csv) and preprocessing see e.g. [Phraug](https://github.com/zygmuntz/phraug2).
+
+Additional useful information (especially regarding how categorical features are represented) can be found in this [Stack Overflow post](https://stackoverflow.com/questions/28640837/vowpal-wabbit-how-to-represent-categorical-features).
