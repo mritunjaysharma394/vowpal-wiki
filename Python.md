@@ -33,7 +33,7 @@ Make sure you have boost and boost-python installed on your system. Ensure you h
    4. `python setup.py --vcpkg-root C:\path\to\vcpkg install`
         - Where `C:\path\to\vcpkg` is the root directory of where you cloned vcpkg
 
-**NOTE:** Attempting to install boost-python in vcpkg while multiple python versions are installed in vcpkg will cause errors. Ensure only the relevant python version is installed in the environment before proceeding.
+**NOTE:** Attempting to install boost-python in vcpkg while multiple python versions are installed in vcpkg will cause errors. Ensure only the relevant python version is installed in the environment.
 
 ### OSX
 There are several known issues regarding the VowpalWabbit installation for OSX.
