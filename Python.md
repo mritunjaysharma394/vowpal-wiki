@@ -37,6 +37,15 @@ There are several known issues regarding the VowpalWabbit installation for OSX.
     - Ensure the [required Boost libraries](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies#macos) are installed
     - If your Boost version is 1.70 or earlier, install using the command `python setup.py --enable-boost-cmake install`
 
+### Linux
+**For python3 on Ubuntu 16.04 LTS**: Ubuntu 16.04 defaults to an old, custom-built version of boost. As such, the boost_python library names do not follow the standard naming convention adopted by offical boost releases for the boost_python libraries.
+You may need to manually create the relevant symlinks in this case. Example commands for python 3.5 follows: 
+
+```bash
+$ cd /usr/lib/x86_64-linux-gnu/
+$ sudo ln -s libboost_python-py35.so libboost_python3.so
+$ sudo ln -s libboost_python-py35.a libboost_python3.a
+```
 
 # Debugging Python/C++
 
