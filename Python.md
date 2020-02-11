@@ -14,6 +14,10 @@ The commands listed below will be using apt, replace this for the package manage
 3. `pip3 install vowpalwabbit`
 
 ## Troubleshooting
+
+Some common causes of failure for installation are due to missing or mismatched dependencies when Vowpal Wabbit builds.
+Make sure you have boost and boost-python installed on your system. Ensure you have all [dependencies](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Dependencies) installed.
+
 ### Windows
 1. If `pip install vowpalwabbit` fails, ensure you are using the 64-bit version of Python 3.6 or 3.7 (The default download bitness for Windows is 32-bit)
 
