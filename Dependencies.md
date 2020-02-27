@@ -23,6 +23,9 @@ sudo apt install libboost-python-dev
 
 # Optional: Java, Ubuntu 16.04 or newer
 sudo apt install default-jdk
+
+# Optional: zlib, Ubuntu 16.04 or newer (x86)
+sudo apt-get install zliblg-dev:i386
 ```
 
 **Note:** If using *WSL* and you cloned the repo in Windows you will need to run `git submodule update --init --recursive` before running cmake. Otherwise the submodule will be downloaded with git in bash and the line endings will break git commands from Windows. Otherwise, submodules are automatically downloaded by cmake.
